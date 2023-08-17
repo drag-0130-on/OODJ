@@ -9,6 +9,7 @@ public class OODJ_Assignment {
         System.out.println("hdll");
         System.out.println("test");
         System.out.println("fuck u");
+        System.out.println("new");
     }
     
 }
