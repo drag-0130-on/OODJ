@@ -4,7 +4,7 @@ package oodj_assignment;
 import java.io.*;
 import javax.swing.JOptionPane;
 
-public class Item {
+public class Item implements Record {
         String line;
         int lineCount = 0;
         String Category,Item_id,Item_name,Supplier;
@@ -27,7 +27,7 @@ public class Item {
             e.printStackTrace();
         }
     }
-    public void addItem(){
+    public void add(){
         try {
             FileReader fr = new FileReader("Item.txt");
             BufferedReader br = new BufferedReader(fr);
@@ -46,10 +46,10 @@ public class Item {
     }                                     
 
 
-    public void editItem(){
+    public void edit(String s){
         
     }
-    public void removeItem(){
+    public void remove(){
         
     }
     public void viewItem(){

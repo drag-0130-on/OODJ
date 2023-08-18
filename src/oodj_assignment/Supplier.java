@@ -8,17 +8,17 @@ package oodj_assignment;
  *
  * @author drag0
  */
-public class Supplier {
+public class Supplier implements Record {
     public Supplier(){
         
     }
-    public void addSupplier(){
+    public void add(){
         
     }
-    public void editSupplier(){
+    public void edit(String s){
         
     }
-    public void removeSupplier(){
+    public void remove(){
         
     }
     public void viewSupplier(){

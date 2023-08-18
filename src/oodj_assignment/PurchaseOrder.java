@@ -8,17 +8,17 @@ package oodj_assignment;
  *
  * @author drag0
  */
-public class PurchaseOrder {
+public class PurchaseOrder implements Record {
     public PurchaseOrder(){
         
     }
-    public void addPO(){
+    public void add(){
         
     }
-    public void editPO(){
+    public void edit(String s){
         
     }
-    public void removePO(){
+    public void remove(){
         
     }
     public void viewPO(){
