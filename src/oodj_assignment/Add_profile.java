@@ -187,6 +187,7 @@ public class Add_profile extends javax.swing.JFrame {
 
     private void BSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BSaveActionPerformed
         String line;
+        String line2;
         int lineCount = 0;
         String name = TName.getText();
         long contact = TContact.getColumns();
