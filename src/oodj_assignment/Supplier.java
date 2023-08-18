@@ -9,5 +9,22 @@ package oodj_assignment;
  * @author drag0
  */
 public class Supplier {
-    
+    public Supplier(){
+        
+    }
+    public void addSupplier(){
+        
+    }
+    public void editSupplier(){
+        
+    }
+    public void removeSupplier(){
+        
+    }
+    public void viewSupplier(){
+        
+    }
+    public void viewSupplier(String s){
+        
+    }
 }

@@ -4,10 +4,25 @@
  */
 package oodj_assignment;
 
-/**
- *
- * @author drag0
- */
+enum Role{ADMIN,SM,PM}
 public class AuthorisedUser {
-    
+    private String username;
+    private String password;
+    private Role role;
+     
+    public AuthorisedUser(){
+        
+    }
+    public void changePassword(){
+        
+    }
+    public void logout(){
+        
+    }
+    public PurchaseRequisition viewPR(){
+        return null;
+    }
+    public PurchaseOrder[] viewPO(){
+        return null;
+    }
 }

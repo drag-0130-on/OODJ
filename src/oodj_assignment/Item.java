@@ -9,5 +9,22 @@ package oodj_assignment;
  * @author drag0
  */
 public class Item {
-    
+    public Item(){
+        
+    }
+    public void addItem(){
+        
+    }
+    public void editItem(){
+        
+    }
+    public void removeItem(){
+        
+    }
+    public void viewItem(){
+        
+    }
+    public void viewItem(String s){
+        
+    }
 }

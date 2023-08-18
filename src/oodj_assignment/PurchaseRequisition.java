@@ -9,5 +9,22 @@ package oodj_assignment;
  * @author drag0
  */
 public class PurchaseRequisition {
-    
+    public PurchaseRequisition(){
+        
+    }
+    public void addPR(){
+        
+    }
+    public void editPR(){
+        
+    }
+    public void removePR(){
+        
+    }
+    public void viewPR(){
+        
+    }
+    public void viewPR(String s){
+        
+    }
 }

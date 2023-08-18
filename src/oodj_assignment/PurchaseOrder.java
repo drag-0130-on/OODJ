@@ -9,5 +9,22 @@ package oodj_assignment;
  * @author drag0
  */
 public class PurchaseOrder {
-    
+    public PurchaseOrder(){
+        
+    }
+    public void addPO(){
+        
+    }
+    public void editPO(){
+        
+    }
+    public void removePO(){
+        
+    }
+    public void viewPO(){
+        
+    }
+    public void viewPO(String s){
+        
+    }
 }
