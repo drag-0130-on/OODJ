@@ -71,7 +71,7 @@ public class Add_item extends javax.swing.JFrame {
 
         jLabel6.setText("Supplier:");
 
-        Category.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        Category.setModel(new javax.swing.ComboBoxModel(option));
         Category.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CategoryActionPerformed(evt);
@@ -160,7 +160,8 @@ public class Add_item extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void CategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CategoryActionPerformed
-        Category.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {null, "Option 1", "Option 2", "Option 3" }));
+        String[] option = new String[]{null,"Option 1", "Option 2", "Option 3" };
+        Category.setModel(new javax.swing.DefaultComboBoxModel<>(option));
     }//GEN-LAST:event_CategoryActionPerformed
 
     private void StockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StockActionPerformed
