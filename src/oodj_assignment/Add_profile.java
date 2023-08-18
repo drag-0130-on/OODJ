@@ -186,40 +186,11 @@ public class Add_profile extends javax.swing.JFrame {
     }//GEN-LAST:event_TPasswordActionPerformed
 
     private void BSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BSaveActionPerformed
-        String line;
-        String line2;
-        int lineCount = 0;
-        String name = TName.getText();
-        long contact = TContact.getColumns();
-        String username = TUsername.getText();
-        String pwd = TPassword.getText();
 
-        
-        try {
-            FileReader fr = new FileReader("C:\\Users\\adamc\\OneDrive\\Desktop\\APU stuff\\YEAR 2 SEM 1\\JAVA\\Ass\\fuck.txt");
-            BufferedReader br = new BufferedReader(fr);
-            FileWriter fw = new FileWriter("C:\\Users\\adamc\\OneDrive\\Desktop\\APU stuff\\YEAR 2 SEM 1\\JAVA\\Ass\\fuck.txt",true);
-            PrintWriter pw = new PrintWriter(fw);
-            
-            while((line = br.readLine()) != null){
-                lineCount++;
-            }
-            
-            String id = "P"+lineCount;
-            pw.println(id+"|"+name+"|"+contact+"|"+username+"|"+pwd);
-            pw.close();
-            
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        
-        JOptionPane.showMessageDialog(null,"Profile has been saved");
-        dispose();
     }//GEN-LAST:event_BSaveActionPerformed
 
     private void BCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BCancelActionPerformed
-        JOptionPane.showMessageDialog(null,"Profile will not be saved if you cancel");
-        dispose();
+
     }//GEN-LAST:event_BCancelActionPerformed
 
     private void TNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TNameActionPerformed
@@ -227,14 +198,7 @@ public class Add_profile extends javax.swing.JFrame {
     }//GEN-LAST:event_TNameActionPerformed
 
     private void CBRoleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CBRoleActionPerformed
-        String[] option = {"Sales Manager", "Purchase Manager","Admin"};
-        String role = (String)CBRole.getSelectedItem();
-        
-        switch(role){
-            
-            case "Sales_Manager": 
-        }
-        
+
     }//GEN-LAST:event_CBRoleActionPerformed
 
     /**
