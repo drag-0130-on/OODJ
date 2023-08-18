@@ -10,6 +10,9 @@ public class Add_item extends javax.swing.JFrame {
 
     public Add_item() {
         initComponents();
+        String[] option = {null,"Option 1", "Option 2", "Option 3" };
+        Category.setModel(new javax.swing.DefaultComboBoxModel<>(option));
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -17,7 +20,7 @@ public class Add_item extends javax.swing.JFrame {
     private void initComponents() {
 
         Price = new javax.swing.JTextField();
-        Supplier = new javax.swing.JComboBox<>();
+        SupplierComboBox = new javax.swing.JComboBox<>();
         Add_item = new javax.swing.JLabel();
         Save = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
@@ -39,10 +42,10 @@ public class Add_item extends javax.swing.JFrame {
             }
         });
 
-        Supplier.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        Supplier.addActionListener(new java.awt.event.ActionListener() {
+        SupplierComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        SupplierComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SupplierActionPerformed(evt);
+                SupplierComboBoxActionPerformed(evt);
             }
         });
 
@@ -71,7 +74,6 @@ public class Add_item extends javax.swing.JFrame {
 
         jLabel6.setText("Supplier:");
 
-        Category.setModel(new javax.swing.ComboBoxModel(option));
         Category.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 CategoryActionPerformed(evt);
@@ -113,7 +115,7 @@ public class Add_item extends javax.swing.JFrame {
                             .addComponent(jLabel4)
                             .addComponent(jLabel5)
                             .addComponent(Price, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Supplier, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(SupplierComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(27, 27, 27)
                         .addComponent(System_name))
@@ -148,7 +150,7 @@ public class Add_item extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Supplier, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(SupplierComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Save)
@@ -160,7 +162,7 @@ public class Add_item extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void CategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CategoryActionPerformed
-        String[] option = new String[]{null,"Option 1", "Option 2", "Option 3" };
+        String[] option = {null,"Option 1", "Option 2", "Option 3" };
         Category.setModel(new javax.swing.DefaultComboBoxModel<>(option));
     }//GEN-LAST:event_CategoryActionPerformed
 
@@ -173,7 +175,7 @@ public class Add_item extends javax.swing.JFrame {
         String stock = Stock.getText();
         String item_name = Item_name.getText();
         String price = Price.getText();
-        String supplier = (String)Supplier.getSelectedItem();
+        String supplier = (String)SupplierComboBox.getSelectedItem();
         if(category.isEmpty() || item_name.isEmpty() || stock.isEmpty() || price.isEmpty() || supplier.isEmpty()){
             JOptionPane.showMessageDialog(null,"Missing information",null,JOptionPane.ERROR_MESSAGE);
         }
@@ -190,10 +192,11 @@ public class Add_item extends javax.swing.JFrame {
 
     }//GEN-LAST:event_PriceActionPerformed
 
-    private void SupplierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SupplierActionPerformed
+    private void SupplierComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SupplierComboBoxActionPerformed
 
-    }//GEN-LAST:event_SupplierActionPerformed
+    }//GEN-LAST:event_SupplierComboBoxActionPerformed
 
+    
     /**
      * @param args the command line arguments
      */
@@ -237,7 +240,7 @@ public class Add_item extends javax.swing.JFrame {
     private javax.swing.JTextField Price;
     private javax.swing.JButton Save;
     private javax.swing.JTextField Stock;
-    private javax.swing.JComboBox<String> Supplier;
+    private javax.swing.JComboBox<String> SupplierComboBox;
     private javax.swing.JLabel System_name;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
