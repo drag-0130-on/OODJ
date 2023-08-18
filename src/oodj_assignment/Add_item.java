@@ -160,7 +160,7 @@ public class Add_item extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void CategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CategoryActionPerformed
-        Category.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {nullv, "Option 1", "Option 2", "Option 3" }));
+        Category.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {null, "Option 1", "Option 2", "Option 3" }));
     }//GEN-LAST:event_CategoryActionPerformed
 
     private void StockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StockActionPerformed
