@@ -23,7 +23,7 @@ public class FileAccess {
         String line;
         ArrayList<String[]> as = new ArrayList<String[]>();
         while ((line = br.readLine())!= null){
-            as.add(line.split(","));
+            as.add(line.split("|"));
         }
         return as;
     }
@@ -32,7 +32,7 @@ public class FileAccess {
         ArrayList<String[]> as = new ArrayList<String[]>();
         while ((line = br.readLine())!= null){
             if (line.contains(s)){
-                as.add(line.split(","));
+                as.add(line.split("|"));
             }
         }
         return as;
