@@ -3,12 +3,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package oodj_assignment;
-
+import java.io.IOException;
+import java.util.ArrayList;
 /**
  *
  * @author drag0
  */
 public class Supplier implements Record {
+    FileAccess f = new FileAccess("supplier");
     public Supplier(){
         
     }
@@ -21,10 +23,11 @@ public class Supplier implements Record {
     public void remove(){
         
     }
-    public void viewSupplier(){
-        
+    public ArrayList<String[]> viewSupplier() throws IOException{
+        return f.viewFile(); 
     }
-    public void viewSupplier(String s){
-        
+    public ArrayList<String[]> viewSupplier(String s)throws IOException{
+        return f.viewFile(s);
     }
 }
+                                                   
