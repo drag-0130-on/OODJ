@@ -21,7 +21,6 @@ public class Item implements Record {
     public void edit(String s){
  
     }
-        
     
     public void remove(){
         
@@ -33,8 +32,4 @@ public class Item implements Record {
         
     }
 
-    @Override
-    public void add() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
 }
