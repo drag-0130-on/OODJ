@@ -10,24 +10,32 @@ import java.util.ArrayList;
  * @author drag0
  */
 public class Supplier implements Record {
-    FileAccess f = new FileAccess("supplier");
-    public Supplier(){
-        
+    String supplierID, supplierName, email, contactNo;
+    FileAccess supplierFile = new FileAccess("supplier.txt");
+    
+    public Supplier(String supplierID, String supplierName, String email, String contactNo){
+        this.supplierID = supplierID;
+        this.supplierName = supplierName;
+        this.email = email;
+        this.contactNo = contactNo;
     }
-    public void add(){
-        
+    public void add() throws IOException{
+        supplierFile.addToFile(toString());
     }
-    public void edit(String s){
-        
+    public void edit(String newData) throws IOException{
+        supplierFile.editFile(toString(),newData);
     }
-    public void remove(){
-        
+    public void remove() throws IOException{
+        supplierFile.removeFromFile(toString());
     }
     public ArrayList<String[]> viewSupplier() throws IOException{
-        return f.viewFile(); 
+        return supplierFile.viewFile(); 
     }
     public ArrayList<String[]> viewSupplier(String s)throws IOException{
-        return f.viewFile(s);
+        return supplierFile.viewFile(s);
+    }
+    public String toString(){
+        return (supplierID + "|" + supplierName + "|" + email + "|" + contactNo);
     }
 }
                                                    

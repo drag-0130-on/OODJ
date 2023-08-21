@@ -1,15 +1,17 @@
 
 package oodj_assignment;
 
+import java.io.IOException;
+
 
 public class DailyItemSales implements Record {
-    public void add(){
+    public void add() throws IOException{
         
     }
-    public void edit(String s){
+    public void edit(String s) throws IOException{
         
     }
-    public void remove(){
+    public void remove() throws IOException{
         
     }
 }

@@ -38,20 +38,20 @@ public class FileAccess {
         }
         return content;
     }
-    public boolean addToFile(String[] data) throws IOException{
+    public boolean addToFile(String data) throws IOException{
         ArrayList<String[]> content = viewFile();
         for (String[] line:content){
             bw.write(String.join("|",line));
             bw.newLine();
         }
-        bw.write(String.join("|", data));
+        bw.write(data);
         return true;
     }
-    public boolean editFile(String[] data, String[] newData) throws IOException{
+    public boolean editFile(String oldData, String newData) throws IOException{
         ArrayList<String[]> content = viewFile();
         for (String[] line:content){
-            if (Arrays.equals(data,line)){
-                bw.write(String.join("|",newData));
+            if (oldData.equals(String.join("|", line))){
+                bw.write(newData);
                 bw.newLine();      
             } else {
                 bw.write(String.join("|", line));
@@ -60,13 +60,13 @@ public class FileAccess {
         }
         return true;
     }
-    public boolean removeFromFile(String[] data) throws IOException{
+    public boolean removeFromFile(String data) throws IOException{
         ArrayList<String[]> content = viewFile();
         for (String[] line:content){
-            if (Arrays.equals(data,line)==false){
+            if (!(data.equals(String.join("|",line)))){
                 bw.write(String.join("|",line));
-                bw.newLine();      
-            }
+                bw.newLine();
+            } 
            
         }
         return true;
