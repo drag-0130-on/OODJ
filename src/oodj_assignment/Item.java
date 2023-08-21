@@ -24,7 +24,8 @@ public class Item implements Record {
         this.Supplier = Supplier;
         this.Stock = Stock;
         this.Price = Price;
-
+    }
+    
     public void edit(String s) throws IOException{
         
     }
