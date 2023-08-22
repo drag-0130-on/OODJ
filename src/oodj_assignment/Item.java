@@ -1,22 +1,15 @@
 
 package oodj_assignment;
 
-import java.io.*;
-import javax.swing.JOptionPane;
+import java.io.IOException;
+import java.util.ArrayList;
 
 public class Item implements Record {
-    FileAccess f = new FileAccess("Item");
     String Category,Item_Id,Item_Name,Supplier;
     int Stock;
     double Price;
+    FileAccess itemFile = new FileAccess("Item.txt");
         
-    public Item(){
-
-    }
-    public void add() throws IOException{
-    
-    }                                     
-
     public Item(String Category,String Item_Id,String Item_Name,String Supplier,int Stock,double Price){
         this.Category = Category;
         this.Item_Id = Item_Id;
@@ -25,18 +18,23 @@ public class Item implements Record {
         this.Stock = Stock;
         this.Price = Price;
     }
-    
-    public void edit(String s) throws IOException{
-        
+    public void add() throws IOException{
+        itemFile.addToFile(toString());
+    }     
+    public void edit(String newData) throws IOException{
+        itemFile.editFile(toString(),newData);
     }
     public void remove() throws IOException{
-        
+        itemFile.removeFromFile(toString());
     }
-    public void viewItem(){
-        
+    public ArrayList<String[]> viewItem()throws IOException{
+        return itemFile.viewFile();
     }
-    public void viewItem(String s){
-        
+    public ArrayList<String[]> viewItem(String s)throws IOException{
+        return itemFile.viewFile(s);
+    }
+    public String toString(){
+        return Category+"|"+Item_Id+"|"+Item_Name+"|"+Stock+"|"+Price+"|"+Supplier;
     }
 
 }
