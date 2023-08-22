@@ -1,30 +1,37 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package oodj_assignment;
 
-/**
- *
- * @author drag0
- */
-public class PurchaseRequisition {
-    public PurchaseRequisition(){
-        
+import java.io.IOException;
+import java.util.ArrayList;
+
+public class PurchaseRequisition implements Record {
+    FileAccess prFile = new FileAccess("pr.txt");
+    String Item_Id,Item_Name,Required_Before,Supplier_Id;
+    int Quantity;
+    
+    public PurchaseRequisition(String Item_Id,String Item_Name,String Required_Before,int Quantity,String Supplier_Id){
+        this.Item_Id = Item_Id;
+        this.Item_Name = Item_Name;
+        this.Required_Before = Required_Before;
+        this.Quantity = Quantity;
+        this.Supplier_Id = Supplier_Id;
     }
-    public void addPR(){
-        
+    public void add()throws IOException{
+        prFile.addToFile(toString());
     }
-    public void editPR(){
-        
+    public void edit(String s)throws IOException{
+        prFile.editFile(toString(), s);
     }
-    public void removePR(){
-        
+    public void remove() throws IOException{
+        prFile.removeFromFile(toString());
     }
-    public void viewPR(){
-        
+    public ArrayList<String[]> viewPR()throws IOException{
+        return prFile.viewFile();
     }
-    public void viewPR(String s){
-        
+    public ArrayList<String[]> viewPR(String s)throws IOException{
+        return prFile.viewFile(s);
+    }
+    public String toString(){
+        return Item_Id+"|"+Item_Name+"|"+Required_Before+"|"+Quantity+"|"+Supplier_Id;
     }
 }
