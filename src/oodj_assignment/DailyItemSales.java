@@ -25,10 +25,10 @@ public class DailyItemSales implements Record {
     public void remove() throws IOException{
         dailyFile.removeFromFile(toString());
     }
-    public ArrayList<String[]> viewDaily()throws IOException{
+    public ArrayList<String[]> view()throws IOException{
         return dailyFile.viewFile();
     }
-    public ArrayList<String[]> viewDaily(String s)throws IOException{
+    public ArrayList<String[]> view(String s)throws IOException{
         return dailyFile.viewFile(s);
     }
     public String toString(){

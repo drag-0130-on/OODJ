@@ -28,11 +28,11 @@ public class Supplier implements Record {
     public void remove() throws IOException{
         supplierFile.removeFromFile(toString());
     }
-    public ArrayList<String[]> viewSupplier() throws IOException{
+    public ArrayList<String[]> view() throws IOException{
         return supplierFile.viewFile(); 
     }
-    public ArrayList<String[]> viewSupplier(String s)throws IOException{
-        return supplierFile.viewFile(s);
+    public ArrayList<String[]> view(String filter)throws IOException{
+        return supplierFile.viewFile(filter);
     }
     public String toString(){
         return (supplierID + "|" + supplierName + "|" + email + "|" + contactNo);

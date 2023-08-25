@@ -27,10 +27,10 @@ public class Item implements Record {
     public void remove() throws IOException{
         itemFile.removeFromFile(toString());
     }
-    public ArrayList<String[]> viewItem()throws IOException{
+    public ArrayList<String[]> view()throws IOException{
         return itemFile.viewFile();
     }
-    public ArrayList<String[]> viewItem(String s)throws IOException{
+    public ArrayList<String[]> view(String s)throws IOException{
         return itemFile.viewFile(s);
     }
     public String toString(){

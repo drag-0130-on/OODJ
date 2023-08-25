@@ -26,10 +26,10 @@ public class PurchaseRequisition implements Record {
     public void remove() throws IOException{
         prFile.removeFromFile(toString());
     }
-    public ArrayList<String[]> viewPR()throws IOException{
+    public ArrayList<String[]> view()throws IOException{
         return prFile.viewFile();
     }
-    public ArrayList<String[]> viewPR(String s)throws IOException{
+    public ArrayList<String[]> view(String s)throws IOException{
         return prFile.viewFile(s);
     }
     public String toString(){

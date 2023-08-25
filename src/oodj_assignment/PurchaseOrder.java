@@ -27,10 +27,10 @@ public class PurchaseOrder implements Record {
     public void remove() throws IOException{
         poFile.removeFromFile(toString());
     }
-    public ArrayList<String[]> viewPO()throws IOException{
+    public ArrayList<String[]> view()throws IOException{
         return poFile.viewFile();
     }
-    public ArrayList<String[]> viewPO(String s)throws IOException{
+    public ArrayList<String[]> view(String s)throws IOException{
         return poFile.viewFile(s);
     }
     public String toString(){
