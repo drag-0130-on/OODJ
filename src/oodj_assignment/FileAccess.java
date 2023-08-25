@@ -21,14 +21,27 @@ public class FileAccess {
         }
     }
     public ArrayList<String[]> viewFile() throws IOException{
+        try{
+            br = new BufferedReader(new FileReader(new File(fileName)));
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
         String line;
         ArrayList<String[]> content = new ArrayList<String[]>();
         while ((line = br.readLine())!= null){
             content.add(line.split("|"));
         }
+        br.close();
         return content;
     }
     public ArrayList<String[]> viewFile(String s) throws IOException{
+        try{
+            br = new BufferedReader(new FileReader(new File(fileName)));
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
         String line;
         ArrayList<String[]> content = new ArrayList<String[]>();
         while ((line = br.readLine())!= null){
@@ -36,18 +49,32 @@ public class FileAccess {
                 content.add(line.split("|"));
             }
         }
+        br.close();
         return content;
     }
     public boolean addToFile(String data) throws IOException{
+        try{
+            bw = new BufferedWriter(new FileWriter(new File(fileName)));
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
         ArrayList<String[]> content = viewFile();
+        content.add(data.split("|"));
         for (String[] line:content){
             bw.write(String.join("|",line));
             bw.newLine();
         }
-        bw.write(data);
+        bw.close();
         return true;
     }
     public boolean editFile(String oldData, String newData) throws IOException{
+        try{
+            bw = new BufferedWriter(new FileWriter(new File(fileName)));
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
         ArrayList<String[]> content = viewFile();
         for (String[] line:content){
             if (oldData.equals(String.join("|", line))){
@@ -58,9 +85,16 @@ public class FileAccess {
                 bw.newLine();
             }
         }
+        bw.close();
         return true;
     }
     public boolean removeFromFile(String data) throws IOException{
+        try{
+            bw = new BufferedWriter(new FileWriter(new File(fileName)));
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
         ArrayList<String[]> content = viewFile();
         for (String[] line:content){
             if (!(data.equals(String.join("|",line)))){
@@ -69,6 +103,7 @@ public class FileAccess {
             } 
            
         }
+        bw.close();
         return true;
     }
     public boolean verifyUniqueness(String data) throws IOException{
