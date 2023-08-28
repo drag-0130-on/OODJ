@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class Item implements Record {
+    
     String Category,Item_Id,Item_Name,Supplier_Name;
     int Stock;
     double Price;
