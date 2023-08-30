@@ -12,13 +12,6 @@ public class FileAccess {
     
     public FileAccess(String fileName){
         this.fileName = fileName;
-        try{
-            br = new BufferedReader(new FileReader(new File(fileName)));
-            bw = new BufferedWriter(new FileWriter(new File(fileName)));
-        }
-        catch(Exception e){
-            e.printStackTrace();
-        }
     }
     public ArrayList<String[]> viewFile() throws IOException{
         try{
