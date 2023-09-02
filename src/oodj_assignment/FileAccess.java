@@ -23,7 +23,7 @@ public class FileAccess {
         String line;
         ArrayList<String[]> content = new ArrayList<String[]>();
         while ((line = br.readLine())!= null){
-            content.add(line.split("|"));
+            content.add(line.split("\\|"));
         }
         br.close();
         return content;
@@ -39,7 +39,7 @@ public class FileAccess {
         ArrayList<String[]> content = new ArrayList<String[]>();
         while ((line = br.readLine())!= null){
             if (line.contains(s)){
-                content.add(line.split("|"));
+                content.add(line.split("\\|"));
             }
         }
         br.close();
@@ -53,7 +53,7 @@ public class FileAccess {
             e.printStackTrace();
         }
         ArrayList<String[]> content = viewFile();
-        content.add(data.split("|"));
+        content.add(data.split("\\|"));
         for (String[] line:content){
             bw.write(String.join("|",line));
             bw.newLine();
