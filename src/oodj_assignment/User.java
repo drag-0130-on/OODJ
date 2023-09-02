@@ -5,12 +5,56 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class User {
-    private String username, password;
+    private String name, username, password, email;
+    double contact;
     FileAccess userFile = new FileAccess("user.txt");
     
     public User(String username, String password){
+        this.name = name;
         this.username = username;
         this.password = password;
+        this.email = email;
+        this.contact = contact;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public double getContact() {
+        return contact;
+    }
+
+    public void setContact(double contact) {
+        this.contact = contact;
     }
     
     public ArrayList<String[]> view() throws IOException{
@@ -36,15 +80,6 @@ public class User {
                     System.out.println("Wrong username or password");
                 }
             }
-        }
-    }
-    
-    public static void main(String[] args) {
-        try {
-            User userManager = new User("b","c"); // Create an instance of UserManager
-            userManager.login(); // Call the login method
-        } catch (IOException e) {
-            e.printStackTrace();
         }
     }
 }        
