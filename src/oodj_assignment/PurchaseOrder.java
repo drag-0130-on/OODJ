@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 public class PurchaseOrder implements Record {
     FileAccess poFile = new FileAccess("pr.txt");
+    
     String Item_Id,Item_Name,Required_Before,Supplier_Id,Approved_By,Checked_By;
     int Quantity;
     

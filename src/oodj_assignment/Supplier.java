@@ -19,6 +19,12 @@ public class Supplier implements Record {
         this.email = email;
         this.contactNo = contactNo;
     }
+    public String getID(){
+        return supplierID;
+    }
+    public String getName(){
+        return supplierName;
+    }
     public void add() throws IOException{
         supplierFile.addToFile(toString());
     }
