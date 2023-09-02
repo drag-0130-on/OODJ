@@ -166,7 +166,7 @@ public class Supplier_Entry extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton13ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        Add_item add = new Add_item();
+        Add_item_GUI add = new Add_item_GUI();
         add.show();
         dispose();
     }//GEN-LAST:event_jButton5ActionPerformed

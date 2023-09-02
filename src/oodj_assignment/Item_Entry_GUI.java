@@ -8,12 +8,12 @@ package oodj_assignment;
  *
  * @author Lenovo
  */
-public class Item_Entry extends javax.swing.JFrame {
+public class Item_Entry_GUI extends javax.swing.JFrame {
 
     /**
      * Creates new form Item_Entry
      */
-    public Item_Entry() {
+    public Item_Entry_GUI() {
         initComponents();
     }
 
@@ -154,7 +154,7 @@ public class Item_Entry extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Add_itemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Add_itemActionPerformed
-        Add_item add = new Add_item();
+        Add_item_GUI add = new Add_item_GUI();
         add.show();
         dispose();
     }//GEN-LAST:event_Add_itemActionPerformed
@@ -190,20 +190,21 @@ public class Item_Entry extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Item_Entry.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Item_Entry_GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Item_Entry.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Item_Entry_GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Item_Entry.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Item_Entry_GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Item_Entry.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Item_Entry_GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Item_Entry().setVisible(true);
+                new Item_Entry_GUI().setVisible(true);
             }
         });
     }

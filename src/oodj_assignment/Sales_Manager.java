@@ -152,7 +152,7 @@ public class Sales_Manager extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Item_entryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Item_entryActionPerformed
-        Item_Entry item = new Item_Entry();
+        Item_Entry_GUI item = new Item_Entry_GUI();
         item.show();
         dispose();
     }//GEN-LAST:event_Item_entryActionPerformed
@@ -164,7 +164,7 @@ public class Sales_Manager extends javax.swing.JFrame {
     }//GEN-LAST:event_Supplier_entryActionPerformed
 
     private void Daily_item_wise_sales_entryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Daily_item_wise_sales_entryActionPerformed
-        Daily_item_Entry daily = new Daily_item_Entry();
+        Daily_item_Entry_GUI daily = new Daily_item_Entry_GUI();
         daily.show();
         dispose();
     }//GEN-LAST:event_Daily_item_wise_sales_entryActionPerformed
@@ -182,7 +182,7 @@ public class Sales_Manager extends javax.swing.JFrame {
     }//GEN-LAST:event_View_poActionPerformed
 
     private void My_profileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_My_profileActionPerformed
-       MyProfile profile = new MyProfile();
+       MyProfile_GUI profile = new MyProfile_GUI();
        profile.show();
        dispose();
     }//GEN-LAST:event_My_profileActionPerformed

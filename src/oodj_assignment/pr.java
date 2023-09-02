@@ -157,7 +157,7 @@ public class pr extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Add_item add = new Add_item();
+        Add_item_GUI add = new Add_item_GUI();
         add.show();
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
