@@ -8,6 +8,6 @@ package oodj_assignment;
  *
  * @author Lenovo
  */
-public class Supply_Manager {
+public class PurchaseManager {
     
 }
