@@ -5,16 +5,17 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class User {
-    private String name, username, password, email;
+    private String name, username, password, email, role;
     double contact;
     FileAccess userFile = new FileAccess("user.txt");
     
-    public User(String username, String password){
+    public User(String name, String username, String password, String email, double contact,String role){
         this.name = name;
         this.username = username;
         this.password = password;
         this.email = email;
         this.contact = contact;
+        this.role = role;
     }
 
     public String getName() {
@@ -69,7 +70,7 @@ public class User {
             if (line.length >= 3) {
                 if (username.equals(line[1])){
                     if(password.equals(line[2])){
-                        String role = line[3];
+                        role = line[3];
                         System.out.println("Welcome "+role);
                     }
                     else{
