@@ -8,12 +8,12 @@ package oodj_assignment;
  *
  * @author Lenovo
  */
-public class Supplier_Entry extends javax.swing.JFrame {
+public class Supplier_Entry_GUI extends javax.swing.JFrame {
 
     /**
      * Creates new form Supplier_Entry
      */
-    public Supplier_Entry() {
+    public Supplier_Entry_GUI() {
         initComponents();
     }
 
@@ -160,7 +160,7 @@ public class Supplier_Entry extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
-        Sales_Manager sales = new Sales_Manager();
+        Sales_Manager_GUI sales = new Sales_Manager_GUI();
         sales.show();
         dispose();
     }//GEN-LAST:event_jButton13ActionPerformed
@@ -188,20 +188,21 @@ public class Supplier_Entry extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Supplier_Entry.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Supplier_Entry_GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Supplier_Entry.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Supplier_Entry_GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Supplier_Entry.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Supplier_Entry_GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Supplier_Entry.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Supplier_Entry_GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Supplier_Entry().setVisible(true);
+                new Supplier_Entry_GUI().setVisible(true);
             }
         });
     }

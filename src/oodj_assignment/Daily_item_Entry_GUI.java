@@ -158,7 +158,7 @@ public class Daily_item_Entry_GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        Sales_Manager sales = new Sales_Manager();
+        Sales_Manager_GUI sales = new Sales_Manager_GUI();
         sales.show();
         dispose();
     }//GEN-LAST:event_jButton4ActionPerformed

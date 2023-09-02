@@ -8,12 +8,12 @@ package oodj_assignment;
  *
  * @author Lenovo
  */
-public class Sales_Manager extends javax.swing.JFrame {
+public class Sales_Manager_GUI extends javax.swing.JFrame {
 
     /**
      * Creates new form Sales_Manager
      */
-    public Sales_Manager() {
+    public Sales_Manager_GUI() {
         initComponents();
     }
 
@@ -158,7 +158,7 @@ public class Sales_Manager extends javax.swing.JFrame {
     }//GEN-LAST:event_Item_entryActionPerformed
 
     private void Supplier_entryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Supplier_entryActionPerformed
-        Supplier_Entry supplier = new Supplier_Entry();
+        Supplier_Entry_GUI supplier = new Supplier_Entry_GUI();
         supplier.show();
         dispose();
     }//GEN-LAST:event_Supplier_entryActionPerformed
@@ -170,13 +170,13 @@ public class Sales_Manager extends javax.swing.JFrame {
     }//GEN-LAST:event_Daily_item_wise_sales_entryActionPerformed
 
     private void Purchase_requisitionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Purchase_requisitionActionPerformed
-        pr purchase = new pr();
+        pr_GUI purchase = new pr_GUI();
         purchase.show();
         dispose();
     }//GEN-LAST:event_Purchase_requisitionActionPerformed
 
     private void View_poActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_View_poActionPerformed
-        View_po po = new View_po();
+        View_po_GUI po = new View_po_GUI();
         po.show();
         dispose();
     }//GEN-LAST:event_View_poActionPerformed
@@ -208,20 +208,21 @@ public class Sales_Manager extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Sales_Manager.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Sales_Manager_GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Sales_Manager.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Sales_Manager_GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Sales_Manager.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Sales_Manager_GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Sales_Manager.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Sales_Manager_GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Sales_Manager().setVisible(true);
+                new Sales_Manager_GUI().setVisible(true);
             }
         });
     }

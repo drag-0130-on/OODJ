@@ -168,7 +168,7 @@ public class Item_Entry_GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_Delete_itemActionPerformed
 
     private void BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed
-        Sales_Manager sales = new Sales_Manager();
+        Sales_Manager_GUI sales = new Sales_Manager_GUI();
         sales.show();
         dispose();
     }//GEN-LAST:event_BackActionPerformed

@@ -8,12 +8,12 @@ package oodj_assignment;
  *
  * @author Lenovo
  */
-public class pr extends javax.swing.JFrame {
+public class pr_GUI extends javax.swing.JFrame {
 
     /**
      * Creates new form pr
      */
-    public pr() {
+    public pr_GUI() {
         initComponents();
     }
 
@@ -151,7 +151,7 @@ public class pr extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        Sales_Manager sales = new Sales_Manager();
+        Sales_Manager_GUI sales = new Sales_Manager_GUI();
         sales.show();
         dispose();
     }//GEN-LAST:event_jButton4ActionPerformed
@@ -187,20 +187,21 @@ public class pr extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(pr.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(pr_GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(pr.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(pr_GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(pr.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(pr_GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(pr.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(pr_GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new pr().setVisible(true);
+                new pr_GUI().setVisible(true);
             }
         });
     }
