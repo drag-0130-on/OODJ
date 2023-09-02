@@ -1,13 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package oodj_assignment;
 
-/**
- *
- * @author Lenovo
- */
-public class PurchaseManager {
+public class PurchaseManager extends User{ 
+    
+    public PurchaseManager(int id, String name, String username, String password, String email, double contact, String role) {
+        super(id, name, username, password, email, contact, role);
+    }
     
 }

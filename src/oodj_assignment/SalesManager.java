@@ -1,13 +1,13 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package oodj_assignment;
 
-/**
- *
- * @author Lenovo
- */
-public class SalesManager {
+public class SalesManager extends User {
+    
+    public SalesManager(int id, String name, String username, String password, String email, double contact, String role) {
+        super(id, name, username, password, email, contact, role);
+    }
+    
+    
     
 }
+
+
