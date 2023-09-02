@@ -10,8 +10,8 @@ import java.util.ArrayList;
  * @author drag0
  */
 public class Supplier implements Record {
-    String supplierID, supplierName, email, contactNo;
-    FileAccess supplierFile = new FileAccess("supplier.txt");
+    private String supplierID, supplierName, email, contactNo;
+    private FileAccess supplierFile = new FileAccess("supplier.txt");
     
     public Supplier(String supplierID, String supplierName, String email, String contactNo){
         this.supplierID = supplierID;

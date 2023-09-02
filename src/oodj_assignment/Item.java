@@ -6,12 +6,12 @@ import java.util.ArrayList;
 
 public class Item implements Record {
     enum Category {Vegetable, Dairy, Meat, Fruit, Snack, Beverage, Other }
-    FileAccess itemFile = new FileAccess("Item.txt");
-    String itemID, itemName;
-    Category category;
-    int stock;
-    double price;
-    Supplier supplier;
+    private FileAccess itemFile = new FileAccess("Item.txt");
+    private String itemID, itemName;
+    private Category category;
+    private int stock;
+    private double price;
+    private Supplier supplier;
       
     public Item(String itemID, String itemName, Category category,int stock, double Price, Supplier supplier){
           this.itemID = itemID;

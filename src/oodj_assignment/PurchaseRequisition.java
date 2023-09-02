@@ -9,13 +9,15 @@ public class PurchaseRequisition implements Record {
     String prID, status;
     Item item;
     int quantity;
+    SalesManager salesManager;
     
     
-    public PurchaseRequisition(String prID,Item item,int quantity){
+    public PurchaseRequisition(String prID,Item item,int quantity, SalesManager sm){
         this.prID = prID;
         this.item = item;
         this.quantity = quantity;
-                
+        this.salesManager = sm;
+        
     }
     public void add()throws IOException{
         prFile.addToFile(toString());
