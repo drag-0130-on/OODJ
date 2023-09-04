@@ -5,10 +5,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class DailyItemSales implements Record {
-    FileAccess dailyFile = new FileAccess("daily.txt");
-    String date;
-    int amountSold;
-    Item item;
+    private FileAccess dailyFile = new FileAccess("daily.txt");
+    private String date;
+    private int amountSold;
+    private Item item;
     
     public DailyItemSales(String date, int amountSold, Item item){
         this.date = date;

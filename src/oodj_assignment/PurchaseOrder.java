@@ -5,12 +5,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class PurchaseOrder implements Record {
-    FileAccess poFile = new FileAccess("pr.txt");
-    String poID, pmID;
-    PurchaseRequisition pr;
-    
-    
-   
+    private FileAccess poFile = new FileAccess("pr.txt");
+    private String poID, pmID;
+    private PurchaseRequisition pr;
     
     public PurchaseOrder(String poID,PurchaseRequisition pr,String pmID){
         this.poID = poID;

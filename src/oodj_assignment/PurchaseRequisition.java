@@ -5,10 +5,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class PurchaseRequisition implements Record {
-    FileAccess prFile = new FileAccess("pr.txt");
-    String prID, status,smID;
-    Item item;
-    int quantity;
+    private FileAccess prFile = new FileAccess("pr.txt");
+    private String prID, status,smID;
+    private Item item;
+    private int quantity;
             
     
     public PurchaseRequisition(String prID,Item item,int quantity,String status, String smID){
