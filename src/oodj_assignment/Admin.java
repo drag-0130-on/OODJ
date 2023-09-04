@@ -8,6 +8,9 @@ package oodj_assignment;
  *
  * @author Lenovo
  */
-public class Admin {
-    
+public class Admin extends User {
+    Role role = Role.Admin;
+    public Admin(String name, String userID, String password, String email, String contact) {
+        super(name,userID,password,email,contact);
+    }
 }

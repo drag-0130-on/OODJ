@@ -5,18 +5,19 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class User {
-    private String name, username, password, email, role;
-    double contact;
-    FileAccess userFile = new FileAccess("user.txt");
+    enum Role {Admin,SalesManager,PurchaseManager,None}                      
+    private String name, userID, password, email, contact;
+    private FileAccess userFile = new FileAccess("user.txt");
+    private Role role = Role.None;
     
-    public User(String name, String username, String password, String email, double contact,String role){
+    public User(String name, String userID, String password, String email, String contact){
         this.name = name;
-        this.username = username;
+        this.userID = userID;
         this.password = password;
         this.email = email;
         this.contact = contact;
-        this.role = role;
     }
+    
 
     public String getName() {
         return name;
@@ -26,12 +27,12 @@ public class User {
         this.name = name;
     }
 
-    public String getUsername() {
-        return username;
+    public String getUserID() {
+        return userID;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUserID(String username) {
+        this.userID = userID;
     }
 
     public String getPassword() {
@@ -50,11 +51,11 @@ public class User {
         this.email = email;
     }
 
-    public double getContact() {
+    public String getContact() {
         return contact;
     }
 
-    public void setContact(double contact) {
+    public void setContact(String contact) {
         this.contact = contact;
     }
     
@@ -68,10 +69,10 @@ public class User {
         for (String[] line:content){
             System.out.println(Arrays.toString(line));
             if (line.length >= 3) {
-                if (username.equals(line[1])){
+                if (userID.equals(line[1])){
                     if(password.equals(line[2])){
-                        role = line[3];
-                        System.out.println("Welcome "+role);
+                        role = Role.valueOf(line[3]);
+                        System.out.println("Welcome "+role.toString());
                     }
                     else{
                         System.out.println("Wrong username or password");
