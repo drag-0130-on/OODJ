@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class User {
-    enum Role {Admin,SalesManager,PurchaseManager,None}                      
+    public enum Role {Admin,SalesManager,PurchaseManager,None}                      
     private String name, userID, password, email, contact;
     private FileAccess userFile = new FileAccess("user.txt");
     private Role role = Role.None;

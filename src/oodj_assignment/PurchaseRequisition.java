@@ -6,12 +6,13 @@ import java.util.ArrayList;
 
 public class PurchaseRequisition implements Record {
     private FileAccess prFile = new FileAccess("pr.txt");
-    private String prID, status,smID;
+    private String prID,smID;
+    private String status = "Unapproved";
     private Item item;
     private int quantity;
             
     
-    public PurchaseRequisition(String prID,Item item,int quantity,String status, String smID){
+    public PurchaseRequisition(String prID,Item item,int quantity){
         this.prID = prID;
         this.item = item;
         this.quantity = quantity;
@@ -38,6 +39,9 @@ public class PurchaseRequisition implements Record {
     }
     public String toString(){
         return (prID + "|" + item.toString() + "|" + quantity + "|" + status + "|");
+    }
+    public void setSMID(String smID){
+        this.smID = smID;
     }
 }       
    
