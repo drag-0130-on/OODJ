@@ -6,14 +6,16 @@ import java.util.ArrayList;
 
 public class PurchaseOrder implements Record {
     FileAccess poFile = new FileAccess("pr.txt");
-    String poID, purchaseManagerID;
+    String poID, pmID;
     PurchaseRequisition pr;
     
     
    
     
-    public PurchaseOrder(){
-        
+    public PurchaseOrder(String poID,PurchaseRequisition pr,String pmID){
+        this.poID = poID;
+        this.pr = pr;
+        this.pmID = pmID;
     }
     public void add()throws IOException{
         poFile.addToFile(toString());
@@ -27,10 +29,10 @@ public class PurchaseOrder implements Record {
     public ArrayList<String[]> view()throws IOException{
         return poFile.viewFile();
     }
-    public ArrayList<String[]> view(String s)throws IOException{
-        return poFile.viewFile(s);
+    public ArrayList<String[]> filter(ArrayList<String[]> AL, int attIndex, String filter){
+        return poFile.viewFileWithFilter(AL,attIndex,filter);
     }
     public String toString(){
-        return (poID + "|" + pr.toString());
+        return (poID + "|" + pr.toString() + "|" + pmID);
     }
 }

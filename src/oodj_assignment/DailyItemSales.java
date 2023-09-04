@@ -28,8 +28,8 @@ public class DailyItemSales implements Record {
     public ArrayList<String[]> view()throws IOException{
         return dailyFile.viewFile();
     }
-    public ArrayList<String[]> view(String s)throws IOException{
-        return dailyFile.viewFile(s);
+    public ArrayList<String[]> filter(ArrayList<String[]> AL, int attIndex, String filter){
+        return dailyFile.viewFileWithFilter(AL,attIndex,filter);
     }
     public String toString(){
         return Item_Id+"|"+Item_Name+"|"+Date+"|"+Amount_Sold+"|"+Supplier_Id;

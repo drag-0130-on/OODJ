@@ -37,8 +37,8 @@ public class Supplier implements Record {
     public ArrayList<String[]> view() throws IOException{
         return supplierFile.viewFile(); 
     }
-    public ArrayList<String[]> view(String filter)throws IOException{
-        return supplierFile.viewFile(filter);
+    public ArrayList<String[]> filter(ArrayList<String[]> AL, int attIndex, String filter){
+        return supplierFile.viewFileWithFilter(AL,attIndex,filter);
     }
     public String toString(){
         return (supplierID + "|" + supplierName + "|" + email + "|" + contactNo);

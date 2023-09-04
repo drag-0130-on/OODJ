@@ -10,7 +10,7 @@ public class Item implements Record {
     private String itemID, itemName;
     private Category category;
     private int stock;
-    private double price;
+    private double price;     
     private Supplier supplier;
       
     public Item(String itemID, String itemName, Category category,int stock, double Price, Supplier supplier){
@@ -34,8 +34,8 @@ public class Item implements Record {
     public ArrayList<String[]> view()throws IOException{
         return itemFile.viewFile();
     }
-    public ArrayList<String[]> view(String s)throws IOException{
-        return itemFile.viewFile(s);
+    public ArrayList<String[]> filter(ArrayList<String[]> AL, int attIndex, String filter){
+        return itemFile.viewFileWithFilter(AL,attIndex,filter);
     }
     public String toString(){
         return (itemID + "|"+itemName + "|" + category + "|" + stock + "|" + price + "|" + supplier.getID() + "|" + supplier.getName());

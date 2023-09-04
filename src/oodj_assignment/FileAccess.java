@@ -28,21 +28,13 @@ public class FileAccess {
         br.close();
         return content;
     }
-    public ArrayList<String[]> viewFile(String s) throws IOException{
-        try{
-            br = new BufferedReader(new FileReader(new File(fileName)));
-        }
-        catch(Exception e){
-            e.printStackTrace();
-        }
-        String line;
+    public ArrayList<String[]> viewFileWithFilter(ArrayList<String[]> AL, int attIndex, String filter){
         ArrayList<String[]> content = new ArrayList<String[]>();
-        while ((line = br.readLine())!= null){
-            if (line.contains(s)){
-                content.add(line.split("\\|"));
-            }
+        for (String[] line: AL){
+            if (line[attIndex] == filter){
+                content.add(line);
+            } 
         }
-        br.close();
         return content;
     }
     public boolean addToFile(String data) throws IOException{
