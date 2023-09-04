@@ -18,6 +18,7 @@ public class DailyItemSales implements Record {
     }   
     public void add() throws IOException{
         dailyFile.addToFile(toString());
+        
     }
     public void edit(String s) throws IOException{
         dailyFile.editFile(toString(),s);
@@ -27,6 +28,9 @@ public class DailyItemSales implements Record {
     }
     public ArrayList<String[]> view()throws IOException{
         return dailyFile.viewFile();
+    }
+    public ArrayList<String[]> filter(String filter) throws IOException{
+        return dailyFile.viewFileWithFilter(filter);
     }
     public ArrayList<String[]> filter(ArrayList<String[]> AL, int attIndex, String filter){
         return dailyFile.viewFileWithFilter(AL,attIndex,filter);

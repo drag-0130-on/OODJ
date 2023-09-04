@@ -30,6 +30,9 @@ public class PurchaseRequisition implements Record {
     public ArrayList<String[]> view()throws IOException{
         return prFile.viewFile();
     }
+    public ArrayList<String[]> filter(String filter) throws IOException{
+        return prFile.viewFileWithFilter(filter);
+    }
     public ArrayList<String[]> filter(ArrayList<String[]> AL, int attIndex, String filter){
         return prFile.viewFileWithFilter(AL,attIndex,filter);
     }

@@ -28,6 +28,16 @@ public class FileAccess {
         br.close();
         return content;
     }
+    public ArrayList<String[]> viewFileWithFilter(String filter) throws IOException{
+        ArrayList<String[]> ogcontent = viewFile();
+        ArrayList<String[]> content = new ArrayList<String[]>();
+        for (String[] line: ogcontent){
+            if (String.join("|", line).contains(filter)){
+                content.add(line);
+            } 
+        }
+        return content;
+    }
     public ArrayList<String[]> viewFileWithFilter(ArrayList<String[]> AL, int attIndex, String filter){
         ArrayList<String[]> content = new ArrayList<String[]>();
         for (String[] line: AL){

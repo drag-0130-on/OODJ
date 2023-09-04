@@ -31,8 +31,14 @@ public class Item implements Record {
     public void remove() throws IOException{
         itemFile.removeFromFile(toString());
     }
+    public void changeStock() {
+        
+    }
     public ArrayList<String[]> view()throws IOException{
         return itemFile.viewFile();
+    }
+    public ArrayList<String[]> filter(String filter)throws IOException{
+        return itemFile.viewFileWithFilter(filter);
     }
     public ArrayList<String[]> filter(ArrayList<String[]> AL, int attIndex, String filter){
         return itemFile.viewFileWithFilter(AL,attIndex,filter);

@@ -29,6 +29,9 @@ public class PurchaseOrder implements Record {
     public ArrayList<String[]> view()throws IOException{
         return poFile.viewFile();
     }
+    public ArrayList<String[]> filter(String filter) throws IOException{
+        return poFile.viewFileWithFilter(filter);
+    }
     public ArrayList<String[]> filter(ArrayList<String[]> AL, int attIndex, String filter){
         return poFile.viewFileWithFilter(AL,attIndex,filter);
     }

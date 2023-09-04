@@ -37,6 +37,9 @@ public class Supplier implements Record {
     public ArrayList<String[]> view() throws IOException{
         return supplierFile.viewFile(); 
     }
+    public ArrayList<String[]> filter(String filter) throws IOException{
+        return supplierFile.viewFileWithFilter(filter);
+    }
     public ArrayList<String[]> filter(ArrayList<String[]> AL, int attIndex, String filter){
         return supplierFile.viewFileWithFilter(AL,attIndex,filter);
     }
