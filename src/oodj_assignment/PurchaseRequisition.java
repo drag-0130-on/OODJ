@@ -11,12 +11,14 @@ public class PurchaseRequisition implements Record {
     private int quantity;
     private String status = "Pending";
             
-    
     public PurchaseRequisition(String prID,Item item,int quantity,String smID){
         this.prID = prID;
         this.item = item;
         this.quantity = quantity;
         this.smID = smID;
+    }
+    public String getSMID(){
+        return smID;
     }
     
     public void add()throws IOException{
