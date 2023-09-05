@@ -7,19 +7,6 @@ public class PurchaseManager extends User{
         super(name,userID,password,email,contact);
         setRole("PurchaseManager");
     }
-    
-    public void generatePR(String prID,Item item,int quantity)throws IOException{
-        PurchaseRequisition pr = new PurchaseRequisition(prID,item,quantity,getUserID());
-        pr.add();
-    }   
-    public void editPR(PurchaseRequisition pr, String editedPR)throws IOException{
-        if (pr.getSMID().equals(getUserID())){
-           pr.edit(editedPR); 
-        }  
-    }
-    public void removePR(PurchaseRequisition pr)throws IOException{
-        pr.remove();
-    }
     public void approvePR(String poID, PurchaseRequisition pr)throws IOException {
         pr.approve();
         PurchaseOrder po = new PurchaseOrder(poID,pr,getUserID());
@@ -28,6 +15,13 @@ public class PurchaseManager extends User{
     public void rejectPR(PurchaseRequisition pr)throws IOException{
         pr.reject();
     }
+    public void editPO(PurchaseOrder po,String editedPO)throws IOException{
+        po.edit(editedPO);
+    }
+    public void removePO(PurchaseOrder po)throws IOException{
+        po.getPR().disapprove();
+        po.remove();
+    }   
     
    
 }
