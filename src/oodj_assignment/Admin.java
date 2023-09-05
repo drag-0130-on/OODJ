@@ -70,8 +70,8 @@ public class Admin extends User {
     public void addUser(User user)throws IOException{
         user.add();
     }
-    public void editUser(User user)throws IOException{
-        user.edit();
+    public void editUser(User user, String editedUser)throws IOException{
+        user.edit(editedUser);
     }
     public void removeUser(User user)throws IOException{
         user.remove();
