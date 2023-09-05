@@ -5,16 +5,24 @@
 package oodj_assignment;
 
 import javax.swing.JOptionPane;
+import javax.swing.DefaultComboBoxModel;
 
 public class Add_item_GUI extends javax.swing.JFrame {
 
     public Add_item_GUI() {
         initComponents();
-        String[] option = {null,"Option 1", "Option 2", "Option 3" };
-        Category.setModel(new javax.swing.DefaultComboBoxModel<>(option));
-        
+        loadComboBox();
     }
-
+    
+    public void loadComboBox(){
+        Item.Category[] categories = Item.Category.values();
+        String[] categoryStrings = new String[categories.length];
+        for (int i = 0; i < categories.length; i++) {
+            categoryStrings[i] = categories[i].toString();
+        }
+        DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>(categoryStrings);
+        Category.setModel(model);
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -162,8 +170,7 @@ public class Add_item_GUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void CategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CategoryActionPerformed
-        String[] option = {null,"Option 1", "Option 2", "Option 3" };
-        Category.setModel(new javax.swing.DefaultComboBoxModel<>(option));
+        
     }//GEN-LAST:event_CategoryActionPerformed
 
     private void StockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StockActionPerformed
@@ -185,7 +192,7 @@ public class Add_item_GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_SaveActionPerformed
 
     private void Item_nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Item_nameActionPerformed
-
+        
     }//GEN-LAST:event_Item_nameActionPerformed
 
     private void PriceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PriceActionPerformed
@@ -232,11 +239,13 @@ public class Add_item_GUI extends javax.swing.JFrame {
             }
         });
     }
+    
 
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Add_item;
     private javax.swing.JButton Cancel;
-    private javax.swing.JComboBox<String> Category;
+    private javax.swing.JComboBox<Item.Category> Category;
     private javax.swing.JTextField Item_name;
     private javax.swing.JTextField Price;
     private javax.swing.JButton Save;
@@ -249,4 +258,6 @@ public class Add_item_GUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     // End of variables declaration//GEN-END:variables
+
+    
 }
