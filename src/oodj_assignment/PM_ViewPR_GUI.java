@@ -1,14 +1,11 @@
 package oodj_assignment;
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author drag0
- */
 public class PM_ViewPR_GUI extends javax.swing.JFrame {
 
     /**
@@ -16,6 +13,24 @@ public class PM_ViewPR_GUI extends javax.swing.JFrame {
      */
     public PM_ViewPR_GUI() {
         initComponents();
+        try {
+            showTable();
+        } catch (IOException ex) {
+            Logger.getLogger(Daily_item_Entry_GUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+    public void showTable() throws IOException {
+        DefaultTableModel model = (DefaultTableModel) ViewPRTable.getModel();
+        model.setRowCount(0);
+        
+        String[] columnNames = {"Item ID", "Quantity", "Required Date", "Supplier ID", "Status"}; 
+        model.setColumnIdentifiers(columnNames);
+        
+        ArrayList<String[]> prt = PurchaseRequisition.view();
+        for (String[] prl: prt) {
+            model.addRow(prl);
+        }
     }
 
     /**
@@ -29,7 +44,7 @@ public class PM_ViewPR_GUI extends javax.swing.JFrame {
 
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        ViewPRTable = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -37,7 +52,7 @@ public class PM_ViewPR_GUI extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel2.setText("Purchase Requisition");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        ViewPRTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -48,7 +63,7 @@ public class PM_ViewPR_GUI extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(ViewPRTable);
 
         jButton1.setText("Back");
 
@@ -117,9 +132,9 @@ public class PM_ViewPR_GUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable ViewPRTable;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

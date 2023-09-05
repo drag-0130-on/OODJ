@@ -4,10 +4,12 @@
  */
 package oodj_assignment;
 
-/**
- *
- * @author Lenovo
- */
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
+
 public class pr_GUI extends javax.swing.JFrame {
 
     /**
@@ -15,6 +17,24 @@ public class pr_GUI extends javax.swing.JFrame {
      */
     public pr_GUI() {
         initComponents();
+        try {
+            showTable();
+        } catch (IOException ex) {
+            Logger.getLogger(Daily_item_Entry_GUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+    public void showTable() throws IOException {
+        DefaultTableModel model = (DefaultTableModel) PRTable.getModel();
+        model.setRowCount(0);
+        
+        String[] columnNames = {"Item ID", "Quantity", "Required Date", "Supplier ID", "Status"}; 
+        model.setColumnIdentifiers(columnNames);
+        
+        ArrayList<String[]> prt = PurchaseRequisition.view();
+        for (String[] prl: prt) {
+            model.addRow(prl);
+        }
     }
 
     /**
@@ -27,7 +47,7 @@ public class pr_GUI extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        PRTable = new javax.swing.JTable();
         jTextField1 = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
@@ -39,7 +59,7 @@ public class pr_GUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        PRTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -50,7 +70,7 @@ public class pr_GUI extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane2.setViewportView(jTable2);
+        jScrollPane2.setViewportView(PRTable);
 
         jTextField1.setToolTipText("");
 
@@ -207,6 +227,7 @@ public class pr_GUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable PRTable;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -215,7 +236,6 @@ public class pr_GUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable2;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

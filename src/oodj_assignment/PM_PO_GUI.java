@@ -1,14 +1,11 @@
 package oodj_assignment;
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author drag0
- */
 public class PM_PO_GUI extends javax.swing.JFrame {
 
     /**
@@ -16,6 +13,32 @@ public class PM_PO_GUI extends javax.swing.JFrame {
      */
     public PM_PO_GUI() {
         initComponents();
+        try {
+            showTable();
+        } catch (IOException ex) {
+            Logger.getLogger(Daily_item_Entry_GUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+    public void showTable() throws IOException {
+        DefaultTableModel model = (DefaultTableModel) PRTable.getModel();
+        DefaultTableModel model2 = (DefaultTableModel) POTable.getModel();
+        model.setRowCount(0);
+        model2.setRowCount(0);
+        
+        String[] columnNames = {"Item ID", "Quantity", "Required Date", "Supplier ID", "Status"}; 
+        String[] columnNames2 = {"Item ID", "Quantity", "Required Date", "Supplier ID", "Approved by"}; 
+        model.setColumnIdentifiers(columnNames);
+        model2.setColumnIdentifiers(columnNames2);
+        
+        ArrayList<String[]> prt = PurchaseRequisition.view();
+        ArrayList<String[]> pot = PurchaseOrder.view();
+        for (String[] prl: prt) {
+            model.addRow(prl);
+        }
+        for (String[] pol: pot) {
+            model2.addRow(pol);
+        }
     }
 
     /**
@@ -30,11 +53,11 @@ public class PM_PO_GUI extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        PRTable = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        POTable = new javax.swing.JTable();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
@@ -46,7 +69,7 @@ public class PM_PO_GUI extends javax.swing.JFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Purchase Requisition"));
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        PRTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -57,7 +80,7 @@ public class PM_PO_GUI extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane2.setViewportView(jTable2);
+        jScrollPane2.setViewportView(PRTable);
 
         jButton1.setText("Generate Purchase Order");
 
@@ -84,7 +107,7 @@ public class PM_PO_GUI extends javax.swing.JFrame {
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Purchase Order"));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        POTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -95,7 +118,7 @@ public class PM_PO_GUI extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(POTable);
 
         jButton2.setText("Edit");
 
@@ -209,6 +232,8 @@ public class PM_PO_GUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable POTable;
+    private javax.swing.JTable PRTable;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -218,7 +243,5 @@ public class PM_PO_GUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
     // End of variables declaration//GEN-END:variables
 }
