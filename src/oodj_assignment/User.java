@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class User implements Record {
+public class User {
     public enum Role {Admin,SalesManager,PurchaseManager,None}                      
     private String name, userID, password, email, contact;
     private FileAccess userFile = new FileAccess("user.txt");
@@ -17,7 +17,6 @@ public class User implements Record {
         this.email = email;
         this.contact = contact;
     }
-    
     public void add() throws IOException{
         userFile.addToFile(toString());
     }
@@ -39,19 +38,15 @@ public class User implements Record {
     public String getName() {
         return name;
     }
-
     public void setName(String name) {
         this.name = name;
     }
-
     public String getUserID() {
         return userID;
     }
-
     public void setUserID(String username) {
         this.userID = userID;
     }
-
     public String getPassword() {
         return password;
     }
