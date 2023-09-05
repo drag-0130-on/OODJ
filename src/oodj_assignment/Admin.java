@@ -11,9 +11,9 @@ import java.util.Set;
  * @author Lenovo
  */
 public class Admin extends User {
-    private Role role = Role.Admin;
     public Admin(String name, String userID, String password, String email, String contact) {
         super(name,userID,password,email,contact);
+        setRole("Admin");
     }
     public void approvePR(String poID, PurchaseRequisition pr)throws IOException {
         pr.approve();
@@ -66,6 +66,15 @@ public class Admin extends User {
     }
     public void removeDIS(DailyItemSales DIS)throws IOException {
         DIS.remove();
+    }
+    public void addUser(User user)throws IOException{
+        user.add();
+    }
+    public void editUser(User user, String editedUser)throws IOException{
+        user.edit(editedUser);
+    }
+    public void removeUser(User user)throws IOException{
+        user.remove();
     }
     
 }
