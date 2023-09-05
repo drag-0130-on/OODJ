@@ -16,7 +16,7 @@ public class PM_PO_GUI extends javax.swing.JFrame {
         try {
             showTable();
         } catch (IOException ex) {
-            Logger.getLogger(Daily_item_Entry_GUI.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(PM_PO_GUI.class.getName()).log(Level.SEVERE, null, ex);
         }
         
     }
@@ -32,10 +32,10 @@ public class PM_PO_GUI extends javax.swing.JFrame {
         model2.setColumnIdentifiers(columnNames2);
         
         ArrayList<String[]> prt = PurchaseRequisition.view();
-        ArrayList<String[]> pot = PurchaseOrder.view();
         for (String[] prl: prt) {
             model.addRow(prl);
         }
+        ArrayList<String[]> pot = PurchaseOrder.view();
         for (String[] pol: pot) {
             model2.addRow(pol);
         }

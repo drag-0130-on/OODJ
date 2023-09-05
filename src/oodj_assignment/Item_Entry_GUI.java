@@ -24,7 +24,7 @@ public class Item_Entry_GUI extends javax.swing.JFrame {
         try {
             showTable();
         } catch (IOException ex) {
-            Logger.getLogger(Daily_item_Entry_GUI.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Item_Entry_GUI.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         

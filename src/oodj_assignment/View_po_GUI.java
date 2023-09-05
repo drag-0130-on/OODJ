@@ -20,7 +20,7 @@ public class View_po_GUI extends javax.swing.JFrame {
         try {
             showTable();
         } catch (IOException ex) {
-            Logger.getLogger(Daily_item_Entry_GUI.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(View_po_GUI.class.getName()).log(Level.SEVERE, null, ex);
         }
         
     }
