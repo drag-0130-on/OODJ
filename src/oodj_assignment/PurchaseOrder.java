@@ -14,6 +14,9 @@ public class PurchaseOrder implements Record {
         this.pr = pr;
         this.pmID = pmID;
     }
+    public PurchaseRequisition getPR(){
+        return pr;
+    }
     public void add()throws IOException{
         poFile.addToFile(toString());
     }

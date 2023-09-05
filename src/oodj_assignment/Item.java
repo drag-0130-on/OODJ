@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class Item implements Record {
-    enum Category {Vegetable, Dairy, Meat, Fruit, Snack, Beverage, Other }
+    public enum Category {Vegetable, Dairy, Meat, Fruit, Snack, Beverage, Other }
     private FileAccess itemFile = new FileAccess("Item.txt");
     private String itemID, itemName;
     private Category category;
@@ -13,10 +13,10 @@ public class Item implements Record {
     private double price;     
     private Supplier supplier;
       
-    public Item(String itemID, String itemName, Category category,int stock, double Price, Supplier supplier){
+    public Item(String itemID, String itemName, String category,int stock, double price, Supplier supplier){
           this.itemID = itemID;
           this.itemName = itemName;
-          this.category = category;
+          this.category = Category.valueOf(category);
           this.stock = stock;
           this.price = price;
           this.supplier = supplier;
@@ -42,7 +42,7 @@ public class Item implements Record {
         return itemFile.viewFileWithFilter(AL,attIndex,filter);
     }
     public String toString(){
-        return (itemID + "|"+itemName + "|" + category + "|" + stock + "|" + price + "|" + supplier.getID() + "|" + supplier.getName());
+        return (itemID + "|"+itemName + "|" + category.toString() + "|" + stock + "|" + price + "|" + supplier.getID() + "|" + supplier.getName());
 //        return category+"|"+tem_Id+"|"+Item_Name+"|"+Stock+"|"+Price+"|"+Supplier_Name;
     }
 

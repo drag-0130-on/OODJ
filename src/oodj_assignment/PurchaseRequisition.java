@@ -9,7 +9,7 @@ public class PurchaseRequisition implements Record {
     private String prID,smID;
     private Item item;
     private int quantity;
-    private String status = "Unapproved";
+    private String status = "Pending";
             
     
     public PurchaseRequisition(String prID,Item item,int quantity,String smID){
@@ -41,10 +41,13 @@ public class PurchaseRequisition implements Record {
         return (prID + "|" + item.toString() + "|" + quantity + "|" + smID + "|" + status);
     }
     public void approve() throws IOException{
-        edit(toString().replace("Unapproved","Approved"));
+        edit(toString().replace("Pending","Approved"));
+    }
+    public void disapprove() throws IOException{
+        edit(toString().replace("Approved","Rejected"));
     }
     public void reject() throws IOException{
-        edit(toString().replace("Unapproved","Rejected"));
+        edit(toString().replace("Pending","Rejected"));
     }
 }       
    

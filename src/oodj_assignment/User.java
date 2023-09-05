@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class User {
+public class User implements Record {
     public enum Role {Admin,SalesManager,PurchaseManager,None}                      
     private String name, userID, password, email, contact;
     private FileAccess userFile = new FileAccess("user.txt");
@@ -18,7 +18,24 @@ public class User {
         this.contact = contact;
     }
     
-
+    public void add() throws IOException{
+        userFile.addToFile(toString());
+    }
+    public void edit(String newData) throws IOException{
+        userFile.editFile(toString(), newData);
+    }
+    public void remove() throws IOException{
+        userFile.removeFromFile(toString());
+    }
+    public ArrayList<String[]> view() throws IOException{
+        return userFile.viewFile();
+    }
+    public ArrayList<String[]> filter(String filter) throws IOException{
+        return userFile.viewFileWithFilter(filter);
+    }
+    public ArrayList<String[]> filter(ArrayList<String[]> AL, int attIndex, String filter){
+        return userFile.viewFileWithFilter(AL, attIndex, filter);
+    }
     public String getName() {
         return name;
     }
@@ -59,9 +76,6 @@ public class User {
         this.contact = contact;
     }
     
-    public ArrayList<String[]> view() throws IOException{
-        return userFile.viewFile();
-    }
     
     public void login() throws IOException{
         ArrayList<String[]> content = view();
