@@ -71,7 +71,9 @@ public class User {
         this.contact = contact;
     }
     
-    
+    public void setRole(String role){
+        this.role = Role.valueOf(role);
+    }
     public void login() throws IOException{
         ArrayList<String[]> content = view();
 
