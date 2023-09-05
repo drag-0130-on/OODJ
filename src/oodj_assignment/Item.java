@@ -31,9 +31,7 @@ public class Item implements Record {
     public void remove() throws IOException{
         itemFile.removeFromFile(toString());
     }
-    public void changeStock() {
-        
-    }
+    
     public ArrayList<String[]> view()throws IOException{
         return itemFile.viewFile();
     }

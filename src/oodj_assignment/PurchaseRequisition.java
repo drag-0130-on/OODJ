@@ -7,18 +7,18 @@ import java.util.ArrayList;
 public class PurchaseRequisition implements Record {
     private FileAccess prFile = new FileAccess("pr.txt");
     private String prID,smID;
-    private String status = "Unapproved";
     private Item item;
     private int quantity;
+    private String status = "Unapproved";
             
     
-    public PurchaseRequisition(String prID,Item item,int quantity){
+    public PurchaseRequisition(String prID,Item item,int quantity,String smID){
         this.prID = prID;
         this.item = item;
         this.quantity = quantity;
-        this.status = status;
         this.smID = smID;
     }
+    
     public void add()throws IOException{
         prFile.addToFile(toString());
     }
@@ -38,10 +38,13 @@ public class PurchaseRequisition implements Record {
         return prFile.viewFileWithFilter(AL,attIndex,filter);
     }
     public String toString(){
-        return (prID + "|" + item.toString() + "|" + quantity + "|" + status + "|");
+        return (prID + "|" + item.toString() + "|" + quantity + "|" + smID + "|" + status);
     }
-    public void setSMID(String smID){
-        this.smID = smID;
+    public void approve() throws IOException{
+        edit(toString().replace("Unapproved","Approved"));
+    }
+    public void reject() throws IOException{
+        edit(toString().replace("Unapproved","Rejected"));
     }
 }       
    

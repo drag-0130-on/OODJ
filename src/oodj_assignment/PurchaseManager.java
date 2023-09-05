@@ -5,13 +5,11 @@ public class PurchaseManager extends User{
     public PurchaseManager(String name, String userID, String password, String email, String contact){
         super(name,userID,password,email,contact);
     }
-    public void addPO(){
+    public void approvePR(){
         
     }
-    public void editPO(){
+    public void rejectPR(){
         
     }
-    private void deletePO(){
-        
-    }
+   
 }
