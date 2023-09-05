@@ -4,6 +4,12 @@
  */
 package oodj_assignment;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Lenovo
@@ -15,6 +21,28 @@ public class Item_Entry_GUI extends javax.swing.JFrame {
      */
     public Item_Entry_GUI() {
         initComponents();
+        try {
+            showTable();
+        } catch (IOException ex) {
+            Logger.getLogger(Daily_item_Entry_GUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+    }
+    public void showTable() throws IOException {
+        DefaultTableModel model = (DefaultTableModel) ItemTable.getModel();
+        model.setRowCount(0);
+        
+        String[] columnNames = { "Item ID", "Category", "Item Name", "Stock", "Price","Supplier ID"}; 
+        model.setColumnIdentifiers(columnNames);
+        
+        ArrayList<String[]> it = Item.view();
+        for (String[] il: it) {
+            model.addRow(il);
+        }
+        
+        
+    
     }
 
     /**
@@ -31,7 +59,7 @@ public class Item_Entry_GUI extends javax.swing.JFrame {
         Delete_item = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        ItemTable = new javax.swing.JTable();
         jTextField1 = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         Back = new javax.swing.JButton();
@@ -63,7 +91,7 @@ public class Item_Entry_GUI extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel1.setText("Item Entry");
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        ItemTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
@@ -75,7 +103,7 @@ public class Item_Entry_GUI extends javax.swing.JFrame {
                 "Item ID", "Category", "Item Name", "Stock", "Price", "Supplier"
             }
         ));
-        jScrollPane2.setViewportView(jTable2);
+        jScrollPane2.setViewportView(ItemTable);
 
         jTextField1.setToolTipText("");
 
@@ -154,9 +182,6 @@ public class Item_Entry_GUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Add_itemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Add_itemActionPerformed
-        Add_item_GUI add = new Add_item_GUI();
-        add.show();
-        dispose();
     }//GEN-LAST:event_Add_itemActionPerformed
 
     private void Edit_itemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Edit_itemActionPerformed
@@ -168,9 +193,6 @@ public class Item_Entry_GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_Delete_itemActionPerformed
 
     private void BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed
-        Sales_Manager_GUI sales = new Sales_Manager_GUI();
-        sales.show();
-        dispose();
     }//GEN-LAST:event_BackActionPerformed
 
     /**
@@ -214,11 +236,11 @@ public class Item_Entry_GUI extends javax.swing.JFrame {
     private javax.swing.JButton Back;
     private javax.swing.JButton Delete_item;
     private javax.swing.JButton Edit_item;
+    private javax.swing.JTable ItemTable;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable2;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

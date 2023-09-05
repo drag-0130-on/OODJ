@@ -4,6 +4,12 @@
  */
 package oodj_assignment;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author adamc
@@ -15,6 +21,24 @@ public class ViewItems_GUI extends javax.swing.JFrame {
      */
     public ViewItems_GUI() {
         initComponents();
+        try {
+            showTable();
+        } catch (IOException ex) {
+            Logger.getLogger(Daily_item_Entry_GUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+    public void showTable() throws IOException {
+        DefaultTableModel model = (DefaultTableModel) ViewItemTable.getModel();
+        model.setRowCount(0);
+        
+        String[] columnNames = { "Item ID", "Category", "Item Name", "Stock", "Price","Supplier ID"}; 
+        model.setColumnIdentifiers(columnNames);
+        
+        ArrayList<String[]> it = Item.view();
+        for (String[] il: it) {
+            model.addRow(il);
+        }
     }
 
     /**
@@ -32,7 +56,7 @@ public class ViewItems_GUI extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        ViewItemTable = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -57,7 +81,7 @@ public class ViewItems_GUI extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel1.setText("Items");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        ViewItemTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -68,7 +92,7 @@ public class ViewItems_GUI extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(ViewItemTable);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -164,12 +188,12 @@ public class ViewItems_GUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable ViewItemTable;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

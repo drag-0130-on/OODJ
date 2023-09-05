@@ -4,6 +4,11 @@
  */
 package oodj_assignment;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author adamc
@@ -15,6 +20,24 @@ public class ViewProfile_GUI extends javax.swing.JFrame {
      */
     public ViewProfile_GUI() {
         initComponents();
+        try {
+            showTable();
+        } catch (IOException ex) {
+            Logger.getLogger(Daily_item_Entry_GUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+    public void showTable() throws IOException {
+        DefaultTableModel model = (DefaultTableModel) ViewProfileTable.getModel();
+        model.setRowCount(0);
+        
+        String[] columnNames = {"User ID", "Full Name", "Contact", "Username", "Password", "Role"}; 
+        model.setColumnIdentifiers(columnNames);
+        
+        ArrayList<String[]> pt = User.view();
+        for (String[] pl: pt) {
+            model.addRow(pl);
+        }
     }
 
     /**
@@ -28,7 +51,7 @@ public class ViewProfile_GUI extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        ViewProfileTable = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
@@ -41,7 +64,7 @@ public class ViewProfile_GUI extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel1.setText("User Profile");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        ViewProfileTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -52,7 +75,7 @@ public class ViewProfile_GUI extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(ViewProfileTable);
 
         jLabel2.setText("Search: ");
 
@@ -196,6 +219,7 @@ public class ViewProfile_GUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable ViewProfileTable;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -203,7 +227,6 @@ public class ViewProfile_GUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }
