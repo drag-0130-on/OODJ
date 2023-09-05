@@ -67,5 +67,14 @@ public class Admin extends User {
     public void removeDIS(DailyItemSales DIS)throws IOException {
         DIS.remove();
     }
+    public void addUser(User user)throws IOException{
+        user.add();
+    }
+    public void editUser(User user)throws IOException{
+        user.edit();
+    }
+    public void removeUser(User user)throws IOException{
+        user.remove();
+    }
     
 }
