@@ -7,7 +7,7 @@ import java.util.Arrays;
 public class User implements Record {
     public enum Role {Admin,SalesManager,PurchaseManager,None}                      
     private String name, userID, password, email, contact;
-    private FileAccess userFile = new FileAccess("user.txt");
+    private static FileAccess userFile = new FileAccess("user.txt");
     private Role role = Role.None;
     
     public User(String name, String userID, String password, String email, String contact){
@@ -27,13 +27,13 @@ public class User implements Record {
     public void remove() throws IOException{
         userFile.removeFromFile(toString());
     }
-    public ArrayList<String[]> view() throws IOException{
+    public static ArrayList<String[]> view() throws IOException{
         return userFile.viewFile();
     }
-    public ArrayList<String[]> filter(String filter) throws IOException{
+    public static ArrayList<String[]> filter(String filter) throws IOException{
         return userFile.viewFileWithFilter(filter);
     }
-    public ArrayList<String[]> filter(ArrayList<String[]> AL, int attIndex, String filter){
+    public static ArrayList<String[]> filter(ArrayList<String[]> AL, int attIndex, String filter){
         return userFile.viewFileWithFilter(AL, attIndex, filter);
     }
     public String getName() {

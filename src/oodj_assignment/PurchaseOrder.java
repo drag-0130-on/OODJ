@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class PurchaseOrder implements Record {
-    private FileAccess poFile = new FileAccess("pr.txt");
+    private static FileAccess poFile = new FileAccess("pr.txt");
     private String poID, pmID;
     private PurchaseRequisition pr;
     
@@ -26,13 +26,13 @@ public class PurchaseOrder implements Record {
     public void remove() throws IOException{
         poFile.removeFromFile(toString());
     }
-    public ArrayList<String[]> view()throws IOException{
+    public static ArrayList<String[]> view()throws IOException{
         return poFile.viewFile();
     }
-    public ArrayList<String[]> filter(String filter) throws IOException{
+    public static ArrayList<String[]> filter(String filter) throws IOException{
         return poFile.viewFileWithFilter(filter);
     }
-    public ArrayList<String[]> filter(ArrayList<String[]> AL, int attIndex, String filter){
+    public static ArrayList<String[]> filter(ArrayList<String[]> AL, int attIndex, String filter){
         return poFile.viewFileWithFilter(AL,attIndex,filter);
     }
     public String toString(){

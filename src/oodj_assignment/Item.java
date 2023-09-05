@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class Item implements Record {
     public enum Category {Vegetable, Dairy, Meat, Fruit, Snack, Beverage, Other }
-    private FileAccess itemFile = new FileAccess("Item.txt");
+    private static FileAccess itemFile = new FileAccess("Item.txt");
     private String itemID, itemName;
     private Category category;
     private int stock;
@@ -32,13 +32,13 @@ public class Item implements Record {
         itemFile.removeFromFile(toString());
     }
     
-    public ArrayList<String[]> view()throws IOException{
+    public static ArrayList<String[]> view()throws IOException{
         return itemFile.viewFile();
     }
-    public ArrayList<String[]> filter(String filter)throws IOException{
+    public static ArrayList<String[]> filter(String filter)throws IOException{
         return itemFile.viewFileWithFilter(filter);
     }
-    public ArrayList<String[]> filter(ArrayList<String[]> AL, int attIndex, String filter){
+    public static ArrayList<String[]> filter(ArrayList<String[]> AL, int attIndex, String filter){
         return itemFile.viewFileWithFilter(AL,attIndex,filter);
     }
     public String toString(){

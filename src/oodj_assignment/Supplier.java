@@ -11,7 +11,7 @@ import java.util.ArrayList;
  */
 public class Supplier implements Record {
     private String supplierID, supplierName, email, contactNo;
-    private FileAccess supplierFile = new FileAccess("supplier.txt");
+    private static FileAccess supplierFile = new FileAccess("supplier.txt");
     
     public Supplier(String supplierID, String supplierName, String email, String contactNo){
         this.supplierID = supplierID;
@@ -34,13 +34,13 @@ public class Supplier implements Record {
     public void remove() throws IOException{
         supplierFile.removeFromFile(toString());
     }
-    public ArrayList<String[]> view() throws IOException{
+    public static ArrayList<String[]> view() throws IOException{
         return supplierFile.viewFile(); 
     }
-    public ArrayList<String[]> filter(String filter) throws IOException{
+    public static ArrayList<String[]> filter(String filter) throws IOException{
         return supplierFile.viewFileWithFilter(filter);
     }
-    public ArrayList<String[]> filter(ArrayList<String[]> AL, int attIndex, String filter){
+    public static ArrayList<String[]> filter(ArrayList<String[]> AL, int attIndex, String filter){
         return supplierFile.viewFileWithFilter(AL,attIndex,filter);
     }
     public String toString(){

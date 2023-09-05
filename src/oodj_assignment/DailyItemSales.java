@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class DailyItemSales implements Record {
-    private FileAccess dailyFile = new FileAccess("daily.txt");
+    private static FileAccess dailyFile = new FileAccess("daily.txt");
     private String date;
     private int amountSold;
     private Item item;
@@ -17,7 +17,6 @@ public class DailyItemSales implements Record {
     }   
     public void add() throws IOException{
         dailyFile.addToFile(toString());
-        
     }
     public void edit(String s) throws IOException{
         dailyFile.editFile(toString(),s);
@@ -25,13 +24,13 @@ public class DailyItemSales implements Record {
     public void remove() throws IOException{
         dailyFile.removeFromFile(toString());
     }
-    public ArrayList<String[]> view()throws IOException{
+    public static ArrayList<String[]> view()throws IOException{
         return dailyFile.viewFile();
     }
-    public ArrayList<String[]> filter(String filter) throws IOException{
+    public static ArrayList<String[]> filter(String filter) throws IOException{
         return dailyFile.viewFileWithFilter(filter);
     }
-    public ArrayList<String[]> filter(ArrayList<String[]> AL, int attIndex, String filter){
+    public static ArrayList<String[]> filter(ArrayList<String[]> AL, int attIndex, String filter){
         return dailyFile.viewFileWithFilter(AL,attIndex,filter);
     }
     public String toString(){
