@@ -196,7 +196,7 @@ public class Item_Entry_GUI extends javax.swing.JFrame {
         String input = tSearch.getText();
         
         try {
-           ArrayList<String[]> it = Item.filter(input);
+           ArrayList<String[]> it = Item.view(input);
             model.setRowCount(0);
 
             for (String[] il : it) {
