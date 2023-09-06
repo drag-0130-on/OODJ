@@ -33,7 +33,7 @@ public class GUI_Add_User extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         txtContact = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        txtUsername = new javax.swing.JTextField();
+        txtUserID = new javax.swing.JTextField();
         txtPassword = new javax.swing.JTextField();
         buttonSave = new javax.swing.JButton();
         buttonCancel = new javax.swing.JButton();
@@ -62,9 +62,9 @@ public class GUI_Add_User extends javax.swing.JFrame {
 
         jLabel6.setText("Role");
 
-        txtUsername.addActionListener(new java.awt.event.ActionListener() {
+        txtUserID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtUsernameActionPerformed(evt);
+                txtUserIDActionPerformed(evt);
             }
         });
 
@@ -136,7 +136,7 @@ public class GUI_Add_User extends javax.swing.JFrame {
                             .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtPassword, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtUsername, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtUserID, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(CBRole, javax.swing.GroupLayout.Alignment.LEADING, 0, 442, Short.MAX_VALUE)
                             .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.LEADING)
@@ -173,7 +173,7 @@ public class GUI_Add_User extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtUserID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -196,22 +196,18 @@ public class GUI_Add_User extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtContactActionPerformed
 
-    private void txtUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsernameActionPerformed
+    private void txtUserIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUserIDActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtUsernameActionPerformed
+    }//GEN-LAST:event_txtUserIDActionPerformed
 
     private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPasswordActionPerformed
 
     private void buttonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSaveActionPerformed
-        String name = txtName.getText();
-        String contact = txtContact.getText();
-        String email = txtEmail.getText();
-        String userID = txtUsername.getText();
-        String pwd = txtPassword.getText();
 
-        User user = new User(name, userID,pwd,contact,email);
+
+        User user = new User(txtName.getText(), txtUserID.getText(),txtPassword.getText(),txtContact.getText(),txtEmail.getText());
         try {
             user.add();
         } catch (IOException ex) {
@@ -302,7 +298,7 @@ public class GUI_Add_User extends javax.swing.JFrame {
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtPassword;
-    private javax.swing.JTextField txtUsername;
+    private javax.swing.JTextField txtUserID;
     // End of variables declaration//GEN-END:variables
 
 }
