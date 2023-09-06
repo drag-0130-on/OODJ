@@ -17,20 +17,18 @@ public class DailyItemSales implements Record {
     }   
     public void add() throws IOException{
         dailyFile.addToFile(toString());
-        item.reduceStock(amountSold);
     }
     public void edit(Object newData) throws IOException{
         dailyFile.editFile(toString(),newData.toString());
     }
     public void remove() throws IOException{
         dailyFile.removeFromFile(toString());
-        item.addStock(amountSold);
     }
     public static ArrayList<String[]> view()throws IOException{
         return dailyFile.viewFile();
     }
-    public static ArrayList<String[]> view(String filter) throws IOException{
-        return dailyFile.viewFile(filter);
+    public static ArrayList<String[]> view(ArrayList<String[]> AL,String filter) throws IOException{
+        return dailyFile.viewFile(AL,filter);
     }
     public static ArrayList<String[]> view(ArrayList<String[]> AL, int attIndex, String filter){
         return dailyFile.viewFile(AL,attIndex,filter);

@@ -30,8 +30,8 @@ public class PurchaseOrder implements Record {
     public static ArrayList<String[]> view()throws IOException{
         return poFile.viewFile();
     }
-    public static ArrayList<String[]> view(String filter) throws IOException{
-        return poFile.viewFile(filter);
+    public static ArrayList<String[]> view(ArrayList<String[]> AL,String filter) throws IOException{
+        return poFile.viewFile(AL,filter);
     }
     public static ArrayList<String[]> view(ArrayList<String[]> AL, int attIndex, String filter){
         return poFile.viewFile(AL,attIndex,filter);

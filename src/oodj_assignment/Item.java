@@ -42,8 +42,8 @@ public class Item implements Record {
     public static ArrayList<String[]> view()throws IOException{
         return itemFile.viewFile();
     }
-    public static ArrayList<String[]> view(String filter)throws IOException{
-        return itemFile.viewFile(filter);
+    public static ArrayList<String[]> view(ArrayList<String[]> AL,String filter)throws IOException{
+        return itemFile.viewFile(AL,filter);
     }
     public static ArrayList<String[]> view(ArrayList<String[]> AL, int attIndex, String filter){
         return itemFile.viewFile(AL,attIndex,filter);

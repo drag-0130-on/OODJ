@@ -62,17 +62,20 @@ public class Admin extends User {
     public void addDIS(DailyItemSales DIS)throws IOException {
         if (DIS.getItem().verifyStockAvailability(DIS.getAmountSold())){
             DIS.add();
+            DIS.getItem().reduceStock(DIS.getAmountSold());
         }
     }
     //edit everything
     public void editDIS(DailyItemSales DIS,DailyItemSales newDIS)throws IOException {
         if (newDIS.getItem().verifyStockAvailability(newDIS.getAmountSold())){
-            DIS.remove();
-            newDIS.add();
+            DIS.edit(newDIS);
+            DIS.getItem().addStock(DIS.getAmountSold());
+            newDIS.getItem().reduceStock(newDIS.getAmountSold());
         }
     }
     public void removeDIS(DailyItemSales DIS)throws IOException {
         DIS.remove();
+        DIS.getItem().addStock(DIS.getAmountSold());
     }
     public void addUser(User user)throws IOException{
         user.add();

@@ -29,10 +29,9 @@ public class FileAccess {
         br.close();
         return content;
     }
-    public ArrayList<String[]> viewFile(String filter) throws IOException{
-        ArrayList<String[]> ogcontent = viewFile();
+    public ArrayList<String[]> viewFile(ArrayList<String[]> AL, String filter) throws IOException{
         ArrayList<String[]> content = new ArrayList<String[]>();
-        for (String[] line: ogcontent){
+        for (String[] line: AL){
             if (String.join("|", line).contains(filter)){
                 content.add(line);
             } 
