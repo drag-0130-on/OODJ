@@ -6,17 +6,17 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 
-public class PM_PO_GUI extends javax.swing.JFrame {
+public class GUI_PM_PO extends javax.swing.JFrame {
 
     /**
      * Creates new form PM_PO
      */
-    public PM_PO_GUI() {
+    public GUI_PM_PO() {
         initComponents();
         try {
             showTable();
         } catch (IOException ex) {
-            Logger.getLogger(PM_PO_GUI.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(GUI_PM_PO.class.getName()).log(Level.SEVERE, null, ex);
         }
         
     }
@@ -247,21 +247,23 @@ public class PM_PO_GUI extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PM_PO_GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUI_PM_PO.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PM_PO_GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUI_PM_PO.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PM_PO_GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUI_PM_PO.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PM_PO_GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUI_PM_PO.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PM_PO_GUI().setVisible(true);
+                new GUI_PM_PO().setVisible(true);
             }
         });
     }

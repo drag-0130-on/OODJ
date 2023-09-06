@@ -192,7 +192,7 @@ public class GUI_Daily_item_Entry extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonEditActionPerformed
 
     private void backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backActionPerformed
-        Sales_Manager_GUI sales = new Sales_Manager_GUI();
+        GUI_Sales_Manager sales = new GUI_Sales_Manager();
         sales.show();
     }//GEN-LAST:event_backActionPerformed
 

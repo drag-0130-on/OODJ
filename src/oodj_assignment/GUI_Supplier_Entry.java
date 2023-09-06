@@ -10,17 +10,17 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 
-public class Supplier_Entry_GUI extends javax.swing.JFrame {
+public class GUI_Supplier_Entry extends javax.swing.JFrame {
 
     /**
      * Creates new form Supplier_Entry
      */
-    public Supplier_Entry_GUI() {
+    public GUI_Supplier_Entry() {
         initComponents();
         try {
             showTable();
         } catch (IOException ex) {
-            Logger.getLogger(Supplier_Entry_GUI.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(GUI_Supplier_Entry.class.getName()).log(Level.SEVERE, null, ex);
         }
         
     }
@@ -184,7 +184,7 @@ public class Supplier_Entry_GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonEditActionPerformed
 
     private void buttonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBackActionPerformed
-        Sales_Manager_GUI sales = new Sales_Manager_GUI();
+        GUI_Sales_Manager sales = new GUI_Sales_Manager();
         sales.show();
     }//GEN-LAST:event_buttonBackActionPerformed
 
@@ -206,7 +206,7 @@ public class Supplier_Entry_GUI extends javax.swing.JFrame {
             }
                     
         } catch (IOException ex) {
-            Logger.getLogger(Supplier_Entry_GUI.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(GUI_Supplier_Entry.class.getName()).log(Level.SEVERE, null, ex);
         }
                     }//GEN-LAST:event_buttonSearchActionPerformed
 
@@ -227,21 +227,23 @@ public class Supplier_Entry_GUI extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Supplier_Entry_GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUI_Supplier_Entry.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Supplier_Entry_GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUI_Supplier_Entry.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Supplier_Entry_GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUI_Supplier_Entry.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Supplier_Entry_GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUI_Supplier_Entry.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Supplier_Entry_GUI().setVisible(true);
+                new GUI_Supplier_Entry().setVisible(true);
             }
         });
     }

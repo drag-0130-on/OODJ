@@ -8,12 +8,12 @@ package oodj_assignment;
  *
  * @author Lenovo
  */
-public class Sales_Manager_GUI extends javax.swing.JFrame {
+public class GUI_Sales_Manager extends javax.swing.JFrame {
 
     /**
      * Creates new form Sales_Manager
      */
-    public Sales_Manager_GUI() {
+    public GUI_Sales_Manager() {
         initComponents();
     }
 
@@ -152,13 +152,13 @@ public class Sales_Manager_GUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Item_entryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Item_entryActionPerformed
-        Item_Entry_GUI item = new Item_Entry_GUI();
+        GUI_Item_Entry item = new GUI_Item_Entry();
         item.show();
         dispose();
     }//GEN-LAST:event_Item_entryActionPerformed
 
     private void Supplier_entryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Supplier_entryActionPerformed
-        Supplier_Entry_GUI supplier = new Supplier_Entry_GUI();
+        GUI_Supplier_Entry supplier = new GUI_Supplier_Entry();
         supplier.show();
         dispose();
     }//GEN-LAST:event_Supplier_entryActionPerformed
@@ -170,19 +170,19 @@ public class Sales_Manager_GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_Daily_item_wise_sales_entryActionPerformed
 
     private void Purchase_requisitionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Purchase_requisitionActionPerformed
-        pr_GUI purchase = new pr_GUI();
+        GUI_pr purchase = new GUI_pr();
         purchase.show();
         dispose();
     }//GEN-LAST:event_Purchase_requisitionActionPerformed
 
     private void View_poActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_View_poActionPerformed
-        View_po_GUI po = new View_po_GUI();
+        GUI_View_po po = new GUI_View_po();
         po.show();
         dispose();
     }//GEN-LAST:event_View_poActionPerformed
 
     private void My_profileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_My_profileActionPerformed
-       MyProfile_GUI profile = new MyProfile_GUI();
+       GUI_MyProfile profile = new GUI_MyProfile();
        profile.show();
        dispose();
     }//GEN-LAST:event_My_profileActionPerformed
@@ -208,21 +208,23 @@ public class Sales_Manager_GUI extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Sales_Manager_GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUI_Sales_Manager.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Sales_Manager_GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUI_Sales_Manager.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Sales_Manager_GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUI_Sales_Manager.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Sales_Manager_GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUI_Sales_Manager.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Sales_Manager_GUI().setVisible(true);
+                new GUI_Sales_Manager().setVisible(true);
             }
         });
     }

@@ -8,12 +8,12 @@ package oodj_assignment;
  *
  * @author adamc
  */
-public class PurchaseManager_GUI extends javax.swing.JFrame {
+public class GUI_PurchaseManager extends javax.swing.JFrame {
 
     /**
      * Creates new form PurchaseManager
      */
-    public PurchaseManager_GUI() {
+    public GUI_PurchaseManager() {
         initComponents();
     }
 
@@ -174,14 +174,18 @@ public class PurchaseManager_GUI extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PurchaseManager_GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUI_PurchaseManager.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PurchaseManager_GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUI_PurchaseManager.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PurchaseManager_GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUI_PurchaseManager.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PurchaseManager_GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUI_PurchaseManager.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -190,7 +194,7 @@ public class PurchaseManager_GUI extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PurchaseManager_GUI().setVisible(true);
+                new GUI_PurchaseManager().setVisible(true);
             }
         });
     }

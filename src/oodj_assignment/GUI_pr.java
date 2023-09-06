@@ -10,17 +10,17 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 
-public class pr_GUI extends javax.swing.JFrame {
+public class GUI_pr extends javax.swing.JFrame {
 
     /**
      * Creates new form pr
      */
-    public pr_GUI() {
+    public GUI_pr() {
         initComponents();
         try {
             showTable();
         } catch (IOException ex) {
-            Logger.getLogger(pr_GUI.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(GUI_pr.class.getName()).log(Level.SEVERE, null, ex);
         }
         
     }
@@ -176,7 +176,7 @@ public class pr_GUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        Sales_Manager_GUI sales = new Sales_Manager_GUI();
+        GUI_Sales_Manager sales = new GUI_Sales_Manager();
         sales.show();
     }//GEN-LAST:event_jButton4ActionPerformed
 
@@ -210,21 +210,23 @@ public class pr_GUI extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(pr_GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUI_pr.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(pr_GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUI_pr.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(pr_GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUI_pr.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(pr_GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUI_pr.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new pr_GUI().setVisible(true);
+                new GUI_pr().setVisible(true);
             }
         });
     }

@@ -141,12 +141,12 @@ public class GUI_Admin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonItemEntryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonItemEntryActionPerformed
-        Item_Entry_GUI ie = new Item_Entry_GUI();
+        GUI_Item_Entry ie = new GUI_Item_Entry();
         ie.show();
     }//GEN-LAST:event_buttonItemEntryActionPerformed
 
     private void buttonSupplierEntryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSupplierEntryActionPerformed
-        Supplier_Entry_GUI se = new Supplier_Entry_GUI();
+        GUI_Supplier_Entry se = new GUI_Supplier_Entry();
         se.show();
     }//GEN-LAST:event_buttonSupplierEntryActionPerformed
 
