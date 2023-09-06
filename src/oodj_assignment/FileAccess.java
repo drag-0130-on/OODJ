@@ -101,10 +101,10 @@ public class FileAccess {
         bw.close();
         return true;
     }
-    public boolean verifyUniqueness(String data) throws IOException{
+    public boolean verifyUniqueness(String data, int i) throws IOException{
         ArrayList<String[]> content = viewFile();
         for (String[] line:content){
-            if (String.join("|",line).contains(data)){
+            if (line[i].equals(data)){
                 return false;
             }
         }
