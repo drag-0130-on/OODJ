@@ -42,5 +42,8 @@ public class DailyItemSales implements Record {
     public Item getItem(){
         return item;
     }
+    public int getAmountSold(){
+        return amountSold;
+    }
 }
                                                                     

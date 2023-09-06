@@ -59,14 +59,17 @@ public class Admin extends User {
         supplier.remove();
     }
     public void addDIS(DailyItemSales DIS)throws IOException {
-        
-        DIS.add();
+        if (DIS.getItem().verifyStockAvailability(DIS.getAmountSold())){
+            DIS.add();
+            DIS.getItem().reduceStock(DIS.getAmountSold());
+        }
     }
     public void editDIS(DailyItemSales DIS,String editedDIS)throws IOException {
         DIS.edit(editedDIS);
     }
     public void removeDIS(DailyItemSales DIS)throws IOException {
         DIS.remove();
+        DIS.getItem().addStock(DIS.getAmountSold());
     }
     public void addUser(User user)throws IOException{
         user.add();
