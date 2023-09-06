@@ -43,7 +43,7 @@ public class User {
     public String getUserID() {
         return userID;
     }
-    public void setUserID(String username) {
+    public void setUserID(String userID) {
         this.userID = userID;
     }
     public String getPassword() {
@@ -93,5 +93,8 @@ public class User {
                 }
             }
         }
+    }
+    public boolean verifyUU()throws IOException{
+        return userFile.verifyUniqueness(userID, 0);
     }
 }        
