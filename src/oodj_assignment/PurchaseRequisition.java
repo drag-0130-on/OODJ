@@ -51,6 +51,7 @@ public class PurchaseRequisition implements Record {
     public void reject() throws IOException{
         edit(toString().replace("Pending","Rejected"));
     }
+   
 }       
    
                                                                                                                                                             

@@ -25,6 +25,7 @@ public class PurchaseOrder implements Record {
     }
     public void remove() throws IOException{
         poFile.removeFromFile(toString());
+        pr.disapprove();
     }
     public static ArrayList<String[]> view()throws IOException{
         return poFile.viewFile();
