@@ -28,15 +28,15 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="Supplier_entry" min="-2" pref="175" max="-2" attributes="0"/>
-                          <Component id="Item_entry" min="-2" pref="175" max="-2" attributes="0"/>
-                          <Component id="Daily_item_wise_sales_entry" min="-2" max="-2" attributes="0"/>
+                          <Component id="buttonSupplier_entry" min="-2" pref="175" max="-2" attributes="0"/>
+                          <Component id="buttonItem_entry" min="-2" pref="175" max="-2" attributes="0"/>
+                          <Component id="buttonDaily_item_wise_sales_entry" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="View_po" min="-2" pref="175" max="-2" attributes="0"/>
-                          <Component id="Purchase_requisition" min="-2" pref="175" max="-2" attributes="0"/>
-                          <Component id="My_profile" min="-2" pref="175" max="-2" attributes="0"/>
+                          <Component id="buttonView_po" min="-2" pref="175" max="-2" attributes="0"/>
+                          <Component id="buttonPurchase_requisition" min="-2" pref="175" max="-2" attributes="0"/>
+                          <Component id="buttonMy_profile" min="-2" pref="175" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
@@ -54,7 +54,7 @@
                       <EmptySpace min="-2" pref="130" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <Component id="Logout" min="-2" max="-2" attributes="0"/>
+                      <Component id="buttonLogout" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="199" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -70,41 +70,41 @@
               <Component id="Sales_manager" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="Item_entry" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="Purchase_requisition" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="buttonItem_entry" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="buttonPurchase_requisition" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="View_po" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="Supplier_entry" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="buttonView_po" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="buttonSupplier_entry" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="Daily_item_wise_sales_entry" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="My_profile" min="-2" max="-2" attributes="0"/>
+                  <Component id="buttonDaily_item_wise_sales_entry" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="buttonMy_profile" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-              <Component id="Logout" min="-2" max="-2" attributes="0"/>
+              <Component id="buttonLogout" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JButton" name="Item_entry">
+    <Component class="javax.swing.JButton" name="buttonItem_entry">
       <Properties>
         <Property name="text" type="java.lang.String" value="Item Entry"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Item_entryActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonItem_entryActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="Supplier_entry">
+    <Component class="javax.swing.JButton" name="buttonSupplier_entry">
       <Properties>
         <Property name="text" type="java.lang.String" value="Supplier Entry "/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Supplier_entryActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonSupplier_entryActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="Sales_manager">
@@ -115,44 +115,44 @@
         <Property name="text" type="java.lang.String" value="Sales Manager Home Page"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="Daily_item_wise_sales_entry">
+    <Component class="javax.swing.JButton" name="buttonDaily_item_wise_sales_entry">
       <Properties>
         <Property name="text" type="java.lang.String" value="Daily Item-wise Sales Entry"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Daily_item_wise_sales_entryActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonDaily_item_wise_sales_entryActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="Purchase_requisition">
+    <Component class="javax.swing.JButton" name="buttonPurchase_requisition">
       <Properties>
         <Property name="text" type="java.lang.String" value="Purchase Requisition"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Purchase_requisitionActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonPurchase_requisitionActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="View_po">
+    <Component class="javax.swing.JButton" name="buttonView_po">
       <Properties>
         <Property name="text" type="java.lang.String" value="View Purchase Order"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="View_poActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonView_poActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="My_profile">
+    <Component class="javax.swing.JButton" name="buttonMy_profile">
       <Properties>
         <Property name="text" type="java.lang.String" value="My Profile"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="My_profileActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonMy_profileActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="Logout">
+    <Component class="javax.swing.JButton" name="buttonLogout">
       <Properties>
         <Property name="text" type="java.lang.String" value="Logout"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="LogoutActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonLogoutActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="System_name">

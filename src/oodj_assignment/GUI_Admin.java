@@ -156,20 +156,23 @@ public class GUI_Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonDailyEntryActionPerformed
 
     private void buttonPREntryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPREntryActionPerformed
-        GUI_Daily_item_Entry die = new GUI_Daily_item_Entry();
-        die.show();
+        GUI_pr pre = new GUI_pr();
+        pre.show();
     }//GEN-LAST:event_buttonPREntryActionPerformed
 
     private void buttonProfileEntryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonProfileEntryActionPerformed
-        // TODO add your handling code here:
+        GUI_Profile pe = new GUI_Profile();
+        pe.show();
     }//GEN-LAST:event_buttonProfileEntryActionPerformed
 
     private void buttonLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLogoutActionPerformed
-        // TODO add your handling code here:
+        GUI_Login le = new GUI_Login();
+        le.show();
     }//GEN-LAST:event_buttonLogoutActionPerformed
 
     private void buttonPOEntryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPOEntryActionPerformed
-        // TODO add your handling code here:
+        GUI_PM_PO poe = new GUI_PM_PO();
+        poe.show();
     }//GEN-LAST:event_buttonPOEntryActionPerformed
 
     /**
