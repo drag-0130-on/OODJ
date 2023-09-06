@@ -33,11 +33,11 @@ public class PurchaseRequisition implements Record {
     public static ArrayList<String[]> view()throws IOException{
         return prFile.viewFile();
     }
-    public static ArrayList<String[]> filter(String filter) throws IOException{
-        return prFile.viewFileWithFilter(filter);
+    public static ArrayList<String[]> view(String filter) throws IOException{
+        return prFile.viewFile(filter);
     }
-    public static ArrayList<String[]> filter(ArrayList<String[]> AL, int attIndex, String filter){
-        return prFile.viewFileWithFilter(AL,attIndex,filter);
+    public static ArrayList<String[]> view(ArrayList<String[]> AL, int attIndex, String filter){
+        return prFile.viewFile(AL,attIndex,filter);
     }
     public String toString(){
         return (prID + "|" + item.toString() + "|" + quantity + "|" + smID + "|" + status);

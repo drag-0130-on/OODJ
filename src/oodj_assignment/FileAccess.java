@@ -28,7 +28,7 @@ public class FileAccess {
         br.close();
         return content;
     }
-    public ArrayList<String[]> viewFileWithFilter(String filter) throws IOException{
+    public ArrayList<String[]> viewFile(String filter) throws IOException{
         ArrayList<String[]> ogcontent = viewFile();
         ArrayList<String[]> content = new ArrayList<String[]>();
         for (String[] line: ogcontent){
@@ -38,7 +38,7 @@ public class FileAccess {
         }
         return content;
     }
-    public ArrayList<String[]> viewFileWithFilter(ArrayList<String[]> AL, int attIndex, String filter){
+    public ArrayList<String[]> viewFile(ArrayList<String[]> AL, int attIndex, String filter){
         ArrayList<String[]> content = new ArrayList<String[]>();
         for (String[] line: AL){
             if (line[attIndex] == filter){

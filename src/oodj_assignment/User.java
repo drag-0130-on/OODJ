@@ -28,11 +28,11 @@ public class User {
     public static ArrayList<String[]> view() throws IOException{
         return userFile.viewFile();
     }
-    public static ArrayList<String[]> filter(String filter) throws IOException{
-        return userFile.viewFileWithFilter(filter);
+    public static ArrayList<String[]> view(String filter) throws IOException{
+        return userFile.viewFile(filter);
     }
-    public static ArrayList<String[]> filter(ArrayList<String[]> AL, int attIndex, String filter){
-        return userFile.viewFileWithFilter(AL, attIndex, filter);
+    public static ArrayList<String[]> view(ArrayList<String[]> AL, int attIndex, String filter){
+        return userFile.viewFile(AL, attIndex, filter);
     }
     public String getName() {
         return name;
