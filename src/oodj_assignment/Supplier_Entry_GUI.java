@@ -47,33 +47,33 @@ public class Supplier_Entry_GUI extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel7 = new javax.swing.JLabel();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
+        deleteSupplier = new javax.swing.JButton();
+        editSupplier = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         SupplierTable = new javax.swing.JTable();
-        jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jTextField3 = new javax.swing.JTextField();
         jButton13 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        addSupplier = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
+        tSearch = new javax.swing.JButton();
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel7.setText("PURCHASE ORDER MANAGEMENT SYSTEM");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton6.setText("Delete supplier");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        deleteSupplier.setText("Delete supplier");
+        deleteSupplier.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                deleteSupplierActionPerformed(evt);
             }
         });
 
-        jButton7.setText("Edit supplier");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        editSupplier.setText("Edit supplier");
+        editSupplier.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                editSupplierActionPerformed(evt);
             }
         });
 
@@ -90,8 +90,6 @@ public class Supplier_Entry_GUI extends javax.swing.JFrame {
         ));
         jScrollPane3.setViewportView(SupplierTable);
 
-        jLabel3.setText("Search:");
-
         jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel4.setText("Supplier Entry");
 
@@ -104,15 +102,22 @@ public class Supplier_Entry_GUI extends javax.swing.JFrame {
             }
         });
 
-        jButton5.setText("Add supplier");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        addSupplier.setText("Add supplier");
+        addSupplier.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                addSupplierActionPerformed(evt);
             }
         });
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel8.setText("PURCHASE ORDER MANAGEMENT SYSTEM");
+
+        tSearch.setText("Search");
+        tSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tSearchActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -132,16 +137,17 @@ public class Supplier_Entry_GUI extends javax.swing.JFrame {
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGap(59, 59, 59)
+                                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(tSearch))
                                 .addComponent(jLabel8))))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGap(39, 39, 39)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton6)
-                            .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(addSupplier, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(deleteSupplier)
+                            .addComponent(editSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 421, Short.MAX_VALUE)))
                 .addContainerGap(55, Short.MAX_VALUE))
         );
@@ -154,20 +160,20 @@ public class Supplier_Entry_GUI extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton5)
+                        .addComponent(addSupplier)
                         .addGap(88, 88, 88)
-                        .addComponent(jButton6)
+                        .addComponent(deleteSupplier)
                         .addGap(88, 88, 88)
-                        .addComponent(jButton7)
+                        .addComponent(editSupplier)
                         .addGap(44, 44, 44))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel3))
+                            .addComponent(tSearch))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)))
                 .addComponent(jButton13)
                 .addContainerGap())
         );
@@ -175,13 +181,13 @@ public class Supplier_Entry_GUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void deleteSupplierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteSupplierActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_deleteSupplierActionPerformed
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+    private void editSupplierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editSupplierActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton7ActionPerformed
+    }//GEN-LAST:event_editSupplierActionPerformed
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
         Sales_Manager_GUI sales = new Sales_Manager_GUI();
@@ -189,11 +195,28 @@ public class Supplier_Entry_GUI extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jButton13ActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void addSupplierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addSupplierActionPerformed
         Add_item_GUI add = new Add_item_GUI();
         add.show();
         dispose();
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_addSupplierActionPerformed
+
+    private void tSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tSearchActionPerformed
+        DefaultTableModel model = (DefaultTableModel) SupplierTable.getModel();
+        String input = tSearch.getText();
+        
+        try {
+            ArrayList<String[]> it = Supplier.filter(input);
+            model.setRowCount(0);
+
+            for (String[] il : it) {
+                model.addRow(il);
+            }
+                    
+        } catch (IOException ex) {
+            Logger.getLogger(Supplier_Entry_GUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+                    }//GEN-LAST:event_tSearchActionPerformed
 
     /**
      * @param args the command line arguments
@@ -233,15 +256,15 @@ public class Supplier_Entry_GUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable SupplierTable;
+    private javax.swing.JButton addSupplier;
+    private javax.swing.JButton deleteSupplier;
+    private javax.swing.JButton editSupplier;
     private javax.swing.JButton jButton13;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTextField jTextField3;
+    private javax.swing.JButton tSearch;
     // End of variables declaration//GEN-END:variables
 }

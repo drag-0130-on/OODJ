@@ -6,29 +6,59 @@ package oodj_assignment;
 
 import javax.swing.JOptionPane;
 import javax.swing.DefaultComboBoxModel;
+import java.io.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.*;
 
 public class Add_item_GUI extends javax.swing.JFrame {
 
     public Add_item_GUI() {
         initComponents();
-        loadComboBox();
+        loadCategory();
+        //loadSupplier();
     }
     
-    public void loadComboBox(){
-        Item.Category[] categories = Item.Category.values();
-        String[] categoryStrings = new String[categories.length];
-        for (int i = 0; i < categories.length; i++) {
-            categoryStrings[i] = categories[i].toString();
-        }
-        DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>(categoryStrings);
+    public void loadCategory(){
+        ItemCategory[] categories = ItemCategory.values();
+        DefaultComboBoxModel<ItemCategory> model = new DefaultComboBoxModel<>(categories);
         Category.setModel(model);
+        Category.setSelectedIndex(-1);
+    }
+    public void loadSupplier(){
+      /*  FileReader supplierFileReader = null;
+        try {
+            supplierFileReader = new FileReader("supplier.txt");
+            List<String> supplierNames = new ArrayList<>();
+
+            BufferedReader reader = new BufferedReader(supplierFileReader);
+            String line;
+            while ((line = reader.readLine()) != null) {
+                supplierNames.add(line);
+            }
+            DefaultComboBoxModel<String> supplierModel = new DefaultComboBoxModel<>(supplierNames.toArray(new String[0]));
+            Supplier.setModel(supplierModel);
+            Supplier.setSelectedIndex(-1);
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Add_item_GUI.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(Add_item_GUI.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            if (supplierFileReader != null) {
+                try {
+                    supplierFileReader.close();
+                } catch (IOException ex) {
+                    Logger.getLogger(Add_item_GUI.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }*/
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         Price = new javax.swing.JTextField();
-        SupplierComboBox = new javax.swing.JComboBox<>();
+        SupplierComboBox = new javax.swing.JComboBox();
         Add_item = new javax.swing.JLabel();
         Save = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
@@ -50,7 +80,7 @@ public class Add_item_GUI extends javax.swing.JFrame {
             }
         });
 
-        SupplierComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        SupplierComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         SupplierComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SupplierComboBoxActionPerformed(evt);
@@ -200,9 +230,9 @@ public class Add_item_GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_PriceActionPerformed
 
     private void SupplierComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SupplierComboBoxActionPerformed
-
+    
     }//GEN-LAST:event_SupplierComboBoxActionPerformed
-
+        
     
     /**
      * @param args the command line arguments
@@ -245,12 +275,12 @@ public class Add_item_GUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Add_item;
     private javax.swing.JButton Cancel;
-    private javax.swing.JComboBox<Item.Category> Category;
+    private javax.swing.JComboBox<ItemCategory> Category;
     private javax.swing.JTextField Item_name;
     private javax.swing.JTextField Price;
     private javax.swing.JButton Save;
     private javax.swing.JTextField Stock;
-    private javax.swing.JComboBox<String> SupplierComboBox;
+    private javax.swing.JComboBox SupplierComboBox;
     private javax.swing.JLabel System_name;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
