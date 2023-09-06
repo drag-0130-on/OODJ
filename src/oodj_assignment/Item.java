@@ -22,6 +22,14 @@ public class Item implements Record {
           this.supplier = supplier;
     }
 
+    public String getItemID() {
+        return itemID;
+    }
+
+    public void setItemID(String itemID) {
+        this.itemID = itemID;
+    }
+
     public void add() throws IOException{
         itemFile.addToFile(toString());
     }     
