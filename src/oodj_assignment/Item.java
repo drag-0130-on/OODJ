@@ -22,6 +22,14 @@ public class Item implements Record {
           this.supplier = supplier;
     }
 
+    public String getItemID() {
+        return itemID;
+    }
+
+    public void setItemID(String itemID) {
+        this.itemID = itemID;
+    }
+
     public void add() throws IOException{
         itemFile.addToFile(toString());
     }     
@@ -41,9 +49,13 @@ public class Item implements Record {
     public static ArrayList<String[]> view(ArrayList<String[]> AL, int attIndex, String filter){
         return itemFile.viewFile(AL,attIndex,filter);
     }
+    public boolean verifyUU()throws IOException{
+        return itemFile.verifyUniqueness(itemID, 0);
+    }
     public String toString(){
         return (itemID + "|"+itemName + "|" + category.toString() + "|" + stock + "|" + price + "|" + supplier.getID() + "|" + supplier.getName());
 //        return category+"|"+tem_Id+"|"+Item_Name+"|"+Stock+"|"+Price+"|"+Supplier_Name;
     }
+    
 
 }

@@ -76,5 +76,4 @@ public class Admin extends User {
     public void removeUser(User user)throws IOException{
         user.remove();
     }
-    
 }
