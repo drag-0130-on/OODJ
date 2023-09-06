@@ -35,11 +35,11 @@ public class Item implements Record {
     public static ArrayList<String[]> view()throws IOException{
         return itemFile.viewFile();
     }
-    public static ArrayList<String[]> filter(String filter)throws IOException{
-        return itemFile.viewFileWithFilter(filter);
+    public static ArrayList<String[]> view(String filter)throws IOException{
+        return itemFile.viewFile(filter);
     }
-    public static ArrayList<String[]> filter(ArrayList<String[]> AL, int attIndex, String filter){
-        return itemFile.viewFileWithFilter(AL,attIndex,filter);
+    public static ArrayList<String[]> view(ArrayList<String[]> AL, int attIndex, String filter){
+        return itemFile.viewFile(AL,attIndex,filter);
     }
     public boolean verifyUU()throws IOException{
         return itemFile.verifyUniqueness(itemID, 0);
