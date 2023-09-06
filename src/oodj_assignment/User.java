@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class User {                      
+public class User implements Record{                      
     private String name, userID, password, email, contact;
     private static FileAccess userFile = new FileAccess("user.txt");
     private Role role = Role.Unauthorized;
@@ -19,8 +19,8 @@ public class User {
     public void add() throws IOException{
         userFile.addToFile(toString());
     }
-    public void edit(String newData) throws IOException{
-        userFile.editFile(toString(), newData);
+    public void edit(Object newData) throws IOException{
+        userFile.editFile(toString(), newData.toString());
     }
     public void remove() throws IOException{
         userFile.removeFromFile(toString());
