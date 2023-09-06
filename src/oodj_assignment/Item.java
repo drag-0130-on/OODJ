@@ -49,8 +49,8 @@ public class Item implements Record {
     public static ArrayList<String[]> view(ArrayList<String[]> AL, int attIndex, String filter){
         return itemFile.viewFile(AL,attIndex,filter);
     }
-    public boolean verifyUU()throws IOException{
-        return itemFile.verifyUniqueness(itemID, 0);
+    public boolean verifyUniqueness()throws IOException{
+        return itemFile.verifyDataUniqueness(itemID, 0);
     }
     public String toString(){
         return (itemID + "|"+itemName + "|" + category.toString() + "|" + stock + "|" + price + "|" + supplier.getID() + "|" + supplier.getName());

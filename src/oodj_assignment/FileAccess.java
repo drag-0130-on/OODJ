@@ -101,7 +101,7 @@ public class FileAccess {
         bw.close();
         return true;
     }
-    public boolean verifyUniqueness(String data, int i) throws IOException{
+    public boolean verifyDataUniqueness(String data, int i) throws IOException{
         ArrayList<String[]> content = viewFile();
         for (String[] line:content){
             if (line[i].equals(data)){

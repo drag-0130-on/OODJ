@@ -94,7 +94,7 @@ public class User {
             }
         }
     }
-    public boolean verifyUU()throws IOException{
-        return userFile.verifyUniqueness(userID, 0);
+    public boolean verifyUniqueness()throws IOException{
+        return userFile.verifyDataUniqueness(userID, 0);
     }
 }        

@@ -43,8 +43,8 @@ public class Supplier implements Record {
     public static ArrayList<String[]> view(ArrayList<String[]> AL, int attIndex, String filter){
         return supplierFile.viewFile(AL,attIndex,filter);
     }
-    public boolean verifyUU()throws IOException{
-        return supplierFile.verifyUniqueness(supplierID, 0);
+    public boolean verifyUniqueness()throws IOException{
+        return supplierFile.verifyDataUniqueness(supplierID, 0);
     }
     public String toString(){
         return (supplierID + "|" + supplierName + "|" + email + "|" + contactNo);
