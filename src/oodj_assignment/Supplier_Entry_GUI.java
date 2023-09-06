@@ -179,7 +179,8 @@ public class Supplier_Entry_GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonRemoveActionPerformed
 
     private void buttonEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEditActionPerformed
-        // TODO add your handling code here:
+        Edit_supplier_GUI edit = new Edit_supplier_GUI();
+        edit.show();
     }//GEN-LAST:event_buttonEditActionPerformed
 
     private void buttonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBackActionPerformed
