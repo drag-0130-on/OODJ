@@ -57,9 +57,9 @@ public class Item_Entry_GUI extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         ItemTable = new javax.swing.JTable();
-        tSearch = new javax.swing.JTextField();
+        txtSearch = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        SearchButton = new javax.swing.JButton();
+        buttonSearch = new javax.swing.JButton();
         Back = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -102,15 +102,15 @@ public class Item_Entry_GUI extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(ItemTable);
 
-        tSearch.setToolTipText("");
+        txtSearch.setToolTipText("");
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel7.setText("PURCHASE ORDER MANAGEMENT SYSTEM");
 
-        SearchButton.setText("Search");
-        SearchButton.addActionListener(new java.awt.event.ActionListener() {
+        buttonSearch.setText("Search");
+        buttonSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SearchButtonActionPerformed(evt);
+                buttonSearchActionPerformed(evt);
             }
         });
 
@@ -134,9 +134,9 @@ public class Item_Entry_GUI extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(tSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(SearchButton)
+                        .addComponent(buttonSearch)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -161,8 +161,8 @@ public class Item_Entry_GUI extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(SearchButton, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(tSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(buttonSearch, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
@@ -191,9 +191,9 @@ public class Item_Entry_GUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_Delete_itemActionPerformed
 
-    private void SearchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchButtonActionPerformed
+    private void buttonSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSearchActionPerformed
         DefaultTableModel model = (DefaultTableModel) ItemTable.getModel();
-        String input = tSearch.getText();
+        String input = txtSearch.getText();
         
         try {
            ArrayList<String[]> it = Item.view(input);
@@ -207,7 +207,7 @@ public class Item_Entry_GUI extends javax.swing.JFrame {
             Logger.getLogger(Item_Entry_GUI.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-    }//GEN-LAST:event_SearchButtonActionPerformed
+    }//GEN-LAST:event_buttonSearchActionPerformed
 
     private void BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed
         Sales_Manager_GUI sales = new Sales_Manager_GUI();
@@ -257,10 +257,10 @@ public class Item_Entry_GUI extends javax.swing.JFrame {
     private javax.swing.JButton Delete_item;
     private javax.swing.JButton Edit_item;
     private javax.swing.JTable ItemTable;
-    private javax.swing.JButton SearchButton;
+    private javax.swing.JButton buttonSearch;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextField tSearch;
+    private javax.swing.JTextField txtSearch;
     // End of variables declaration//GEN-END:variables
 }
