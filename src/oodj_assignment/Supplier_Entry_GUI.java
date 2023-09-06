@@ -188,7 +188,7 @@ public class Supplier_Entry_GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonBackActionPerformed
 
     private void buttonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddActionPerformed
-        Add_item_GUI add = new Add_item_GUI();
+        Add_supplier_GUI add = new Add_supplier_GUI();
         add.show();
     }//GEN-LAST:event_buttonAddActionPerformed
 
