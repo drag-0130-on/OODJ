@@ -9,5 +9,5 @@ package oodj_assignment;
  * @author drag0
  */
 public enum Role {
-    Admin,SalesManager,PurchaseManager,None
+    Admin,SalesManager,PurchaseManager,Unauthorized
 }
