@@ -4,8 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class User {
-    public enum Role {Admin,SalesManager,PurchaseManager,None}                      
+public class User {                      
     private String name, userID, password, email, contact;
     private static FileAccess userFile = new FileAccess("user.txt");
     private Role role = Role.None;
