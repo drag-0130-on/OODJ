@@ -57,7 +57,7 @@ public class GUI_Add_item extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        Price = new javax.swing.JTextField();
+        txtPrice = new javax.swing.JTextField();
         SupplierComboBox = new javax.swing.JComboBox();
         Add_item = new javax.swing.JLabel();
         Save = new javax.swing.JButton();
@@ -69,14 +69,14 @@ public class GUI_Add_item extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         Category = new javax.swing.JComboBox<>();
-        Item_name = new javax.swing.JTextField();
-        Stock = new javax.swing.JTextField();
+        txtItem_name = new javax.swing.JTextField();
+        txtStock = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        Price.addActionListener(new java.awt.event.ActionListener() {
+        txtPrice.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PriceActionPerformed(evt);
+                txtPriceActionPerformed(evt);
             }
         });
 
@@ -118,15 +118,15 @@ public class GUI_Add_item extends javax.swing.JFrame {
             }
         });
 
-        Item_name.addActionListener(new java.awt.event.ActionListener() {
+        txtItem_name.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Item_nameActionPerformed(evt);
+                txtItem_nameActionPerformed(evt);
             }
         });
 
-        Stock.addActionListener(new java.awt.event.ActionListener() {
+        txtStock.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                StockActionPerformed(evt);
+                txtStockActionPerformed(evt);
             }
         });
 
@@ -148,11 +148,11 @@ public class GUI_Add_item extends javax.swing.JFrame {
                             .addComponent(jLabel6)
                             .addComponent(Category, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3)
-                            .addComponent(Item_name, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Stock, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtItem_name, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtStock, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4)
                             .addComponent(jLabel5)
-                            .addComponent(Price, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(SupplierComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(27, 27, 27)
@@ -176,15 +176,15 @@ public class GUI_Add_item extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel3)
                 .addGap(5, 5, 5)
-                .addComponent(Item_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtItem_name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel4)
                 .addGap(2, 2, 2)
-                .addComponent(Stock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Price, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -203,15 +203,15 @@ public class GUI_Add_item extends javax.swing.JFrame {
         
     }//GEN-LAST:event_CategoryActionPerformed
 
-    private void StockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StockActionPerformed
+    private void txtStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStockActionPerformed
 
-    }//GEN-LAST:event_StockActionPerformed
+    }//GEN-LAST:event_txtStockActionPerformed
 
     private void SaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveActionPerformed
         String category = (String)Category.getSelectedItem();
-        String stock = Stock.getText();
-        String item_name = Item_name.getText();
-        String price = Price.getText();
+        String stock = txtStock.getText();
+        String item_name = txtItem_name.getText();
+        String price = txtPrice.getText();
         String supplier = (String)SupplierComboBox.getSelectedItem();
         if(category.isEmpty() || item_name.isEmpty() || stock.isEmpty() || price.isEmpty() || supplier.isEmpty()){
             JOptionPane.showMessageDialog(null,"Missing information",null,JOptionPane.ERROR_MESSAGE);
@@ -221,13 +221,13 @@ public class GUI_Add_item extends javax.swing.JFrame {
         }  
     }//GEN-LAST:event_SaveActionPerformed
 
-    private void Item_nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Item_nameActionPerformed
+    private void txtItem_nameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtItem_nameActionPerformed
         
-    }//GEN-LAST:event_Item_nameActionPerformed
+    }//GEN-LAST:event_txtItem_nameActionPerformed
 
-    private void PriceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PriceActionPerformed
+    private void txtPriceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPriceActionPerformed
 
-    }//GEN-LAST:event_PriceActionPerformed
+    }//GEN-LAST:event_txtPriceActionPerformed
 
     private void SupplierComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SupplierComboBoxActionPerformed
     
@@ -278,10 +278,7 @@ public class GUI_Add_item extends javax.swing.JFrame {
     private javax.swing.JLabel Add_item;
     private javax.swing.JButton Cancel;
     private javax.swing.JComboBox<ItemCategory> Category;
-    private javax.swing.JTextField Item_name;
-    private javax.swing.JTextField Price;
     private javax.swing.JButton Save;
-    private javax.swing.JTextField Stock;
     private javax.swing.JComboBox SupplierComboBox;
     private javax.swing.JLabel System_name;
     private javax.swing.JLabel jLabel2;
@@ -289,6 +286,9 @@ public class GUI_Add_item extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JTextField txtItem_name;
+    private javax.swing.JTextField txtPrice;
+    private javax.swing.JTextField txtStock;
     // End of variables declaration//GEN-END:variables
 
     
