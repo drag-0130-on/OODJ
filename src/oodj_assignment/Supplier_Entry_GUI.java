@@ -20,7 +20,7 @@ public class Supplier_Entry_GUI extends javax.swing.JFrame {
         try {
             showTable();
         } catch (IOException ex) {
-            Logger.getLogger(Daily_item_Entry_GUI.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Supplier_Entry_GUI.class.getName()).log(Level.SEVERE, null, ex);
         }
         
     }
@@ -52,11 +52,11 @@ public class Supplier_Entry_GUI extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         SupplierTable = new javax.swing.JTable();
         jLabel4 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        txtSearch = new javax.swing.JTextField();
         jButton13 = new javax.swing.JButton();
         addSupplier = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
-        tSearch = new javax.swing.JButton();
+        buttonSearch = new javax.swing.JButton();
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel7.setText("PURCHASE ORDER MANAGEMENT SYSTEM");
@@ -93,7 +93,7 @@ public class Supplier_Entry_GUI extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel4.setText("Supplier Entry");
 
-        jTextField3.setToolTipText("");
+        txtSearch.setToolTipText("");
 
         jButton13.setText("Back");
         jButton13.addActionListener(new java.awt.event.ActionListener() {
@@ -112,10 +112,10 @@ public class Supplier_Entry_GUI extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel8.setText("PURCHASE ORDER MANAGEMENT SYSTEM");
 
-        tSearch.setText("Search");
-        tSearch.addActionListener(new java.awt.event.ActionListener() {
+        buttonSearch.setText("Search");
+        buttonSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tSearchActionPerformed(evt);
+                buttonSearchActionPerformed(evt);
             }
         });
 
@@ -137,10 +137,9 @@ public class Supplier_Entry_GUI extends javax.swing.JFrame {
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(layout.createSequentialGroup()
-                                    .addGap(59, 59, 59)
-                                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(18, 18, 18)
-                                    .addComponent(tSearch))
+                                    .addComponent(buttonSearch))
                                 .addComponent(jLabel8))))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGap(39, 39, 39)
@@ -169,8 +168,8 @@ public class Supplier_Entry_GUI extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tSearch))
+                            .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(buttonSearch))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)))
@@ -201,12 +200,12 @@ public class Supplier_Entry_GUI extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_addSupplierActionPerformed
 
-    private void tSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tSearchActionPerformed
+    private void buttonSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSearchActionPerformed
         DefaultTableModel model = (DefaultTableModel) SupplierTable.getModel();
-        String input = tSearch.getText();
+        String input = txtSearch.getText();
         
         try {
-            ArrayList<String[]> it = Supplier.filter(input);
+            ArrayList<String[]> it = Supplier.view(input);
             model.setRowCount(0);
 
             for (String[] il : it) {
@@ -216,7 +215,7 @@ public class Supplier_Entry_GUI extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(Supplier_Entry_GUI.class.getName()).log(Level.SEVERE, null, ex);
         }
-                    }//GEN-LAST:event_tSearchActionPerformed
+                    }//GEN-LAST:event_buttonSearchActionPerformed
 
     /**
      * @param args the command line arguments
@@ -257,6 +256,7 @@ public class Supplier_Entry_GUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable SupplierTable;
     private javax.swing.JButton addSupplier;
+    private javax.swing.JButton buttonSearch;
     private javax.swing.JButton deleteSupplier;
     private javax.swing.JButton editSupplier;
     private javax.swing.JButton jButton13;
@@ -264,7 +264,6 @@ public class Supplier_Entry_GUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JButton tSearch;
+    private javax.swing.JTextField txtSearch;
     // End of variables declaration//GEN-END:variables
 }
