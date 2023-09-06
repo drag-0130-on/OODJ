@@ -162,9 +162,9 @@ public class Item_Entry_GUI extends javax.swing.JFrame {
                 .addGap(8, 8, 8)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(SearchButton))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(SearchButton, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(tSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
@@ -201,16 +201,11 @@ public class Item_Entry_GUI extends javax.swing.JFrame {
         String input = tSearch.getText();
         
         try {
-           ArrayList<String[]> it = Item.view();
+           ArrayList<String[]> it = Item.filter(input);
             model.setRowCount(0);
 
             for (String[] il : it) {
-                for (String data : il) {
-                    if (data.contains(input)) {
-                        model.addRow(il);
-                        break;
-                    }
-                }
+                model.addRow(il);
             }
                     
         } catch (IOException ex) {
