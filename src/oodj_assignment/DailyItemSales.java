@@ -27,11 +27,11 @@ public class DailyItemSales implements Record {
     public static ArrayList<String[]> view()throws IOException{
         return dailyFile.viewFile();
     }
-    public static ArrayList<String[]> filter(String filter) throws IOException{
-        return dailyFile.viewFileWithFilter(filter);
+    public static ArrayList<String[]> view(String filter) throws IOException{
+        return dailyFile.viewFile(filter);
     }
-    public static ArrayList<String[]> filter(ArrayList<String[]> AL, int attIndex, String filter){
-        return dailyFile.viewFileWithFilter(AL,attIndex,filter);
+    public static ArrayList<String[]> view(ArrayList<String[]> AL, int attIndex, String filter){
+        return dailyFile.viewFile(AL,attIndex,filter);
     }
     public String toString(){
         return (date + "|" + amountSold + "|" + item.toString());
