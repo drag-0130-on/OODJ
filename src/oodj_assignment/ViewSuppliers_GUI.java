@@ -51,7 +51,7 @@ public class ViewSuppliers_GUI extends javax.swing.JFrame {
         SupplierTable = new javax.swing.JTable();
         jLabel4 = new javax.swing.JLabel();
         txtSearch = new javax.swing.JTextField();
-        Back = new javax.swing.JButton();
+        buttonBack = new javax.swing.JButton();
         buttonSearch = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -81,10 +81,10 @@ public class ViewSuppliers_GUI extends javax.swing.JFrame {
             }
         });
 
-        Back.setText("Back");
-        Back.addActionListener(new java.awt.event.ActionListener() {
+        buttonBack.setText("Back");
+        buttonBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BackActionPerformed(evt);
+                buttonBackActionPerformed(evt);
             }
         });
 
@@ -110,7 +110,7 @@ public class ViewSuppliers_GUI extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(45, 45, 45)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(Back)
+                    .addComponent(buttonBack)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
                             .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -133,7 +133,7 @@ public class ViewSuppliers_GUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(Back)
+                .addComponent(buttonBack)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -144,9 +144,11 @@ public class ViewSuppliers_GUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtSearchActionPerformed
 
-    private void BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_BackActionPerformed
+    private void buttonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBackActionPerformed
+        PurchaseManager_GUI pm = new PurchaseManager_GUI();
+        pm.show();
+        dispose();
+    }//GEN-LAST:event_buttonBackActionPerformed
 
     private void buttonSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSearchActionPerformed
         DefaultTableModel model = (DefaultTableModel) SupplierTable.getModel();
@@ -205,8 +207,8 @@ public class ViewSuppliers_GUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Back;
     private javax.swing.JTable SupplierTable;
+    private javax.swing.JButton buttonBack;
     private javax.swing.JButton buttonSearch;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
