@@ -49,10 +49,9 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jScrollPane3" min="-2" pref="402" max="-2" attributes="0"/>
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
-                                  <Component id="jTextField3" min="-2" pref="115" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="tSearch" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtSearch" min="-2" pref="174" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                                  <Component id="buttonSearch" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
                           </Group>
@@ -91,8 +90,8 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jTextField3" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="tSearch" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtSearch" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="buttonSearch" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jScrollPane3" min="-2" pref="251" max="-2" attributes="0"/>
@@ -154,7 +153,7 @@
         <Property name="text" type="java.lang.String" value="Supplier Entry"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField3">
+    <Component class="javax.swing.JTextField" name="txtSearch">
       <Properties>
         <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
@@ -183,12 +182,12 @@
         <Property name="text" type="java.lang.String" value="PURCHASE ORDER MANAGEMENT SYSTEM"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="tSearch">
+    <Component class="javax.swing.JButton" name="buttonSearch">
       <Properties>
         <Property name="text" type="java.lang.String" value="Search"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tSearchActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonSearchActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
