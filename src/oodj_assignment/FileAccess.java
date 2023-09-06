@@ -56,8 +56,7 @@ public class FileAccess {
         catch(Exception e){
             e.printStackTrace();
         }
-        
-        content.add(data.split("\\|"));
+        content.add(data.split("\\|"));  
         for (String[] line:content){
             bw.write(String.join("|",line));
             bw.newLine();
