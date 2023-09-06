@@ -26,9 +26,9 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="Add_item" alignment="0" max="32767" attributes="0"/>
-                  <Component id="Edit_item" alignment="0" max="32767" attributes="0"/>
-                  <Component id="Delete_item" alignment="0" max="32767" attributes="0"/>
+                  <Component id="buttonAdd" alignment="0" max="32767" attributes="0"/>
+                  <Component id="buttonEdit" alignment="0" max="32767" attributes="0"/>
+                  <Component id="buttonRemove" alignment="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
@@ -43,7 +43,7 @@
                           <Component id="Back" min="-2" max="-2" attributes="0"/>
                           <Component id="jScrollPane2" min="-2" pref="402" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="0" pref="37" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="27" max="32767" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -76,11 +76,11 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <Component id="Add_item" min="-2" max="-2" attributes="0"/>
+                      <Component id="buttonAdd" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="88" max="-2" attributes="0"/>
-                      <Component id="Edit_item" min="-2" max="-2" attributes="0"/>
+                      <Component id="buttonEdit" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="88" max="-2" attributes="0"/>
-                      <Component id="Delete_item" min="-2" max="-2" attributes="0"/>
+                      <Component id="buttonRemove" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Component id="jScrollPane2" alignment="1" min="-2" pref="251" max="-2" attributes="0"/>
               </Group>
@@ -92,28 +92,28 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JButton" name="Add_item">
+    <Component class="javax.swing.JButton" name="buttonAdd">
       <Properties>
         <Property name="text" type="java.lang.String" value="Add item"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Add_itemActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonAddActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="Edit_item">
+    <Component class="javax.swing.JButton" name="buttonEdit">
       <Properties>
         <Property name="text" type="java.lang.String" value="Edit item"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Edit_itemActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonEditActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="Delete_item">
+    <Component class="javax.swing.JButton" name="buttonRemove">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Delete item"/>
+        <Property name="text" type="java.lang.String" value="Remove item"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Delete_itemActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonRemoveActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">

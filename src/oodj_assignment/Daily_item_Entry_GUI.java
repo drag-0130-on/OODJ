@@ -54,30 +54,30 @@ public class Daily_item_Entry_GUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        deleteSales = new javax.swing.JButton();
-        editSale = new javax.swing.JButton();
+        buttonRemove = new javax.swing.JButton();
+        buttonEdit = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         DailyTable = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         txtSearch = new javax.swing.JTextField();
         back = new javax.swing.JButton();
-        addSales = new javax.swing.JButton();
+        buttonAdd = new javax.swing.JButton();
         tSearch = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        deleteSales.setText("Delete sales");
-        deleteSales.addActionListener(new java.awt.event.ActionListener() {
+        buttonRemove.setText("Remove sales");
+        buttonRemove.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteSalesActionPerformed(evt);
+                buttonRemoveActionPerformed(evt);
             }
         });
 
-        editSale.setText("Edit sales");
-        editSale.addActionListener(new java.awt.event.ActionListener() {
+        buttonEdit.setText("Edit sales");
+        buttonEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                editSaleActionPerformed(evt);
+                buttonEditActionPerformed(evt);
             }
         });
 
@@ -109,10 +109,10 @@ public class Daily_item_Entry_GUI extends javax.swing.JFrame {
             }
         });
 
-        addSales.setText("Add sales");
-        addSales.addActionListener(new java.awt.event.ActionListener() {
+        buttonAdd.setText("Add sales");
+        buttonAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addSalesActionPerformed(evt);
+                buttonAddActionPerformed(evt);
             }
         });
 
@@ -135,9 +135,9 @@ public class Daily_item_Entry_GUI extends javax.swing.JFrame {
                             .addComponent(back)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(addSales, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(deleteSales, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(editSale, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(buttonAdd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(buttonRemove, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(buttonEdit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(72, 72, 72)
                                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(28, 28, 28))))
@@ -169,11 +169,11 @@ public class Daily_item_Entry_GUI extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(addSales)
-                        .addGap(88, 88, 88)
-                        .addComponent(deleteSales)
-                        .addGap(88, 88, 88)
-                        .addComponent(editSale))
+                        .addComponent(buttonAdd)
+                        .addGap(87, 87, 87)
+                        .addComponent(buttonEdit)
+                        .addGap(89, 89, 89)
+                        .addComponent(buttonRemove))
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
                 .addComponent(back)
@@ -183,25 +183,23 @@ public class Daily_item_Entry_GUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void deleteSalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteSalesActionPerformed
+    private void buttonRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonRemoveActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_deleteSalesActionPerformed
+    }//GEN-LAST:event_buttonRemoveActionPerformed
 
-    private void editSaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editSaleActionPerformed
+    private void buttonEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEditActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_editSaleActionPerformed
+    }//GEN-LAST:event_buttonEditActionPerformed
 
     private void backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backActionPerformed
         Sales_Manager_GUI sales = new Sales_Manager_GUI();
         sales.show();
-        dispose();
     }//GEN-LAST:event_backActionPerformed
 
-    private void addSalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addSalesActionPerformed
+    private void buttonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddActionPerformed
         Add_item_GUI add = new Add_item_GUI();
         add.show();
-        dispose();
-    }//GEN-LAST:event_addSalesActionPerformed
+    }//GEN-LAST:event_buttonAddActionPerformed
 
     private void tSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tSearchActionPerformed
         DefaultTableModel model = (DefaultTableModel) DailyTable.getModel();
@@ -261,10 +259,10 @@ public class Daily_item_Entry_GUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable DailyTable;
-    private javax.swing.JButton addSales;
     private javax.swing.JButton back;
-    private javax.swing.JButton deleteSales;
-    private javax.swing.JButton editSale;
+    private javax.swing.JButton buttonAdd;
+    private javax.swing.JButton buttonEdit;
+    private javax.swing.JButton buttonRemove;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane3;

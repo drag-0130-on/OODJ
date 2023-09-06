@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -51,9 +52,9 @@ public class Item_Entry_GUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        Add_item = new javax.swing.JButton();
-        Edit_item = new javax.swing.JButton();
-        Delete_item = new javax.swing.JButton();
+        buttonAdd = new javax.swing.JButton();
+        buttonEdit = new javax.swing.JButton();
+        buttonRemove = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         ItemTable = new javax.swing.JTable();
@@ -64,24 +65,24 @@ public class Item_Entry_GUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        Add_item.setText("Add item");
-        Add_item.addActionListener(new java.awt.event.ActionListener() {
+        buttonAdd.setText("Add item");
+        buttonAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Add_itemActionPerformed(evt);
+                buttonAddActionPerformed(evt);
             }
         });
 
-        Edit_item.setText("Edit item");
-        Edit_item.addActionListener(new java.awt.event.ActionListener() {
+        buttonEdit.setText("Edit item");
+        buttonEdit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Edit_itemActionPerformed(evt);
+                buttonEditActionPerformed(evt);
             }
         });
 
-        Delete_item.setText("Delete item");
-        Delete_item.addActionListener(new java.awt.event.ActionListener() {
+        buttonRemove.setText("Remove item");
+        buttonRemove.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Delete_itemActionPerformed(evt);
+                buttonRemoveActionPerformed(evt);
             }
         });
 
@@ -128,9 +129,9 @@ public class Item_Entry_GUI extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(54, 54, 54)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(Add_item, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Edit_item, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Delete_item, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(buttonAdd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(buttonEdit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(buttonRemove, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -142,7 +143,7 @@ public class Item_Entry_GUI extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(Back)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 37, Short.MAX_VALUE))))
+                        .addGap(0, 27, Short.MAX_VALUE))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -166,11 +167,11 @@ public class Item_Entry_GUI extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(Add_item)
+                        .addComponent(buttonAdd)
                         .addGap(88, 88, 88)
-                        .addComponent(Edit_item)
+                        .addComponent(buttonEdit)
                         .addGap(88, 88, 88)
-                        .addComponent(Delete_item))
+                        .addComponent(buttonRemove))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Back)
@@ -180,16 +181,19 @@ public class Item_Entry_GUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void Add_itemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Add_itemActionPerformed
-    }//GEN-LAST:event_Add_itemActionPerformed
+    private void buttonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddActionPerformed
+        Add_item_GUI add_item = new Add_item_GUI();
+        add_item.show();
+    }//GEN-LAST:event_buttonAddActionPerformed
 
-    private void Edit_itemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Edit_itemActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Edit_itemActionPerformed
+    private void buttonEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEditActionPerformed
+        Edit_item_GUI edit_item = new Edit_item_GUI();
+        edit_item.show();
+    }//GEN-LAST:event_buttonEditActionPerformed
 
-    private void Delete_itemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Delete_itemActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Delete_itemActionPerformed
+    private void buttonRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonRemoveActionPerformed
+
+    }//GEN-LAST:event_buttonRemoveActionPerformed
 
     private void buttonSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSearchActionPerformed
         DefaultTableModel model = (DefaultTableModel) ItemTable.getModel();
@@ -252,11 +256,11 @@ public class Item_Entry_GUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Add_item;
     private javax.swing.JButton Back;
-    private javax.swing.JButton Delete_item;
-    private javax.swing.JButton Edit_item;
     private javax.swing.JTable ItemTable;
+    private javax.swing.JButton buttonAdd;
+    private javax.swing.JButton buttonEdit;
+    private javax.swing.JButton buttonRemove;
     private javax.swing.JButton buttonSearch;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel7;

@@ -27,65 +27,65 @@ public class Admin_GUI extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
+        buttonItemEntry = new javax.swing.JButton();
+        buttonSupplierEntry = new javax.swing.JButton();
+        buttonDailyEntry = new javax.swing.JButton();
+        buttonPREntry = new javax.swing.JButton();
+        buttonPOEntry = new javax.swing.JButton();
+        buttonProfileEntry = new javax.swing.JButton();
+        buttonLogout = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel1.setText("Admin Home Page");
 
-        jButton1.setText("Item Entry");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        buttonItemEntry.setText("Item Entry");
+        buttonItemEntry.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                buttonItemEntryActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Supplier Entry");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        buttonSupplierEntry.setText("Supplier Entry");
+        buttonSupplierEntry.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                buttonSupplierEntryActionPerformed(evt);
             }
         });
 
-        jButton3.setText("Daily Item-wise Sales Entry");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        buttonDailyEntry.setText("Daily Item-wise Sales Entry");
+        buttonDailyEntry.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                buttonDailyEntryActionPerformed(evt);
             }
         });
 
-        jButton4.setText("Purchase Requisition");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        buttonPREntry.setText("Purchase Requisition");
+        buttonPREntry.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                buttonPREntryActionPerformed(evt);
             }
         });
 
-        jButton5.setText("Purchase Order");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        buttonPOEntry.setText("Purchase Order");
+        buttonPOEntry.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                buttonPOEntryActionPerformed(evt);
             }
         });
 
-        jButton6.setText("User Profile");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        buttonProfileEntry.setText("User Profile");
+        buttonProfileEntry.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                buttonProfileEntryActionPerformed(evt);
             }
         });
 
-        jButton7.setText("Logout");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        buttonLogout.setText("Logout");
+        buttonLogout.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                buttonLogoutActionPerformed(evt);
             }
         });
 
@@ -101,18 +101,18 @@ public class Admin_GUI extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(61, 61, 61)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(buttonDailyEntry, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(buttonItemEntry, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(buttonSupplierEntry, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
-                            .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(buttonPREntry, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
+                            .addComponent(buttonPOEntry, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(buttonProfileEntry, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addGap(83, 83, 83))
             .addGroup(layout.createSequentialGroup()
                 .addGap(231, 231, 231)
-                .addComponent(jButton7)
+                .addComponent(buttonLogout)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -122,51 +122,55 @@ public class Admin_GUI extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(39, 39, 39)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton4))
+                    .addComponent(buttonItemEntry)
+                    .addComponent(buttonPREntry))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton5))
+                    .addComponent(buttonSupplierEntry)
+                    .addComponent(buttonPOEntry))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3)
-                    .addComponent(jButton6))
+                    .addComponent(buttonDailyEntry)
+                    .addComponent(buttonProfileEntry))
                 .addGap(92, 92, 92)
-                .addComponent(jButton7)
+                .addComponent(buttonLogout)
                 .addContainerGap(102, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void buttonItemEntryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonItemEntryActionPerformed
+        Item_Entry_GUI ie = new Item_Entry_GUI();
+        ie.show();
+    }//GEN-LAST:event_buttonItemEntryActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void buttonSupplierEntryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSupplierEntryActionPerformed
+        Supplier_Entry_GUI se = new Supplier_Entry_GUI();
+        se.show();
+    }//GEN-LAST:event_buttonSupplierEntryActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    private void buttonDailyEntryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDailyEntryActionPerformed
+        Daily_item_Entry_GUI die = new Daily_item_Entry_GUI();
+        die.show();
+    }//GEN-LAST:event_buttonDailyEntryActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    private void buttonPREntryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPREntryActionPerformed
+        Daily_item_Entry_GUI die = new Daily_item_Entry_GUI();
+        die.show();
+    }//GEN-LAST:event_buttonPREntryActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void buttonProfileEntryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonProfileEntryActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_buttonProfileEntryActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void buttonLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLogoutActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_buttonLogoutActionPerformed
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+    private void buttonPOEntryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPOEntryActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton7ActionPerformed
+    }//GEN-LAST:event_buttonPOEntryActionPerformed
 
     /**
      * @param args the command line arguments
@@ -207,13 +211,13 @@ public class Admin_GUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
+    private javax.swing.JButton buttonDailyEntry;
+    private javax.swing.JButton buttonItemEntry;
+    private javax.swing.JButton buttonLogout;
+    private javax.swing.JButton buttonPOEntry;
+    private javax.swing.JButton buttonPREntry;
+    private javax.swing.JButton buttonProfileEntry;
+    private javax.swing.JButton buttonSupplierEntry;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
