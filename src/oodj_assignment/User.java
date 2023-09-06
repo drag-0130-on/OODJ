@@ -35,7 +35,7 @@ public class User {
         return userFile.viewFile(AL, attIndex, filter);
     }
     public String toString(){
-        return(userID + "|" + name + "|" + password + "|" + email + "|" + contact);
+        return(userID + "|" + name + "|" + password + "|" + email + "|" + contact+ "|" + role);
     }
     public String getName() {
         return name;
