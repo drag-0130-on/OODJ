@@ -18,8 +18,8 @@ public class DailyItemSales implements Record {
     public void add() throws IOException{
         dailyFile.addToFile(toString());
     }
-    public void edit(String s) throws IOException{
-        dailyFile.editFile(toString(),s);
+    public void edit(Object newData) throws IOException{
+        dailyFile.editFile(toString(),newData.toString());
     }
     public void remove() throws IOException{
         dailyFile.removeFromFile(toString());

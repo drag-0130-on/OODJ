@@ -28,8 +28,8 @@ public class Supplier implements Record {
     public void add() throws IOException{
         supplierFile.addToFile(toString());
     }
-    public void edit(String newData) throws IOException{
-        supplierFile.editFile(toString(),newData);
+    public void edit(Object newData) throws IOException{
+        supplierFile.editFile(toString(),newData.toString());
     }
     public void remove() throws IOException{
         supplierFile.removeFromFile(toString());

@@ -20,8 +20,8 @@ public class PurchaseOrder implements Record {
     public void add()throws IOException{
         poFile.addToFile(toString());
     }
-    public void edit(String s)throws IOException{
-        poFile.editFile(toString(), s);
+    public void edit(Object newData)throws IOException{
+        poFile.editFile(toString(), newData.toString());
     }
     public void remove() throws IOException{
         poFile.removeFromFile(toString());

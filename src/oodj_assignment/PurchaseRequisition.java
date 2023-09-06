@@ -24,8 +24,8 @@ public class PurchaseRequisition implements Record {
     public void add()throws IOException{
         prFile.addToFile(toString());
     }
-    public void edit(String s)throws IOException{
-        prFile.editFile(toString(), s);        
+    public void edit(Object newData)throws IOException{
+        prFile.editFile(toString(), newData.toString());        
     }
     public void remove() throws IOException{
         prFile.removeFromFile(toString());

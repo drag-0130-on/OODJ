@@ -33,13 +33,12 @@ public class Item implements Record {
     public void add() throws IOException{
         itemFile.addToFile(toString());
     }     
-    public void edit(String newData) throws IOException{
-        itemFile.editFile(toString(),newData);
+    public void edit(Object newData) throws IOException{
+        itemFile.editFile(toString(),newData.toString());
     }
     public void remove() throws IOException{
         itemFile.removeFromFile(toString());
     }
-    
     public static ArrayList<String[]> view()throws IOException{
         return itemFile.viewFile();
     }

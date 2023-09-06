@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public interface Record {
     public void add() throws IOException;
-    public void edit(String newData) throws IOException;
+    public void edit(Object newData) throws IOException;
     public void remove() throws IOException;
    
 }
