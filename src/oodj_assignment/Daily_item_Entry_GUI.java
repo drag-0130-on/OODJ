@@ -60,7 +60,7 @@ public class Daily_item_Entry_GUI extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         DailyTable = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtSearch = new javax.swing.JTextField();
         back = new javax.swing.JButton();
         addSales = new javax.swing.JButton();
         tSearch = new javax.swing.JButton();
@@ -100,7 +100,7 @@ public class Daily_item_Entry_GUI extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel1.setText("Daily Item-wise Sales Entry");
 
-        jTextField1.setToolTipText("");
+        txtSearch.setToolTipText("");
 
         back.setText("Back");
         back.addActionListener(new java.awt.event.ActionListener() {
@@ -146,7 +146,7 @@ public class Daily_item_Entry_GUI extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(tSearch)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -164,7 +164,7 @@ public class Daily_item_Entry_GUI extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(11, 11, 11)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tSearch))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -205,10 +205,10 @@ public class Daily_item_Entry_GUI extends javax.swing.JFrame {
 
     private void tSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tSearchActionPerformed
         DefaultTableModel model = (DefaultTableModel) DailyTable.getModel();
-        String input = tSearch.getText();
+        String input = txtSearch.getText();
 
         try {
-            ArrayList<String[]> it = Item.filter(input);
+            ArrayList<String[]> it = DailyItemSales.view(input);
             model.setRowCount(0);
 
             for (String[] il : it) {
@@ -268,7 +268,7 @@ public class Daily_item_Entry_GUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JButton tSearch;
+    private javax.swing.JTextField txtSearch;
     // End of variables declaration//GEN-END:variables
 }
