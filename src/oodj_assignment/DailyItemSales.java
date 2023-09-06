@@ -39,8 +39,8 @@ public class DailyItemSales implements Record {
     public String toString(){
         return (date + "|" + amountSold + "|" + item.toStringForDIS());
     }
-    public boolean verifyStockAvailability(){
-        return false;
+    public Item getItem(){
+        return item;
     }
 }
                                                                     

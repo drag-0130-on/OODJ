@@ -52,13 +52,22 @@ public class Item implements Record {
     public boolean verifyUniqueness()throws IOException{
         return itemFile.verifyDataUniqueness(itemID, 0);
     }
+    public boolean verifyStockAvailability(int amount){
+        return stock >= amount;
+    }
+    public void addStock(int amount) throws IOException{
+        edit(toString().replace(String.valueOf(stock),String.valueOf((stock+amount))));
+    }   
+    public void reduceStock(int amount) throws IOException{
+        edit(toString().replace(String.valueOf(stock),String.valueOf((stock-amount))));
+    }
     public String toString(){
         return (itemID + "|"+itemName + "|" + category.toString() + "|" + stock + "|" + price + "|" + supplier.getID() + "|" + supplier.getName());
-//        return category+"|"+tem_Id+"|"+Item_Name+"|"+Stock+"|"+Price+"|"+Supplier_Name;
     }
     public String toStringForDIS(){
         return (itemID + "|"+itemName + "|" + category.toString() + "|" + price + "|" + supplier.getID() + "|" + supplier.getName());
     }
+    
     
 
 }

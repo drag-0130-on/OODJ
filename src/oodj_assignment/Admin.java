@@ -59,6 +59,7 @@ public class Admin extends User {
         supplier.remove();
     }
     public void addDIS(DailyItemSales DIS)throws IOException {
+        
         DIS.add();
     }
     public void editDIS(DailyItemSales DIS,String editedDIS)throws IOException {
