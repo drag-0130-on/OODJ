@@ -4,6 +4,12 @@
  */
 package oodj_assignment;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Lenovo
@@ -15,8 +21,25 @@ public class GUI_Edit_daily_item extends javax.swing.JFrame {
      */
     public GUI_Edit_daily_item() {
         initComponents();
+        try {
+            showTable();
+        } catch (IOException ex) {
+            Logger.getLogger(GUI_Edit_daily_item.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
-
+    public void showTable() throws IOException {
+        DefaultTableModel model = (DefaultTableModel) DailyTable.getModel();
+        model.setRowCount(0);
+        
+        String[] columnNames = {"Item ID", "Category", "Item Name", "Stock", "Price","Supplier ID"}; 
+        model.setColumnIdentifiers(columnNames);
+        
+        ArrayList<String[]> it = Item.view();
+        for (String[] il: it) {
+            model.addRow(il);
+    }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

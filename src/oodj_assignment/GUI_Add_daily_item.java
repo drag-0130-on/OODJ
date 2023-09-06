@@ -4,10 +4,11 @@
  */
 package oodj_assignment;
 
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
 import java.io.*;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
 
 public class GUI_Add_daily_item extends javax.swing.JFrame {
 
@@ -16,19 +17,26 @@ public class GUI_Add_daily_item extends javax.swing.JFrame {
      */
     public GUI_Add_daily_item() {
         initComponents();
+        try {
+            showTable();
+        } catch (IOException ex) {
+            Logger.getLogger(GUI_Add_daily_item.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
     }
-    
-    public void writeDataToFile(String data, String fileName) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName, true))) {
-            writer.write(data);
-            writer.newLine(); 
-            writer.flush();
-            JOptionPane.showMessageDialog(this, "Data saved to " + fileName, "Success", JOptionPane.INFORMATION_MESSAGE);
-        } catch (IOException e) {
-            JOptionPane.showMessageDialog(this, "Error saving data to file: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+    public void showTable() throws IOException {
+        DefaultTableModel model = (DefaultTableModel) DailyTable.getModel();
+        model.setRowCount(0);
+        
+        String[] columnNames = {"Item ID", "Category", "Item Name", "Stock", "Price","Supplier ID"}; 
+        model.setColumnIdentifiers(columnNames);
+        
+        ArrayList<String[]> it = Item.view();
+        for (String[] il: it) {
+            model.addRow(il);
         }
     }
-
 
     /**
      * This method is called from within the constructor to initialize the form.
