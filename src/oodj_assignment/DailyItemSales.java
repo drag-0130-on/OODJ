@@ -37,7 +37,10 @@ public class DailyItemSales implements Record {
         return dailyFile.verifyDataUniqueness(item.getItemID(), 0);
     }
     public String toString(){
-        return (date + "|" + amountSold + "|" + item.toString());
+        return (date + "|" + amountSold + "|" + item.toStringForDIS());
+    }
+    public boolean verifyStockAvailability(){
+        return false;
     }
 }
                                                                     

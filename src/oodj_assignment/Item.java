@@ -56,6 +56,9 @@ public class Item implements Record {
         return (itemID + "|"+itemName + "|" + category.toString() + "|" + stock + "|" + price + "|" + supplier.getID() + "|" + supplier.getName());
 //        return category+"|"+tem_Id+"|"+Item_Name+"|"+Stock+"|"+Price+"|"+Supplier_Name;
     }
+    public String toStringForDIS(){
+        return (itemID + "|"+itemName + "|" + category.toString() + "|" + price + "|" + supplier.getID() + "|" + supplier.getName());
+    }
     
 
 }

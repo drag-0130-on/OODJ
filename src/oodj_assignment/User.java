@@ -34,6 +34,9 @@ public class User {
     public static ArrayList<String[]> view(ArrayList<String[]> AL, int attIndex, String filter){
         return userFile.viewFile(AL, attIndex, filter);
     }
+    public String toString(){
+        return(userID + "|" + name + "|" + password + "|" + email + "|" + contact);
+    }
     public String getName() {
         return name;
     }
