@@ -14,18 +14,18 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Lenovo
  */
-public class Daily_item_Entry_GUI extends javax.swing.JFrame {
+public class GUI_Daily_item_Entry extends javax.swing.JFrame {
 
     /**
      * Creates new form Daily_item_Entry
      */
-    public Daily_item_Entry_GUI() {
+    public GUI_Daily_item_Entry() {
         
         initComponents();
         try {
             showTable();
         } catch (IOException ex) {
-            Logger.getLogger(Daily_item_Entry_GUI.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(GUI_Daily_item_Entry.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         
@@ -197,7 +197,7 @@ public class Daily_item_Entry_GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_backActionPerformed
 
     private void buttonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddActionPerformed
-        Add_item_GUI add = new Add_item_GUI();
+        GUI_Add_item add = new GUI_Add_item();
         add.show();
     }//GEN-LAST:event_buttonAddActionPerformed
 
@@ -214,7 +214,7 @@ public class Daily_item_Entry_GUI extends javax.swing.JFrame {
             }
 
         } catch (IOException ex) {
-            Logger.getLogger(Daily_item_Entry_GUI.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(GUI_Daily_item_Entry.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }//GEN-LAST:event_tSearchActionPerformed
@@ -236,21 +236,23 @@ public class Daily_item_Entry_GUI extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Daily_item_Entry_GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUI_Daily_item_Entry.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Daily_item_Entry_GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUI_Daily_item_Entry.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Daily_item_Entry_GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUI_Daily_item_Entry.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Daily_item_Entry_GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUI_Daily_item_Entry.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run(){
-                new Daily_item_Entry_GUI().setVisible(true);
+                new GUI_Daily_item_Entry().setVisible(true);
                 
                 
             }

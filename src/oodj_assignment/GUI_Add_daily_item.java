@@ -9,12 +9,12 @@ import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
 
-public class Add_daily_item_GUI extends javax.swing.JFrame {
+public class GUI_Add_daily_item extends javax.swing.JFrame {
 
     /**
      * Creates new form Add_daily_item
      */
-    public Add_daily_item_GUI() {
+    public GUI_Add_daily_item() {
         initComponents();
     }
     
@@ -185,21 +185,23 @@ public class Add_daily_item_GUI extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Add_daily_item_GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUI_Add_daily_item.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Add_daily_item_GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUI_Add_daily_item.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Add_daily_item_GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUI_Add_daily_item.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Add_daily_item_GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUI_Add_daily_item.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Add_daily_item_GUI().setVisible(true);
+                new GUI_Add_daily_item().setVisible(true);
             }
         });
     }

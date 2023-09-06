@@ -164,7 +164,7 @@ public class Sales_Manager_GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_Supplier_entryActionPerformed
 
     private void Daily_item_wise_sales_entryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Daily_item_wise_sales_entryActionPerformed
-        Daily_item_Entry_GUI daily = new Daily_item_Entry_GUI();
+        GUI_Daily_item_Entry daily = new GUI_Daily_item_Entry();
         daily.show();
         dispose();
     }//GEN-LAST:event_Daily_item_wise_sales_entryActionPerformed

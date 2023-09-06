@@ -8,12 +8,12 @@ package oodj_assignment;
  *
  * @author adamc
  */
-public class Admin_GUI extends javax.swing.JFrame {
+public class GUI_Admin extends javax.swing.JFrame {
 
     /**
      * Creates new form Admin
      */
-    public Admin_GUI() {
+    public GUI_Admin() {
         initComponents();
     }
 
@@ -151,12 +151,12 @@ public class Admin_GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonSupplierEntryActionPerformed
 
     private void buttonDailyEntryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDailyEntryActionPerformed
-        Daily_item_Entry_GUI die = new Daily_item_Entry_GUI();
+        GUI_Daily_item_Entry die = new GUI_Daily_item_Entry();
         die.show();
     }//GEN-LAST:event_buttonDailyEntryActionPerformed
 
     private void buttonPREntryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPREntryActionPerformed
-        Daily_item_Entry_GUI die = new Daily_item_Entry_GUI();
+        GUI_Daily_item_Entry die = new GUI_Daily_item_Entry();
         die.show();
     }//GEN-LAST:event_buttonPREntryActionPerformed
 
@@ -189,14 +189,18 @@ public class Admin_GUI extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Admin_GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUI_Admin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Admin_GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUI_Admin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Admin_GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUI_Admin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Admin_GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUI_Admin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -205,7 +209,7 @@ public class Admin_GUI extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Admin_GUI().setVisible(true);
+                new GUI_Admin().setVisible(true);
             }
         });
     }

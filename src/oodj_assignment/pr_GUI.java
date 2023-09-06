@@ -181,7 +181,7 @@ public class pr_GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void buttonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddActionPerformed
-        Add_item_GUI add = new Add_item_GUI();
+        GUI_Add_item add = new GUI_Add_item();
         add.show();
     }//GEN-LAST:event_buttonAddActionPerformed
 

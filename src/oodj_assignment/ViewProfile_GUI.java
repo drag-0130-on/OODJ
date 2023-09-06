@@ -23,7 +23,7 @@ public class ViewProfile_GUI extends javax.swing.JFrame {
         try {
             showTable();
         } catch (IOException ex) {
-            Logger.getLogger(Daily_item_Entry_GUI.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(GUI_Daily_item_Entry.class.getName()).log(Level.SEVERE, null, ex);
         }
         
     }

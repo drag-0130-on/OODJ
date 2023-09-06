@@ -179,7 +179,7 @@ public class Supplier_Entry_GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonRemoveActionPerformed
 
     private void buttonEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEditActionPerformed
-        Edit_supplier_GUI edit = new Edit_supplier_GUI();
+        GUI_Edit_supplier edit = new GUI_Edit_supplier();
         edit.show();
     }//GEN-LAST:event_buttonEditActionPerformed
 
@@ -189,7 +189,7 @@ public class Supplier_Entry_GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonBackActionPerformed
 
     private void buttonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddActionPerformed
-        Add_supplier_GUI add = new Add_supplier_GUI();
+        GUI_Add_supplier add = new GUI_Add_supplier();
         add.show();
     }//GEN-LAST:event_buttonAddActionPerformed
 
