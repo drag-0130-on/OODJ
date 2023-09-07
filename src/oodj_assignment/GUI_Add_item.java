@@ -16,9 +16,8 @@ import javax.swing.DefaultComboBoxModel;
  */
 public class GUI_Add_item extends javax.swing.JFrame {
 
-    /**
-     * Creates new form GUI_Add_item1
-     */
+    Admin admin;
+    SalesManager sm;
     public GUI_Add_item() {
         initComponents();
         loadCategory();
@@ -29,7 +28,26 @@ public class GUI_Add_item extends javax.swing.JFrame {
         }
         
     }
-    
+    public GUI_Add_item(Admin admin) {
+        initComponents();
+        loadCategory();
+        try {
+            loadSupplier();
+        } catch (IOException ex) {
+            Logger.getLogger(GUI_Add_item.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        this.admin =admin;
+    }
+    public GUI_Add_item(SalesManager sm) {
+        initComponents();
+        loadCategory();
+        try {
+            loadSupplier();
+        } catch (IOException ex) {
+            Logger.getLogger(GUI_Add_item.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        this.sm =sm;
+    }
     public void loadCategory(){
         ItemCategory[] categories = ItemCategory.values();
         DefaultComboBoxModel categoryModel = (DefaultComboBoxModel) cmbCategory.getModel();
@@ -72,9 +90,9 @@ public class GUI_Add_item extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         cmbCategory = new javax.swing.JComboBox<>();
         jLabel5 = new javax.swing.JLabel();
-        txtItem = new javax.swing.JTextField();
+        txtItemName = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        txtItem1 = new javax.swing.JTextField();
+        txtItemID = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -85,6 +103,11 @@ public class GUI_Add_item extends javax.swing.JFrame {
         });
 
         buttonSave.setText("Save");
+        buttonSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonSaveActionPerformed(evt);
+            }
+        });
 
         buttonCancel.setText("Cancel");
 
@@ -128,14 +151,14 @@ public class GUI_Add_item extends javax.swing.JFrame {
                             .addComponent(jLabel6)
                             .addComponent(cmbCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3)
-                            .addComponent(txtItem, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtItemName, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtStock, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4)
                             .addComponent(jLabel5)
                             .addComponent(txtPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(cmbSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel8)
-                            .addComponent(txtItem1, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtItemID, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(buttonSave)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -164,11 +187,11 @@ public class GUI_Add_item extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel8)
                 .addGap(5, 5, 5)
-                .addComponent(txtItem1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtItemID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel3)
                 .addGap(5, 5, 5)
-                .addComponent(txtItem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtItemName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel4)
                 .addGap(2, 2, 2)
@@ -196,8 +219,23 @@ public class GUI_Add_item extends javax.swing.JFrame {
     }//GEN-LAST:event_txtStockActionPerformed
 
     private void cmbCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbCategoryActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_cmbCategoryActionPerformed
+
+    private void buttonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSaveActionPerformed
+        String[] supplierInfo = cmbSupplier.getSelectedItem().toString().split("\\|");
+        Item item = new Item( txtItemID.getText(),txtItemName.getText(),cmbCategory.getSelectedItem().toString(),Integer.parseInt(txtStock.getText()),Double.parseDouble(txtPrice.getText()),supplierInfo[0],supplierInfo[1]);
+        try {
+            if(admin!=null){
+                admin.addItem(item);
+            }
+            else if(sm!=null){
+                sm.addItem(item);
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(GUI_Add_item.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_buttonSaveActionPerformed
 
     /**
      * @param args the command line arguments
@@ -248,8 +286,8 @@ public class GUI_Add_item extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JTextField txtItem;
-    private javax.swing.JTextField txtItem1;
+    private javax.swing.JTextField txtItemID;
+    private javax.swing.JTextField txtItemName;
     private javax.swing.JTextField txtPrice;
     private javax.swing.JTextField txtStock;
     // End of variables declaration//GEN-END:variables

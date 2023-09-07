@@ -2,24 +2,25 @@
 package oodj_assignment;
 
 
-public class Item_validation {
+public class inputValidation {
 
     public static void main(String[] args) {
-        String category = "Food";
-        String item_Name = "Smartphone";
+        String category = "Vegetable";
+        String item_Name = "Potato";
         int stock = 50;
-        double price = 599.99;
+        double price = 59.99;
+        
 
         if (isValidCategory(category) &&
             isValidItemName(item_Name) &&
             isValidStock(stock) &&
             isValidPrice(price)) {
             System.out.println("All data is valid.");
-        } else {
+        } else {  
             System.out.println("Invalid data found.");
         }
     }
-
+          
     public static boolean isValidCategory(String category) {
         return category != null && !category.isEmpty();
     }

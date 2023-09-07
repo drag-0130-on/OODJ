@@ -16,9 +16,8 @@ import javax.swing.table.DefaultTableModel;
  */
 public class GUI_Add_pr extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Add_pr
-     */
+    Admin admin;
+    SalesManager sm;
     public GUI_Add_pr() {
         initComponents();
         try {
@@ -26,8 +25,27 @@ public class GUI_Add_pr extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(GUI_Add_pr.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        
+    }
+
+
+    public GUI_Add_pr(Admin admin) {
+        initComponents();
+        try {
+            loadSupplier();
+        } catch (IOException ex) {
+            Logger.getLogger(GUI_Add_item.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        this.admin =admin;
+    }
+    public GUI_Add_item(SalesManager sm) {
+        initComponents();
+        loadCategory();
+        try {
+            loadSupplier();
+        } catch (IOException ex) {
+            Logger.getLogger(GUI_Add_item.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        this.sm =sm;
     }
     public void showTable() throws IOException {
         DefaultTableModel model = (DefaultTableModel) ItemTable.getModel();
@@ -53,8 +71,8 @@ public class GUI_Add_pr extends javax.swing.JFrame {
 
         Add_pr = new javax.swing.JLabel();
         System_name = new javax.swing.JLabel();
-        Save = new javax.swing.JButton();
-        Cancel = new javax.swing.JButton();
+        buttonSave = new javax.swing.JButton();
+        buttonCancel = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         txtQuantity = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -72,10 +90,15 @@ public class GUI_Add_pr extends javax.swing.JFrame {
         System_name.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         System_name.setText("PURCHASE ORDER MANAGEMENT SYSTEM");
 
-        Save.setText("Save");
-        Save.setToolTipText("");
+        buttonSave.setText("Save");
+        buttonSave.setToolTipText("");
+        buttonSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonSaveActionPerformed(evt);
+            }
+        });
 
-        Cancel.setText("Cancel");
+        buttonCancel.setText("Cancel");
 
         jLabel3.setText("Quantity");
 
@@ -128,9 +151,9 @@ public class GUI_Add_pr extends javax.swing.JFrame {
                                         .addComponent(comboboxYear, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(41, 41, 41)
-                                        .addComponent(Save)
+                                        .addComponent(buttonSave)
                                         .addGap(55, 55, 55)
-                                        .addComponent(Cancel))))
+                                        .addComponent(buttonCancel))))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(19, 19, 19)
                                 .addComponent(System_name)))
@@ -158,13 +181,22 @@ public class GUI_Add_pr extends javax.swing.JFrame {
                     .addComponent(comboboxYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Save)
-                    .addComponent(Cancel))
+                    .addComponent(buttonSave)
+                    .addComponent(buttonCancel))
                 .addContainerGap(34, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void buttonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSaveActionPerformed
+        PurchaseRequisition pr = new PurchaseRequisition(txtQuantity.getText(), txtUserID.getText(),txtPassword.getText(),txtContact.getText(),txtEmail.getText());
+        try {
+            PurchaseManager.addpr(pr);
+        } catch (IOException ex) {
+            Logger.getLogger(GUI_Add_pr.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_buttonSaveActionPerformed
 
     /**
      * @param args the command line arguments
@@ -206,10 +238,10 @@ public class GUI_Add_pr extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Add_pr;
-    private javax.swing.JButton Cancel;
     private javax.swing.JTable ItemTable;
-    private javax.swing.JButton Save;
     private javax.swing.JLabel System_name;
+    private javax.swing.JButton buttonCancel;
+    private javax.swing.JButton buttonSave;
     private javax.swing.JComboBox<String> comboboxDay;
     private javax.swing.JComboBox<String> comboboxMonth;
     private javax.swing.JComboBox<String> comboboxYear;

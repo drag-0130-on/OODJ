@@ -29,7 +29,8 @@ public class Admin extends User {
     public void removePO(PurchaseOrder po)throws IOException{
         po.remove();
     }   
-    public void addPR(PurchaseRequisition pr)throws IOException{
+    public void addPR(String prID,Item item,int quantity)throws IOException{
+        PurchaseRequisition pr = new PurchaseRequisition(prID,item,quantity,getUserID());
         pr.add();
     }   
     //edit everything
