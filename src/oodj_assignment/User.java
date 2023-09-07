@@ -85,8 +85,8 @@ public class User implements Record{
 
         for (String[] line:content){
             System.out.println(Arrays.toString(line));
-            if (userID.equals(line[0])){
-                if(password.equals(line[2])){
+            if (userID.matches(line[0])){
+                if(password.matches(line[2])){
                     return line;
                 }
             }

@@ -119,17 +119,17 @@ public class GUI_Login extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(GUI_Login.class.getName()).log(Level.SEVERE, null, ex);
         }
-        if (userInfo[5].equals("Admin")){
+        if (userInfo[5].matches("Admin")){
             Admin admin = new Admin(userInfo[0],userInfo[1],userInfo[2],userInfo[3],userInfo[4]);
             GUI_Admin ga = new GUI_Admin();
             ga.show();
         }
-        else if (userInfo[5].equals("SalesManager")){
+        else if (userInfo[5].matches("SalesManager")){
             SalesManager sm = new SalesManager(userInfo[0],userInfo[1],userInfo[2],userInfo[3],userInfo[4]);
             GUI_Sales_Manager gsm = new GUI_Sales_Manager();
             gsm.show();    
         }
-        else if (userInfo[5].equals("PurchaseManager")){
+        else if (userInfo[5].matches("PurchaseManager")){
             PurchaseManager pm = new PurchaseManager(userInfo[0],userInfo[1],userInfo[2],userInfo[3],userInfo[4]);
             GUI_PurchaseManager gpm = new GUI_PurchaseManager();
             gpm.show();    
