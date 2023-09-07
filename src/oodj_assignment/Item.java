@@ -77,13 +77,13 @@ public class Item implements Record {
         edit(toString().replace(String.valueOf(stock),String.valueOf((stock-amount))));
     }
     public String toString(){
-        return (itemID + "|"+itemName + "|" + category.toString() + "|" + stock + "|" + sellprice + "|" + supplier.getID() + "|" + supplier.getName());
+        return (itemID + "|"+itemName + "|" + category.toString() + "|" + stock + "|" + "|" + supplier.getID() + "|" + supplier.getName()+ "|" + sellprice);
     }
     public String toStringForDIS(){
-        return (itemID + "|"+itemName + "|" + category.toString() + "|" + sellprice + "|" + supplier.getID() + "|" + supplier.getName());
+        return (itemID + "|"+itemName + "|" + category.toString() + "|" + supplier.getID() + "|" + supplier.getName()+ "|" + sellprice);
     }
     public String toStringForPR(){
-        return (itemID + "|"+itemName + "|" + category.toString() + "|" + buyprice + "|" + supplier.getID() + "|" + supplier.getName());
+        return (itemID + "|"+itemName + "|" + category.toString() + "|"  + supplier.getID() + "|" + supplier.getName()+ "|" + buyprice);
     }
     
     

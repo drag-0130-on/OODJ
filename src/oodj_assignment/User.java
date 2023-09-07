@@ -76,26 +76,30 @@ public class User implements Record{
     public void setRole(String role){
         this.role = Role.valueOf(role);
     }
-    public void login() throws IOException{
+    public Role login() throws IOException{
         ArrayList<String[]> content = view();
 
         for (String[] line:content){
             System.out.println(Arrays.toString(line));
-            if (line.length >= 3) {
-                if (userID.equals(line[1])){
-                    if(password.equals(line[2])){
-                        role = Role.valueOf(line[3]);
-                        System.out.println("Welcome "+role.toString());
+            if (userID.equals(line[0])){
+                if(password.equals(line[2])){
+                    role = Role.valueOf(line[5]);
+                    if(role.equals("Admin")){
+                        return Role.Admin;
+                    }
+                    else if(role.equals("Sales Manager")){
+                        return Role.SalesManager;
+                    }
+                    else if(role.equals("Purchase Manager")){
+                        return Role.PurchaseManager;
                     }
                     else{
-                        System.out.println("Wrong username or password");
+                        return Role.Unauthorized;
                     }
-                }
-                else{
-                    System.out.println("Wrong username or password");
                 }
             }
         }
+        
     }
     public boolean verifyUniqueness()throws IOException{
         return userFile.verifyDataUniqueness(userID, 0);

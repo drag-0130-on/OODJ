@@ -40,7 +40,7 @@ public class DailyItemSales implements Record {
         return dailyFile.verifyDataUniqueness(item.getItemID(), 0);
     }
     public String toString(){
-        return (date + "|" + amountSold + "|" + item.toStringForDIS()+ "|" +totalprice());
+        return (date + "|" + item.toStringForDIS()+  "|" + amountSold + "|" + totalprice());
     }
     public Item getItem(){
         return item;
