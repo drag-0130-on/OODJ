@@ -41,7 +41,7 @@
                           <Component id="txtPassword" alignment="0" max="32767" attributes="0"/>
                           <Component id="txtUserID" alignment="0" max="32767" attributes="0"/>
                           <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="CBRole" alignment="0" pref="442" max="32767" attributes="0"/>
+                          <Component id="cmbRole" alignment="0" pref="442" max="32767" attributes="0"/>
                           <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="txtEmail" alignment="0" max="32767" attributes="0"/>
                       </Group>
@@ -91,7 +91,7 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="CBRole" min="-2" max="-2" attributes="0"/>
+              <Component id="cmbRole" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="buttonSave" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -183,7 +183,7 @@
         <Property name="text" type="java.lang.String" value="Full Name"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JComboBox" name="CBRole">
+    <Component class="javax.swing.JComboBox" name="cmbRole">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="3">
@@ -194,7 +194,7 @@
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CBRoleActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmbRoleActionPerformed"/>
       </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>

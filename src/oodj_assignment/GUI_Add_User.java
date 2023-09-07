@@ -5,19 +5,28 @@
 package oodj_assignment;
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 
 public class GUI_Add_User extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Add_profile
-     */
     public GUI_Add_User() {
         initComponents();
+        loadRole();
     }
     
+    public void loadRole(){
+        Role[] role =Role.values();
+        DefaultComboBoxModel categoryModel = (DefaultComboBoxModel) cmbRole.getModel();
+        cmbRole.removeAllItems();
+        for (Role Role:role){
+            categoryModel.addElement(Role.toString());
+        }
+        cmbRole.setSelectedIndex(-1);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -41,7 +50,7 @@ public class GUI_Add_User extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         txtName = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        CBRole = new javax.swing.JComboBox<>();
+        cmbRole = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
         txtEmail = new javax.swing.JTextField();
 
@@ -102,10 +111,10 @@ public class GUI_Add_User extends javax.swing.JFrame {
 
         jLabel7.setText("Full Name");
 
-        CBRole.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sales Manager", "Purchase Manager", "Admin" }));
-        CBRole.addActionListener(new java.awt.event.ActionListener() {
+        cmbRole.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sales Manager", "Purchase Manager", "Admin" }));
+        cmbRole.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CBRoleActionPerformed(evt);
+                cmbRoleActionPerformed(evt);
             }
         });
 
@@ -138,7 +147,7 @@ public class GUI_Add_User extends javax.swing.JFrame {
                             .addComponent(txtPassword, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtUserID, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(CBRole, javax.swing.GroupLayout.Alignment.LEADING, 0, 442, Short.MAX_VALUE)
+                            .addComponent(cmbRole, javax.swing.GroupLayout.Alignment.LEADING, 0, 442, Short.MAX_VALUE)
                             .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtEmail, javax.swing.GroupLayout.Alignment.LEADING)))
                     .addGroup(layout.createSequentialGroup()
@@ -181,7 +190,7 @@ public class GUI_Add_User extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(CBRole, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cmbRole, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonSave)
@@ -224,9 +233,9 @@ public class GUI_Add_User extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNameActionPerformed
 
-    private void CBRoleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CBRoleActionPerformed
+    private void cmbRoleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbRoleActionPerformed
 
-    }//GEN-LAST:event_CBRoleActionPerformed
+    }//GEN-LAST:event_cmbRoleActionPerformed
 
     private void txtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailActionPerformed
         // TODO add your handling code here:
@@ -283,9 +292,9 @@ public class GUI_Add_User extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> CBRole;
     private javax.swing.JButton buttonCancel;
     private javax.swing.JButton buttonSave;
+    private javax.swing.JComboBox<String> cmbRole;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
