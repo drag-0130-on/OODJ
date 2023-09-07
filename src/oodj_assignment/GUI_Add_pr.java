@@ -24,7 +24,7 @@ public class GUI_Add_pr extends javax.swing.JFrame {
         try {
             showTable();
         } catch (IOException ex) {
-            Logger.getLogger(GUI_Add_daily_item.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(GUI_Add_pr.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         
@@ -56,11 +56,13 @@ public class GUI_Add_pr extends javax.swing.JFrame {
         Save = new javax.swing.JButton();
         Cancel = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         txtQuantity = new javax.swing.JTextField();
-        Required_date = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         ItemTable = new javax.swing.JTable();
+        comboboxMonth = new javax.swing.JComboBox<>();
+        comboboxYear = new javax.swing.JComboBox<>();
+        jLabel2 = new javax.swing.JLabel();
+        comboboxDay = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -77,8 +79,6 @@ public class GUI_Add_pr extends javax.swing.JFrame {
 
         jLabel3.setText("Quantity");
 
-        jLabel4.setText("Required date");
-
         ItemTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -91,6 +91,14 @@ public class GUI_Add_pr extends javax.swing.JFrame {
             }
         ));
         jScrollPane1.setViewportView(ItemTable);
+
+        comboboxMonth.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "Novermber", "December" }));
+
+        comboboxYear.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023" }));
+
+        jLabel2.setText("Date:");
+
+        comboboxDay.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -107,21 +115,26 @@ public class GUI_Add_pr extends javax.swing.JFrame {
                                 .addGap(92, 92, 92)
                                 .addComponent(Add_pr))
                             .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(System_name))
-                            .addGroup(layout.createSequentialGroup()
                                 .addGap(58, 58, 58)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel3)
                                     .addComponent(txtQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel4)
-                                    .addComponent(Required_date, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(comboboxDay, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(comboboxMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(comboboxYear, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(41, 41, 41)
+                                        .addComponent(Save)
+                                        .addGap(55, 55, 55)
+                                        .addComponent(Cancel))))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(99, 99, 99)
-                                .addComponent(Save)
-                                .addGap(52, 52, 52)
-                                .addComponent(Cancel)))
-                        .addGap(0, 27, Short.MAX_VALUE)))
+                                .addGap(19, 19, 19)
+                                .addComponent(System_name)))
+                        .addGap(0, 19, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -136,10 +149,13 @@ public class GUI_Add_pr extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addGap(6, 6, 6)
                 .addComponent(txtQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Required_date, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14)
+                .addComponent(jLabel2)
+                .addGap(4, 4, 4)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(comboboxDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(comboboxMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(comboboxYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Save)
@@ -192,11 +208,13 @@ public class GUI_Add_pr extends javax.swing.JFrame {
     private javax.swing.JLabel Add_pr;
     private javax.swing.JButton Cancel;
     private javax.swing.JTable ItemTable;
-    private javax.swing.JTextField Required_date;
     private javax.swing.JButton Save;
     private javax.swing.JLabel System_name;
+    private javax.swing.JComboBox<String> comboboxDay;
+    private javax.swing.JComboBox<String> comboboxMonth;
+    private javax.swing.JComboBox<String> comboboxYear;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField txtQuantity;
     // End of variables declaration//GEN-END:variables

@@ -12,12 +12,16 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 
 public class GUI_Add_User extends javax.swing.JFrame {
-
+    Admin admin;
     public GUI_Add_User() {
         initComponents();
         loadRole();
     }
-    
+    public GUI_Add_User(Admin admin) {
+        initComponents();
+        loadRole();
+        this.admin = admin;
+    }
     public void loadRole(){
         Role[] roles =Role.values();
         DefaultComboBoxModel categoryModel = (DefaultComboBoxModel) cmbRole.getModel();
@@ -218,7 +222,7 @@ public class GUI_Add_User extends javax.swing.JFrame {
 
         User user = new User(txtName.getText(), txtUserID.getText(),txtPassword.getText(),txtContact.getText(),txtEmail.getText());
         try {
-            user.add();
+            admin.addUser(user);
         } catch (IOException ex) {
             Logger.getLogger(GUI_Add_User.class.getName()).log(Level.SEVERE, null, ex);
         }
