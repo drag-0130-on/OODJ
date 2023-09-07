@@ -20,7 +20,9 @@ public class PurchaseRequisition implements Record {
     public String getSMID(){
         return smID;
     }
-    
+    public double totalprice(){
+        return quantity*item.getBuyprice();
+    }
     public void add()throws IOException{
         prFile.addToFile(toString());
     }
@@ -40,7 +42,7 @@ public class PurchaseRequisition implements Record {
         return prFile.viewFile(AL,attIndex,filter);
     }
     public String toString(){
-        return (prID + "|" + item.toString() + "|" + quantity + "|" + smID + "|" + status);
+        return (prID + "|" + item.toStringForPR() + "|" + quantity + "|" + totalprice() + "|" + smID + "|" + status);
     }
     public void approve() throws IOException{
         edit(toString().replace("Pending","Approved"));

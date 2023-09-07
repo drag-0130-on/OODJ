@@ -1,2 +1,3 @@
-V|f|se|gr
-a|b|c|d
+S001|TT Sdn. Bhd.|123|tt@gmail.com|0123456789
+S002|CC Company|456|cc@gmail.com|0111111111
+S003|GG Company|12345|gg@gmail.com|0000000000

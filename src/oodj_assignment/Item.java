@@ -10,7 +10,7 @@ public class Item implements Record {
     private String itemID, itemName;
     private ItemCategory category;
     private int stock;
-    private double price;     
+    private double buyprice, sellprice;     
     private Supplier supplier;
       
     public Item(String itemID, String itemName, String category,int stock, double price, Supplier supplier){
@@ -18,7 +18,7 @@ public class Item implements Record {
           this.itemName = itemName;
           this.category = ItemCategory.valueOf(category);
           this.stock = stock;
-          this.price = price;
+          this.buyprice = buyprice;
           this.supplier = supplier;
     }
 
@@ -28,6 +28,22 @@ public class Item implements Record {
 
     public void setItemID(String itemID) {
         this.itemID = itemID;
+    }
+
+    public double getBuyprice() {
+        return buyprice;
+    }
+
+    public void setBuyprice(double buyprice) {
+        this.buyprice = buyprice;
+    }
+
+    public double getSellprice() {
+        return sellprice;
+    }
+
+    public void setSellprice(double sellprice) {
+        this.sellprice = sellprice;
     }
 
     public void add() throws IOException{
@@ -61,10 +77,13 @@ public class Item implements Record {
         edit(toString().replace(String.valueOf(stock),String.valueOf((stock-amount))));
     }
     public String toString(){
-        return (itemID + "|"+itemName + "|" + category.toString() + "|" + stock + "|" + price + "|" + supplier.getID() + "|" + supplier.getName());
+        return (itemID + "|"+itemName + "|" + category.toString() + "|" + stock + "|" + sellprice + "|" + supplier.getID() + "|" + supplier.getName());
     }
     public String toStringForDIS(){
-        return (itemID + "|"+itemName + "|" + category.toString() + "|" + price + "|" + supplier.getID() + "|" + supplier.getName());
+        return (itemID + "|"+itemName + "|" + category.toString() + "|" + sellprice + "|" + supplier.getID() + "|" + supplier.getName());
+    }
+    public String toStringForPR(){
+        return (itemID + "|"+itemName + "|" + category.toString() + "|" + buyprice + "|" + supplier.getID() + "|" + supplier.getName());
     }
     
     

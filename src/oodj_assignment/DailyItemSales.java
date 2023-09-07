@@ -33,11 +33,14 @@ public class DailyItemSales implements Record {
     public static ArrayList<String[]> view(ArrayList<String[]> AL, int attIndex, String filter){
         return dailyFile.viewFile(AL,attIndex,filter);
     }
+    public double totalprice(){
+        return amountSold*item.getSellprice();
+    }
     public boolean verifyUniqueness()throws IOException{
         return dailyFile.verifyDataUniqueness(item.getItemID(), 0);
     }
     public String toString(){
-        return (date + "|" + amountSold + "|" + item.toStringForDIS());
+        return (date + "|" + amountSold + "|" + item.toStringForDIS()+ "|" +totalprice());
     }
     public Item getItem(){
         return item;
