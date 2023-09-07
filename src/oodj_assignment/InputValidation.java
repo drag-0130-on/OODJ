@@ -32,12 +32,32 @@ public class InputValidation {
         return item_Name != null && !item_Name.isEmpty();
     }
 
-    public static boolean isValidQuantity(int quantity) {
-        return quantity >= 0;
+    public static boolean isValidQuantity(String quantity) {
+        try{
+            if (Integer.parseInt(quantity) >= 0){
+                return true;
+            } else {
+                return false;
+            }
+        } catch (NumberFormatException ex){
+            return false;
+        }
+        
     }
 
-    public static boolean isValidPrice(double price) {
-        return price >= 0.00;
+    public static boolean isValidPrice(String price) {
+        try{
+            if (Double.parseDouble(price) >= 0.00){
+                return true;
+            } else {
+                return false;
+            }
+        } catch (NumberFormatException ex){
+            return false;
+        }
+    }
+    public static boolean isValidPassword(String password) {
+        return (password.length()>6);
     }
     
     public static boolean isValidEmail(String email) {

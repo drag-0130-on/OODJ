@@ -13,13 +13,14 @@ import javax.swing.JOptionPane;
 
 public class GUI_Add_User extends javax.swing.JFrame {
     Admin admin;
-    public GUI_Add_User() {
-        initComponents();
-        loadRole();
-    }
     public GUI_Add_User(Admin admin) {
         initComponents();
         loadRole();
+        try {
+            lblUserID.setText(User.generateID());
+        } catch (IOException ex) {
+            Logger.getLogger(GUI_Add_User.class.getName()).log(Level.SEVERE, null, ex);
+        }
         this.admin = admin;
     }
     public void loadRole(){
@@ -46,11 +47,10 @@ public class GUI_Add_User extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         txtContact = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        txtUserID = new javax.swing.JTextField();
         txtPassword = new javax.swing.JTextField();
         buttonSave = new javax.swing.JButton();
         buttonCancel = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
+        lblUserID = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         txtName = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
@@ -75,12 +75,6 @@ public class GUI_Add_User extends javax.swing.JFrame {
 
         jLabel6.setText("Role");
 
-        txtUserID.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtUserIDActionPerformed(evt);
-            }
-        });
-
         txtPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPasswordActionPerformed(evt);
@@ -101,7 +95,7 @@ public class GUI_Add_User extends javax.swing.JFrame {
             }
         });
 
-        jLabel5.setText("User ID");
+        lblUserID.setText("User ID");
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel4.setText("Purchase Order Management System");
@@ -140,29 +134,29 @@ public class GUI_Add_User extends javax.swing.JFrame {
                         .addGap(97, 97, 97)
                         .addComponent(jLabel4))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(37, 37, 37)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtContact, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 442, Short.MAX_VALUE)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtPassword, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtUserID, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cmbRole, javax.swing.GroupLayout.Alignment.LEADING, 0, 442, Short.MAX_VALUE)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtEmail, javax.swing.GroupLayout.Alignment.LEADING)))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(200, 200, 200)
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(146, 146, 146)
                         .addComponent(buttonSave)
                         .addGap(68, 68, 68)
-                        .addComponent(buttonCancel)))
-                .addContainerGap(33, Short.MAX_VALUE))
+                        .addComponent(buttonCancel))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(37, 37, 37)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 442, Short.MAX_VALUE)
+                                .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtPassword, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(cmbRole, javax.swing.GroupLayout.Alignment.LEADING, 0, 442, Short.MAX_VALUE)
+                                .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtEmail, javax.swing.GroupLayout.Alignment.LEADING))
+                            .addComponent(jLabel3)
+                            .addComponent(txtContact, javax.swing.GroupLayout.PREFERRED_SIZE, 442, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblUserID))))
+                .addContainerGap(101, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -171,26 +165,24 @@ public class GUI_Add_User extends javax.swing.JFrame {
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(43, 43, 43)
+                .addComponent(lblUserID)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtContact, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24)
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtUserID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtContact, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -209,23 +201,59 @@ public class GUI_Add_User extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtContactActionPerformed
 
-    private void txtUserIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUserIDActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtUserIDActionPerformed
-
     private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPasswordActionPerformed
 
     private void buttonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSaveActionPerformed
-
-
-        User user = new User(txtName.getText(), txtUserID.getText(),txtPassword.getText(),txtContact.getText(),txtEmail.getText());
-        try {
-            admin.addUser(user);
-        } catch (IOException ex) {
-            Logger.getLogger(GUI_Add_User.class.getName()).log(Level.SEVERE, null, ex);
+        if (InputValidation.isValidName(txtName.getText())){
+            if (InputValidation.isValidContact(txtContact.getText())){
+                if (InputValidation.isValidEmail(txtEmail.getText())){
+                    if (InputValidation.isValidPassword(txtName.getText())){
+                        if (cmbRole.getSelectedIndex()!= -1){
+                            if (cmbRole.getSelectedItem().toString().matches("Admin")){
+                                try {
+                                    Admin newUser = new Admin(lblUserID.getText(),txtName.getText(),txtPassword.getText(),txtEmail.getText(),txtContact.getText());
+                                    admin.addUser(newUser);
+                                } catch (IOException ex) {
+                                    Logger.getLogger(GUI_Add_User.class.getName()).log(Level.SEVERE, null, ex);
+                                }
+                               
+                            } else if (cmbRole.getSelectedItem().toString().matches("SalesManager")){
+                                try {
+                                    SalesManager newUser = new SalesManager(lblUserID.getText(),txtName.getText(),txtPassword.getText(),txtEmail.getText(),txtContact.getText());
+                                    admin.addUser(newUser);
+                                } catch (IOException ex) {
+                                    Logger.getLogger(GUI_Add_User.class.getName()).log(Level.SEVERE, null, ex);
+                                }
+                                
+                            } else if (cmbRole.getSelectedItem().toString().matches("PurchaseManager")){
+                                try {
+                                    PurchaseManager newUser = new PurchaseManager(lblUserID.getText(),txtName.getText(),txtPassword.getText(),txtEmail.getText(),txtContact.getText());
+                                    admin.addUser(newUser);
+                                } catch (IOException ex) {
+                                    Logger.getLogger(GUI_Add_User.class.getName()).log(Level.SEVERE, null, ex);
+                                }
+                                
+                            }
+                        } else {
+                            
+                        }
+                    } else {
+                        
+                    }
+                } else{
+                    
+                }
+            } else{
+                
+            }
+        } else {
+            
         }
+
+        
+        
         
     }//GEN-LAST:event_buttonSaveActionPerformed
 
@@ -290,7 +318,7 @@ public class GUI_Add_User extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new GUI_Add_User().setVisible(true);
+                new GUI_Add_User(new Admin()).setVisible(true);
             }
         });
     }
@@ -303,15 +331,14 @@ public class GUI_Add_User extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel lblUserID;
     private javax.swing.JTextField txtContact;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtPassword;
-    private javax.swing.JTextField txtUserID;
     // End of variables declaration//GEN-END:variables
 
 }
