@@ -26,7 +26,7 @@ public class GUI_Add_item1 extends javax.swing.JFrame {
         try {
             loadSupplier();
         } catch (IOException ex) {
-            Logger.getLogger(GUI_Add_item.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(GUI_Add_item1.class.getName()).log(Level.SEVERE, null, ex);
         }
         
     }
@@ -34,6 +34,7 @@ public class GUI_Add_item1 extends javax.swing.JFrame {
     public void loadCategory(){
         ItemCategory[] categories = ItemCategory.values();
         DefaultComboBoxModel categoryModel = (DefaultComboBoxModel) cmbCategory.getModel();
+        cmbCategory.removeAllItems();
         for (ItemCategory category:categories){
             categoryModel.addElement(category.toString());
         }
@@ -43,6 +44,7 @@ public class GUI_Add_item1 extends javax.swing.JFrame {
     public void loadSupplier()throws IOException{
         ArrayList<String[]> supplierList = Supplier.view();
         DefaultComboBoxModel supplierModel = (DefaultComboBoxModel) cmbSupplier.getModel();
+        cmbSupplier.removeAllItems();
         for (String[] supplier: supplierList){
             supplierModel.addElement(supplier[0]+"|"+supplier[1]);
         } 
