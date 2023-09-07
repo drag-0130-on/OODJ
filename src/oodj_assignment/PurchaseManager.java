@@ -3,8 +3,8 @@ package oodj_assignment;
 import java.io.IOException;
 
 public class PurchaseManager extends User{ 
-    public PurchaseManager(String name, String userID, String password, String email, String contact){
-        super(name,userID,password,email,contact);
+    public PurchaseManager(String userID, String name, String password, String email, String contact){
+        super(userID,name,password,email,contact);
         setRole("PurchaseManager");
     }
     public void approvePR(String poID, PurchaseRequisition pr)throws IOException {

@@ -9,12 +9,16 @@ public class User implements Record{
     private static FileAccess userFile = new FileAccess("user.txt");
     private Role role = Role.Unauthorized;
     
-    public User(String name, String userID, String password, String email, String contact){
+    public User(String userID, String name, String password, String email, String contact){
         this.name = name;
         this.userID = userID;
         this.password = password;
         this.email = email;
         this.contact = contact;
+    }
+    public User(String userID, String password){
+        this.userID = userID;
+        this.password = password;
     }
     public void add() throws IOException{
         userFile.addToFile(toString());
@@ -76,30 +80,18 @@ public class User implements Record{
     public void setRole(String role){
         this.role = Role.valueOf(role);
     }
-    public Role login() throws IOException{
+    public String[] login() throws IOException{
         ArrayList<String[]> content = view();
 
         for (String[] line:content){
             System.out.println(Arrays.toString(line));
             if (userID.equals(line[0])){
                 if(password.equals(line[2])){
-                    role = Role.valueOf(line[5]);
-                    if(role.equals("Admin")){
-                        return Role.Admin;
-                    }
-                    else if(role.equals("Sales Manager")){
-                        return Role.SalesManager;
-                    }
-                    else if(role.equals("Purchase Manager")){
-                        return Role.PurchaseManager;
-                    }
-                    else{
-                        return Role.Unauthorized;
-                    }
+                    return line;
                 }
             }
         }
-        
+        return null;
     }
     public boolean verifyUniqueness()throws IOException{
         return userFile.verifyDataUniqueness(userID, 0);

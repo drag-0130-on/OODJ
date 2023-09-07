@@ -16,10 +16,9 @@ import javax.swing.table.DefaultTableModel;
  * @author Lenovo
  */
 public class GUI_Item_Entry extends javax.swing.JFrame {
-
-    /**
-     * Creates new form Item_Entry
-     */
+    
+    Admin admin;
+    SalesManager sm;
     public GUI_Item_Entry() {
         initComponents();
         try {
@@ -27,6 +26,15 @@ public class GUI_Item_Entry extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(GUI_Item_Entry.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    public GUI_Item_Entry(Admin admin) {
+        initComponents();
+        try {
+            showTable();
+        } catch (IOException ex) {
+            Logger.getLogger(GUI_Item_Entry.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        this.admin = admin;
         
         
     }

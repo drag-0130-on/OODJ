@@ -5,8 +5,8 @@ import java.util.Set;
 
 public class SalesManager extends User {
     
-    public SalesManager(String name, String userID, String password, String email, String contact) {
-        super(name,userID,password,email,contact);
+    public SalesManager(String userID, String name, String password, String email, String contact) {
+        super(userID,name,password,email,contact);
         setRole("SalesManager");
     }
     public void addItem(Item item)throws IOException{
