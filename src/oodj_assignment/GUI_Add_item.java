@@ -14,19 +14,19 @@ import javax.swing.DefaultComboBoxModel;
  *
  * @author adamc
  */
-public class GUI_Add_item1 extends javax.swing.JFrame {
+public class GUI_Add_item extends javax.swing.JFrame {
 
     /**
      * Creates new form GUI_Add_item1
      */
-    public GUI_Add_item1() {
+    public GUI_Add_item() {
         initComponents();
         initComponents();
         loadCategory();
         try {
             loadSupplier();
         } catch (IOException ex) {
-            Logger.getLogger(GUI_Add_item1.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(GUI_Add_item.class.getName()).log(Level.SEVERE, null, ex);
         }
         
     }
@@ -208,20 +208,21 @@ public class GUI_Add_item1 extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(GUI_Add_item1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUI_Add_item.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(GUI_Add_item1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUI_Add_item.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(GUI_Add_item1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUI_Add_item.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(GUI_Add_item1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUI_Add_item.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new GUI_Add_item1().setVisible(true);
+                new GUI_Add_item().setVisible(true);
             }
         });
     }
