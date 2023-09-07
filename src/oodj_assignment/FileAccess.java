@@ -72,7 +72,7 @@ public class FileAccess {
             e.printStackTrace();
         }
         for (String[] line:content){
-            if (oldData.equals(String.join("|", line))){
+            if (oldData.matches(String.join("|", line))){
                 bw.write(newData);
                 bw.newLine();      
             } else {
@@ -92,9 +92,7 @@ public class FileAccess {
             e.printStackTrace();
         }
         for (String[] line:content){
-            if ((data.equals(String.join("|", line)))){
-                continue;
-            } else {
+            if (!(data.trim().matches(String.join("\\|",line)))){
                 bw.write(String.join("|",line));
                 bw.newLine();
             }
