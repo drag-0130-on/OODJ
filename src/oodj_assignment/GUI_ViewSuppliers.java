@@ -75,12 +75,6 @@ public class GUI_ViewSuppliers extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel4.setText("Purchase Order Management System");
 
-        txtSearch.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtSearchActionPerformed(evt);
-            }
-        });
-
         buttonBack.setText("Back");
         buttonBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -140,10 +134,6 @@ public class GUI_ViewSuppliers extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtSearchActionPerformed
-
     private void buttonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBackActionPerformed
         GUI_PurchaseManager pm = new GUI_PurchaseManager();
         pm.show();
@@ -155,7 +145,7 @@ public class GUI_ViewSuppliers extends javax.swing.JFrame {
         String input = txtSearch.getText();
 
         try {
-            ArrayList<String[]> it = Supplier.view(input);
+            ArrayList<String[]> it = Supplier.view(Supplier.view(),input);
             model.setRowCount(0);
 
             for (String[] il : it) {
