@@ -187,12 +187,13 @@ public class GUI_Item_Entry extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonAddActionPerformed
 
     private void buttonEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEditActionPerformed
+        //not done yet
         GUI_Edit_item edit_item = new GUI_Edit_item();
         edit_item.show();
     }//GEN-LAST:event_buttonEditActionPerformed
 
     private void buttonRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonRemoveActionPerformed
-
+        
     }//GEN-LAST:event_buttonRemoveActionPerformed
 
     private void buttonSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSearchActionPerformed
@@ -200,7 +201,7 @@ public class GUI_Item_Entry extends javax.swing.JFrame {
         String input = txtSearch.getText();
         
         try {
-           ArrayList<String[]> it = Item.view(input);
+            ArrayList<String[]> it = Item.view(Item.view(),input);
             model.setRowCount(0);
 
             for (String[] il : it) {
