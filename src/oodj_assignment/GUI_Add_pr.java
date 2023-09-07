@@ -28,25 +28,12 @@ public class GUI_Add_pr extends javax.swing.JFrame {
     }
 
 
-    public GUI_Add_pr(Admin admin) {
+    public GUI_Add_pr(Admin admin) throws IOException {
         initComponents();
-        try {
-            loadSupplier();
-        } catch (IOException ex) {
-            Logger.getLogger(GUI_Add_item.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        showTable();
         this.admin =admin;
     }
-    public GUI_Add_item(SalesManager sm) {
-        initComponents();
-        loadCategory();
-        try {
-            loadSupplier();
-        } catch (IOException ex) {
-            Logger.getLogger(GUI_Add_item.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        this.sm =sm;
-    }
+    
     public void showTable() throws IOException {
         DefaultTableModel model = (DefaultTableModel) ItemTable.getModel();
         model.setRowCount(0);
@@ -190,12 +177,8 @@ public class GUI_Add_pr extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSaveActionPerformed
-        PurchaseRequisition pr = new PurchaseRequisition(txtQuantity.getText(), txtUserID.getText(),txtPassword.getText(),txtContact.getText(),txtEmail.getText());
-        try {
-            PurchaseManager.addpr(pr);
-        } catch (IOException ex) {
-            Logger.getLogger(GUI_Add_pr.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        
+        
     }//GEN-LAST:event_buttonSaveActionPerformed
 
     /**
@@ -231,6 +214,7 @@ public class GUI_Add_pr extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+                
                 new GUI_Add_pr().setVisible(true);
             }
         });

@@ -9,12 +9,13 @@ package oodj_assignment;
  * @author adamc
  */
 public class GUI_PurchaseManager extends javax.swing.JFrame {
-
-    /**
-     * Creates new form PurchaseManager
-     */
+    PurchaseManager pm;
     public GUI_PurchaseManager() {
         initComponents();
+    }
+    public GUI_PurchaseManager(PurchaseManager pm) {
+        initComponents();
+        this.pm = pm;
     }
 
     /**

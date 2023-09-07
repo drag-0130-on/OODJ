@@ -121,17 +121,17 @@ public class GUI_Login extends javax.swing.JFrame {
         }
         if (userInfo[5].matches("Admin")){
             Admin admin = new Admin(userInfo[0],userInfo[1],userInfo[2],userInfo[3],userInfo[4]);
-            GUI_Admin ga = new GUI_Admin();
+            GUI_Admin ga = new GUI_Admin(admin);
             ga.show();
         }
         else if (userInfo[5].matches("SalesManager")){
             SalesManager sm = new SalesManager(userInfo[0],userInfo[1],userInfo[2],userInfo[3],userInfo[4]);
-            GUI_Sales_Manager gsm = new GUI_Sales_Manager();
+            GUI_Sales_Manager gsm = new GUI_Sales_Manager(sm);
             gsm.show();    
         }
         else if (userInfo[5].matches("PurchaseManager")){
             PurchaseManager pm = new PurchaseManager(userInfo[0],userInfo[1],userInfo[2],userInfo[3],userInfo[4]);
-            GUI_PurchaseManager gpm = new GUI_PurchaseManager();
+            GUI_PurchaseManager gpm = new GUI_PurchaseManager(pm);
             gpm.show();    
         }
     }//GEN-LAST:event_buttonLoginActionPerformed

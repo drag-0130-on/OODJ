@@ -145,12 +145,7 @@ public class GUI_Add_supplier extends javax.swing.JFrame {
     private void buttonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSaveActionPerformed
         Supplier supplier = new Supplier(txtSupplierID.getText(),txtSupplierName.getText(),txtEmail.getText(),txtContact.getText());
         try {
-            if(admin!=null){
-                admin.addSupplier(supplier);
-            }
-            else if(sm!=null){
-                sm.addSupplier(supplier);
-            }
+            
         } catch (IOException ex) {
             Logger.getLogger(GUI_Add_supplier.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -26,27 +26,21 @@ public class Item implements Record {
     public String getItemID() {
         return itemID;
     }
-
     public void setItemID(String itemID) {
         this.itemID = itemID;
     }
-
     public double getBuyprice() {
         return buyprice;
     }
-
     public void setBuyprice(double buyprice) {
         this.buyprice = buyprice;
     }
-
     public double getSellprice() {
         return sellprice;
     }
-
     public void setSellprice(double sellprice) {
         this.sellprice = sellprice;
     }
-
     public void add() throws IOException{
         itemFile.addToFile(toString());
     }     
@@ -67,6 +61,21 @@ public class Item implements Record {
     }
     public boolean verifyUniqueness()throws IOException{
         return itemFile.verifyDataUniqueness(itemID, 0);
+    }
+    public static String generateID() throws IOException{
+        ArrayList<String[]> AL = view();
+        if (AL.size()==0){
+            return "I0001";
+        } else{
+            int idNo = Integer.parseInt(AL.get((AL.size()-1))[0]) + 1;
+            int idLength = String.valueOf(idNo).length();
+            String id = "I";
+            for (int i = 0;i < (4-idLength);i++){
+                id += "0";
+            }
+            id += idNo;
+            return id;
+        }
     }
     public boolean verifyStockAvailability(int amount){
         return stock >= amount;

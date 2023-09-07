@@ -9,16 +9,20 @@ public class User implements Record{
     private static FileAccess userFile = new FileAccess("user.txt");
     private Role role;
     
-    public User(String userID, String name, String password, String email, String contact){
+    public User(String userID, String name, String password, String email, String contact,String role){
         this.name = name;
         this.userID = userID;
         this.password = password;
         this.email = email;
         this.contact = contact;
+        this.role = Role.valueOf(role);
     }
     public User(String userID, String password){
         this.userID = userID;
         this.password = password;
+    }
+    public User(){
+        
     }
     public void add() throws IOException{
         userFile.addToFile(toString());
@@ -37,6 +41,21 @@ public class User implements Record{
     }
     public static ArrayList<String[]> view(ArrayList<String[]> AL, int attIndex, String filter){
         return userFile.viewFile(AL, attIndex, filter);
+    }
+    public static String generateID() throws IOException{
+        ArrayList<String[]> AL = view();
+        if (AL.size()==0){
+            return "0001";
+        } else{
+            int idNo = Integer.parseInt(AL.get((AL.size()-1))[0]) + 1;
+            int idLength = String.valueOf(idNo).length();
+            String id = "U";
+            for (int i = 0;i < (4-idLength);i++){
+                id += "0";
+            }
+            id += idNo;
+            return id;
+        }
     }
     public String toString(){
         return(userID + "|" + name + "|" + password + "|" + email + "|" + contact+ "|" + role);

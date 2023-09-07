@@ -10,11 +10,13 @@ package oodj_assignment;
  */
 public class GUI_Sales_Manager extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Sales_Manager
-     */
+    SalesManager sm;
     public GUI_Sales_Manager() {
         initComponents();
+    }
+    public GUI_Sales_Manager(SalesManager sm) {
+        initComponents();
+        this.sm = sm;
     }
 
     /**
