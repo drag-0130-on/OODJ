@@ -19,11 +19,11 @@ public class GUI_Add_User extends javax.swing.JFrame {
     }
     
     public void loadRole(){
-        Role[] role =Role.values();
+        Role[] roles =Role.values();
         DefaultComboBoxModel categoryModel = (DefaultComboBoxModel) cmbRole.getModel();
         cmbRole.removeAllItems();
-        for (Role Role:role){
-            categoryModel.addElement(Role.toString());
+        for (Role role:roles){
+            categoryModel.addElement(role.toString());
         }
         cmbRole.setSelectedIndex(-1);
     }
