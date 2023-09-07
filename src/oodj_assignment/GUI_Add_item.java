@@ -16,16 +16,30 @@ public class GUI_Add_item extends javax.swing.JFrame {
     public GUI_Add_item() {
         initComponents();
         loadCategory();
-        //loadSupplier();
+        try {
+            loadSupplier();
+        } catch (IOException ex) {
+            Logger.getLogger(GUI_Add_item.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
     
     public void loadCategory(){
         ItemCategory[] categories = ItemCategory.values();
-        DefaultComboBoxModel<ItemCategory> model = new DefaultComboBoxModel<>(categories);
-        Category.setModel(model);
-        Category.setSelectedIndex(-1);
+        DefaultComboBoxModel categoryModel = (DefaultComboBoxModel) cmbCategory.getModel();
+        for (ItemCategory category:categories){
+            categoryModel.addElement(category.toString());
+        }
+        cmbCategory.setSelectedIndex(-1);
+        
     }
-    public void loadSupplier(){
+    public void loadSupplier()throws IOException{
+        ArrayList<String[]> supplierList = Supplier.view();
+        DefaultComboBoxModel supplierModel = (DefaultComboBoxModel) cmbSupplier.getModel();
+        for (String[] supplier: supplierList){
+            supplierModel.addElement(supplier[0]+"|"+supplier[1]);
+        } 
+        cmbSupplier.setSelectedIndex(-1);
       /*  FileReader supplierFileReader = null;
         try {
             supplierFileReader = new FileReader("supplier.txt");
@@ -58,7 +72,7 @@ public class GUI_Add_item extends javax.swing.JFrame {
     private void initComponents() {
 
         txtPrice = new javax.swing.JTextField();
-        SupplierComboBox = new javax.swing.JComboBox();
+        cmbSupplier = new javax.swing.JComboBox();
         Add_item = new javax.swing.JLabel();
         Save = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
@@ -68,7 +82,7 @@ public class GUI_Add_item extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        Category = new javax.swing.JComboBox<>();
+        cmbCategory = new javax.swing.JComboBox<>();
         txtItem_name = new javax.swing.JTextField();
         txtStock = new javax.swing.JTextField();
 
@@ -80,10 +94,9 @@ public class GUI_Add_item extends javax.swing.JFrame {
             }
         });
 
-        SupplierComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        SupplierComboBox.addActionListener(new java.awt.event.ActionListener() {
+        cmbSupplier.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SupplierComboBoxActionPerformed(evt);
+                cmbSupplierActionPerformed(evt);
             }
         });
 
@@ -112,9 +125,9 @@ public class GUI_Add_item extends javax.swing.JFrame {
 
         jLabel6.setText("Supplier:");
 
-        Category.addActionListener(new java.awt.event.ActionListener() {
+        cmbCategory.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CategoryActionPerformed(evt);
+                cmbCategoryActionPerformed(evt);
             }
         });
 
@@ -146,14 +159,14 @@ public class GUI_Add_item extends javax.swing.JFrame {
                                 .addComponent(Cancel))
                             .addComponent(jLabel2)
                             .addComponent(jLabel6)
-                            .addComponent(Category, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cmbCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3)
                             .addComponent(txtItem_name, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtStock, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4)
                             .addComponent(jLabel5)
                             .addComponent(txtPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(SupplierComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(cmbSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(27, 27, 27)
                         .addComponent(System_name))
@@ -172,7 +185,7 @@ public class GUI_Add_item extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Category, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cmbCategory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel3)
                 .addGap(5, 5, 5)
@@ -188,7 +201,7 @@ public class GUI_Add_item extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(SupplierComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cmbSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Save)
@@ -199,20 +212,20 @@ public class GUI_Add_item extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void CategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CategoryActionPerformed
+    private void cmbCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbCategoryActionPerformed
         
-    }//GEN-LAST:event_CategoryActionPerformed
+    }//GEN-LAST:event_cmbCategoryActionPerformed
 
     private void txtStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtStockActionPerformed
 
     }//GEN-LAST:event_txtStockActionPerformed
 
     private void SaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveActionPerformed
-        String category = (String)Category.getSelectedItem();
+        String category = (String)cmbCategory.getSelectedItem();
         String stock = txtStock.getText();
         String item_name = txtItem_name.getText();
         String price = txtPrice.getText();
-        String supplier = (String)SupplierComboBox.getSelectedItem();
+        String supplier = (String)cmbSupplier.getSelectedItem();
         if(category.isEmpty() || item_name.isEmpty() || stock.isEmpty() || price.isEmpty() || supplier.isEmpty()){
             JOptionPane.showMessageDialog(null,"Missing information",null,JOptionPane.ERROR_MESSAGE);
         }
@@ -229,9 +242,9 @@ public class GUI_Add_item extends javax.swing.JFrame {
 
     }//GEN-LAST:event_txtPriceActionPerformed
 
-    private void SupplierComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SupplierComboBoxActionPerformed
+    private void cmbSupplierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbSupplierActionPerformed
     
-    }//GEN-LAST:event_SupplierComboBoxActionPerformed
+    }//GEN-LAST:event_cmbSupplierActionPerformed
         
     
     /**
@@ -277,10 +290,10 @@ public class GUI_Add_item extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Add_item;
     private javax.swing.JButton Cancel;
-    private javax.swing.JComboBox<ItemCategory> Category;
     private javax.swing.JButton Save;
-    private javax.swing.JComboBox SupplierComboBox;
     private javax.swing.JLabel System_name;
+    private javax.swing.JComboBox<ItemCategory> cmbCategory;
+    private javax.swing.JComboBox cmbSupplier;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
