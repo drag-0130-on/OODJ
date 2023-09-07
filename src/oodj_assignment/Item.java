@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class Item implements Record {
     
-    private static FileAccess itemFile = new FileAccess("Item.txt");
+    private static FileAccess itemFile = new FileAccess("item.txt");
     private String itemID, itemName,supplierID,supplierName;
     private ItemCategory category;
     private int stock;
