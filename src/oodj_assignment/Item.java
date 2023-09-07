@@ -12,14 +12,15 @@ public class Item implements Record {
     private int stock;
     private double buyprice, sellprice;     
       
-    public Item(String itemID, String itemName, String category,int stock, double price, String supplierID,String supplierName){
+    public Item(String itemID, String itemName, String category,int stock, String supplierID,String supplierName, double sellprice, double buyprice){
           this.itemID = itemID;
           this.itemName = itemName;
           this.category = ItemCategory.valueOf(category);
           this.stock = stock;
-          this.buyprice = buyprice;
           this.supplierID = supplierID;
           this.supplierName = supplierName;
+          this.buyprice = buyprice;
+          this.sellprice = sellprice;
     }
 
     public String getItemID() {
@@ -77,7 +78,7 @@ public class Item implements Record {
         edit(toString().replace(String.valueOf(stock),String.valueOf((stock-amount))));
     }
     public String toString(){
-        return (itemID + "|"+itemName + "|" + category.toString() + "|" + stock + "|" + "|" + supplierID + "|" + supplierName+ "|" + sellprice);
+        return (itemID + "|"+itemName + "|" + category.toString() + "|" + stock + "|" + supplierID + "|" + supplierName+ "|" + sellprice + "|" + buyprice);
     }
     public String toStringForDIS(){
         return (itemID + "|"+itemName + "|" + category.toString() + "|" + supplierID + "|" + supplierName+ "|" + sellprice);

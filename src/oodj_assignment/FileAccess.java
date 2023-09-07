@@ -92,11 +92,12 @@ public class FileAccess {
             e.printStackTrace();
         }
         for (String[] line:content){
-            if (!(data.equals(String.join("|",line)))){
+            if ((data.equals(String.join("|", line)))){
+                continue;
+            } else {
                 bw.write(String.join("|",line));
                 bw.newLine();
-            } 
-           
+            }
         }
         bw.close();
         return true;

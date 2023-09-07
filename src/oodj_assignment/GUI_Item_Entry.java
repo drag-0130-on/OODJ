@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -35,14 +36,23 @@ public class GUI_Item_Entry extends javax.swing.JFrame {
             Logger.getLogger(GUI_Item_Entry.class.getName()).log(Level.SEVERE, null, ex);
         }
         this.admin = admin;
-        
-        
     }
+    public GUI_Item_Entry(SalesManager sm) {
+        initComponents();
+        try {
+            showTable();
+        } catch (IOException ex) {
+            Logger.getLogger(GUI_Item_Entry.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        this.sm = sm;
+    }
+    
+    
     public void showTable() throws IOException {
         DefaultTableModel model = (DefaultTableModel) ItemTable.getModel();
         model.setRowCount(0);
         
-        String[] columnNames = { "Item ID", "Category", "Item Name", "Stock", "Price","Supplier ID"}; 
+        String[] columnNames = { "Item ID","Item Name", "Category", "Stock","Supplier ID","SupplierName","Sell Price","Buy Price"}; 
         model.setColumnIdentifiers(columnNames);
         
         ArrayList<String[]> it = Item.view();
@@ -199,9 +209,35 @@ public class GUI_Item_Entry extends javax.swing.JFrame {
         GUI_Edit_item edit_item = new GUI_Edit_item();
         edit_item.show();
     }//GEN-LAST:event_buttonEditActionPerformed
-
+//String itemID, String itemName, String category,int stock, double price, String supplierID,String supplierName
     private void buttonRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonRemoveActionPerformed
-        
+       
+        int itemRow = ItemTable.getSelectedRow();
+        if (itemRow != -1){
+            String itemID = ItemTable.getModel().getValueAt(itemRow, 0).toString();
+            String itemName = ItemTable.getModel().getValueAt(itemRow, 1).toString();
+            String category = ItemTable.getModel().getValueAt(itemRow, 2).toString();
+            int stock = Integer.parseInt(ItemTable.getModel().getValueAt(itemRow, 3).toString());
+            String supplierID = ItemTable.getModel().getValueAt(itemRow, 4).toString();
+            String supplierName = ItemTable.getModel().getValueAt(itemRow, 5).toString();
+            double sellPrice = Double.parseDouble(ItemTable.getModel().getValueAt(itemRow, 6).toString());
+            double buyPrice = Double.parseDouble(ItemTable.getModel().getValueAt(itemRow, 7).toString());
+            Item item = new Item(itemID,itemName,category,stock,supplierID,supplierName,sellPrice,buyPrice);
+            System.out.println(item.toString());
+            try {
+                item.remove();
+//                if(admin!=null){
+//                    admin.removeItem(item);
+//                }
+//                else if(sm!=null){
+//                    sm.removeItem(item);
+//                }
+            } catch (IOException ex) {
+                Logger.getLogger(GUI_Add_item.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else {
+            JOptionPane.showMessageDialog(null,"rs");
+        }
     }//GEN-LAST:event_buttonRemoveActionPerformed
 
     private void buttonSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSearchActionPerformed
