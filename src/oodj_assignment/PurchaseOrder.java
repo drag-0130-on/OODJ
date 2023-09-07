@@ -37,7 +37,7 @@ public class PurchaseOrder implements Record {
         return poFile.viewFile(AL,attIndex,filter);
     }
     public String toString(){
-        return (poID + "|" + pr.toString() + "|" + pmID);
+        return (pr.toString() + "|" + pmID);
     }
     
      
