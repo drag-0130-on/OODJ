@@ -283,17 +283,14 @@ public class GUI_Add_item extends javax.swing.JFrame {
 
     }//GEN-LAST:event_txtPriceActionPerformed
 
-    private void cmbSupplierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbSupplierActionPerformed
+    private void cmbSupplierActionPerformed(java.awt.event.ActionEvent evt) {                                            
     
-<<<<<<< HEAD
-    }//GEN-LAST:event_SupplierComboBoxActionPerformed
+    }                                                
 
     private void txtItem_idActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtItem_idActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtItem_idActionPerformed
-=======
-    }//GEN-LAST:event_cmbSupplierActionPerformed
->>>>>>> origin/master
+
         
     
     /**
