@@ -1,3 +1,1 @@
-I001|Milo|Beverages|100|5.99|S001|TT Sdn. Bhd.
-I002|Haeven&Earth|Beverages|150|4.99|S001|TT Sdn. Bhd.
-I003|Horlick|Beverages|200|5.99|S002|CC Sdn. Bhd.
+I004|Milo|Beverage|200|S001|AA Sdn. Bhd.|2.2|1.5
