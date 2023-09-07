@@ -21,7 +21,6 @@ public class GUI_Add_item extends javax.swing.JFrame {
      */
     public GUI_Add_item() {
         initComponents();
-        initComponents();
         loadCategory();
         try {
             loadSupplier();
