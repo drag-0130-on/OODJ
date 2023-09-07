@@ -5,36 +5,35 @@ package oodj_assignment;
 public class inputValidation {
 
     public static void main(String[] args) {
-        String category = "Vegetable";
-        String item_Name = "Potato";
-        int stock = 50;
-        double price = 59.99;
         
 
-        if (isValidCategory(category) &&
-            isValidItemName(item_Name) &&
-            isValidStock(stock) &&
-            isValidPrice(price)) {
-            System.out.println("All data is valid.");
-        } else {  
-            System.out.println("Invalid data found.");
-        }
     }
-          
-    public static boolean isValidCategory(String category) {
+    
+    public static boolean isValidName(String name) {
+        return (name!=null) && (!name.isEmpty()) && (name.length()<=30);
+    }
+    
+/*    public static boolean isValidCategory(String category) {
         return category != null && !category.isEmpty();
-    }
+    }*/
 
     public static boolean isValidItemName(String item_Name) {
         return item_Name != null && !item_Name.isEmpty();
     }
 
-    public static boolean isValidStock(int stock) {
-        return stock >= 0;
+    public static boolean isValidQuantity(int quantity) {
+        return quantity >= 0;
     }
 
     public static boolean isValidPrice(double price) {
         return price >= 0.00;
     }
-
+    
+    public static boolean isValidEmail(String email) {
+        return (email!=null) && (!email.isEmpty()) && (email.contains("@")) && (email.indexOf("@") !=0);
+    }
+    
+    public static boolean isValidContact(String contact) {
+        return (contact!=null) && (!contact.isEmpty()) && (contact.length()<=11) && (contact.length()>=10);
+    }
 }
