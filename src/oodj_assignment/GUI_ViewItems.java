@@ -52,7 +52,7 @@ public class GUI_ViewItems extends javax.swing.JFrame {
 
         jLabel4 = new javax.swing.JLabel();
         txtSearch = new javax.swing.JTextField();
-        Back = new javax.swing.JButton();
+        buttonBack = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         ItemTable = new javax.swing.JTable();
@@ -63,16 +63,10 @@ public class GUI_ViewItems extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel4.setText("Purchase Order Management System");
 
-        txtSearch.addActionListener(new java.awt.event.ActionListener() {
+        buttonBack.setText("Back");
+        buttonBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtSearchActionPerformed(evt);
-            }
-        });
-
-        Back.setText("Back");
-        Back.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BackActionPerformed(evt);
+                buttonBackActionPerformed(evt);
             }
         });
 
@@ -111,7 +105,7 @@ public class GUI_ViewItems extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(492, 492, 492)
-                        .addComponent(Back))
+                        .addComponent(buttonBack))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(262, 262, 262)
                         .addComponent(jLabel1))
@@ -139,29 +133,25 @@ public class GUI_ViewItems extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
-                .addComponent(Back)
+                .addComponent(buttonBack)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtSearchActionPerformed
-
-    private void BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed
+    private void buttonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBackActionPerformed
         GUI_PurchaseManager pm = new GUI_PurchaseManager();
         pm.show();
         dispose();
-    }//GEN-LAST:event_BackActionPerformed
+    }//GEN-LAST:event_buttonBackActionPerformed
 
     private void buttonSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSearchActionPerformed
         DefaultTableModel model = (DefaultTableModel) ItemTable.getModel();
         String input = txtSearch.getText();
 
         try {
-            ArrayList<String[]> it = Item.view(input);
+            ArrayList<String[]> it = Item.view(Item.view(),input);
             model.setRowCount(0);
 
             for (String[] il : it) {
@@ -217,8 +207,8 @@ public class GUI_ViewItems extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Back;
     private javax.swing.JTable ItemTable;
+    private javax.swing.JButton buttonBack;
     private javax.swing.JButton buttonSearch;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
