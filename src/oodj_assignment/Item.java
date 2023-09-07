@@ -7,19 +7,19 @@ import java.util.ArrayList;
 public class Item implements Record {
     
     private static FileAccess itemFile = new FileAccess("Item.txt");
-    private String itemID, itemName;
+    private String itemID, itemName,supplierID,supplierName;
     private ItemCategory category;
     private int stock;
     private double buyprice, sellprice;     
-    private Supplier supplier;
       
-    public Item(String itemID, String itemName, String category,int stock, double price, Supplier supplier){
+    public Item(String itemID, String itemName, String category,int stock, double price, String supplierID,String supplierName){
           this.itemID = itemID;
           this.itemName = itemName;
           this.category = ItemCategory.valueOf(category);
           this.stock = stock;
           this.buyprice = buyprice;
-          this.supplier = supplier;
+          this.supplierID = supplierID;
+          this.supplierName = supplierName;
     }
 
     public String getItemID() {
@@ -77,13 +77,13 @@ public class Item implements Record {
         edit(toString().replace(String.valueOf(stock),String.valueOf((stock-amount))));
     }
     public String toString(){
-        return (itemID + "|"+itemName + "|" + category.toString() + "|" + stock + "|" + "|" + supplier.getID() + "|" + supplier.getName()+ "|" + sellprice);
+        return (itemID + "|"+itemName + "|" + category.toString() + "|" + stock + "|" + "|" + supplierID + "|" + supplierName+ "|" + sellprice);
     }
     public String toStringForDIS(){
-        return (itemID + "|"+itemName + "|" + category.toString() + "|" + supplier.getID() + "|" + supplier.getName()+ "|" + sellprice);
+        return (itemID + "|"+itemName + "|" + category.toString() + "|" + supplierID + "|" + supplierName+ "|" + sellprice);
     }
     public String toStringForPR(){
-        return (itemID + "|"+itemName + "|" + category.toString() + "|"  + supplier.getID() + "|" + supplier.getName()+ "|" + buyprice);
+        return (itemID + "|"+itemName + "|" + category.toString() + "|"  + supplierID + "|" + supplierName+ "|" + buyprice);
     }
     
     
