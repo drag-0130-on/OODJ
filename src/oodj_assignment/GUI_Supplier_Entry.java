@@ -175,10 +175,11 @@ public class GUI_Supplier_Entry extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonRemoveActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_buttonRemoveActionPerformed
 
     private void buttonEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEditActionPerformed
+        //not done yet
         GUI_Edit_supplier edit = new GUI_Edit_supplier();
         edit.show();
     }//GEN-LAST:event_buttonEditActionPerformed
@@ -198,7 +199,7 @@ public class GUI_Supplier_Entry extends javax.swing.JFrame {
         String input = txtSearch.getText();
         
         try {
-            ArrayList<String[]> it = Supplier.view(input);
+            ArrayList<String[]> it = Supplier.view(Supplier.view(),input);
             model.setRowCount(0);
 
             for (String[] il : it) {
