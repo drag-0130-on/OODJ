@@ -7,7 +7,7 @@ import java.util.Arrays;
 public class User implements Record{                      
     private String name, userID, password, email, contact;
     private static FileAccess userFile = new FileAccess("user.txt");
-    private Role role = Role.Unauthorized;
+    private Role role;
     
     public User(String userID, String name, String password, String email, String contact){
         this.name = name;
