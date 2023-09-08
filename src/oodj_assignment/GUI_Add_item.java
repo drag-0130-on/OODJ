@@ -252,7 +252,7 @@ public class GUI_Add_item extends javax.swing.JFrame {
                 break;
                 }
             }
-        if (errorMessage != null){
+        if (errorMessage != null){ //还没改
             JOptionPane.showMessageDialog(new GUI_Add_User(new Admin()),errorMessage);
         }            
         }
