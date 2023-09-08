@@ -8,11 +8,10 @@ import javax.swing.table.DefaultTableModel;
 
 public class GUI_PM_PO extends javax.swing.JFrame {
 
-    /**
-     * Creates new form PM_PO
-     */
-    public GUI_PM_PO() {
+    Admin admin;
+    public GUI_PM_PO(Admin admin) {
         initComponents();
+        this.admin = admin;
         try {
             showTable();
         } catch (IOException ex) {
@@ -263,7 +262,7 @@ public class GUI_PM_PO extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new GUI_PM_PO().setVisible(true);
+                new GUI_PM_PO(new Admin()).setVisible(true);
             }
         });
     }
