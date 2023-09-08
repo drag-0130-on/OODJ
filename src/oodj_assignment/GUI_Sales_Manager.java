@@ -37,14 +37,14 @@ public class GUI_Sales_Manager extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        buttonItem_entry.setText("Item");
+        buttonItem_entry.setText("Item Entry");
         buttonItem_entry.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonItem_entryActionPerformed(evt);
             }
         });
 
-        buttonSupplier_entry.setText("Supplier");
+        buttonSupplier_entry.setText("Supplier Entry");
         buttonSupplier_entry.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonSupplier_entryActionPerformed(evt);
@@ -54,7 +54,7 @@ public class GUI_Sales_Manager extends javax.swing.JFrame {
         Sales_manager.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         Sales_manager.setText("Sales Manager Home Page");
 
-        buttonDaily_item_wise_sales_entry.setText("Daily Item-wise Sales");
+        buttonDaily_item_wise_sales_entry.setText("Daily Item-wise Sales Entry");
         buttonDaily_item_wise_sales_entry.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonDaily_item_wise_sales_entryActionPerformed(evt);

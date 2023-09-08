@@ -75,7 +75,7 @@
   <SubComponents>
     <Component class="javax.swing.JButton" name="buttonItem_entry">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Item"/>
+        <Property name="text" type="java.lang.String" value="Item Entry"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonItem_entryActionPerformed"/>
@@ -83,7 +83,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="buttonSupplier_entry">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Supplier"/>
+        <Property name="text" type="java.lang.String" value="Supplier Entry"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonSupplier_entryActionPerformed"/>
@@ -99,7 +99,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="buttonDaily_item_wise_sales_entry">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Daily Item-wise Sales"/>
+        <Property name="text" type="java.lang.String" value="Daily Item-wise Sales Entry"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonDaily_item_wise_sales_entryActionPerformed"/>
