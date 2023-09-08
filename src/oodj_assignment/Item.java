@@ -60,8 +60,8 @@ public class Item implements Record {
         return itemFile.viewFile(AL,attIndex,filter);
     }
     public boolean verifyUniqueness()throws IOException{
-        String[] data = {itemName,supplierID};
-        int[] i = {1,4};
+        String[] data = {itemID,itemName,supplierID};
+        int[] i = {0,1,4};
         return itemFile.verifyDataUniqueness(data,i);
     }
     

@@ -15,8 +15,10 @@ public class GUI_View_po extends javax.swing.JFrame {
     /**
      * Creates new form View_po
      */
-    public GUI_View_po() {
+    SalesManager sm;
+    public GUI_View_po(SalesManager sm) {
         initComponents();
+        this.sm = sm;
         try {
             showTable();
         } catch (IOException ex) {
@@ -155,7 +157,7 @@ public class GUI_View_po extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new GUI_View_po().setVisible(true);
+                new GUI_View_po(new SalesManager()).setVisible(true);
             }
         });
     }

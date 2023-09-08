@@ -65,6 +65,11 @@ public class PurchaseRequisition implements Record {
             return id;
         }
     }
+    public boolean verifyUniqueness()throws IOException{
+       String[] data = {prID,item.getItemID()};
+       int[] i = {0,1};
+       return prFile.verifyDataUniqueness(data, i);
+    }
     public String toString(){
         return (prID + "|" + item.toStringForPR() + "|" + quantity + "|" + totalprice() + "|" + smID + "|" + status);
     }

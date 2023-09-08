@@ -59,19 +59,9 @@ public class Supplier implements Record {
         }
     }
     public boolean verifyUniqueness()throws IOException{
-       String[] d1 = {email};
-       int[] i1 = {3};
-       String[] d2 = {contactNo};
-       int[] i2 = {4};
-       String[] d3 = {supplierName};
-       int[] i3 = {1};
-       if (supplierFile.verifyDataUniqueness(d1,i1)){
-           if(supplierFile.verifyDataUniqueness(d2, i2)){
-               return supplierFile.verifyDataUniqueness(d3, i3);
-           }
-           return false;
-       }
-       return false;
+       String[] data = {supplierID,supplierName};
+       int[] i = {0,1};
+       return supplierFile.verifyDataUniqueness(data, i);
     }
     public String toString(){
         return (supplierID + "|" + supplierName + "|" + email + "|" + contactNo);
