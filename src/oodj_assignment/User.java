@@ -113,6 +113,14 @@ public class User implements Record{
         return null;
     }
     public boolean verifyUniqueness()throws IOException{
-        return userFile.verifyDataUniqueness(userID, 0);
+       String[] d1 = {email};
+       int[] i1 = {3};
+       String[] d2 = {contact};
+       int[] i2 = {4};
+       if (userFile.verifyDataUniqueness(d1,i1)){
+           return userFile.verifyDataUniqueness(d2, i2);
+       }
+       return false;
+        
     }
 }        

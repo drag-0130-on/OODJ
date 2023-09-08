@@ -37,7 +37,9 @@ public class DailyItemSales implements Record {
         return amountSold*item.getSellprice();
     }
     public boolean verifyUniqueness()throws IOException{
-        return dailyFile.verifyDataUniqueness(item.getItemID(), 0);
+        String[] data = {date,item.getItemID()};
+        int[] i = {0,1};
+        return dailyFile.verifyDataUniqueness(data,i);
     }
     public String toString(){
         return (date + "|" + item.toStringForDIS()+  "|" + amountSold + "|" + totalprice());
