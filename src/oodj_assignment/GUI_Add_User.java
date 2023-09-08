@@ -15,6 +15,7 @@ public class GUI_Add_User extends javax.swing.JFrame {
     Admin admin;
     public GUI_Add_User(Admin admin) {
         initComponents();
+        this.admin = admin;
         loadRole();
         try {
             txtID.setText(User.generateID());
@@ -22,7 +23,6 @@ public class GUI_Add_User extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(GUI_Add_User.class.getName()).log(Level.SEVERE, null, ex);
         }
-        this.admin = admin;
     }
     public void loadRole(){
         Role[] roles =Role.values();
@@ -244,7 +244,9 @@ public class GUI_Add_User extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonSaveActionPerformed
 
     private void buttonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCancelActionPerformed
-        dispose();
+        GUI_User_Entry userEntry = new GUI_User_Entry(admin);
+        userEntry.show();
+        this.dispose();
     }//GEN-LAST:event_buttonCancelActionPerformed
 
     /**
