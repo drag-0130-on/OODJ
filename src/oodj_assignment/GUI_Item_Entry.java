@@ -205,8 +205,8 @@ public class GUI_Item_Entry extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddActionPerformed
-        GUI_Add_item add_item = new GUI_Add_item();
-        add_item.show();
+//        GUI_Add_item add_item = new GUI_Add_item();
+//        add_item.show();
     }//GEN-LAST:event_buttonAddActionPerformed
 
     private void buttonEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEditActionPerformed
@@ -230,13 +230,12 @@ public class GUI_Item_Entry extends javax.swing.JFrame {
             Item item = new Item(itemID,itemName,category,stock,supplierID,supplierName,sellPrice,buyPrice);
             System.out.println(item.toString());
             try {
-                item.remove();
-//                if(admin!=null){
-//                    admin.removeItem(item);
-//                }
-//                else if(sm!=null){
-//                    sm.removeItem(item);
-//                }
+                if(admin!=null){
+                    admin.removeItem(item);
+                }
+                else if(sm!=null){
+                    sm.removeItem(item);
+                }
             } catch (IOException ex) {
                 Logger.getLogger(GUI_Add_item.class.getName()).log(Level.SEVERE, null, ex);
             }

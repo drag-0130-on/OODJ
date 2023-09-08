@@ -19,35 +19,25 @@ public class GUI_Add_item extends javax.swing.JFrame {
 
     Admin admin;
     SalesManager sm;
-    public GUI_Add_item() {
-        initComponents();
-        loadCategory();
-        try {
-            loadSupplier();
-        } catch (IOException ex) {
-            Logger.getLogger(GUI_Add_item.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-    }
     public GUI_Add_item(Admin admin) {
         initComponents();
+        this.admin =admin;
         loadCategory();
         try {
             loadSupplier();
         } catch (IOException ex) {
             Logger.getLogger(GUI_Add_item.class.getName()).log(Level.SEVERE, null, ex);
         }
-        this.admin =admin;
     }
     public GUI_Add_item(SalesManager sm) {
         initComponents();
+        this.sm =sm;
         loadCategory();
         try {
             loadSupplier();
         } catch (IOException ex) {
             Logger.getLogger(GUI_Add_item.class.getName()).log(Level.SEVERE, null, ex);
         }
-        this.sm =sm;
     }
     public void loadCategory(){
         ItemCategory[] categories = ItemCategory.values();

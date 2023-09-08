@@ -219,7 +219,19 @@ public class GUI_Profile extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-        if (admin)
+        if (admin != null){
+            GUI_Admin adminHP = new GUI_Admin(admin);
+            adminHP.show();
+            this.dispose();
+        } else if (sm != null){
+            GUI_Sales_Manager smHP = new GUI_Sales_Manager(sm);
+            smHP.show();
+            this.dispose();
+        } else if (pm != null){
+            GUI_PurchaseManager pmHP = new GUI_PurchaseManager(pm);
+            pmHP.show();
+            this.dispose();
+        }
     }//GEN-LAST:event_btnBackActionPerformed
 
     /**
