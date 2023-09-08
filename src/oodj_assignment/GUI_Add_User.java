@@ -70,19 +70,7 @@ public class GUI_Add_User extends javax.swing.JFrame {
 
         jLabel3.setText("Contact Number");
 
-        txtContact.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtContactActionPerformed(evt);
-            }
-        });
-
         jLabel6.setText("Role");
-
-        txtPassword.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPasswordActionPerformed(evt);
-            }
-        });
 
         buttonSave.setText("Save");
         buttonSave.addActionListener(new java.awt.event.ActionListener() {
@@ -102,28 +90,12 @@ public class GUI_Add_User extends javax.swing.JFrame {
         jLabel4.setText("Purchase Order Management System");
 
         txtName.setToolTipText("Full Name");
-        txtName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNameActionPerformed(evt);
-            }
-        });
 
         jLabel7.setText("Full Name");
 
         cmbRole.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sales Manager", "Purchase Manager", "Admin" }));
-        cmbRole.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbRoleActionPerformed(evt);
-            }
-        });
 
         jLabel8.setText("Email Address");
-
-        txtEmail.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtEmailActionPerformed(evt);
-            }
-        });
 
         jLabel5.setText("User ID");
 
@@ -205,14 +177,6 @@ public class GUI_Add_User extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtContactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtContactActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtContactActionPerformed
-
-    private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPasswordActionPerformed
-
     private void buttonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSaveActionPerformed
         String errorMessage = null;
         while (true){
@@ -280,20 +244,8 @@ public class GUI_Add_User extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonSaveActionPerformed
 
     private void buttonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCancelActionPerformed
-
+        dispose();
     }//GEN-LAST:event_buttonCancelActionPerformed
-
-    private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNameActionPerformed
-
-    private void cmbRoleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbRoleActionPerformed
-
-    }//GEN-LAST:event_cmbRoleActionPerformed
-
-    private void txtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtEmailActionPerformed
 
     /**
      * @param args the command line arguments
