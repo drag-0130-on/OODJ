@@ -143,11 +143,34 @@ public class GUI_Add_supplier extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSaveActionPerformed
+        String errorMessage = null;
+        while(true){
+            if(!(InputValidation.isValidName(txtSupplierName.getText()))){
+                errorMessage = "Invalid supplier name\nLength of input should be between 0 and 30";
+                break;
+            }
+            else if(!(InputValidation.isValidName(txtEmail.getText()))){
+                errorMessage = "Invalid email";
+                break;
+            }
+            else{
+                if(!(InputValidation.isValidContact(txtContact.getText()))){
+                    errorMessage = "Invalid contact";
+                    break;
+                }
+            }
         Supplier supplier = new Supplier(txtSupplierID.getText(),txtSupplierName.getText(),txtEmail.getText(),txtContact.getText());
         try {
-            
+            if(admin!=null){
+                admin.addSupplier(supplier);
+                System.out.println("Admin");
+            }
+            else if(sm!=null){
+                sm.addSupplier(supplier);
+            }
         } catch (IOException ex) {
             Logger.getLogger(GUI_Add_supplier.class.getName()).log(Level.SEVERE, null, ex);
+        }
         }
     }//GEN-LAST:event_buttonSaveActionPerformed
 
