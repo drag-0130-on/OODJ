@@ -30,10 +30,12 @@ public class GUI_Add_pr extends javax.swing.JFrame {
 
     public GUI_Add_pr(Admin admin) throws IOException {
         initComponents();
-        showTable();
         this.admin =admin;
     }
-    
+    public GUI_Add_pr(SalesManager sm) {
+        initComponents();
+        this.sm =sm;
+    }
     public void showTable() throws IOException {
         DefaultTableModel model = (DefaultTableModel) ItemTable.getModel();
         model.setRowCount(0);
@@ -46,6 +48,12 @@ public class GUI_Add_pr extends javax.swing.JFrame {
             model.addRow(il);
         }
     }
+    /*public void selectTable()throws IOException{
+        int[]selectedItem = ItemTable.getSelectedRows();
+        if(selectedItem == null || selectedItem.length()<1){
+            
+        }
+    }*/
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -177,8 +185,21 @@ public class GUI_Add_pr extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSaveActionPerformed
-        
-        
+        String selectedYear = (String) comboboxYear.getSelectedItem();
+        String selectedMonth = (String) comboboxMonth.getSelectedItem();
+        String selectedDay = (String) comboboxDay.getSelectedItem();
+        String date = (selectedDay+"-"+selectedMonth+"-"+selectedYear);
+        //PurchaseRequisition pr = new PurchaseRequisition(txtQuantity.getText(), txtUserID.getText(),txtPassword.getText(),txtContact.getText(),txtEmail.getText());
+        /*try{
+            if(admin!=null){
+                admin.addPR(pr);
+            }
+            else if(sm!=null){
+                sm.addPR(pr);
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(GUI_Add_item.class.getName()).log(Level.SEVERE, null, ex);
+        }*/
     }//GEN-LAST:event_buttonSaveActionPerformed
 
     /**
