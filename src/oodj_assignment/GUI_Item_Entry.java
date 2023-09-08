@@ -20,14 +20,6 @@ public class GUI_Item_Entry extends javax.swing.JFrame {
     
     Admin admin;
     SalesManager sm;
-    public GUI_Item_Entry() {
-        initComponents();
-        try {
-            showTable();
-        } catch (IOException ex) {
-            Logger.getLogger(GUI_Item_Entry.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
     public GUI_Item_Entry(Admin admin) {
         initComponents();
         try {
@@ -297,7 +289,7 @@ public class GUI_Item_Entry extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new GUI_Item_Entry().setVisible(true);
+                new GUI_Item_Entry(new Admin()).setVisible(true);
             }
         });
     }

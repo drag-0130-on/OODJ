@@ -9,6 +9,8 @@ import javax.swing.table.DefaultTableModel;
 public class GUI_PRPO_Entry extends javax.swing.JFrame {
 
     Admin admin;
+    SalesManager sm;
+    PurchaseManager pm;
     public GUI_PRPO_Entry(Admin admin) {
         initComponents();
         this.admin = admin;
@@ -17,7 +19,24 @@ public class GUI_PRPO_Entry extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(GUI_PRPO_Entry.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+    }
+    public GUI_PRPO_Entry(SalesManager sm) {
+        initComponents();
+        this.sm = sm;
+        try {
+            showTable();
+        } catch (IOException ex) {
+            Logger.getLogger(GUI_PRPO_Entry.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    public GUI_PRPO_Entry(PurchaseManager pm) {
+        initComponents();
+        this.pm = pm;
+        try {
+            showTable();
+        } catch (IOException ex) {
+            Logger.getLogger(GUI_PRPO_Entry.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     public void showTable() throws IOException {
         DefaultTableModel model = (DefaultTableModel) PRTable.getModel();
@@ -53,15 +72,15 @@ public class GUI_PRPO_Entry extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         PRTable = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
+        btnApprovePR = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         POTable = new javax.swing.JTable();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
+        btnRemovePO = new javax.swing.JButton();
+        btnAddPR = new javax.swing.JButton();
+        btnEditPR = new javax.swing.JButton();
+        btnRemovePR = new javax.swing.JButton();
+        btnRejectPR = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -84,7 +103,12 @@ public class GUI_PRPO_Entry extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(PRTable);
 
-        jButton1.setText("Generate Purchase Order");
+        btnApprovePR.setText("Approve");
+        btnApprovePR.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnApprovePRActionPerformed(evt);
+            }
+        });
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Purchase Order"));
 
@@ -101,13 +125,11 @@ public class GUI_PRPO_Entry extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(POTable);
 
-        jButton2.setText("Edit");
-
-        jButton3.setText("Delete");
-        jButton3.setActionCommand("");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btnRemovePO.setText("Remove");
+        btnRemovePO.setActionCommand("");
+        btnRemovePO.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btnRemovePOActionPerformed(evt);
             }
         });
 
@@ -118,34 +140,36 @@ public class GUI_PRPO_Entry extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(17, 17, 17)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 587, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(btnRemovePO, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 587, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(9, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
+                .addComponent(btnRemovePO)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39))
         );
 
-        jButton5.setText("Add");
+        btnAddPR.setText("Add");
 
-        jButton6.setText("Edit");
+        btnEditPR.setText("Edit");
 
-        jButton7.setText("Delete");
-        jButton7.setActionCommand("");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        btnRemovePR.setText("Remove");
+        btnRemovePR.setActionCommand("");
+        btnRemovePR.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                btnRemovePRActionPerformed(evt);
+            }
+        });
+
+        btnRejectPR.setText("Reject");
+        btnRejectPR.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRejectPRActionPerformed(evt);
             }
         });
 
@@ -154,19 +178,22 @@ public class GUI_PRPO_Entry extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(16, 16, 16)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 594, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnAddPR, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnEditPR, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(191, 191, 191)
-                                .addComponent(jButton1))
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 594, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(btnRemovePR, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnApprovePR)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnRejectPR)
+                                .addGap(22, 22, 22))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -177,10 +204,11 @@ public class GUI_PRPO_Entry extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(9, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton5)
-                    .addComponent(jButton6)
-                    .addComponent(jButton7)
-                    .addComponent(jButton1))
+                    .addComponent(btnAddPR)
+                    .addComponent(btnEditPR)
+                    .addComponent(btnRemovePR)
+                    .addComponent(btnApprovePR)
+                    .addComponent(btnRejectPR))
                 .addGap(37, 37, 37)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -221,13 +249,21 @@ public class GUI_PRPO_Entry extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void btnRemovePOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemovePOActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_btnRemovePOActionPerformed
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+    private void btnRemovePRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemovePRActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton7ActionPerformed
+    }//GEN-LAST:event_btnRemovePRActionPerformed
+
+    private void btnRejectPRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRejectPRActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRejectPRActionPerformed
+
+    private void btnApprovePRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnApprovePRActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnApprovePRActionPerformed
 
     /**
      * @param args the command line arguments
@@ -274,13 +310,13 @@ public class GUI_PRPO_Entry extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable POTable;
     private javax.swing.JTable PRTable;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton btnAddPR;
+    private javax.swing.JButton btnApprovePR;
+    private javax.swing.JButton btnEditPR;
+    private javax.swing.JButton btnRejectPR;
+    private javax.swing.JButton btnRemovePO;
+    private javax.swing.JButton btnRemovePR;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

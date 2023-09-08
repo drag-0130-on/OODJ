@@ -30,22 +30,21 @@ public class GUI_Sales_Manager extends javax.swing.JFrame {
         buttonSupplier_entry = new javax.swing.JButton();
         Sales_manager = new javax.swing.JLabel();
         buttonDaily_item_wise_sales_entry = new javax.swing.JButton();
-        buttonPurchase_requisition = new javax.swing.JButton();
-        buttonView_po = new javax.swing.JButton();
+        buttonPRPO = new javax.swing.JButton();
         buttonMy_profile = new javax.swing.JButton();
         buttonLogout = new javax.swing.JButton();
         System_name = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        buttonItem_entry.setText("Item Entry");
+        buttonItem_entry.setText("Item");
         buttonItem_entry.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonItem_entryActionPerformed(evt);
             }
         });
 
-        buttonSupplier_entry.setText("Supplier Entry ");
+        buttonSupplier_entry.setText("Supplier");
         buttonSupplier_entry.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonSupplier_entryActionPerformed(evt);
@@ -55,28 +54,21 @@ public class GUI_Sales_Manager extends javax.swing.JFrame {
         Sales_manager.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         Sales_manager.setText("Sales Manager Home Page");
 
-        buttonDaily_item_wise_sales_entry.setText("Daily Item-wise Sales Entry");
+        buttonDaily_item_wise_sales_entry.setText("Daily Item-wise Sales");
         buttonDaily_item_wise_sales_entry.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonDaily_item_wise_sales_entryActionPerformed(evt);
             }
         });
 
-        buttonPurchase_requisition.setText("Purchase Requisition");
-        buttonPurchase_requisition.addActionListener(new java.awt.event.ActionListener() {
+        buttonPRPO.setText("Purchase Requisition/Purchase Order");
+        buttonPRPO.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonPurchase_requisitionActionPerformed(evt);
+                buttonPRPOActionPerformed(evt);
             }
         });
 
-        buttonView_po.setText("View Purchase Order");
-        buttonView_po.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonView_poActionPerformed(evt);
-            }
-        });
-
-        buttonMy_profile.setText("My Profile");
+        buttonMy_profile.setText("Profile");
         buttonMy_profile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonMy_profileActionPerformed(evt);
@@ -97,88 +89,76 @@ public class GUI_Sales_Manager extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(buttonSupplier_entry, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(buttonItem_entry, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(buttonDaily_item_wise_sales_entry))
-                        .addGap(51, 51, 51)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(buttonView_po, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(buttonPurchase_requisition, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(buttonMy_profile, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(59, 59, 59)
-                        .addComponent(System_name)))
-                .addContainerGap(43, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addContainerGap(51, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(Sales_manager)
-                        .addGap(130, 130, 130))
+                        .addComponent(System_name)
+                        .addGap(30, 30, 30))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(buttonLogout)
-                        .addGap(199, 199, 199))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Sales_manager)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(buttonDaily_item_wise_sales_entry, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(buttonSupplier_entry, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(buttonItem_entry, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(buttonPRPO, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(buttonMy_profile, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(buttonLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(107, 107, 107))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(4, 4, 4)
+                .addContainerGap()
                 .addComponent(System_name)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Sales_manager)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttonItem_entry)
-                    .addComponent(buttonPurchase_requisition))
+                .addComponent(Sales_manager)
+                .addGap(10, 10, 10)
+                .addComponent(buttonItem_entry)
+                .addGap(14, 14, 14)
+                .addComponent(buttonSupplier_entry)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(buttonDaily_item_wise_sales_entry)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttonView_po)
-                    .addComponent(buttonSupplier_entry))
-                .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(buttonDaily_item_wise_sales_entry)
-                    .addComponent(buttonMy_profile))
-                .addGap(34, 34, 34)
+                .addComponent(buttonPRPO)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(buttonMy_profile)
+                .addGap(18, 18, 18)
                 .addComponent(buttonLogout)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(52, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonItem_entryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonItem_entryActionPerformed
-        GUI_Item_Entry item = new GUI_Item_Entry();
+        GUI_Item_Entry item = new GUI_Item_Entry(sm);
         item.show();
+        this.dispose();
     }//GEN-LAST:event_buttonItem_entryActionPerformed
 
     private void buttonSupplier_entryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSupplier_entryActionPerformed
-//        GUI_Supplier_Entry supplier = new GUI_Supplier_Entry();
-//        supplier.show();
+        GUI_Supplier_Entry supplier = new GUI_Supplier_Entry(sm);
+        supplier.show();
+        this.dispose();
     }//GEN-LAST:event_buttonSupplier_entryActionPerformed
 
     private void buttonDaily_item_wise_sales_entryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDaily_item_wise_sales_entryActionPerformed
-//        GUI_Daily_item_Entry daily = new GUI_Daily_item_Entry();
-//        daily.show();
+        GUI_Daily_item_Entry daily = new GUI_Daily_item_Entry(sm);
+        daily.show();
+        this.dispose();
     }//GEN-LAST:event_buttonDaily_item_wise_sales_entryActionPerformed
 
-    private void buttonPurchase_requisitionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPurchase_requisitionActionPerformed
-//        GUI_pr purchase = new GUI_pr();
-//        purchase.show();
-    }//GEN-LAST:event_buttonPurchase_requisitionActionPerformed
-
-    private void buttonView_poActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonView_poActionPerformed
-//        GUI_View_po po = new GUI_View_po();
-//        po.show();
-    }//GEN-LAST:event_buttonView_poActionPerformed
+    private void buttonPRPOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPRPOActionPerformed
+        GUI_PRPO_Entry prpo = new GUI_PRPO_Entry(sm);
+        prpo.show();
+        this.dispose();
+    }//GEN-LAST:event_buttonPRPOActionPerformed
 
     private void buttonMy_profileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonMy_profileActionPerformed
-//       GUI_MyProfile profile = new GUI_MyProfile();
-//       profile.show();
+       GUI_MyProfile profile = new GUI_MyProfile();
+       profile.show();
     }//GEN-LAST:event_buttonMy_profileActionPerformed
 
     private void buttonLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLogoutActionPerformed
@@ -231,8 +211,7 @@ public class GUI_Sales_Manager extends javax.swing.JFrame {
     private javax.swing.JButton buttonItem_entry;
     private javax.swing.JButton buttonLogout;
     private javax.swing.JButton buttonMy_profile;
-    private javax.swing.JButton buttonPurchase_requisition;
+    private javax.swing.JButton buttonPRPO;
     private javax.swing.JButton buttonSupplier_entry;
-    private javax.swing.JButton buttonView_po;
     // End of variables declaration//GEN-END:variables
 }

@@ -163,7 +163,7 @@ public class GUI_Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonPREntryActionPerformed
 
     private void buttonProfileEntryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonProfileEntryActionPerformed
-        GUI_Profile pe = new GUI_Profile();
+        GUI_User_Entry pe = new GUI_User_Entry();
         pe.show();
     }//GEN-LAST:event_buttonProfileEntryActionPerformed
 

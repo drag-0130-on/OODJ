@@ -37,8 +37,8 @@ public class GUI_Supplier_Entry extends javax.swing.JFrame {
         initComponents();
         this.pm = pm;
         buttonAdd.setVisible(false);
-        buttonRemove.setVisible(false);
         buttonEdit.setVisible(false);
+        buttonRemove.setVisible(false);
         try {
             showTable();
         } catch (IOException ex) {
