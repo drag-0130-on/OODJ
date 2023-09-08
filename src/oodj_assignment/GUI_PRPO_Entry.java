@@ -6,16 +6,16 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 
-public class GUI_PM_PO extends javax.swing.JFrame {
+public class GUI_PRPO_Entry extends javax.swing.JFrame {
 
     Admin admin;
-    public GUI_PM_PO(Admin admin) {
+    public GUI_PRPO_Entry(Admin admin) {
         initComponents();
         this.admin = admin;
         try {
             showTable();
         } catch (IOException ex) {
-            Logger.getLogger(GUI_PM_PO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(GUI_PRPO_Entry.class.getName()).log(Level.SEVERE, null, ex);
         }
         
     }
@@ -246,14 +246,18 @@ public class GUI_PM_PO extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(GUI_PM_PO.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUI_PRPO_Entry.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(GUI_PM_PO.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUI_PRPO_Entry.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(GUI_PM_PO.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUI_PRPO_Entry.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(GUI_PM_PO.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUI_PRPO_Entry.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -262,7 +266,7 @@ public class GUI_PM_PO extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new GUI_PM_PO(new Admin()).setVisible(true);
+                new GUI_PRPO_Entry(new Admin()).setVisible(true);
             }
         });
     }

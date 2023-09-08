@@ -159,28 +159,28 @@ public class GUI_Sales_Manager extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonItem_entryActionPerformed
 
     private void buttonSupplier_entryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSupplier_entryActionPerformed
-        GUI_Supplier_Entry supplier = new GUI_Supplier_Entry();
-        supplier.show();
+//        GUI_Supplier_Entry supplier = new GUI_Supplier_Entry();
+//        supplier.show();
     }//GEN-LAST:event_buttonSupplier_entryActionPerformed
 
     private void buttonDaily_item_wise_sales_entryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDaily_item_wise_sales_entryActionPerformed
-        GUI_Daily_item_Entry daily = new GUI_Daily_item_Entry();
-        daily.show();
+//        GUI_Daily_item_Entry daily = new GUI_Daily_item_Entry();
+//        daily.show();
     }//GEN-LAST:event_buttonDaily_item_wise_sales_entryActionPerformed
 
     private void buttonPurchase_requisitionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPurchase_requisitionActionPerformed
-        GUI_pr purchase = new GUI_pr();
-        purchase.show();
+//        GUI_pr purchase = new GUI_pr();
+//        purchase.show();
     }//GEN-LAST:event_buttonPurchase_requisitionActionPerformed
 
     private void buttonView_poActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonView_poActionPerformed
-        GUI_View_po po = new GUI_View_po();
-        po.show();
+//        GUI_View_po po = new GUI_View_po();
+//        po.show();
     }//GEN-LAST:event_buttonView_poActionPerformed
 
     private void buttonMy_profileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonMy_profileActionPerformed
-       GUI_MyProfile profile = new GUI_MyProfile();
-       profile.show();
+//       GUI_MyProfile profile = new GUI_MyProfile();
+//       profile.show();
     }//GEN-LAST:event_buttonMy_profileActionPerformed
 
     private void buttonLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLogoutActionPerformed

@@ -140,8 +140,8 @@ public class GUI_PurchaseManager extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonViewItemActionPerformed
 
     private void buttonViewSupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonViewSupActionPerformed
-        GUI_ViewSuppliers vs = new GUI_ViewSuppliers();
-        vs.show();
+//        GUI_ViewSuppliers vs = new GUI_ViewSuppliers();
+//        vs.show();
     }//GEN-LAST:event_buttonViewSupActionPerformed
 
     private void buttonViewPRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonViewPRActionPerformed
@@ -150,8 +150,8 @@ public class GUI_PurchaseManager extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonViewPRActionPerformed
 
     private void buttonPOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPOActionPerformed
-        GUI_PM_PO poe = new GUI_PM_PO();
-        poe.show();
+//        GUI_PM_PO poe = new GUI_PM_PO();
+//        poe.show();
     }//GEN-LAST:event_buttonPOActionPerformed
 
     private void buttonMyprofileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonMyprofileActionPerformed

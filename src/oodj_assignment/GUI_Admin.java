@@ -173,7 +173,7 @@ public class GUI_Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonLogoutActionPerformed
 
     private void buttonPOEntryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPOEntryActionPerformed
-        GUI_PM_PO poe = new GUI_PM_PO();
+        GUI_PRPO_Entry poe = new GUI_PRPO_Entry();
         poe.show();
     }//GEN-LAST:event_buttonPOEntryActionPerformed
 

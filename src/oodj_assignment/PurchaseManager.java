@@ -6,6 +6,9 @@ public class PurchaseManager extends User{
     public PurchaseManager(String userID, String name, String password, String email, String contact){
         super(userID,name,password,email,contact,"PurchaseManager");
     }
+    public PurchaseManager(){
+        super();
+    }
     public void approvePR(PurchaseRequisition pr)throws IOException {
         pr.approve();
         PurchaseOrder po = new PurchaseOrder(pr,getUserID());
