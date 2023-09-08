@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class GUI_Supplier_Entry extends javax.swing.JFrame {
@@ -175,7 +176,28 @@ public class GUI_Supplier_Entry extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonRemoveActionPerformed
-        
+        int itemRow = SupplierTable.getSelectedRow();
+        if (itemRow != -1){
+            String supplierID = SupplierTable.getModel().getValueAt(itemRow, 0).toString();
+            String supplierName = SupplierTable.getModel().getValueAt(itemRow, 1).toString();
+            String email = SupplierTable.getModel().getValueAt(itemRow, 2).toString();
+            String contact = SupplierTable.getModel().getValueAt(itemRow, 3).toString();
+            Supplier supplier = new Supplier(supplierID,supplierName,email,contact);
+            System.out.println(supplier.toString());
+            try {
+                supplier.remove();
+//                if(admin!=null){
+//                    admin.removeSupplier(supplier);
+//                }
+//                else if(sm!=null){
+//                    sm.removeSupplier(supplier);
+//                }
+            } catch (IOException ex) {
+                Logger.getLogger(GUI_Add_item.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else {
+            JOptionPane.showMessageDialog(null,"rs");
+        }
     }//GEN-LAST:event_buttonRemoveActionPerformed
 
     private void buttonEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEditActionPerformed

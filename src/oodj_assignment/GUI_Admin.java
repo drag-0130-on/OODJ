@@ -9,12 +9,14 @@ package oodj_assignment;
  * @author adamc
  */
 public class GUI_Admin extends javax.swing.JFrame {
-
-    /**
-     * Creates new form Admin
-     */
+    Admin admin;
     public GUI_Admin() {
         initComponents();
+    }
+    public GUI_Admin(Admin admin){
+        initComponents();
+        this.admin = admin;
+        
     }
 
     /**

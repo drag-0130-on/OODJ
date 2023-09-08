@@ -1,4 +1,3 @@
 I001|Teh|Beverage|200|S001|AA Sdn. Bhd.|2.2|1.5
 I002|Coke|Beverage|100|S001|AA Sdn. Bhd.|2.5|1.8
 I003|100Plus|Beverage|120|S001|AA Sdn. Bhd.|2.8|2.0
-I004|100Plus|Beverage|120|S001|AA Sdn. Bhd.|2.8|2.0

@@ -43,8 +43,23 @@ public class Supplier implements Record {
     public static ArrayList<String[]> view(ArrayList<String[]> AL, int attIndex, String filter){
         return supplierFile.viewFile(AL,attIndex,filter);
     }
+    public static String generateID() throws IOException{
+        ArrayList<String[]> AL = view();
+        if (AL.size()==0){
+            return "S0001";
+        } else{
+            int idNo = Integer.parseInt(AL.get((AL.size()-1))[0]) + 1;
+            int idLength = String.valueOf(idNo).length();
+            String id = "S";
+            for (int i = 0;i < (4-idLength);i++){
+                id += "0";
+            }
+            id += idNo;
+            return id;
+        }
+    }
     public boolean verifyUniqueness()throws IOException{
-        return supplierFile.verifyDataUniqueness(supplierID, 0);
+        return supplierFile.verifyDataUniqueness(supplierName, 1);
     }
     public String toString(){
         return (supplierID + "|" + supplierName + "|" + email + "|" + contactNo);

@@ -6,13 +6,17 @@ import java.util.Set;
 public class SalesManager extends User {
     
     public SalesManager(String userID, String name, String password, String email, String contact) {
-        super(userID,name,password,email,contact);
-        setRole("SalesManager");
+        super(userID,name,password,email,contact,"SalesManager");
+        
+    }
+    public SalesManager(){
+        super();
+        
     }
     public void addItem(Item item)throws IOException{
         item.add();
     }
-    public void editItem(Item item,String editedItem)throws IOException{
+    public void editItem(Item item,Item editedItem)throws IOException{
         item.edit(editedItem);
     }
     public void removeItem(Item item)throws IOException{
@@ -21,7 +25,7 @@ public class SalesManager extends User {
     public void addSupplier(Supplier supplier)throws IOException{
         supplier.add();
     }
-    public void editSupplier(Supplier supplier, String editedSupplier)throws IOException{
+    public void editSupplier(Supplier supplier, Supplier editedSupplier)throws IOException{
         supplier.edit(editedSupplier);
     }
     public void removeSupplier(Supplier supplier)throws IOException{
@@ -30,18 +34,18 @@ public class SalesManager extends User {
     public void addDIS(DailyItemSales DIS)throws IOException {
         DIS.add();
     }
-    public void editDIS(DailyItemSales DIS,String editedDIS)throws IOException {
+    public void editDIS(DailyItemSales DIS,DailyItemSales editedDIS)throws IOException {
         DIS.edit(editedDIS);
     }
     public void removeDIS(DailyItemSales DIS)throws IOException {
         DIS.remove();
     }
-    public void generatePR(String prID,Item item,int quantity)throws IOException{
-        PurchaseRequisition pr = new PurchaseRequisition(prID,item,quantity,getUserID());
+    public void addPR(PurchaseRequisition pr)throws IOException{
+        pr.setSMID(getUserID());
         pr.add();
     }   
-    public void editPR(PurchaseRequisition pr, String editedPR)throws IOException{
-        if (pr.getSMID().equals(getUserID())){
+    public void editPR(PurchaseRequisition pr, PurchaseRequisition editedPR)throws IOException{
+        if (pr.getSMID().matches(getUserID())){
            pr.edit(editedPR); 
         }  
     }

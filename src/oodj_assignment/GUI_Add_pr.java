@@ -28,7 +28,7 @@ public class GUI_Add_pr extends javax.swing.JFrame {
     }
 
 
-    public GUI_Add_pr(Admin admin) {
+    public GUI_Add_pr(Admin admin) throws IOException {
         initComponents();
         this.admin =admin;
     }
@@ -235,6 +235,7 @@ public class GUI_Add_pr extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+                
                 new GUI_Add_pr().setVisible(true);
             }
         });

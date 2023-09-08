@@ -4,13 +4,12 @@ package oodj_assignment;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class PurchaseOrder implements Record {
+public class PurchaseOrder {
     private static FileAccess poFile = new FileAccess("po.txt");
-    private String poID, pmID;
+    private String pmID;
     private PurchaseRequisition pr;
     
-    public PurchaseOrder(String poID,PurchaseRequisition pr,String pmID){
-        this.poID = poID;
+    public PurchaseOrder(PurchaseRequisition pr,String pmID){
         this.pr = pr;
         this.pmID = pmID;
     }
@@ -20,12 +19,8 @@ public class PurchaseOrder implements Record {
     public void add()throws IOException{
         poFile.addToFile(toString());
     }
-    public void edit(Object newData)throws IOException{
-        poFile.editFile(toString(), newData.toString());
-    }
     public void remove() throws IOException{
         poFile.removeFromFile(toString());
-        pr.disapprove();
     }
     public static ArrayList<String[]> view()throws IOException{
         return poFile.viewFile();

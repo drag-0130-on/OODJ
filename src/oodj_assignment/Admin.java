@@ -12,25 +12,28 @@ import java.util.Set;
  */
 public class Admin extends User {
     public Admin(String userID, String name, String password, String email, String contact) {
-        super(userID,name,password,email,contact);
-        setRole("Admin");
+        super(userID,name,password,email,contact,"Admin");
+        
     }
-    public void approvePR(String poID, PurchaseRequisition pr)throws IOException {
+    public Admin(){
+        super();
+        
+    }
+    public void approvePR(PurchaseRequisition pr)throws IOException {
         pr.approve();
-        PurchaseOrder po = new PurchaseOrder(poID,pr,getUserID());
+        PurchaseOrder po = new PurchaseOrder(pr,getUserID());
         po.add();
     }
     public void rejectPR(PurchaseRequisition pr)throws IOException{
         pr.reject();
     }
-    public void editPO(PurchaseOrder po,PurchaseOrder newPO)throws IOException{
-        po.edit(newPO);
-    }
+    
     public void removePO(PurchaseOrder po)throws IOException{
+        po.getPR().disapprove();
         po.remove();
     }   
-    public void addPR(String prID,Item item,int quantity)throws IOException{
-        PurchaseRequisition pr = new PurchaseRequisition(prID,item,quantity,getUserID());
+    public void addPR(PurchaseRequisition pr)throws IOException{
+        pr.setSMID(getUserID());
         pr.add();
     }   
     //edit everything

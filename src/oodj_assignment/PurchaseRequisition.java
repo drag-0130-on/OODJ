@@ -17,6 +17,15 @@ public class PurchaseRequisition implements Record {
         this.quantity = quantity;
         this.smID = smID;
     }
+    public PurchaseRequisition(String prID,Item item,int quantity){
+        this.prID = prID;
+        this.item = item;
+        this.quantity = quantity;
+    }
+    
+    public void setSMID(String smID){
+        this.smID = smID;
+    }
     public String getSMID(){
         return smID;
     }
@@ -40,6 +49,21 @@ public class PurchaseRequisition implements Record {
     }
     public static ArrayList<String[]> view(ArrayList<String[]> AL, int attIndex, String filter){
         return prFile.viewFile(AL,attIndex,filter);
+    }
+    public static String generateID() throws IOException{
+        ArrayList<String[]> AL = view();
+        if (AL.size()==0){
+            return "P0001";
+        } else{
+            int idNo = Integer.parseInt(AL.get((AL.size()-1))[0]) + 1;
+            int idLength = String.valueOf(idNo).length();
+            String id = "P";
+            for (int i = 0;i < (4-idLength);i++){
+                id += "0";
+            }
+            id += idNo;
+            return id;
+        }
     }
     public String toString(){
         return (prID + "|" + item.toStringForPR() + "|" + quantity + "|" + totalprice() + "|" + smID + "|" + status);

@@ -240,6 +240,7 @@ public class GUI_Add_item extends javax.swing.JFrame {
         try {
             if(admin!=null){
                 admin.addItem(item);
+                System.out.println("Admin");
             }
             else if(sm!=null){
                 sm.addItem(item);
@@ -280,7 +281,8 @@ public class GUI_Add_item extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new GUI_Add_item().setVisible(true);
+                Admin admin = new Admin();
+                new GUI_Add_item(admin).setVisible(true);
             }
         });
     }
