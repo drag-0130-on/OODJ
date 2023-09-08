@@ -28,10 +28,6 @@ public class InputValidation {
         return (name!=null) && (!name.isEmpty()) && (name.length()<=30);
     }
 
-    public static boolean isValidItemName(String item_Name) {
-        return item_Name != null && !item_Name.isEmpty();
-    }
-
     public static boolean isValidQuantity(String quantity) {
         try{
             if (Integer.parseInt(quantity) >= 0){
@@ -57,7 +53,7 @@ public class InputValidation {
         }
     }
     public static boolean isValidPassword(String password) {
-        return (password.length()>6);
+        return (password.length()>=6);
     }
     
     public static boolean isValidEmail(String email) {

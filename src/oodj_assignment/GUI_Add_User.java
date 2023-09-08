@@ -17,7 +17,8 @@ public class GUI_Add_User extends javax.swing.JFrame {
         initComponents();
         loadRole();
         try {
-            lblUserID.setText(User.generateID());
+            txtID.setText(User.generateID());
+            txtID.disable();
         } catch (IOException ex) {
             Logger.getLogger(GUI_Add_User.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -57,6 +58,8 @@ public class GUI_Add_User extends javax.swing.JFrame {
         cmbRole = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
         txtEmail = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        txtID = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -95,8 +98,6 @@ public class GUI_Add_User extends javax.swing.JFrame {
             }
         });
 
-        lblUserID.setText("User ID");
-
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel4.setText("Purchase Order Management System");
 
@@ -124,6 +125,8 @@ public class GUI_Add_User extends javax.swing.JFrame {
             }
         });
 
+        jLabel5.setText("User ID");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -143,19 +146,20 @@ public class GUI_Add_User extends javax.swing.JFrame {
                         .addComponent(buttonCancel))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(37, 37, 37)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel2)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txtName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 442, Short.MAX_VALUE)
-                                .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txtPassword, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(cmbRole, javax.swing.GroupLayout.Alignment.LEADING, 0, 442, Short.MAX_VALUE)
-                                .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txtEmail, javax.swing.GroupLayout.Alignment.LEADING))
+                            .addComponent(jLabel7)
+                            .addComponent(txtName, javax.swing.GroupLayout.DEFAULT_SIZE, 442, Short.MAX_VALUE)
+                            .addComponent(jLabel6)
+                            .addComponent(txtPassword)
+                            .addComponent(cmbRole, 0, 442, Short.MAX_VALUE)
+                            .addComponent(jLabel8)
+                            .addComponent(txtEmail)
                             .addComponent(jLabel3)
-                            .addComponent(txtContact, javax.swing.GroupLayout.PREFERRED_SIZE, 442, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblUserID))))
+                            .addComponent(txtContact, javax.swing.GroupLayout.DEFAULT_SIZE, 442, Short.MAX_VALUE)
+                            .addComponent(lblUserID)
+                            .addComponent(txtID)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(101, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -165,7 +169,11 @@ public class GUI_Add_User extends javax.swing.JFrame {
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel1)
-                .addGap(43, 43, 43)
+                .addGap(9, 9, 9)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblUserID)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel7)
@@ -209,13 +217,10 @@ public class GUI_Add_User extends javax.swing.JFrame {
         String errorMessage = null;
         while (true){
             if (!(InputValidation.isValidName(txtName.getText()))){
-                errorMessage = "Invalid User Name: (No longer than 30 characters)";
+                errorMessage = "Invalid User Name\n(Length of input should be between 0 and 30)";
                 break;
             } else if (InputValidation.isValidPassword(txtPassword.getText())){
-                errorMessage = "Invalid Password: (Minimum length of 6)";
-                break;
-            } else if (InputValidation.isValidName(txtName.getText())){
-                errorMessage = "Invalid Password: (Minimum length of 6)";
+                errorMessage = "Invalid Password\n(Minimum length of input is 6)";
                 break;
             } else if (InputValidation.isValidEmail(txtEmail.getText())){
                 errorMessage = "Invalid Password: (Minimum length of 6)";
@@ -308,12 +313,14 @@ public class GUI_Add_User extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel lblUserID;
     private javax.swing.JTextField txtContact;
     private javax.swing.JTextField txtEmail;
+    private javax.swing.JTextField txtID;
     private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtPassword;
     // End of variables declaration//GEN-END:variables
