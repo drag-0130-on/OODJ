@@ -135,8 +135,8 @@ public class GUI_PurchaseManager extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonViewItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonViewItemActionPerformed
-        GUI_ViewItems vi = new GUI_ViewItems();
-        vi.show();
+//        GUI_ViewItems vi = new GUI_ViewItems();
+//        vi.show();
     }//GEN-LAST:event_buttonViewItemActionPerformed
 
     private void buttonViewSupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonViewSupActionPerformed
@@ -145,8 +145,8 @@ public class GUI_PurchaseManager extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonViewSupActionPerformed
 
     private void buttonViewPRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonViewPRActionPerformed
-        GUI_ViewPR vpr = new GUI_ViewPR();
-        vpr.show();
+//        GUI_ViewPR vpr = new GUI_ViewPR();
+//        vpr.show();
     }//GEN-LAST:event_buttonViewPRActionPerformed
 
     private void buttonPOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPOActionPerformed

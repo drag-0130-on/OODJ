@@ -9,12 +9,18 @@ package oodj_assignment;
  * @author Lenovo
  */
 public class GUI_Edit_supplier extends javax.swing.JFrame {
-
-    /**
-     * Creates new form Edit_supplier
-     */
-    public GUI_Edit_supplier() {
+    Admin admin;
+    SalesManager sm;
+    Supplier supplier;
+    public GUI_Edit_supplier(Admin admin, Supplier supplier) {
         initComponents();
+        this.admin = admin;
+        this.supplier = supplier;
+    }
+    public GUI_Edit_supplier(SalesManager sm, Supplier supplier){
+        initComponents();
+        this.sm = sm;
+        this.supplier = supplier;
     }
 
     /**
@@ -146,7 +152,7 @@ public class GUI_Edit_supplier extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new GUI_Edit_supplier().setVisible(true);
+//                new GUI_Edit_supplier().setVisible(true);
             }
         });
     }

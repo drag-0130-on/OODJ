@@ -108,7 +108,15 @@ public class GUI_Supplier_Entry extends javax.swing.JFrame {
             new String [] {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane3.setViewportView(SupplierTable);
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
@@ -208,37 +216,65 @@ public class GUI_Supplier_Entry extends javax.swing.JFrame {
             String email = SupplierTable.getModel().getValueAt(itemRow, 2).toString();
             String contact = SupplierTable.getModel().getValueAt(itemRow, 3).toString();
             Supplier supplier = new Supplier(supplierID,supplierName,email,contact);
-            System.out.println(supplier.toString());
             try {
-                supplier.remove();
-//                if(admin!=null){
-//                    admin.removeSupplier(supplier);
-//                }
-//                else if(sm!=null){
-//                    sm.removeSupplier(supplier);
-//                }
+                if(admin!=null){
+                    admin.removeSupplier(supplier);
+                }
+                else if(sm!=null){
+                    sm.removeSupplier(supplier);
+                }
             } catch (IOException ex) {
                 Logger.getLogger(GUI_Add_item.class.getName()).log(Level.SEVERE, null, ex);
             }
         } else {
-            JOptionPane.showMessageDialog(null,"rs");
+            JOptionPane.showMessageDialog(null,"No Supplier is Selected.");
         }
     }//GEN-LAST:event_buttonRemoveActionPerformed
 
     private void buttonEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEditActionPerformed
-        //not done yet
-//        GUI_Edit_supplier edit = new GUI_Edit_supplier();
-//        edit.show();
+        int itemRow = SupplierTable.getSelectedRow();
+        if (itemRow != -1){
+            String supplierID = SupplierTable.getModel().getValueAt(itemRow, 0).toString();
+            String supplierName = SupplierTable.getModel().getValueAt(itemRow, 1).toString();
+            String email = SupplierTable.getModel().getValueAt(itemRow, 2).toString();
+            String contact = SupplierTable.getModel().getValueAt(itemRow, 3).toString();
+            Supplier supplier = new Supplier(supplierID,supplierName,email,contact);
+            if(admin!=null){
+                GUI_Edit_supplier edit = new GUI_Edit_supplier(admin,supplier);
+                edit.show();
+                this.dispose();
+            } else if(sm!=null){
+                GUI_Edit_supplier edit = new GUI_Edit_supplier(sm,supplier);
+                edit.show();
+                this.dispose();
+            }
+        } else {
+            JOptionPane.showMessageDialog(null,"No Supplier is Selected.");
+        }
     }//GEN-LAST:event_buttonEditActionPerformed
 
     private void buttonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonBackActionPerformed
-//        GUI_Sales_Manager sales = new GUI_Sales_Manager();
-//        sales.show();
+        if(admin!=null){
+            GUI_Admin adminHP = new GUI_Admin(admin);
+            adminHP.show();
+            this.dispose();
+        } else if(sm!=null){
+            GUI_Sales_Manager smHP = new GUI_Sales_Manager(sm);
+            smHP.show();
+            this.dispose();
+        }
     }//GEN-LAST:event_buttonBackActionPerformed
 
     private void buttonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddActionPerformed
-//        GUI_Add_supplier add = new GUI_Add_supplier();
-//        add.show();
+        if(admin!=null){
+            GUI_Add_supplier add = new GUI_Add_supplier(admin);
+            add.show();
+            this.dispose();
+        } else if(sm!=null){
+            GUI_Add_supplier add = new GUI_Add_supplier(sm);
+            add.show();
+            this.dispose();
+        }
     }//GEN-LAST:event_buttonAddActionPerformed
 
     private void buttonSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSearchActionPerformed
@@ -291,7 +327,7 @@ public class GUI_Supplier_Entry extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new GUI_Supplier_Entry(new PurchaseManager()).setVisible(true);
+                new GUI_Supplier_Entry(new SalesManager()).setVisible(true);
             }
         });
     }

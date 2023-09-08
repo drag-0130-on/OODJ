@@ -148,8 +148,8 @@ public class GUI_Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonItemEntryActionPerformed
 
     private void buttonSupplierEntryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSupplierEntryActionPerformed
-        GUI_Supplier_Entry se = new GUI_Supplier_Entry();
-        se.show();
+//        GUI_Supplier_Entry se = new GUI_Supplier_Entry();
+//        se.show();
     }//GEN-LAST:event_buttonSupplierEntryActionPerformed
 
     private void buttonDailyEntryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDailyEntryActionPerformed
@@ -158,8 +158,8 @@ public class GUI_Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonDailyEntryActionPerformed
 
     private void buttonPREntryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPREntryActionPerformed
-        GUI_pr pre = new GUI_pr();
-        pre.show();
+//        GUI_pr pre = new GUI_pr();
+//        pre.show();
     }//GEN-LAST:event_buttonPREntryActionPerformed
 
     private void buttonProfileEntryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonProfileEntryActionPerformed
@@ -173,8 +173,8 @@ public class GUI_Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonLogoutActionPerformed
 
     private void buttonPOEntryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPOEntryActionPerformed
-        GUI_PRPO_Entry poe = new GUI_PRPO_Entry();
-        poe.show();
+//        GUI_PRPO_Entry poe = new GUI_PRPO_Entry();
+//        poe.show();
     }//GEN-LAST:event_buttonPOEntryActionPerformed
 
     /**

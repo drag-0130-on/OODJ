@@ -259,9 +259,9 @@ public class GUI_Item_Entry extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonSearchActionPerformed
 
     private void BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed
-        GUI_Sales_Manager sales = new GUI_Sales_Manager();
-        sales.show();
-        dispose();
+//        GUI_Sales_Manager sales = new GUI_Sales_Manager();
+//        sales.show();
+//        dispose();
     }//GEN-LAST:event_BackActionPerformed
 
     /**

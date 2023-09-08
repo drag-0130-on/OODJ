@@ -11,9 +11,7 @@ package oodj_assignment;
 public class GUI_Sales_Manager extends javax.swing.JFrame {
 
     SalesManager sm;
-    public GUI_Sales_Manager() {
-        initComponents();
-    }
+    
     public GUI_Sales_Manager(SalesManager sm) {
         initComponents();
         this.sm = sm;
@@ -221,7 +219,7 @@ public class GUI_Sales_Manager extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new GUI_Sales_Manager().setVisible(true);
+                new GUI_Sales_Manager(new SalesManager()).setVisible(true);
             }
         });
     }

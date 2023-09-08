@@ -236,7 +236,7 @@ public class GUI_Add_User extends javax.swing.JFrame {
             }
         }
         if (errorMessage != null){
-            JOptionPane.showMessageDialog(new GUI_Add_User(new Admin()),errorMessage);
+            JOptionPane.showMessageDialog(null,errorMessage);
         }
 
         }

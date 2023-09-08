@@ -13,13 +13,8 @@ import java.util.logging.Logger;
  * @author Lenovo
  */
 public class GUI_Add_supplier extends javax.swing.JFrame {
-
     Admin admin;
     SalesManager sm;
-    public GUI_Add_supplier() {
-        initComponents();
-    }
-    
     public GUI_Add_supplier(Admin admin) {
         initComponents();
         this.admin = admin;
@@ -207,7 +202,7 @@ public class GUI_Add_supplier extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new GUI_Add_supplier().setVisible(true);
+                new GUI_Add_supplier(new Admin()).setVisible(true);
             }
         });
     }
