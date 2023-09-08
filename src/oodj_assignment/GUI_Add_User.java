@@ -206,50 +206,27 @@ public class GUI_Add_User extends javax.swing.JFrame {
     }//GEN-LAST:event_txtPasswordActionPerformed
 
     private void buttonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSaveActionPerformed
-        if (InputValidation.isValidName(txtName.getText())){
-            if (InputValidation.isValidContact(txtContact.getText())){
-                if (InputValidation.isValidEmail(txtEmail.getText())){
-                    if (InputValidation.isValidPassword(txtName.getText())){
-                        if (cmbRole.getSelectedIndex()!= -1){
-                            if (cmbRole.getSelectedItem().toString().matches("Admin")){
-                                try {
-                                    Admin newUser = new Admin(lblUserID.getText(),txtName.getText(),txtPassword.getText(),txtEmail.getText(),txtContact.getText());
-                                    admin.addUser(newUser);
-                                } catch (IOException ex) {
-                                    Logger.getLogger(GUI_Add_User.class.getName()).log(Level.SEVERE, null, ex);
-                                }
-                               
-                            } else if (cmbRole.getSelectedItem().toString().matches("SalesManager")){
-                                try {
-                                    SalesManager newUser = new SalesManager(lblUserID.getText(),txtName.getText(),txtPassword.getText(),txtEmail.getText(),txtContact.getText());
-                                    admin.addUser(newUser);
-                                } catch (IOException ex) {
-                                    Logger.getLogger(GUI_Add_User.class.getName()).log(Level.SEVERE, null, ex);
-                                }
-                                
-                            } else if (cmbRole.getSelectedItem().toString().matches("PurchaseManager")){
-                                try {
-                                    PurchaseManager newUser = new PurchaseManager(lblUserID.getText(),txtName.getText(),txtPassword.getText(),txtEmail.getText(),txtContact.getText());
-                                    admin.addUser(newUser);
-                                } catch (IOException ex) {
-                                    Logger.getLogger(GUI_Add_User.class.getName()).log(Level.SEVERE, null, ex);
-                                }
-                                
-                            }
-                        } else {
-                            
-                        }
-                    } else {
-                        
-                    }
-                } else{
-                    
-                }
-            } else{
-                
+        String errorMessage = null;
+        while (true){
+            if (!(InputValidation.isValidName(txtName.getText()))){
+                errorMessage = "Invalid User Name: (No longer than 30 characters)";
+                break;
+            } else if (InputValidation.isValidPassword(txtPassword.getText())){
+                errorMessage = "Invalid Password: (Minimum length of 6)";
+                break;
+            } else if (InputValidation.isValidName(txtName.getText())){
+                errorMessage = "Invalid Password: (Minimum length of 6)";
+                break;
+            } else if (InputValidation.isValidEmail(txtEmail.getText())){
+                errorMessage = "Invalid Password: (Minimum length of 6)";
+                break;
+            } else if (InputValidation.isValidContact(txtContact.getText())){
+                errorMessage = "Invalid Password: (Minimum length of 6)";
+                break;
             }
-        } else {
-            
+        }
+        if (errorMessage != null){
+            System.out.println(errorMessage);
         }
 
         

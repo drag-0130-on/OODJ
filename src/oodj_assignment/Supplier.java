@@ -48,7 +48,7 @@ public class Supplier implements Record {
         if (AL.size()==0){
             return "S0001";
         } else{
-            int idNo = Integer.parseInt(AL.get((AL.size()-1))[0]) + 1;
+            int idNo = Integer.parseInt((AL.get((AL.size()-1))[0]).substring(1)) + 1;
             int idLength = String.valueOf(idNo).length();
             String id = "S";
             for (int i = 0;i < (4-idLength);i++){
