@@ -157,13 +157,15 @@ public class GUI_Sales_Manager extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonPRPOActionPerformed
 
     private void buttonMy_profileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonMy_profileActionPerformed
-       GUI_MyProfile profile = new GUI_MyProfile();
-       profile.show();
+        GUI_Profile profile = new GUI_Profile(sm);
+        profile.show();
+        this.dispose();
     }//GEN-LAST:event_buttonMy_profileActionPerformed
 
     private void buttonLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLogoutActionPerformed
-        GUI_Login le = new GUI_Login();
-        le.show();
+        GUI_Login login = new GUI_Login();
+        login.show();
+        this.dispose();
     }//GEN-LAST:event_buttonLogoutActionPerformed
 
     /**

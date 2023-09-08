@@ -143,8 +143,8 @@ public class GUI_Admin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonItemEntryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonItemEntryActionPerformed
-        GUI_Item_Entry ie = new GUI_Item_Entry();
-        ie.show();
+//        GUI_Item_Entry ie = new GUI_Item_Entry();
+//        ie.show();
     }//GEN-LAST:event_buttonItemEntryActionPerformed
 
     private void buttonSupplierEntryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSupplierEntryActionPerformed
@@ -153,8 +153,8 @@ public class GUI_Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonSupplierEntryActionPerformed
 
     private void buttonDailyEntryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonDailyEntryActionPerformed
-        GUI_Daily_item_Entry die = new GUI_Daily_item_Entry();
-        die.show();
+//        GUI_Daily_item_Entry die = new GUI_Daily_item_Entry();
+//        die.show();
     }//GEN-LAST:event_buttonDailyEntryActionPerformed
 
     private void buttonPREntryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPREntryActionPerformed
@@ -163,8 +163,8 @@ public class GUI_Admin extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonPREntryActionPerformed
 
     private void buttonProfileEntryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonProfileEntryActionPerformed
-        GUI_User_Entry pe = new GUI_User_Entry();
-        pe.show();
+//        GUI_User_Entry pe = new GUI_User_Entry();
+//        pe.show();
     }//GEN-LAST:event_buttonProfileEntryActionPerformed
 
     private void buttonLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLogoutActionPerformed

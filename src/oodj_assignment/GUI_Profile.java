@@ -9,12 +9,20 @@ package oodj_assignment;
  * @author adamc
  */
 public class GUI_Profile extends javax.swing.JFrame {
-
-    /**
-     * Creates new form ModifyProfile
-     */
-    public GUI_Profile() {
+    Admin admin;
+    SalesManager sm;
+    PurchaseManager pm;
+    public GUI_Profile(Admin admin) {
         initComponents();
+        this.admin = admin;
+    }
+    public GUI_Profile(SalesManager sm) {
+        initComponents();
+        this.sm = sm;
+    }
+    public GUI_Profile(PurchaseManager pm) {
+        initComponents();
+        this.pm = pm;
     }
 
     /**
@@ -259,7 +267,7 @@ public class GUI_Profile extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new GUI_Profile().setVisible(true);
+                new GUI_Profile(new Admin()).setVisible(true);
             }
         });
     }

@@ -155,8 +155,8 @@ public class GUI_PurchaseManager extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonPOActionPerformed
 
     private void buttonMyprofileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonMyprofileActionPerformed
-        GUI_MyProfile mp = new GUI_MyProfile();
-        mp.show();
+//        GUI_MyProfile mp = new GUI_MyProfile();
+//        mp.show();
     }//GEN-LAST:event_buttonMyprofileActionPerformed
 
     private void buttonLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLogoutActionPerformed
