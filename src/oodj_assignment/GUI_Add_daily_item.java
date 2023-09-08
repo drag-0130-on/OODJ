@@ -53,9 +53,9 @@ public class GUI_Add_daily_item extends javax.swing.JFrame {
         buttonCancel = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         txtAmount = new javax.swing.JTextField();
-        comboboxDay = new javax.swing.JComboBox<>();
-        comboboxMonth = new javax.swing.JComboBox<>();
-        comboboxYear = new javax.swing.JComboBox<>();
+        cmbDay = new javax.swing.JComboBox<>();
+        cmbMonth = new javax.swing.JComboBox<>();
+        cmbYear = new javax.swing.JComboBox<>();
         jScrollPane3 = new javax.swing.JScrollPane();
         DailyTable = new javax.swing.JTable();
         txtSearch = new javax.swing.JTextField();
@@ -76,11 +76,11 @@ public class GUI_Add_daily_item extends javax.swing.JFrame {
 
         jLabel4.setText("Amount Sold:");
 
-        comboboxDay.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
+        cmbDay.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
 
-        comboboxMonth.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "Novermber", "December" }));
+        cmbMonth.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "Novermber", "December" }));
 
-        comboboxYear.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023" }));
+        cmbYear.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023" }));
 
         DailyTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -139,11 +139,11 @@ public class GUI_Add_daily_item extends javax.swing.JFrame {
                             .addComponent(jLabel4)
                             .addComponent(txtAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(comboboxDay, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(cmbDay, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(comboboxMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(cmbMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(comboboxYear, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(cmbYear, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -167,9 +167,9 @@ public class GUI_Add_daily_item extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addGap(4, 4, 4)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(comboboxDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(comboboxMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(comboboxYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cmbDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmbMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmbYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -202,10 +202,21 @@ public class GUI_Add_daily_item extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonSearch3ActionPerformed
 
     private void buttonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSaveActionPerformed
-        String selectedYear = (String) comboboxYear.getSelectedItem();
-        String selectedMonth = (String) comboboxMonth.getSelectedItem();
-        String selectedDay = (String) comboboxDay.getSelectedItem();
+        String selectedYear = (String) cmbYear.getSelectedItem();
+        String selectedMonth = (String) cmbMonth.getSelectedItem();
+        String selectedDay = (String) cmbDay.getSelectedItem();
         String date = (selectedDay+"-"+selectedMonth+"-"+selectedYear);
+        String errorMessage = null;
+        while(true){
+            if(!(InputValidation.isValidDate((String)cmbYear.getSelectedItem(),(String)cmbMonth.getSelectedItem(), (String)cmbDay.getSelectedItem()))){
+                errorMessage = "Invalid date";
+                break;
+            }
+            else if(!(InputValidation.isValidQuantity(txtAmount.getText()))){
+                errorMessage = "Invalid amount";
+                break;
+            }
+        }
         Item item;
         int amountSold =Integer.parseInt(txtAmount.getText());
         //DailyItemSales dis = new DailyItemSales(date, amountSold,item);
@@ -255,13 +266,10 @@ public class GUI_Add_daily_item extends javax.swing.JFrame {
     private javax.swing.JLabel add_daily_item;
     private javax.swing.JButton buttonCancel;
     private javax.swing.JButton buttonSave;
-    private javax.swing.JButton buttonSearch;
-    private javax.swing.JButton buttonSearch1;
-    private javax.swing.JButton buttonSearch2;
     private javax.swing.JButton buttonSearch3;
-    private javax.swing.JComboBox<String> comboboxDay;
-    private javax.swing.JComboBox<String> comboboxMonth;
-    private javax.swing.JComboBox<String> comboboxYear;
+    private javax.swing.JComboBox<String> cmbDay;
+    private javax.swing.JComboBox<String> cmbMonth;
+    private javax.swing.JComboBox<String> cmbYear;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane3;

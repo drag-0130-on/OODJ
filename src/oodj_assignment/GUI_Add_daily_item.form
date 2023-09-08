@@ -50,11 +50,11 @@
                           <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="txtAmount" alignment="0" min="-2" pref="94" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="comboboxDay" min="-2" pref="56" max="-2" attributes="0"/>
+                              <Component id="cmbDay" min="-2" pref="56" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="comboboxMonth" min="-2" max="-2" attributes="0"/>
+                              <Component id="cmbMonth" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="comboboxYear" min="-2" pref="71" max="-2" attributes="0"/>
+                              <Component id="cmbYear" min="-2" pref="71" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="txtSearch" min="-2" pref="174" max="-2" attributes="0"/>
@@ -86,9 +86,9 @@
               <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="comboboxDay" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="comboboxMonth" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="comboboxYear" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="cmbDay" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="cmbMonth" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="cmbYear" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
@@ -138,7 +138,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="txtAmount">
     </Component>
-    <Component class="javax.swing.JComboBox" name="comboboxDay">
+    <Component class="javax.swing.JComboBox" name="cmbDay">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="31">
@@ -180,7 +180,7 @@
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JComboBox" name="comboboxMonth">
+    <Component class="javax.swing.JComboBox" name="cmbMonth">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="12">
@@ -203,7 +203,7 @@
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JComboBox" name="comboboxYear">
+    <Component class="javax.swing.JComboBox" name="cmbYear">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="24">
