@@ -66,7 +66,7 @@ public class GUI_Add_User extends javax.swing.JFrame {
         jLabel2.setText("Password");
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
-        jLabel1.setText("Add Profile");
+        jLabel1.setText("Add User");
 
         jLabel3.setText("Contact Number");
 
@@ -219,23 +219,63 @@ public class GUI_Add_User extends javax.swing.JFrame {
             if (!(InputValidation.isValidName(txtName.getText()))){
                 errorMessage = "Invalid User Name\n(Length of input should be between 0 and 30)";
                 break;
-            } else if (InputValidation.isValidPassword(txtPassword.getText())){
+            } else if (!(InputValidation.isValidPassword(txtPassword.getText()))){
                 errorMessage = "Invalid Password\n(Minimum length of input is 6)";
                 break;
-            } else if (InputValidation.isValidEmail(txtEmail.getText())){
-                errorMessage = "Invalid Password: (Minimum length of 6)";
+            } else if (!(InputValidation.isValidEmail(txtEmail.getText()))){
+                errorMessage = "Invalid Email";
                 break;
-            } else if (InputValidation.isValidContact(txtContact.getText())){
-                errorMessage = "Invalid Password: (Minimum length of 6)";
+            } else if (!(InputValidation.isValidContact(txtContact.getText()))){
+                errorMessage = "Invalid Contact";
                 break;
+            } else {
+                if (cmbRole.getSelectedItem().toString().matches("Admin")){
+                    Admin newUser = new Admin(txtID.getText(),txtName.getText(),txtPassword.getText(),txtEmail.getText(),txtContact.getText());
+                    try {
+                        if (newUser.verifyUniqueness()){
+                            admin.addUser(newUser);
+                        } else {
+                            errorMessage = "Invalid User";
+                            break;
+                        }
+                    } catch (IOException ex) {
+                        Logger.getLogger(GUI_Add_User.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                } else if (cmbRole.getSelectedItem().toString().matches("SalesManager")){
+                    SalesManager newUser = new SalesManager(txtID.getText(),txtName.getText(),txtPassword.getText(),txtEmail.getText(),txtContact.getText());
+                    try {
+                        if (newUser.verifyUniqueness()){
+                            admin.addUser(newUser);
+                        } else {
+                            errorMessage = "Invalid User";
+                            break;
+                        }
+                    } catch (IOException ex) {
+                        Logger.getLogger(GUI_Add_User.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                } else if (cmbRole.getSelectedItem().toString().matches("PurchaseManager")){
+                    PurchaseManager newUser = new PurchaseManager(txtID.getText(),txtName.getText(),txtPassword.getText(),txtEmail.getText(),txtContact.getText());
+                    try {
+                        if (newUser.verifyUniqueness()){
+                            admin.addUser(newUser);
+                        } else {
+                            errorMessage = "Invalid User";
+                            break;
+                        }
+                    } catch (IOException ex) {
+                        Logger.getLogger(GUI_Add_User.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                } else {
+                    errorMessage = "No role is selected.";
+                    break;
+                
             }
         }
         if (errorMessage != null){
-            System.out.println(errorMessage);
+            JOptionPane.showMessageDialog(new GUI_Add_User(new Admin()),errorMessage);
         }
 
-        
-        
+        }
         
     }//GEN-LAST:event_buttonSaveActionPerformed
 
