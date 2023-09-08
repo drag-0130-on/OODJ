@@ -24,7 +24,7 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace pref="51" max="32767" attributes="0"/>
+              <EmptySpace pref="29" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
                       <Component id="System_name" min="-2" max="-2" attributes="0"/>
@@ -115,7 +115,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="buttonMy_profile">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Profile"/>
+        <Property name="text" type="java.lang.String" value="My Profile"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonMy_profileActionPerformed"/>

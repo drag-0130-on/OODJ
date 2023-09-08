@@ -68,7 +68,7 @@ public class GUI_Sales_Manager extends javax.swing.JFrame {
             }
         });
 
-        buttonMy_profile.setText("Profile");
+        buttonMy_profile.setText("My Profile");
         buttonMy_profile.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonMy_profileActionPerformed(evt);
@@ -90,7 +90,7 @@ public class GUI_Sales_Manager extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(51, Short.MAX_VALUE)
+                .addContainerGap(29, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(System_name)

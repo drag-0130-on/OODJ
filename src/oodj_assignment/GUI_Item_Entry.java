@@ -20,23 +20,36 @@ public class GUI_Item_Entry extends javax.swing.JFrame {
     
     Admin admin;
     SalesManager sm;
+    PurchaseManager pm;
     public GUI_Item_Entry(Admin admin) {
         initComponents();
+        this.admin = admin;
         try {
             showTable();
         } catch (IOException ex) {
             Logger.getLogger(GUI_Item_Entry.class.getName()).log(Level.SEVERE, null, ex);
         }
-        this.admin = admin;
     }
     public GUI_Item_Entry(SalesManager sm) {
         initComponents();
+        this.sm = sm;
         try {
             showTable();
         } catch (IOException ex) {
             Logger.getLogger(GUI_Item_Entry.class.getName()).log(Level.SEVERE, null, ex);
         }
-        this.sm = sm;
+    }
+    public GUI_Item_Entry(PurchaseManager pm) {
+        initComponents();
+        this.pm = pm;
+        buttonAdd.setVisible(false);
+        buttonEdit.setVisible(false);
+        buttonRemove.setVisible(false);
+        try {
+            showTable();
+        } catch (IOException ex) {
+            Logger.getLogger(GUI_Item_Entry.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     

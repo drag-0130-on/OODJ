@@ -10,9 +10,6 @@ package oodj_assignment;
  */
 public class GUI_PurchaseManager extends javax.swing.JFrame {
     PurchaseManager pm;
-    public GUI_PurchaseManager() {
-        initComponents();
-    }
     public GUI_PurchaseManager(PurchaseManager pm) {
         initComponents();
         this.pm = pm;
@@ -31,10 +28,10 @@ public class GUI_PurchaseManager extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         buttonViewItem = new javax.swing.JButton();
         buttonViewSup = new javax.swing.JButton();
-        buttonViewPR = new javax.swing.JButton();
-        buttonPO = new javax.swing.JButton();
+        buttonPRPO = new javax.swing.JButton();
         buttonMyprofile = new javax.swing.JButton();
         buttonLogout = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         jToggleButton1.setText("jToggleButton1");
 
@@ -50,24 +47,17 @@ public class GUI_PurchaseManager extends javax.swing.JFrame {
             }
         });
 
-        buttonViewSup.setText("View Suppliers");
+        buttonViewSup.setText("View Suppliers ");
         buttonViewSup.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonViewSupActionPerformed(evt);
             }
         });
 
-        buttonViewPR.setText("View Purchase Requisition");
-        buttonViewPR.addActionListener(new java.awt.event.ActionListener() {
+        buttonPRPO.setText("Purchase Requisition / Purchase Order");
+        buttonPRPO.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonViewPRActionPerformed(evt);
-            }
-        });
-
-        buttonPO.setText("Purchase Order");
-        buttonPO.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonPOActionPerformed(evt);
+                buttonPRPOActionPerformed(evt);
             }
         });
 
@@ -85,83 +75,81 @@ public class GUI_PurchaseManager extends javax.swing.JFrame {
             }
         });
 
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel2.setText("PURCHASE ORDER MANAGEMENT SYSTEM");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(53, 53, 53)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(buttonViewSup, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
-                            .addComponent(buttonMyprofile, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(buttonViewItem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(48, 48, 48)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(buttonViewPR, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(buttonPO, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(138, 138, 138)
+                        .addGap(65, 65, 65)
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(217, 217, 217)
-                        .addComponent(buttonLogout)))
-                .addContainerGap(91, Short.MAX_VALUE))
+                        .addGap(71, 71, 71)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(buttonViewItem, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(buttonPRPO, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(buttonViewSup, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(buttonMyprofile, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(buttonLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(37, 37, 37)
+                .addGap(16, 16, 16)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel1)
-                .addGap(32, 32, 32)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(buttonViewItem)
-                        .addGap(18, 18, 18)
-                        .addComponent(buttonViewSup))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(buttonViewPR)
-                        .addGap(18, 18, 18)
-                        .addComponent(buttonPO)))
                 .addGap(18, 18, 18)
+                .addComponent(buttonViewItem)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(buttonViewSup)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(buttonPRPO)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(buttonMyprofile)
-                .addGap(54, 54, 54)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(buttonLogout)
-                .addContainerGap(117, Short.MAX_VALUE))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonViewItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonViewItemActionPerformed
-//        GUI_ViewItems vi = new GUI_ViewItems();
-//        vi.show();
+        GUI_Item_Entry item = new GUI_Item_Entry(pm);
+        item.show();
+        this.dispose();
     }//GEN-LAST:event_buttonViewItemActionPerformed
 
     private void buttonViewSupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonViewSupActionPerformed
-//        GUI_ViewSuppliers vs = new GUI_ViewSuppliers();
-//        vs.show();
+        GUI_Supplier_Entry supplier = new GUI_Supplier_Entry(pm);
+        supplier.show();
+        this.dispose();
     }//GEN-LAST:event_buttonViewSupActionPerformed
 
-    private void buttonViewPRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonViewPRActionPerformed
-//        GUI_ViewPR vpr = new GUI_ViewPR();
-//        vpr.show();
-    }//GEN-LAST:event_buttonViewPRActionPerformed
-
-    private void buttonPOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPOActionPerformed
-//        GUI_PM_PO poe = new GUI_PM_PO();
-//        poe.show();
-    }//GEN-LAST:event_buttonPOActionPerformed
+    private void buttonPRPOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonPRPOActionPerformed
+        GUI_PRPO_Entry prpo = new GUI_PRPO_Entry(pm);
+        prpo.show();
+        this.dispose();
+    }//GEN-LAST:event_buttonPRPOActionPerformed
 
     private void buttonMyprofileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonMyprofileActionPerformed
-//        GUI_MyProfile mp = new GUI_MyProfile();
-//        mp.show();
+        GUI_Profile profile = new GUI_Profile(pm);
+        profile.show();
+        this.dispose();
     }//GEN-LAST:event_buttonMyprofileActionPerformed
 
     private void buttonLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLogoutActionPerformed
-        GUI_Login le = new GUI_Login();
-        le.show();
+        GUI_Login login = new GUI_Login();
+        login.show();
+        this.dispose();
     }//GEN-LAST:event_buttonLogoutActionPerformed
 
     /**
@@ -201,7 +189,7 @@ public class GUI_PurchaseManager extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new GUI_PurchaseManager().setVisible(true);
+                new GUI_PurchaseManager(new PurchaseManager()).setVisible(true);
             }
         });
     }
@@ -209,11 +197,11 @@ public class GUI_PurchaseManager extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonLogout;
     private javax.swing.JButton buttonMyprofile;
-    private javax.swing.JButton buttonPO;
+    private javax.swing.JButton buttonPRPO;
     private javax.swing.JButton buttonViewItem;
-    private javax.swing.JButton buttonViewPR;
     private javax.swing.JButton buttonViewSup;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JToggleButton jToggleButton1;
     // End of variables declaration//GEN-END:variables
 }
