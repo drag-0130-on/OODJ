@@ -25,6 +25,12 @@ public class Supplier implements Record {
     public String getName(){
         return supplierName;
     }
+    public String getEmail(){
+        return email;
+    }
+    public String getContactNo(){
+        return contactNo;
+    }
     public void add() throws IOException{
         supplierFile.addToFile(toString());
     }
