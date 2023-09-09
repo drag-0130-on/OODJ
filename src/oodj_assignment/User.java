@@ -99,6 +99,9 @@ public class User implements Record{
     public void setRole(String role){
         this.role = Role.valueOf(role);
     }
+    public String getRole(){
+        return role.toString();
+    }
     public String[] login() throws IOException{
         ArrayList<String[]> content = view();
 
