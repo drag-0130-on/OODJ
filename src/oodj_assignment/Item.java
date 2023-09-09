@@ -7,7 +7,8 @@ import java.util.ArrayList;
 public class Item implements Record {
     
     private static FileAccess itemFile = new FileAccess("item.txt");
-    private String itemID, itemName,supplierID,supplierName;
+    String itemID;
+    private String itemName,supplierID,supplierName;
     private ItemCategory category;
     private int stock;
     private double buyprice, sellprice;     
@@ -29,6 +30,47 @@ public class Item implements Record {
     public void setItemID(String itemID) {
         this.itemID = itemID;
     }
+
+    public String getItemName() {
+        return itemName;
+    }
+
+    public void setItemName(String itemName) {
+        this.itemName = itemName;
+    }
+
+    public String getSupplierID() {
+        return supplierID;
+    }
+
+    public void setSupplierID(String supplierID) {
+        this.supplierID = supplierID;
+    }
+
+    public String getSupplierName() {
+        return supplierName;
+    }
+
+    public void setSupplierName(String supplierName) {
+        this.supplierName = supplierName;
+    }
+
+    public ItemCategory getCategory() {
+        return category;
+    }
+
+    public void setCategory(ItemCategory category) {
+        this.category = category;
+    }
+
+    public int getStock() {
+        return stock;
+    }
+
+    public void setStock(int stock) {
+        this.stock = stock;
+    }
+    
     public double getBuyprice() {
         return buyprice;
     }

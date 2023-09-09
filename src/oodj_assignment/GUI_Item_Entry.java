@@ -210,9 +210,32 @@ public class GUI_Item_Entry extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonAddActionPerformed
 
     private void buttonEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEditActionPerformed
-        //not done yet
-        GUI_Edit_item edit_item = new GUI_Edit_item();
-        edit_item.show();
+
+        int itemRow = ItemTable.getSelectedRow();
+        if (itemRow != -1){
+            String itemID = ItemTable.getModel().getValueAt(itemRow, 0).toString();
+            String itemName = ItemTable.getModel().getValueAt(itemRow, 1).toString();
+            String category = ItemTable.getModel().getValueAt(itemRow, 2).toString();
+            int stock = Integer.parseInt(ItemTable.getModel().getValueAt(itemRow, 3).toString());
+            String supplierID = ItemTable.getModel().getValueAt(itemRow, 4).toString();
+            String supplierName = ItemTable.getModel().getValueAt(itemRow, 5).toString();
+            double sellPrice = Double.parseDouble(ItemTable.getModel().getValueAt(itemRow, 6).toString());
+            double buyPrice = Double.parseDouble(ItemTable.getModel().getValueAt(itemRow, 7).toString());
+            Item item = new Item(itemID,itemName,category,stock,supplierID,supplierName,sellPrice,buyPrice);
+            System.out.println(item.toString());
+                if(admin!=null){
+                    GUI_Edit_item edit = new GUI_Edit_item(admin,item);
+                    edit.show();
+                    this.dispose();
+                }
+                else if(sm!=null){
+                    GUI_Edit_item edit = new GUI_Edit_item(sm,item);
+                    edit.show();
+                    this.dispose();
+                }
+            } else {
+            JOptionPane.showMessageDialog(null,"rs");
+        }
     }//GEN-LAST:event_buttonEditActionPerformed
 //String itemID, String itemName, String category,int stock, double price, String supplierID,String supplierName
     private void buttonRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonRemoveActionPerformed

@@ -218,6 +218,10 @@ public class GUI_Add_item extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void buttonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCancelActionPerformed
+        dispose();
+    }//GEN-LAST:event_buttonCancelActionPerformed
+
     private void buttonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSaveActionPerformed
         String errorMessage = null;
         while(true){
@@ -231,7 +235,7 @@ public class GUI_Add_item extends javax.swing.JFrame {
             }
             else if(!(InputValidation.isValidQuantity(txtStock.getText()))){
                 errorMessage = "Invalid number";
-                break;             
+                break;
             }
             else if(cmbSupplier.getSelectedItem()!=null){
                 errorMessage = "Please select a supplier";
@@ -242,13 +246,13 @@ public class GUI_Add_item extends javax.swing.JFrame {
             }
             else{
                 if(!(InputValidation.isValidPrice(txtBuyPrice.getText()))){
-                errorMessage = "Invalid price";
-                break;
+                    errorMessage = "Invalid price";
+                    break;
                 }
             }
-        if (errorMessage != null){ //还没改
-            JOptionPane.showMessageDialog(new GUI_Add_User(new Admin()),errorMessage);
-        }            
+            if (errorMessage != null){ //还没改
+                JOptionPane.showMessageDialog(new GUI_Add_User(new Admin()),errorMessage);
+            }
         }
         String[] supplierInfo = cmbSupplier.getSelectedItem().toString().split("\\|");
         Item item = new Item( txtItemID.getText(),txtItemName.getText(),cmbCategory.getSelectedItem().toString(),Integer.parseInt(txtStock.getText()),supplierInfo[0],supplierInfo[1],Double.parseDouble(txtSellPrice.getText()),Double.parseDouble(txtBuyPrice.getText()));
@@ -264,10 +268,6 @@ public class GUI_Add_item extends javax.swing.JFrame {
             Logger.getLogger(GUI_Add_item.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_buttonSaveActionPerformed
-
-    private void buttonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCancelActionPerformed
-        dispose();
-    }//GEN-LAST:event_buttonCancelActionPerformed
 
     /**
      * @param args the command line arguments

@@ -232,12 +232,12 @@ public class GUI_Supplier_Entry extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonRemoveActionPerformed
 
     private void buttonEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEditActionPerformed
-        int itemRow = SupplierTable.getSelectedRow();
-        if (itemRow != -1){
-            String supplierID = SupplierTable.getModel().getValueAt(itemRow, 0).toString();
-            String supplierName = SupplierTable.getModel().getValueAt(itemRow, 1).toString();
-            String email = SupplierTable.getModel().getValueAt(itemRow, 2).toString();
-            String contact = SupplierTable.getModel().getValueAt(itemRow, 3).toString();
+        int supplierRow = SupplierTable.getSelectedRow();
+        if (supplierRow != -1){
+            String supplierID = SupplierTable.getModel().getValueAt(supplierRow, 0).toString();
+            String supplierName = SupplierTable.getModel().getValueAt(supplierRow, 1).toString();
+            String email = SupplierTable.getModel().getValueAt(supplierRow, 2).toString();
+            String contact = SupplierTable.getModel().getValueAt(supplierRow, 3).toString();
             Supplier supplier = new Supplier(supplierID,supplierName,email,contact);
             if(admin!=null){
                 GUI_Edit_supplier edit = new GUI_Edit_supplier(admin,supplier);
