@@ -137,10 +137,10 @@ public class Item implements Record {
         return stock >= amount;
     }
     public void addStock(int amount) throws IOException{
-        edit(toString().replace(String.valueOf(stock),String.valueOf((stock+amount))));
+        edit(new Item(itemID,itemName,category.toString(),(stock+amount),supplierID,supplierName,sellprice,buyprice));
     }   
     public void reduceStock(int amount) throws IOException{
-        edit(toString().replace(String.valueOf(stock),String.valueOf((stock-amount))));
+        edit(new Item(itemID,itemName,category.toString(),(stock-amount),supplierID,supplierName,sellprice,buyprice));
     }
     public String toString(){
         return (itemID + "|"+itemName + "|" + category.toString() + "|" + stock + "|" + supplierID + "|" + supplierName+ "|" + sellprice + "|" + buyprice);

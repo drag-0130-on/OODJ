@@ -80,8 +80,8 @@ public class Admin extends User {
     public void editDIS(DailyItemSales DIS,DailyItemSales newDIS)throws IOException {
         if (newDIS.getItem().verifyStockAvailability(newDIS.getAmountSold())){
             DIS.getItem().addStock(DIS.getAmountSold());
-            newDIS.getItem().reduceStock(newDIS.getAmountSold());
             DIS.edit(newDIS);
+            newDIS.getItem().reduceStock(newDIS.getAmountSold());
         }
     }
     public void removeDIS(DailyItemSales DIS)throws IOException {
