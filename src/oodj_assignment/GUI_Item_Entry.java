@@ -202,8 +202,15 @@ public class GUI_Item_Entry extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddActionPerformed
-//        GUI_Add_item add_item = new GUI_Add_item();
-//        add_item.show();
+        if (admin != null){
+            GUI_Add_item add_item = new GUI_Add_item(admin);
+            add_item.show();
+            this.dispose();
+        } else if (sm != null){
+            GUI_Add_item add_item = new GUI_Add_item(sm);
+            add_item.show();
+            this.dispose();
+        } 
     }//GEN-LAST:event_buttonAddActionPerformed
 
     private void buttonEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEditActionPerformed

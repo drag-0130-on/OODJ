@@ -19,68 +19,46 @@ public class GUI_Edit_item extends javax.swing.JFrame {
     Item item;
     public GUI_Edit_item(Admin admin, Item item) {
         initComponents();
+        DefaultComboBoxModel categoryModel = (DefaultComboBoxModel) cmbCategory.getModel();
+        categoryModel.addElement(item.getCategory());
+        DefaultComboBoxModel supplierModel = (DefaultComboBoxModel) cmbSupplier.getModel();
+        supplierModel.addElement(item.getSupplierID()+"|"+item.getSupplierName());
         this.admin =admin;
         this.item = item;
-        loadCategory();
-        try {
-            loadSupplier();
-            txtItemID.setText(item.getItemID());
-            txtItemID.disable();
-            txtItemName.setText(item.getItemName());
-            txtItemName.disable();
-            cmbCategory.setSelectedItem(item.getCategory());
-            cmbCategory.disable();
-            txtStock.setText(String.valueOf(item.getStock()));
-            cmbSupplier.setSelectedItem(item.getSupplierID()+"|"+item.getSupplierName());
-            cmbSupplier.disable();
-            txtSellPrice.setText(String.valueOf(item.getSellprice()));
-            txtBuyPrice.setText(String.valueOf(item.getBuyprice()));
-        } catch (IOException ex) {
-            Logger.getLogger(GUI_Edit_item.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        txtItemID.setText(item.getItemID());
+        txtItemID.disable();
+        txtItemName.setText(item.getItemName());
+        txtItemName.disable();
+        cmbCategory.disable();
+        txtStock.setText(String.valueOf(item.getStock()));
+        cmbSupplier.setSelectedItem(item.getSupplierID()+"|"+item.getSupplierName());
+        cmbSupplier.disable();
+        txtSellPrice.setText(String.valueOf(item.getSellprice()));
+        txtBuyPrice.setText(String.valueOf(item.getBuyprice()));
     }
     public GUI_Edit_item(SalesManager sm, Item item) {
         initComponents();
+        DefaultComboBoxModel categoryModel = (DefaultComboBoxModel) cmbCategory.getModel();
+        categoryModel.addElement(item.getCategory());
+        DefaultComboBoxModel supplierModel = (DefaultComboBoxModel) cmbSupplier.getModel();
+        supplierModel.addElement(item.getSupplierID()+"|"+item.getSupplierName());
         this.sm =sm;
         this.item = item;
-        loadCategory();
-        try {
-            loadSupplier();
-            txtItemID.setText(item.getItemID());
-            txtItemID.disable();
-            txtItemName.setText(item.getItemName());
-            txtItemName.disable();
-            cmbCategory.setSelectedItem(item.getCategory());
-            cmbCategory.disable();
-            txtStock.setText(String.valueOf(item.getStock()));
-            cmbSupplier.setSelectedItem(item.getSupplierID()+"|"+item.getSupplierName());
-            cmbSupplier.disable();
-            txtSellPrice.setText(String.valueOf(item.getSellprice()));
-            txtBuyPrice.setText(String.valueOf(item.getBuyprice()));
-        } catch (IOException ex) {
-            Logger.getLogger(GUI_Edit_item.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        txtItemID.setText(item.getItemID());
+        txtItemID.disable();
+        txtItemName.setText(item.getItemName());
+        txtItemName.disable();
+        cmbCategory.setSelectedItem(item.getCategory());
+        cmbCategory.disable();
+        txtStock.setText(String.valueOf(item.getStock()));
+        cmbSupplier.setSelectedItem(item.getSupplierID()+"|"+item.getSupplierName());
+        cmbSupplier.disable();
+        txtSellPrice.setText(String.valueOf(item.getSellprice()));
+        txtBuyPrice.setText(String.valueOf(item.getBuyprice()));
+        
     }
   
-    public void loadCategory(){
-        ItemCategory[] categories = ItemCategory.values();
-        DefaultComboBoxModel categoryModel = (DefaultComboBoxModel) cmbCategory.getModel();
-        cmbCategory.removeAllItems();
-        for (ItemCategory category:categories){
-            categoryModel.addElement(category.toString());
-        }
-        cmbCategory.setSelectedIndex(-1);
-    }
     
-    public void loadSupplier()throws IOException{
-        ArrayList<String[]> supplierList = Supplier.view();
-        DefaultComboBoxModel supplierModel = (DefaultComboBoxModel) cmbSupplier.getModel();
-        cmbSupplier.removeAllItems();
-        for (String[] supplier: supplierList){
-            supplierModel.addElement(supplier[0]+"|"+supplier[1]);
-        } 
-        cmbSupplier.setSelectedIndex(-1);
-    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -130,8 +108,6 @@ public class GUI_Edit_item extends javax.swing.JFrame {
             }
         });
 
-        cmbSupplier.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         jLabel9.setText("Sell Price:");
 
         jLabel2.setText("Category: ");
@@ -141,8 +117,6 @@ public class GUI_Edit_item extends javax.swing.JFrame {
         jLabel3.setText("Item Name:");
 
         jLabel4.setText("Stock: ");
-
-        cmbCategory.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel5.setText("Buy Price:");
 
@@ -166,12 +140,6 @@ public class GUI_Edit_item extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(53, 53, 53)
-                .addComponent(buttonSave)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(buttonCancel)
-                .addGap(80, 80, 80))
-            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(20, 20, 20)
@@ -189,23 +157,26 @@ public class GUI_Edit_item extends javax.swing.JFrame {
                             .addComponent(jLabel4)
                             .addComponent(jLabel6)
                             .addComponent(jLabel9)
-                            .addComponent(txtStock, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtStock, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5)
+                            .addComponent(txtBuyPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel5)
-                        .addGap(306, 306, 306)))
-                .addContainerGap(31, Short.MAX_VALUE))
+                        .addComponent(buttonSave)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(buttonCancel)
+                        .addGap(202, 202, 202)))
+                .addContainerGap(46, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(34, 34, 34)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(txtBuyPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(txtSellPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(cmbSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(cmbCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(txtItemName, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(txtItemID, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addContainerGap(39, Short.MAX_VALUE)))
+                    .addContainerGap(49, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -230,11 +201,13 @@ public class GUI_Edit_item extends javax.swing.JFrame {
                 .addComponent(jLabel9)
                 .addGap(41, 41, 41)
                 .addComponent(jLabel5)
-                .addGap(45, 45, 45)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtBuyPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buttonCancel)
-                    .addComponent(buttonSave))
-                .addContainerGap(35, Short.MAX_VALUE))
+                    .addComponent(buttonSave)
+                    .addComponent(buttonCancel))
+                .addGap(18, 18, 18))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(94, 94, 94)
@@ -247,9 +220,7 @@ public class GUI_Edit_item extends javax.swing.JFrame {
                     .addComponent(cmbSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(40, 40, 40)
                     .addComponent(txtSellPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(40, 40, 40)
-                    .addComponent(txtBuyPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(74, Short.MAX_VALUE)))
+                    .addContainerGap(148, Short.MAX_VALUE)))
         );
 
         pack();
@@ -286,28 +257,31 @@ public class GUI_Edit_item extends javax.swing.JFrame {
                 break;
             } else {
                 String[] supplierInfo = cmbSupplier.getSelectedItem().toString().split("\\|");
-                Item item = new Item( txtItemID.getText(),txtItemName.getText(),cmbCategory.getSelectedItem().toString(),Integer.parseInt(txtStock.getText()),supplierInfo[0],supplierInfo[1],Double.parseDouble(txtSellPrice.getText()),Double.parseDouble(txtBuyPrice.getText()));
+                Item newItem = new Item( txtItemID.getText(),txtItemName.getText(),cmbCategory.getSelectedItem().toString(),Integer.parseInt(txtStock.getText()),supplierInfo[0],supplierInfo[1],Double.parseDouble(txtSellPrice.getText()),Double.parseDouble(txtBuyPrice.getText()));
                 try {
-                    if (item.verifyUniqueness()){
-                        if(admin!=null){
-                            admin.addItem(item);
-                            break;
-                        } else if(sm!=null){
-                            sm.addItem(item);
-                            break;
-                        }    
-                    } else {
-                        errorMessage = "Invalid Item";
+                    if(admin!=null){
+                        admin.editItem(item,newItem);
                         break;
-                    }
+                    } else if(sm!=null){
+                        sm.editItem(item,newItem);
+                        break;
+                    }    
                 } catch (IOException ex) {
                     break;
                 }
             }
-                
         }
-        if (errorMessage != null){ //还没改
+        if (errorMessage != null){
                 JOptionPane.showMessageDialog(new GUI_Add_User(new Admin()),errorMessage);
+        }
+        if (admin != null) {
+            GUI_Item_Entry itemEntry = new GUI_Item_Entry(admin);
+            itemEntry.show();
+            this.dispose();
+;        } else if (sm != null) {
+            GUI_Item_Entry itemEntry = new GUI_Item_Entry(sm);
+            itemEntry.show();
+            this.dispose();
         }
     }//GEN-LAST:event_buttonSaveActionPerformed
 

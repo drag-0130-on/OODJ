@@ -63,11 +63,11 @@ public class GUI_Edit_pr extends javax.swing.JFrame {
         Cancel = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         txtQuantity = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        ItemTable = new javax.swing.JTable();
         Add_pr = new javax.swing.JLabel();
         System_name = new javax.swing.JLabel();
         Save = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        txtQuantity1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -80,19 +80,6 @@ public class GUI_Edit_pr extends javax.swing.JFrame {
 
         jLabel3.setText("Quantity");
 
-        ItemTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(ItemTable);
-
         Add_pr.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         Add_pr.setText("Edit Purchase Requisition ");
 
@@ -102,6 +89,8 @@ public class GUI_Edit_pr extends javax.swing.JFrame {
         Save.setText("Save");
         Save.setToolTipText("");
 
+        jLabel4.setText("New Quantity");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -109,28 +98,30 @@ public class GUI_Edit_pr extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                        .addGap(92, 92, 92)
+                        .addComponent(Add_pr))
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(99, 99, 99)
+                        .addComponent(Save)
+                        .addGap(55, 55, 55)
+                        .addComponent(Cancel))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(System_name))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(49, 49, 49)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(92, 92, 92)
-                                .addComponent(Add_pr))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(58, 58, 58)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3)
-                                    .addComponent(txtQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(41, 41, 41)
-                                        .addComponent(Save)
-                                        .addGap(55, 55, 55)
-                                        .addComponent(Cancel))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(19, 19, 19)
-                                .addComponent(System_name)))
-                        .addGap(0, 12, Short.MAX_VALUE)))
-                .addContainerGap())
+                                .addComponent(jLabel4)
+                                .addGap(35, 35, 35)
+                                .addComponent(txtQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(18, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap(158, Short.MAX_VALUE)
+                    .addComponent(txtQuantity1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(151, 151, 151)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -138,17 +129,22 @@ public class GUI_Edit_pr extends javax.swing.JFrame {
                 .addComponent(System_name)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(Add_pr)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(41, 41, 41)
                 .addComponent(jLabel3)
-                .addGap(6, 6, 6)
-                .addComponent(txtQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(74, 74, 74)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(txtQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(268, 268, 268)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Save)
                     .addComponent(Cancel))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(106, 106, 106)
+                    .addComponent(txtQuantity1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(324, Short.MAX_VALUE)))
         );
 
         pack();
@@ -207,11 +203,11 @@ public class GUI_Edit_pr extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Add_pr;
     private javax.swing.JButton Cancel;
-    private javax.swing.JTable ItemTable;
     private javax.swing.JButton Save;
     private javax.swing.JLabel System_name;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JTextField txtQuantity;
+    private javax.swing.JTextField txtQuantity1;
     // End of variables declaration//GEN-END:variables
 }
