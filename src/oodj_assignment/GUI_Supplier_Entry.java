@@ -49,7 +49,7 @@ public class GUI_Supplier_Entry extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel) SupplierTable.getModel();
         model.setRowCount(0);
         
-        String[] columnNames = {"Supplier ID", "Supplier Name", "Contact", "Email"}; 
+        String[] columnNames = {"Supplier ID", "Supplier Name","Email","Contact"}; 
         model.setColumnIdentifiers(columnNames);
         
         ArrayList<String[]> st = Supplier.view();
@@ -237,14 +237,17 @@ public class GUI_Supplier_Entry extends javax.swing.JFrame {
             String email = SupplierTable.getModel().getValueAt(supplierRow, 2).toString();
             String contact = SupplierTable.getModel().getValueAt(supplierRow, 3).toString();
             Supplier supplier = new Supplier(supplierID,supplierName,email,contact);
+            System.out.println(supplier.toString());
             if(admin!=null){
                 GUI_Edit_supplier edit = new GUI_Edit_supplier(admin,supplier);
                 edit.show();
                 this.dispose();
+                
             } else if(sm!=null){
                 GUI_Edit_supplier edit = new GUI_Edit_supplier(sm,supplier);
                 edit.show();
                 this.dispose();
+                
             }
         } else {
             JOptionPane.showMessageDialog(null,"No Supplier is Selected.");

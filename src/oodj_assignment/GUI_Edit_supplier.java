@@ -32,6 +32,12 @@ public class GUI_Edit_supplier extends javax.swing.JFrame {
         initComponents();
         this.sm = sm;
         this.supplier = supplier;
+        txtSupplierID.setText(supplier.getID());
+        txtSupplierID.disable();
+        txtSupplierName.setText(supplier.getName());
+        txtSupplierName.disable();
+        txtEmail.setText(supplier.getEmail());
+        txtContact.setText(supplier.getContactNo());  
     }
 
     /**
@@ -179,20 +185,17 @@ public class GUI_Edit_supplier extends javax.swing.JFrame {
                 break;
             } else {
                 Supplier newSupplier = new Supplier(txtSupplierID.getText(),txtSupplierName.getText(),txtEmail.getText(),txtContact.getText());
-                try {
-                    if (newSupplier.verifyUniqueness()){
-                        if(admin!=null){
-                            admin.editSupplier(supplier,newSupplier);
-                            break;
-                        } else if(sm!=null){
-                            sm.editSupplier(supplier,newSupplier);
-                            break;
-                        }
-                    } else{
-                        errorMessage = "Invalid Supplier";
+                try {               
+                    if(admin!=null){      
+                        admin.editSupplier(supplier,newSupplier);
+                        break;
+                        
+                    } else if(sm!=null){
+                        sm.editSupplier(supplier,newSupplier);
+                        break;
                     }
                 } catch (IOException ex) {
-                   break;
+                    break;
                 }
             }
         
@@ -200,6 +203,17 @@ public class GUI_Edit_supplier extends javax.swing.JFrame {
         if (errorMessage != null){
             JOptionPane.showMessageDialog(null,errorMessage);
         }
+        if (admin != null){
+            GUI_Supplier_Entry supplierEntry = new GUI_Supplier_Entry(admin);
+            supplierEntry.show();
+            this.dispose();
+        } else if(sm != null){
+            GUI_Supplier_Entry supplierEntry = new GUI_Supplier_Entry(sm);
+            supplierEntry.show();
+            this.dispose();
+        }
+       
+            
     }//GEN-LAST:event_btnSaveActionPerformed
 
     /**

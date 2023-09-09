@@ -20,7 +20,7 @@ public class GUI_Add_supplier extends javax.swing.JFrame {
         initComponents();
         this.admin = admin;
         try {
-            txtSupplierID.setText(User.generateID());
+            txtSupplierID.setText(Supplier.generateID());
             txtSupplierID.disable();
         } catch (IOException ex) {
             Logger.getLogger(GUI_Add_supplier.class.getName()).log(Level.SEVERE, null, ex);
@@ -31,7 +31,7 @@ public class GUI_Add_supplier extends javax.swing.JFrame {
         initComponents();
         this.sm = sm;
         try {
-            txtSupplierID.setText(User.generateID());
+            txtSupplierID.setText(Supplier.generateID());
             txtSupplierID.disable();
         } catch (IOException ex) {
             Logger.getLogger(GUI_Add_supplier.class.getName()).log(Level.SEVERE, null, ex);
@@ -197,6 +197,15 @@ public class GUI_Add_supplier extends javax.swing.JFrame {
         }
         if (errorMessage != null){
             JOptionPane.showMessageDialog(null,errorMessage);
+        }
+        if (admin != null){
+            GUI_Supplier_Entry supplierEntry = new GUI_Supplier_Entry(admin);
+            supplierEntry.show();
+            this.dispose();
+        } else if(sm != null){
+            GUI_Supplier_Entry supplierEntry = new GUI_Supplier_Entry(sm);
+            supplierEntry.show();
+            this.dispose();
         }
     }//GEN-LAST:event_buttonSaveActionPerformed
 

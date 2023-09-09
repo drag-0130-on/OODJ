@@ -79,10 +79,6 @@ public class GUI_Add_pr extends javax.swing.JFrame {
         txtQuantity = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         ItemTable = new javax.swing.JTable();
-        cmbMonth = new javax.swing.JComboBox<>();
-        cmbYear = new javax.swing.JComboBox<>();
-        jLabel2 = new javax.swing.JLabel();
-        cmbDay = new javax.swing.JComboBox<>();
         txtPRID = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
 
@@ -124,14 +120,6 @@ public class GUI_Add_pr extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(ItemTable);
 
-        cmbMonth.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "Novermber", "December" }));
-
-        cmbYear.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023" }));
-
-        jLabel2.setText("Date:");
-
-        cmbDay.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
-
         jLabel1.setText("PR ID");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -158,13 +146,6 @@ public class GUI_Add_pr extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
                     .addComponent(jLabel3)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(cmbDay, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(cmbMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cmbYear, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(41, 41, 41)
                         .addComponent(buttonSave)
@@ -191,14 +172,7 @@ public class GUI_Add_pr extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addGap(6, 6, 6)
                 .addComponent(txtQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(14, 14, 14)
-                .addComponent(jLabel2)
-                .addGap(4, 4, 4)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cmbDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cmbMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cmbYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(74, 74, 74)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonSave)
                     .addComponent(buttonCancel))
@@ -209,17 +183,10 @@ public class GUI_Add_pr extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSaveActionPerformed
-        String selectedYear = (String) cmbYear.getSelectedItem();
-        String selectedMonth = (String) cmbMonth.getSelectedItem();
-        String selectedDay = (String) cmbDay.getSelectedItem();
-        String date = (selectedDay+"-"+selectedMonth+"-"+selectedYear);
+        
         String errorMessage = null;
         while(true){
-            if(!(InputValidation.isValidDate((String)cmbYear.getSelectedItem(),(String)cmbMonth.getSelectedItem(), (String)cmbDay.getSelectedItem()))){
-                errorMessage = "Invalid date";
-                break;
-            }
-            else if(!(InputValidation.isValidQuantity(txtQuantity.getText()))){
+            if(!(InputValidation.isValidQuantity(txtQuantity.getText()))){
                 errorMessage = "Invalid quantity";
                 break;
             } else{
@@ -330,11 +297,7 @@ public class GUI_Add_pr extends javax.swing.JFrame {
     private javax.swing.JLabel System_name;
     private javax.swing.JButton buttonCancel;
     private javax.swing.JButton buttonSave;
-    private javax.swing.JComboBox<String> cmbDay;
-    private javax.swing.JComboBox<String> cmbMonth;
-    private javax.swing.JComboBox<String> cmbYear;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField txtPRID;
