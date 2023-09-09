@@ -67,22 +67,7 @@ public class FileAccess {
         ArrayList<String[]> content = viewFile();
         removeFromFile(oldData);
         addToFile(newData);
-//        try{
-//            bw = new BufferedWriter(new FileWriter(new File(fileName)));
-//        }
-//        catch(Exception e){
-//            e.printStackTrace();
-//        }
-//        for (String[] line:content){
-//            if (oldData.matches(String.join("|", line))){
-//                bw.write(newData);
-//                bw.newLine();      
-//            } else {
-//                bw.write(String.join("|", line));
-//                bw.newLine();
-//            }
-//        }
-//        bw.close();
+       
         return true;
     }
     public boolean removeFromFile(String data) throws IOException{
