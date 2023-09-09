@@ -338,8 +338,8 @@ public class GUI_Edit_item extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                Item item = new Item("A","1","2");
-                new GUI_Edit_item(new Admin(),item).setVisible(true);
+//                Item item = new Item("A","1","2");
+//                new GUI_Edit_item(new Admin(),item).setVisible(true);
             }
         });
     }

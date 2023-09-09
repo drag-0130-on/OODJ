@@ -65,22 +65,24 @@ public class FileAccess {
     }
     public boolean editFile(String oldData, String newData) throws IOException{
         ArrayList<String[]> content = viewFile();
-        try{
-            bw = new BufferedWriter(new FileWriter(new File(fileName)));
-        }
-        catch(Exception e){
-            e.printStackTrace();
-        }
-        for (String[] line:content){
-            if (oldData.matches(String.join("|", line))){
-                bw.write(newData);
-                bw.newLine();      
-            } else {
-                bw.write(String.join("|", line));
-                bw.newLine();
-            }
-        }
-        bw.close();
+        removeFromFile(oldData);
+        addToFile(newData);
+//        try{
+//            bw = new BufferedWriter(new FileWriter(new File(fileName)));
+//        }
+//        catch(Exception e){
+//            e.printStackTrace();
+//        }
+//        for (String[] line:content){
+//            if (oldData.matches(String.join("|", line))){
+//                bw.write(newData);
+//                bw.newLine();      
+//            } else {
+//                bw.write(String.join("|", line));
+//                bw.newLine();
+//            }
+//        }
+//        bw.close();
         return true;
     }
     public boolean removeFromFile(String data) throws IOException{

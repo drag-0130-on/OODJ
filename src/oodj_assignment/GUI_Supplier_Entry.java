@@ -219,9 +219,11 @@ public class GUI_Supplier_Entry extends javax.swing.JFrame {
             try {
                 if(admin!=null){
                     admin.removeSupplier(supplier);
+                    showTable();
                 }
                 else if(sm!=null){
                     sm.removeSupplier(supplier);
+                    showTable();
                 }
             } catch (IOException ex) {
                 JOptionPane.showMessageDialog(null,"No Supplier is Removed.");

@@ -275,7 +275,37 @@ public class GUI_PRPO_Entry extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRemovePOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemovePOActionPerformed
-        // TODO add your handling code here:
+        int prRow = POTable.getSelectedRow();
+        if (prRow != -1){
+            String prID = POTable.getModel().getValueAt(prRow, 0).toString();
+            String itemID = POTable.getModel().getValueAt(prRow, 1).toString();
+            String itemName = POTable.getModel().getValueAt(prRow, 2).toString();
+            String category = POTable.getModel().getValueAt(prRow, 3).toString();
+            String supplierID = POTable.getModel().getValueAt(prRow, 4).toString();
+            String supplierName = POTable.getModel().getValueAt(prRow, 5).toString();
+            double price = Double.parseDouble(POTable.getModel().getValueAt(prRow, 6).toString());
+            int quantity = Integer.parseInt(POTable.getModel().getValueAt(prRow, 7).toString());
+            String generator = POTable.getModel().getValueAt(prRow, 9).toString();
+            String status = POTable.getModel().getValueAt(prRow, 10).toString();
+            String approvedby = POTable.getModel().getValueAt(prRow, 11).toString();
+            Item item = new Item(itemID,itemName,category,supplierID,supplierName,0,price);
+            PurchaseRequisition pr = new PurchaseRequisition(prID,item,quantity,generator,status);
+            PurchaseOrder po = new PurchaseOrder(pr,approvedby);
+            try {
+                if(admin!=null){
+                    admin.removePO(po);
+                    showTable();
+                }
+                else if(pm!=null){
+                    pm.removePO(po);
+                    showTable();
+                }
+            } catch (IOException ex) {
+               JOptionPane.showMessageDialog(null,"No Purchase Order is Removed.");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null,"No Purchase Order is Selected.");
+        }
     }//GEN-LAST:event_btnRemovePOActionPerformed
 
     private void btnRemovePRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemovePRActionPerformed
@@ -285,11 +315,10 @@ public class GUI_PRPO_Entry extends javax.swing.JFrame {
             String itemID = PRTable.getModel().getValueAt(prRow, 1).toString();
             String itemName = PRTable.getModel().getValueAt(prRow, 2).toString();
             String category = PRTable.getModel().getValueAt(prRow, 3).toString();
-            double price = Double.parseDouble(PRTable.getModel().getValueAt(prRow, 4).toString());
-            String supplierID = PRTable.getModel().getValueAt(prRow, 5).toString();
-            String supplierName = PRTable.getModel().getValueAt(prRow, 6).toString();
+            String supplierID = PRTable.getModel().getValueAt(prRow, 4).toString();
+            String supplierName = PRTable.getModel().getValueAt(prRow, 5).toString();
+            double price = Double.parseDouble(PRTable.getModel().getValueAt(prRow, 6).toString());
             int quantity = Integer.parseInt(PRTable.getModel().getValueAt(prRow, 7).toString());
-            double totalPrice = Double.parseDouble(PRTable.getModel().getValueAt(prRow, 8).toString());
             String generator = PRTable.getModel().getValueAt(prRow, 9).toString();
             String status = PRTable.getModel().getValueAt(prRow, 10).toString();
             Item item = new Item(itemID,itemName,category,supplierID,supplierName,0,price);
@@ -311,11 +340,67 @@ public class GUI_PRPO_Entry extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRemovePRActionPerformed
 
     private void btnRejectPRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRejectPRActionPerformed
-        // TODO add your handling code here:
+        int prRow = PRTable.getSelectedRow();
+        if (prRow != -1){
+            String prID = PRTable.getModel().getValueAt(prRow, 0).toString();
+            String itemID = PRTable.getModel().getValueAt(prRow, 1).toString();
+            String itemName = PRTable.getModel().getValueAt(prRow, 2).toString();
+            String category = PRTable.getModel().getValueAt(prRow, 3).toString();
+            String supplierID = PRTable.getModel().getValueAt(prRow, 4).toString();
+            String supplierName = PRTable.getModel().getValueAt(prRow, 5).toString();
+            double price = Double.parseDouble(PRTable.getModel().getValueAt(prRow, 6).toString());
+            int quantity = Integer.parseInt(PRTable.getModel().getValueAt(prRow, 7).toString());
+            String generator = PRTable.getModel().getValueAt(prRow, 9).toString();
+            String status = PRTable.getModel().getValueAt(prRow, 10).toString();
+            Item item = new Item(itemID,itemName,category,supplierID,supplierName,0,price);
+            PurchaseRequisition pr = new PurchaseRequisition(prID,item,quantity,generator,status);
+            try{
+                if(admin!=null){
+                    admin.rejectPR(pr);
+                    showTable();
+                } else if(pm!=null){
+                    pm.rejectPR(pr);
+                    showTable();
+                }
+            } catch (IOException e){
+                JOptionPane.showMessageDialog(null,"No Purchase Requisition is Rejected.");
+            }
+                
+        } else {
+            JOptionPane.showMessageDialog(null,"No Purchase Requisition is Selected.");
+        }
     }//GEN-LAST:event_btnRejectPRActionPerformed
 
     private void btnApprovePRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnApprovePRActionPerformed
-        // TODO add your handling code here:
+        int prRow = PRTable.getSelectedRow();
+        if (prRow != -1){
+            String prID = PRTable.getModel().getValueAt(prRow, 0).toString();
+            String itemID = PRTable.getModel().getValueAt(prRow, 1).toString();
+            String itemName = PRTable.getModel().getValueAt(prRow, 2).toString();
+            String category = PRTable.getModel().getValueAt(prRow, 3).toString();
+            String supplierID = PRTable.getModel().getValueAt(prRow, 4).toString();
+            String supplierName = PRTable.getModel().getValueAt(prRow, 5).toString();
+            double price = Double.parseDouble(PRTable.getModel().getValueAt(prRow, 6).toString());
+            int quantity = Integer.parseInt(PRTable.getModel().getValueAt(prRow, 7).toString());
+            String generator = PRTable.getModel().getValueAt(prRow, 9).toString();
+            String status = PRTable.getModel().getValueAt(prRow, 10).toString();
+            Item item = new Item(itemID,itemName,category,supplierID,supplierName,0,price);
+            PurchaseRequisition pr = new PurchaseRequisition(prID,item,quantity,generator,status);
+            try{
+                if(admin!=null){
+                    admin.approvePR(pr);
+                    showTable();
+                } else if(pm!=null){
+                    pm.approvePR(pr);
+                    showTable();
+                }
+            } catch (IOException e){
+                JOptionPane.showMessageDialog(null,"No Purchase Requisition is Approved.");
+            }
+                
+        } else {
+            JOptionPane.showMessageDialog(null,"No Purchase Requisition is Selected.");
+        }
     }//GEN-LAST:event_btnApprovePRActionPerformed
 
     private void btnAddPRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddPRActionPerformed
@@ -337,11 +422,10 @@ public class GUI_PRPO_Entry extends javax.swing.JFrame {
             String itemID = PRTable.getModel().getValueAt(prRow, 1).toString();
             String itemName = PRTable.getModel().getValueAt(prRow, 2).toString();
             String category = PRTable.getModel().getValueAt(prRow, 3).toString();
-            double price = Double.parseDouble(PRTable.getModel().getValueAt(prRow, 4).toString());
-            String supplierID = PRTable.getModel().getValueAt(prRow, 5).toString();
-            String supplierName = PRTable.getModel().getValueAt(prRow, 6).toString();
+            String supplierID = PRTable.getModel().getValueAt(prRow, 4).toString();
+            String supplierName = PRTable.getModel().getValueAt(prRow, 5).toString();
+            double price = Double.parseDouble(PRTable.getModel().getValueAt(prRow, 6).toString());
             int quantity = Integer.parseInt(PRTable.getModel().getValueAt(prRow, 7).toString());
-            double totalPrice = Double.parseDouble(PRTable.getModel().getValueAt(prRow, 8).toString());
             String generator = PRTable.getModel().getValueAt(prRow, 9).toString();
             String status = PRTable.getModel().getValueAt(prRow, 10).toString();
             Item item = new Item(itemID,itemName,category,supplierID,supplierName,0,price);
