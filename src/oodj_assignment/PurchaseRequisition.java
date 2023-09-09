@@ -11,11 +11,12 @@ public class PurchaseRequisition implements Record {
     private int quantity;
     private String status = "Pending";
             
-    public PurchaseRequisition(String prID,Item item,int quantity,String smID){
+    public PurchaseRequisition(String prID,Item item,int quantity,String smID,String status){
         this.prID = prID;
         this.item = item;
         this.quantity = quantity;
         this.smID = smID;
+        this.status = status;
     }
     public PurchaseRequisition(String prID,Item item,int quantity){
         this.prID = prID;

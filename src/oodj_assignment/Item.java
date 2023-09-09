@@ -23,6 +23,17 @@ public class Item implements Record {
           this.buyprice = buyprice;
           this.sellprice = sellprice;
     }
+    public Item(String itemID, String itemName, String category, String supplierID,String supplierName, double sellprice, double buyprice){
+          this.itemID = itemID;
+          this.itemName = itemName;
+          this.category = ItemCategory.valueOf(category);
+          this.stock = 0;
+          this.supplierID = supplierID;
+          this.supplierName = supplierName;
+          this.buyprice = buyprice;
+          this.sellprice = sellprice;
+    }
+  
 
     public String getItemID() {
         return itemID;

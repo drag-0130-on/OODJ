@@ -195,7 +195,7 @@ public class GUI_User_Entry extends javax.swing.JFrame {
                 admin.removeUser(user);
                 showTable();
             } catch (IOException ex) {
-                Logger.getLogger(GUI_Add_item.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showMessageDialog(null,"No User is Removed.");
             }
         } else {
             JOptionPane.showMessageDialog(null,"No User is Selected.");

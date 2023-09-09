@@ -18,22 +18,14 @@ public class GUI_Add_pr extends javax.swing.JFrame {
 
     Admin admin;
     SalesManager sm;
-    public GUI_Add_pr() {
+
+    public GUI_Add_pr(Admin admin) {
         initComponents();
+        this.admin = admin;
+        txtPRID.setText(admin.getUserID());
+        txtPRID.disable();
         try {
             showTable();
-        } catch (IOException ex) {
-            Logger.getLogger(GUI_Add_pr.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
-
-    public GUI_Add_pr(Admin admin) throws IOException {
-        initComponents();
-        this.admin =admin;
-        try {
-            txtPRID.setText(User.generateID());
-            txtPRID.disable();
         } catch (IOException ex) {
             Logger.getLogger(GUI_Add_pr.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -41,9 +33,10 @@ public class GUI_Add_pr extends javax.swing.JFrame {
     public GUI_Add_pr(SalesManager sm) {
         initComponents();
         this.sm =sm;
-                try {
-            txtPRID.setText(User.generateID());
-            txtPRID.disable();
+        txtPRID.setText(sm.getUserID());
+        txtPRID.disable();
+        try {
+            showTable();
         } catch (IOException ex) {
             Logger.getLogger(GUI_Add_pr.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -271,7 +264,7 @@ public class GUI_Add_pr extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 
-                new GUI_Add_pr().setVisible(true);
+                new GUI_Add_pr(new Admin()).setVisible(true);
             }
         });
     }

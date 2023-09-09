@@ -170,7 +170,6 @@ public class GUI_Add_supplier extends javax.swing.JFrame {
         try {
             if(admin!=null){
                 admin.addSupplier(supplier);
-                System.out.println("Admin");
             }
             else if(sm!=null){
                 sm.addSupplier(supplier);

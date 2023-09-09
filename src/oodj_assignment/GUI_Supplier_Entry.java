@@ -224,7 +224,7 @@ public class GUI_Supplier_Entry extends javax.swing.JFrame {
                     sm.removeSupplier(supplier);
                 }
             } catch (IOException ex) {
-                Logger.getLogger(GUI_Add_item.class.getName()).log(Level.SEVERE, null, ex);
+                JOptionPane.showMessageDialog(null,"No Supplier is Removed.");
             }
         } else {
             JOptionPane.showMessageDialog(null,"No Supplier is Selected.");

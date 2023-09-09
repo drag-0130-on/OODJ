@@ -15,24 +15,33 @@ import javax.swing.table.DefaultTableModel;
  * @author Lenovo
  */
 public class GUI_Edit_pr extends javax.swing.JFrame {
-
-    /**
-     * Creates new form Edit_pr
-     */
-    public GUI_Edit_pr() {
+    Admin admin;
+    SalesManager sm;
+    PurchaseRequisition pr;
+    
+    public GUI_Edit_pr(Admin admin, PurchaseRequisition pr) {
         initComponents();
+        this.admin = admin;
+        this.pr = pr;
         try {
             showTable();
         } catch (IOException ex) {
             Logger.getLogger(GUI_Edit_pr.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        
+    }
+    public GUI_Edit_pr(SalesManager sm, PurchaseRequisition pr) {
+        initComponents();
+        this.sm = sm;
+        this.pr = pr;
+        try {
+            showTable();
+        } catch (IOException ex) {
+            Logger.getLogger(GUI_Edit_pr.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     public void showTable() throws IOException {
         DefaultTableModel model = (DefaultTableModel) ItemTable.getModel();
         model.setRowCount(0);
-        
         String[] columnNames = {"Item ID", "Category", "Item Name", "Stock", "Price","Supplier ID"}; 
         model.setColumnIdentifiers(columnNames);
         
@@ -199,7 +208,7 @@ public class GUI_Edit_pr extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new GUI_Edit_pr().setVisible(true);
+//                new GUI_Edit_pr().setVisible(true);
             }
         });
     }

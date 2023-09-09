@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class GUI_PRPO_Entry extends javax.swing.JFrame {
@@ -23,6 +24,9 @@ public class GUI_PRPO_Entry extends javax.swing.JFrame {
     public GUI_PRPO_Entry(SalesManager sm) {
         initComponents();
         this.sm = sm;
+        btnApprovePR.disable();
+        btnRejectPR.disable();
+        btnRemovePO.disable();
         try {
             showTable();
         } catch (IOException ex) {
@@ -32,6 +36,9 @@ public class GUI_PRPO_Entry extends javax.swing.JFrame {
     public GUI_PRPO_Entry(PurchaseManager pm) {
         initComponents();
         this.pm = pm;
+        btnAddPR.disable();
+        btnEditPR.disable();
+        btnRemovePR.disable();
         try {
             showTable();
         } catch (IOException ex) {
@@ -44,8 +51,8 @@ public class GUI_PRPO_Entry extends javax.swing.JFrame {
         model.setRowCount(0);
         model2.setRowCount(0);
         
-        String[] columnNames = {"Item ID", "Quantity", "Required Date", "Supplier ID", "Status"}; 
-        String[] columnNames2 = {"Item ID", "Quantity", "Required Date", "Supplier ID", "Approved by"}; 
+        String[] columnNames = {"PR ID", "Item ID", "Item","Category", "Supplier ID", "Supplier","Single Price","Quantity","Total Price","Generator","Status"};
+        String[] columnNames2 = {"PR ID", "Item ID", "Item","Category", "Supplier ID", "Supplier","Single Price","Quantity","Total Price","Generator","Status","Approved By"};
         model.setColumnIdentifiers(columnNames);
         model2.setColumnIdentifiers(columnNames2);
         
@@ -73,20 +80,21 @@ public class GUI_PRPO_Entry extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         PRTable = new javax.swing.JTable();
         btnApprovePR = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        POTable = new javax.swing.JTable();
-        btnRemovePO = new javax.swing.JButton();
         btnAddPR = new javax.swing.JButton();
         btnEditPR = new javax.swing.JButton();
         btnRemovePR = new javax.swing.JButton();
         btnRejectPR = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        POTable = new javax.swing.JTable();
+        btnRemovePO = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel1.setText("Purchase Order Management");
+        jLabel1.setText("Purchase Requisition & Purchase Order");
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Purchase Requisition"));
 
@@ -109,6 +117,73 @@ public class GUI_PRPO_Entry extends javax.swing.JFrame {
                 btnApprovePRActionPerformed(evt);
             }
         });
+
+        btnAddPR.setText("Add");
+        btnAddPR.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddPRActionPerformed(evt);
+            }
+        });
+
+        btnEditPR.setText("Edit");
+        btnEditPR.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditPRActionPerformed(evt);
+            }
+        });
+
+        btnRemovePR.setText("Remove");
+        btnRemovePR.setActionCommand("");
+        btnRemovePR.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRemovePRActionPerformed(evt);
+            }
+        });
+
+        btnRejectPR.setText("Reject");
+        btnRejectPR.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRejectPRActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(btnAddPR, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnEditPR, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnRemovePR, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnApprovePR)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnRejectPR)))
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAddPR)
+                    .addComponent(btnEditPR)
+                    .addComponent(btnRemovePR)
+                    .addComponent(btnApprovePR)
+                    .addComponent(btnRejectPR))
+                .addGap(37, 37, 37)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(343, 343, 343))
+        );
+
+        jButton4.setText("Back");
+        jButton4.setToolTipText("");
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Purchase Order"));
 
@@ -141,109 +216,59 @@ public class GUI_PRPO_Entry extends javax.swing.JFrame {
                 .addGap(17, 17, 17)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnRemovePO, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 587, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 822, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(9, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnRemovePO)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39))
         );
 
-        btnAddPR.setText("Add");
-
-        btnEditPR.setText("Edit");
-
-        btnRemovePR.setText("Remove");
-        btnRemovePR.setActionCommand("");
-        btnRemovePR.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRemovePRActionPerformed(evt);
-            }
-        });
-
-        btnRejectPR.setText("Reject");
-        btnRejectPR.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRejectPRActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 594, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(btnAddPR, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnEditPR, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnRemovePR, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnApprovePR)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(btnRejectPR)
-                                .addGap(22, 22, 22))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(19, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(9, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAddPR)
-                    .addComponent(btnEditPR)
-                    .addComponent(btnRemovePR)
-                    .addComponent(btnApprovePR)
-                    .addComponent(btnRejectPR))
-                .addGap(37, 37, 37)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
-        jButton4.setText("Back");
-        jButton4.setToolTipText("");
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel2.setText("PURCHASE ORDER MANAGEMENT SYSTEM");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton4)
-                .addGap(95, 95, 95))
             .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(302, 302, 302)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(10, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jButton4)
+                        .addGap(95, 95, 95))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(233, 233, 233))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(jLabel2)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(29, 29, 29)
                 .addComponent(jButton4)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(265, Short.MAX_VALUE))
         );
 
         pack();
@@ -254,7 +279,35 @@ public class GUI_PRPO_Entry extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRemovePOActionPerformed
 
     private void btnRemovePRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemovePRActionPerformed
-        // TODO add your handling code here:
+        int prRow = PRTable.getSelectedRow();
+        if (prRow != -1){
+            String prID = PRTable.getModel().getValueAt(prRow, 0).toString();
+            String itemID = PRTable.getModel().getValueAt(prRow, 1).toString();
+            String itemName = PRTable.getModel().getValueAt(prRow, 2).toString();
+            String category = PRTable.getModel().getValueAt(prRow, 3).toString();
+            double price = Double.parseDouble(PRTable.getModel().getValueAt(prRow, 4).toString());
+            String supplierID = PRTable.getModel().getValueAt(prRow, 5).toString();
+            String supplierName = PRTable.getModel().getValueAt(prRow, 6).toString();
+            int quantity = Integer.parseInt(PRTable.getModel().getValueAt(prRow, 7).toString());
+            double totalPrice = Double.parseDouble(PRTable.getModel().getValueAt(prRow, 8).toString());
+            String generator = PRTable.getModel().getValueAt(prRow, 9).toString();
+            String status = PRTable.getModel().getValueAt(prRow, 10).toString();
+            Item item = new Item(itemID,itemName,category,supplierID,supplierName,0,price);
+            PurchaseRequisition pr = new PurchaseRequisition(prID,item,quantity,generator,status);
+
+            try {
+                if(admin!=null){
+                    admin.removePR(pr);
+                }
+                else if(sm!=null){
+                    sm.removePR(pr);
+                }
+            } catch (IOException ex) {
+               JOptionPane.showMessageDialog(null,"No Purchase Requisition is Removed.");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null,"No Purchase Requisition is Selected.");
+        }
     }//GEN-LAST:event_btnRemovePRActionPerformed
 
     private void btnRejectPRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRejectPRActionPerformed
@@ -264,6 +317,49 @@ public class GUI_PRPO_Entry extends javax.swing.JFrame {
     private void btnApprovePRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnApprovePRActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnApprovePRActionPerformed
+
+    private void btnAddPRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddPRActionPerformed
+        if (admin != null){
+            GUI_Add_pr addPR = new GUI_Add_pr(admin);
+            addPR.show();
+            this.dispose();
+        } else if (sm != null){
+            GUI_Add_pr addPR = new GUI_Add_pr(sm);
+            addPR.show();
+            this.dispose();
+        }
+    }//GEN-LAST:event_btnAddPRActionPerformed
+//"PR ID", "Item ID", "Item","Category", "Supplier ID", "Supplier","Single Price","Quantity","Total Price","Generator","Status"
+    private void btnEditPRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditPRActionPerformed
+        int prRow = PRTable.getSelectedRow();
+        if (prRow != -1){
+            String prID = PRTable.getModel().getValueAt(prRow, 0).toString();
+            String itemID = PRTable.getModel().getValueAt(prRow, 1).toString();
+            String itemName = PRTable.getModel().getValueAt(prRow, 2).toString();
+            String category = PRTable.getModel().getValueAt(prRow, 3).toString();
+            double price = Double.parseDouble(PRTable.getModel().getValueAt(prRow, 4).toString());
+            String supplierID = PRTable.getModel().getValueAt(prRow, 5).toString();
+            String supplierName = PRTable.getModel().getValueAt(prRow, 6).toString();
+            int quantity = Integer.parseInt(PRTable.getModel().getValueAt(prRow, 7).toString());
+            double totalPrice = Double.parseDouble(PRTable.getModel().getValueAt(prRow, 8).toString());
+            String generator = PRTable.getModel().getValueAt(prRow, 9).toString();
+            String status = PRTable.getModel().getValueAt(prRow, 10).toString();
+            Item item = new Item(itemID,itemName,category,supplierID,supplierName,0,price);
+            PurchaseRequisition pr = new PurchaseRequisition(prID,item,quantity,generator,status);
+            
+            if(admin!=null){
+                GUI_Edit_pr editPR = new GUI_Edit_pr(admin,pr);
+                editPR.show();
+                this.dispose();
+            } else if(sm!=null){
+                GUI_Edit_pr editPR = new GUI_Edit_pr(sm,pr);
+                editPR.show();
+                this.dispose();
+            }
+        } else {
+            JOptionPane.showMessageDialog(null,"No Supplier is Selected.");
+        }
+    }//GEN-LAST:event_btnEditPRActionPerformed
 
     /**
      * @param args the command line arguments
@@ -318,6 +414,7 @@ public class GUI_PRPO_Entry extends javax.swing.JFrame {
     private javax.swing.JButton btnRemovePR;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
