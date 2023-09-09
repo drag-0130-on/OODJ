@@ -10,7 +10,12 @@ import java.time.LocalDate;
 
 
 public class InputValidation {
-
+    public static void main(String[] args){
+        if (isValidDate("29","9","2023")){
+            System.out.println("yes");
+                    
+        }
+    }
     
     public static boolean isValidDate(String day,String month,String year){
         int dayInt = Integer.parseInt(day);

@@ -197,15 +197,16 @@ public class GUI_Add_supplier extends javax.swing.JFrame {
         }
         if (errorMessage != null){
             JOptionPane.showMessageDialog(null,errorMessage);
-        }
+        } else{
         if (admin != null){
-            GUI_Supplier_Entry supplierEntry = new GUI_Supplier_Entry(admin);
-            supplierEntry.show();
-            this.dispose();
-        } else if(sm != null){
-            GUI_Supplier_Entry supplierEntry = new GUI_Supplier_Entry(sm);
-            supplierEntry.show();
-            this.dispose();
+                GUI_Supplier_Entry supplierEntry = new GUI_Supplier_Entry(admin);
+                supplierEntry.show();
+                this.dispose();
+            } else if(sm != null){
+                GUI_Supplier_Entry supplierEntry = new GUI_Supplier_Entry(sm);
+                supplierEntry.show();
+                this.dispose();
+            }
         }
     }//GEN-LAST:event_buttonSaveActionPerformed
 

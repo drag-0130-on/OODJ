@@ -90,14 +90,14 @@ public class PurchaseRequisition implements Record {
         this.status = "Approved";
     }
     public boolean isApproved(){
-        return (this.status == "Approved");
+        return (this.status.matches("Approved"));
     }
     public void reject() throws IOException{
         edit(new PurchaseRequisition(this.prID,this.item,this.quantity,this.smID,"Rejected"));
         this.status = "Rejected";
     }
     public boolean isRejected(){
-        return (this.status == "Rejected");
+        return (this.status.matches("Rejected"));
     }
    
 }       

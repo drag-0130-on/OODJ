@@ -41,7 +41,7 @@ public class GUI_Daily_item_Entry extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel) DailyTable.getModel();
         model.setRowCount(0);
         
-        String[] columnNames = { "Item ID", "Item Name", "Amount sold","Date"}; 
+        String[] columnNames = { "date","Item ID","Item Name","Category","Supplier ID","Supplier Name","Single Price","Quantity Sold","Total"}; 
         model.setColumnIdentifiers(columnNames);
         
         ArrayList<String[]> dt = DailyItemSales.view();
@@ -93,17 +93,17 @@ public class GUI_Daily_item_Entry extends javax.swing.JFrame {
 
         DailyTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Title 1", "Title 2", "Title 3", "Title 4", "null", "null", "null", "null", "null"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {

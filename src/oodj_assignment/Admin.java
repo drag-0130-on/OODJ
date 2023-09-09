@@ -6,6 +6,7 @@ package oodj_assignment;
 import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Lenovo
@@ -42,9 +43,9 @@ public class Admin extends User {
     }   
    
     public void editPR(PurchaseRequisition pr, PurchaseRequisition newPR)throws IOException{
-        if (!pr.isApproved()){
+        if (!(pr.isApproved())){
             pr.edit(newPR);
-        }
+        } 
     }
     public void removePR(PurchaseRequisition pr)throws IOException{
         pr.remove();

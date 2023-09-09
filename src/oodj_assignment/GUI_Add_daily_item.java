@@ -74,7 +74,7 @@ public class GUI_Add_daily_item extends javax.swing.JFrame {
         add_daily_item.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         add_daily_item.setText("Add Daily Item-wise Sales ");
 
-        jLabel2.setText("Date:");
+        jLabel2.setText("Date(DD/MM/YY):");
 
         System_name.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         System_name.setText("PURCHASE ORDER MANAGEMENT SYSTEM");
@@ -90,7 +90,7 @@ public class GUI_Add_daily_item extends javax.swing.JFrame {
 
         cmbDay.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
 
-        cmbMonth.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "Novermber", "December" }));
+        cmbMonth.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" }));
 
         cmbYear.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023" }));
 
@@ -147,7 +147,6 @@ public class GUI_Add_daily_item extends javax.swing.JFrame {
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4)
                             .addComponent(txtAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
@@ -159,7 +158,8 @@ public class GUI_Add_daily_item extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(buttonSearch3)))
+                                .addComponent(buttonSearch3))
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -218,15 +218,16 @@ public class GUI_Add_daily_item extends javax.swing.JFrame {
         String selectedMonth = (String) cmbMonth.getSelectedItem();
         String selectedDay = (String) cmbDay.getSelectedItem();
         String date = (selectedDay+"-"+selectedMonth+"-"+selectedYear);
+        System.out.println(date);
         String errorMessage = null;
        
         while(true){
-            if(!(InputValidation.isValidDate((String)cmbYear.getSelectedItem(),(String)cmbMonth.getSelectedItem(), (String)cmbDay.getSelectedItem()))){
-                errorMessage = "Invalid date";
+            if(!(InputValidation.isValidDate(selectedDay,selectedMonth,selectedYear))){
+                errorMessage = "Invalid Date";
                 break;
             }
             else if(!(InputValidation.isValidQuantity(txtAmount.getText()))){
-                errorMessage = "Invalid amount";
+                errorMessage = "Invalid Amount";
                 break;
             } else {
                 int itemRow = ItemTable.getSelectedRow();
@@ -265,10 +266,20 @@ public class GUI_Add_daily_item extends javax.swing.JFrame {
         }
         if (errorMessage != null){
             JOptionPane.showMessageDialog(null,errorMessage);
+        } else{
+            if (admin != null) {
+                GUI_Daily_item_Entry disEntry = new GUI_Daily_item_Entry(admin);
+                disEntry.show();
+                this.dispose();
+;           } else if (sm != null) {
+                GUI_Daily_item_Entry disEntry = new GUI_Daily_item_Entry(sm);
+                disEntry.show();
+                this.dispose();
+            }    
         }
        
         
-        //DailyItemSales dis = new DailyItemSales(date, amountSold,item);
+       
     }//GEN-LAST:event_buttonSaveActionPerformed
 
     private void buttonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCancelActionPerformed

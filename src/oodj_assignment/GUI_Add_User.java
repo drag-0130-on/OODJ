@@ -240,9 +240,13 @@ public class GUI_Add_User extends javax.swing.JFrame {
         }
         if (errorMessage != null){
             JOptionPane.showMessageDialog(null,errorMessage);
+        } else{
+            GUI_User_Entry userEntry = new GUI_User_Entry(admin);
+            userEntry.show();
+            this.dispose();
         }
 
-        }
+        }    
         
     }//GEN-LAST:event_buttonSaveActionPerformed
 
