@@ -75,10 +75,12 @@ public class PurchaseRequisition implements Record {
         return (prID + "|" + item.toStringForPR() + "|" + quantity + "|" + totalprice() + "|" + smID + "|" + status);
     }
     public void approve() throws IOException{
+        this.status = "Approved";
         edit(new PurchaseRequisition(this.prID,this.item,this.quantity,this.smID,"Approved"));
     }
 
     public void reject() throws IOException{
+        this.status = "Rejected";
         edit(new PurchaseRequisition(this.prID,this.item,this.quantity,this.smID,"Rejected"));
     }
    
