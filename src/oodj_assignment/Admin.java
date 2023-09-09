@@ -69,16 +69,16 @@ public class Admin extends User {
     }
     public void addDIS(DailyItemSales DIS)throws IOException {
         if (DIS.getItem().verifyStockAvailability(DIS.getAmountSold())){
-            DIS.add();
             DIS.getItem().reduceStock(DIS.getAmountSold());
+            DIS.add();
         }
     }
     //edit everything
     public void editDIS(DailyItemSales DIS,DailyItemSales newDIS)throws IOException {
         if (newDIS.getItem().verifyStockAvailability(newDIS.getAmountSold())){
-            DIS.edit(newDIS);
             DIS.getItem().addStock(DIS.getAmountSold());
             newDIS.getItem().reduceStock(newDIS.getAmountSold());
+            DIS.edit(newDIS);
         }
     }
     public void removeDIS(DailyItemSales DIS)throws IOException {
