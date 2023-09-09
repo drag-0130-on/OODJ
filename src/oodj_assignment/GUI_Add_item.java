@@ -24,6 +24,8 @@ public class GUI_Add_item extends javax.swing.JFrame {
         this.admin =admin;
         loadCategory();
         try {
+            txtItemID.setText(User.generateID());
+            txtItemID.disable();
             loadSupplier();
         } catch (IOException ex) {
             Logger.getLogger(GUI_Add_item.class.getName()).log(Level.SEVERE, null, ex);
@@ -34,6 +36,8 @@ public class GUI_Add_item extends javax.swing.JFrame {
         this.sm =sm;
         loadCategory();
         try {
+            txtItemID.setText(User.generateID());
+            txtItemID.disable();
             loadSupplier();
         } catch (IOException ex) {
             Logger.getLogger(GUI_Add_item.class.getName()).log(Level.SEVERE, null, ex);
