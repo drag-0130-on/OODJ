@@ -40,9 +40,11 @@ public class Admin extends User {
         pr.setSMID(getUserID());
         pr.add();
     }   
-    //edit everything
+   
     public void editPR(PurchaseRequisition pr, PurchaseRequisition newPR)throws IOException{
-        pr.edit(newPR);
+        if (!pr.isApproved()){
+            pr.edit(newPR);
+        }
     }
     public void removePR(PurchaseRequisition pr)throws IOException{
         pr.remove();
@@ -50,7 +52,7 @@ public class Admin extends User {
     public void addItem(Item item)throws IOException{
         item.add();
     }
-    //edit price, category, stock
+    
     public void editItem(Item item, Item newItem)throws IOException{
         item.edit(newItem);
     }
@@ -60,7 +62,7 @@ public class Admin extends User {
     public void addSupplier(Supplier supplier)throws IOException{
         supplier.add();
     }
-    //edit contact only
+   
     public void editSupplier(Supplier supplier, Supplier newSupplier)throws IOException{
         supplier.edit(newSupplier);
     }
@@ -73,7 +75,7 @@ public class Admin extends User {
             DIS.add();
         }
     }
-    //edit everything
+   
     public void editDIS(DailyItemSales DIS,DailyItemSales newDIS)throws IOException {
         if (newDIS.getItem().verifyStockAvailability(newDIS.getAmountSold())){
             DIS.getItem().addStock(DIS.getAmountSold());

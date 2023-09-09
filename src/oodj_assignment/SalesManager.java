@@ -44,10 +44,10 @@ public class SalesManager extends User {
         pr.setSMID(getUserID());
         pr.add();
     }   
-    public void editPR(PurchaseRequisition pr, PurchaseRequisition editedPR)throws IOException{
-        if (pr.getSMID().matches(getUserID())){
-           pr.edit(editedPR); 
-        }  
+    public void editPR(PurchaseRequisition pr, PurchaseRequisition newPR)throws IOException{
+        if (!pr.isApproved()){
+            pr.edit(newPR);
+        }
     }
     public void removePR(PurchaseRequisition pr)throws IOException{
         pr.remove();
