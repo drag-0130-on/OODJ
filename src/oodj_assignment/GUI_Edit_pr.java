@@ -78,6 +78,11 @@ public class GUI_Edit_pr extends javax.swing.JFrame {
         comboboxDay.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
 
         Cancel.setText("Cancel");
+        Cancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CancelActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("Quantity");
 
@@ -174,6 +179,18 @@ public class GUI_Edit_pr extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void CancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelActionPerformed
+        if (admin != null){
+            GUI_PRPO_Entry prpoEntry = new GUI_PRPO_Entry(admin);
+            prpoEntry.show();
+            this.dispose();
+        } else if(sm != null){
+            GUI_PRPO_Entry prpoEntry = new GUI_PRPO_Entry(sm);
+            prpoEntry.show();
+            this.dispose();
+        }
+    }//GEN-LAST:event_CancelActionPerformed
 
     /**
      * @param args the command line arguments

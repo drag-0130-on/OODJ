@@ -219,7 +219,15 @@ public class GUI_Add_item extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCancelActionPerformed
-        dispose();
+        if (admin != null) {
+            GUI_Item_Entry itemEntry = new GUI_Item_Entry(admin);
+            itemEntry.show();
+            this.dispose();
+;        } else if (sm != null) {
+            GUI_Item_Entry itemEntry = new GUI_Item_Entry(sm);
+            itemEntry.show();
+            this.dispose();
+        }
     }//GEN-LAST:event_buttonCancelActionPerformed
 
     private void buttonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSaveActionPerformed
@@ -234,11 +242,12 @@ public class GUI_Add_item extends javax.swing.JFrame {
                 break;
             }
             else if(!(InputValidation.isValidQuantity(txtStock.getText()))){
-                errorMessage = "Invalid number";
+                errorMessage = "Invalid Stock";
                 break;
             }
-            else if(cmbSupplier.getSelectedItem()!=null){
+            else if(cmbSupplier.getSelectedItem()==null){
                 errorMessage = "Please select a supplier";
+                break;
             }
             else if(!(InputValidation.isValidPrice(txtSellPrice.getText()))){
                 errorMessage = "Invalid price";
@@ -270,7 +279,7 @@ public class GUI_Add_item extends javax.swing.JFrame {
                 
         }
         if (errorMessage != null){ //还没改
-                JOptionPane.showMessageDialog(new GUI_Add_User(new Admin()),errorMessage);
+                JOptionPane.showMessageDialog(null,errorMessage);
         }
         
     }//GEN-LAST:event_buttonSaveActionPerformed

@@ -36,7 +36,7 @@ public class GUI_Add_daily_item extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel) ItemTable.getModel();
         model.setRowCount(0);
         
-        String[] columnNames = {"Item ID", "Category", "Item Name", "Stock", "Price","Supplier ID"}; 
+        String[] columnNames = {"Item ID","Item Name", "Category","Stock","Supplier ID","Supplier Name","Sell Price","Buy Price"}; 
         model.setColumnIdentifiers(columnNames);
         
         ArrayList<String[]> it = Item.view();

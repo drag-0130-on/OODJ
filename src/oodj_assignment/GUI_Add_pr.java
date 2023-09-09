@@ -46,7 +46,7 @@ public class GUI_Add_pr extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel) ItemTable.getModel();
         model.setRowCount(0);
         
-        String[] columnNames = {"Item ID","Item Name", "Category","Stock","Supplier ID","Supplier Name","Cost"}; 
+        String[] columnNames = {"Item ID","Item Name", "Category","Stock","Supplier ID","Supplier Name","Sell Price","Buy Price"}; 
         
         model.setColumnIdentifiers(columnNames);
         
@@ -103,6 +103,11 @@ public class GUI_Add_pr extends javax.swing.JFrame {
         });
 
         buttonCancel.setText("Cancel");
+        buttonCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonCancelActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("Quantity");
 
@@ -267,6 +272,18 @@ public class GUI_Add_pr extends javax.swing.JFrame {
             Logger.getLogger(GUI_Add_item.class.getName()).log(Level.SEVERE, null, ex);
         }*/
     }//GEN-LAST:event_buttonSaveActionPerformed
+
+    private void buttonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCancelActionPerformed
+        if (admin != null){
+            GUI_PRPO_Entry prpoEntry = new GUI_PRPO_Entry(admin);
+            prpoEntry.show();
+            this.dispose();
+        } else if(sm != null){
+            GUI_PRPO_Entry prpoEntry = new GUI_PRPO_Entry(sm);
+            prpoEntry.show();
+            this.dispose();
+        }
+    }//GEN-LAST:event_buttonCancelActionPerformed
 
     /**
      * @param args the command line arguments

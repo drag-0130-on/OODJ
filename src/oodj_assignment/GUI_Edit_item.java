@@ -23,18 +23,18 @@ public class GUI_Edit_item extends javax.swing.JFrame {
         this.item = item;
         loadCategory();
         try {
-            txtItemID.setText(User.generateID());
-            txtItemID.disable();
-            txtItemID.setText(User.generateID());
+            loadSupplier();
+            txtItemID.setText(item.getItemID());
             txtItemID.disable();
             txtItemName.setText(item.getItemName());
-            cmbCategory.getSelectedItem();
+            txtItemName.disable();
+            cmbCategory.setSelectedItem(item.getCategory());
+            cmbCategory.disable();
             txtStock.setText(String.valueOf(item.getStock()));
-            cmbSupplier.getSelectedItem();
+            cmbSupplier.setSelectedItem(item.getSupplierID()+"|"+item.getSupplierName());
+            cmbSupplier.disable();
             txtSellPrice.setText(String.valueOf(item.getSellprice()));
             txtBuyPrice.setText(String.valueOf(item.getBuyprice()));
-            
-            loadSupplier();
         } catch (IOException ex) {
             Logger.getLogger(GUI_Edit_item.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -45,18 +45,18 @@ public class GUI_Edit_item extends javax.swing.JFrame {
         this.item = item;
         loadCategory();
         try {
-            txtItemID.setText(User.generateID());
-            txtItemID.disable();
-            txtItemID.setText(User.generateID());
+            loadSupplier();
+            txtItemID.setText(item.getItemID());
             txtItemID.disable();
             txtItemName.setText(item.getItemName());
-            cmbCategory.getSelectedItem();
+            txtItemName.disable();
+            cmbCategory.setSelectedItem(item.getCategory());
+            cmbCategory.disable();
             txtStock.setText(String.valueOf(item.getStock()));
-            cmbSupplier.getSelectedItem();
+            cmbSupplier.setSelectedItem(item.getSupplierID()+"|"+item.getSupplierName());
+            cmbSupplier.disable();
             txtSellPrice.setText(String.valueOf(item.getSellprice()));
             txtBuyPrice.setText(String.valueOf(item.getBuyprice()));
-            
-            loadSupplier();
         } catch (IOException ex) {
             Logger.getLogger(GUI_Edit_item.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -91,7 +91,7 @@ public class GUI_Edit_item extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
+        buttonCancel = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         txtItemID = new javax.swing.JTextField();
         cmbSupplier = new javax.swing.JComboBox<>();
@@ -114,7 +114,12 @@ public class GUI_Edit_item extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         jLabel1.setText("Edit item");
 
-        jButton3.setText("Cancel");
+        buttonCancel.setText("Cancel");
+        buttonCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonCancelActionPerformed(evt);
+            }
+        });
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel7.setText("PURCHASE ORDER MANAGEMENT SYSTEM");
@@ -164,7 +169,7 @@ public class GUI_Edit_item extends javax.swing.JFrame {
                 .addGap(53, 53, 53)
                 .addComponent(buttonSave)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton3)
+                .addComponent(buttonCancel)
                 .addGap(80, 80, 80))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -227,7 +232,7 @@ public class GUI_Edit_item extends javax.swing.JFrame {
                 .addComponent(jLabel5)
                 .addGap(45, 45, 45)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3)
+                    .addComponent(buttonCancel)
                     .addComponent(buttonSave))
                 .addContainerGap(35, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -269,41 +274,58 @@ public class GUI_Edit_item extends javax.swing.JFrame {
                 errorMessage = "Invalid number";
                 break;
             }
-            else if(cmbSupplier.getSelectedItem()!=null){
+            else if(cmbSupplier.getSelectedItem()==null){
                 errorMessage = "Please select a supplier";
             }
             else if(!(InputValidation.isValidPrice(txtSellPrice.getText()))){
                 errorMessage = "Invalid price";
                 break;
             }
-            else{
-                if(!(InputValidation.isValidPrice(txtBuyPrice.getText()))){
-                    errorMessage = "Invalid price";
+            else if(!(InputValidation.isValidPrice(txtBuyPrice.getText()))){
+                errorMessage = "Invalid price";
+                break;
+            } else {
+                String[] supplierInfo = cmbSupplier.getSelectedItem().toString().split("\\|");
+                Item item = new Item( txtItemID.getText(),txtItemName.getText(),cmbCategory.getSelectedItem().toString(),Integer.parseInt(txtStock.getText()),supplierInfo[0],supplierInfo[1],Double.parseDouble(txtSellPrice.getText()),Double.parseDouble(txtBuyPrice.getText()));
+                try {
+                    if (item.verifyUniqueness()){
+                        if(admin!=null){
+                            admin.addItem(item);
+                            break;
+                        } else if(sm!=null){
+                            sm.addItem(item);
+                            break;
+                        }    
+                    } else {
+                        errorMessage = "Invalid Item";
+                        break;
+                    }
+                } catch (IOException ex) {
                     break;
                 }
             }
-            if (errorMessage != null){ //还没改
-                JOptionPane.showMessageDialog(new GUI_Edit_item(new Admin(),item),errorMessage);
-            }
+                
         }
-        String[] supplierInfo = cmbSupplier.getSelectedItem().toString().split("\\|");
-        Item item = new Item( txtItemID.getText(),txtItemName.getText(),cmbCategory.getSelectedItem().toString(),Integer.parseInt(txtStock.getText()),supplierInfo[0],supplierInfo[1],Double.parseDouble(txtSellPrice.getText()),Double.parseDouble(txtBuyPrice.getText()));
-        try {
-            if(admin!=null){
-                admin.editItem(item, item);
-                System.out.println("Admin");
-            }
-            else if(sm!=null){
-                sm.editItem(item, item);
-            }
-        } catch (IOException ex) {
-            Logger.getLogger(GUI_Edit_item.class.getName()).log(Level.SEVERE, null, ex);
+        if (errorMessage != null){ //还没改
+                JOptionPane.showMessageDialog(new GUI_Add_User(new Admin()),errorMessage);
         }
     }//GEN-LAST:event_buttonSaveActionPerformed
 
     private void txtItemNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtItemNameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtItemNameActionPerformed
+
+    private void buttonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCancelActionPerformed
+        if (admin != null) {
+            GUI_Item_Entry itemEntry = new GUI_Item_Entry(admin);
+            itemEntry.show();
+            this.dispose();
+;        } else if (sm != null) {
+            GUI_Item_Entry itemEntry = new GUI_Item_Entry(sm);
+            itemEntry.show();
+            this.dispose();
+        }
+    }//GEN-LAST:event_buttonCancelActionPerformed
 
     /**
      * @param args the command line arguments
@@ -345,10 +367,10 @@ public class GUI_Edit_item extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton buttonCancel;
     private javax.swing.JButton buttonSave;
     private javax.swing.JComboBox<String> cmbCategory;
     private javax.swing.JComboBox<String> cmbSupplier;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
