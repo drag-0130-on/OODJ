@@ -18,11 +18,23 @@ public class GUI_Add_supplier extends javax.swing.JFrame {
     public GUI_Add_supplier(Admin admin) {
         initComponents();
         this.admin = admin;
+        try {
+            txtSupplierID.setText(User.generateID());
+            txtSupplierID.disable();
+        } catch (IOException ex) {
+            Logger.getLogger(GUI_Add_supplier.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     public GUI_Add_supplier(SalesManager sm) {
         initComponents();
         this.sm = sm;
+        try {
+            txtSupplierID.setText(User.generateID());
+            txtSupplierID.disable();
+        } catch (IOException ex) {
+            Logger.getLogger(GUI_Add_supplier.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
