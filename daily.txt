@@ -1,3 +1,3 @@
-7/9/2023|30|I0001|Milo|Beverages|5.99|S0001|TT Sdn. Bhd.|179.7
-7/9/2023|28|I0002|Haeven&Earth|Beverages|4.99|S0001|TT Sdn. Bhd.|139.72
-7/9/2023|20|I0030|Horlick|Beverages|5.99|S0002|CC Sdn. Bhd.|119.8
+7/9/2023|I0001|Milo|Beverage|S0001|TT Sdn. Bhd|5.99|30|179.7
+7/9/2023|I0002|Haeven&Earth|Beverage|S0001|TT Sdn. Bhd.|4.99|28|139.72
+7/9/2023|I0030|Horlick|Beverage|S0002|CC Sdn. Bhd.|5.99|20|119.8
