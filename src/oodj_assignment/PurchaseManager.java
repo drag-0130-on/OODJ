@@ -18,7 +18,7 @@ public class PurchaseManager extends User{
         pr.reject();
     }
     public void removePO(PurchaseOrder po)throws IOException{
-        po.getPR().disapprove();
+        po.getPR().reject();
         po.remove();
     }   
     

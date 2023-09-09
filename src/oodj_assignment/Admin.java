@@ -29,7 +29,7 @@ public class Admin extends User {
     }
     
     public void removePO(PurchaseOrder po)throws IOException{
-        po.getPR().disapprove();
+        po.getPR().reject();
         po.remove();
     }   
     public void addPR(PurchaseRequisition pr)throws IOException{

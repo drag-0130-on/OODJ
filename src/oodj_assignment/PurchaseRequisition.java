@@ -75,13 +75,11 @@ public class PurchaseRequisition implements Record {
         return (prID + "|" + item.toStringForPR() + "|" + quantity + "|" + totalprice() + "|" + smID + "|" + status);
     }
     public void approve() throws IOException{
-        edit(toString().replace("Pending","Approved"));
+        edit(new PurchaseRequisition(this.prID,this.item,this.quantity,this.smID,"Approved"));
     }
-    public void disapprove() throws IOException{
-        edit(toString().replace("Approved","Rejected"));
-    }
+
     public void reject() throws IOException{
-        edit(toString().replace("Pending","Rejected"));
+        edit(new PurchaseRequisition(this.prID,this.item,this.quantity,this.smID,"Rejected"));
     }
    
 }       
