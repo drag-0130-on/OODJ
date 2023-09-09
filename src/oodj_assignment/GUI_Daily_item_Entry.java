@@ -204,8 +204,19 @@ public class GUI_Daily_item_Entry extends javax.swing.JFrame {
     }//GEN-LAST:event_buttonEditActionPerformed
 
     private void backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backActionPerformed
-//        GUI_Sales_Manager sales = new GUI_Sales_Manager();
-//        sales.show();
+        if (admin != null){
+            GUI_Admin adminHP = new GUI_Admin(admin);
+            adminHP.show();
+            this.dispose();
+        } else if (sm != null){
+            GUI_Sales_Manager smHP = new GUI_Sales_Manager(sm);
+            smHP.show();
+            this.dispose();
+        } else if (pm != null){
+            GUI_PurchaseManager pmHP = new GUI_PurchaseManager(pm);
+            pmHP.show();
+            this.dispose();
+        }
     }//GEN-LAST:event_backActionPerformed
 
     private void buttonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddActionPerformed
