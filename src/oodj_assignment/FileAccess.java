@@ -3,6 +3,7 @@ package oodj_assignment;
 import java.util.ArrayList;
 import java.io.*;
 import java.util.Arrays;
+import java.util.Collections;
 
 
 public class FileAccess {
@@ -55,7 +56,7 @@ public class FileAccess {
         catch(Exception e){
             e.printStackTrace();
         }
-        content.add(data.split("\\|"));  
+        content.add(data.split("\\|"));
         for (String[] line:content){
             bw.write(String.join("|",line));
             bw.newLine();
@@ -106,5 +107,31 @@ public class FileAccess {
             }
         }
         return true;
+    }
+    public void sort() throws IOException{
+        ArrayList<String> content = new ArrayList<String>();
+        try{
+            br = new BufferedReader(new FileReader(new File(fileName)));
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+        String line;
+        while ((line = br.readLine())!= null){
+            content.add(line);
+        }
+        br.close();
+        Collections.sort(content);
+        try{
+            bw = new BufferedWriter(new FileWriter(new File(fileName)));
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+        for (String l:content){
+            bw.write(l);
+            bw.newLine();
+        }
+        
     }
 }
