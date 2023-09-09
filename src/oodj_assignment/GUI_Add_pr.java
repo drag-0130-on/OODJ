@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -22,10 +23,10 @@ public class GUI_Add_pr extends javax.swing.JFrame {
     public GUI_Add_pr(Admin admin) {
         initComponents();
         this.admin = admin;
-        txtPRID.setText(admin.getUserID());
-        txtPRID.disable();
         try {
             showTable();
+            txtPRID.setText(PurchaseRequisition.generateID());
+            txtPRID.disable();
         } catch (IOException ex) {
             Logger.getLogger(GUI_Add_pr.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -33,10 +34,10 @@ public class GUI_Add_pr extends javax.swing.JFrame {
     public GUI_Add_pr(SalesManager sm) {
         initComponents();
         this.sm =sm;
-        txtPRID.setText(sm.getUserID());
-        txtPRID.disable();
         try {
             showTable();
+            txtPRID.setText(PurchaseRequisition.generateID());
+            txtPRID.disable();
         } catch (IOException ex) {
             Logger.getLogger(GUI_Add_pr.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -45,7 +46,8 @@ public class GUI_Add_pr extends javax.swing.JFrame {
         DefaultTableModel model = (DefaultTableModel) ItemTable.getModel();
         model.setRowCount(0);
         
-        String[] columnNames = {"Item ID", "Category", "Item Name", "Stock", "Price","Supplier ID"}; 
+        String[] columnNames = {"Item ID","Item Name", "Category","Stock","Supplier ID","Supplier Name","Cost"}; 
+        
         model.setColumnIdentifiers(columnNames);
         
         ArrayList<String[]> it = Item.view();
@@ -215,7 +217,43 @@ public class GUI_Add_pr extends javax.swing.JFrame {
             else if(!(InputValidation.isValidQuantity(txtQuantity.getText()))){
                 errorMessage = "Invalid quantity";
                 break;
+            } else{
+                int itemRow = ItemTable.getSelectedRow();
+                if (itemRow != -1){
+                    String itemID = ItemTable.getModel().getValueAt(itemRow, 0).toString();
+                    String itemName = ItemTable.getModel().getValueAt(itemRow, 1).toString();
+                    String category = ItemTable.getModel().getValueAt(itemRow, 2).toString();
+                    int stock = Integer.parseInt(ItemTable.getModel().getValueAt(itemRow, 3).toString());
+                    String supplierID = ItemTable.getModel().getValueAt(itemRow, 4).toString();
+                    String supplierName = ItemTable.getModel().getValueAt(itemRow, 5).toString();
+                    double sellPrice = Double.parseDouble(ItemTable.getModel().getValueAt(itemRow, 6).toString());
+                    double buyPrice = Double.parseDouble(ItemTable.getModel().getValueAt(itemRow, 7).toString());
+                    Item item = new Item(itemID,itemName,category,stock,supplierID,supplierName,sellPrice,buyPrice);
+                    PurchaseRequisition pr  = new PurchaseRequisition(txtPRID.getText(),item,Integer.parseInt(txtQuantity.getText()));
+                    try {
+                        if (pr.verifyUniqueness()){
+                            if (admin != null){
+                                admin.addPR(pr);
+                                break;
+                            } else if (sm != null){
+                                sm.addPR(pr);
+                                break;
+                            } 
+                        } else {
+                            errorMessage = "Invalid Purchase Requisition";
+                            break;
+                        }
+                    } catch (IOException ex) {
+                        break;
+                    }
+                } else{
+                    errorMessage = "No Item is Selected.";
+                    break;
+                }
             }
+        }
+        if (errorMessage != null){
+            JOptionPane.showMessageDialog(null,errorMessage);
         }
         /*PurchaseRequisition pr = new PurchaseRequisition(txtQuantity.getText());
         try{

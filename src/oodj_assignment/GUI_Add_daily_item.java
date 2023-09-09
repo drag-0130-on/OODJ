@@ -8,6 +8,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class GUI_Add_daily_item extends javax.swing.JFrame {
@@ -32,7 +33,7 @@ public class GUI_Add_daily_item extends javax.swing.JFrame {
         }
     }
     public void showTable() throws IOException {
-        DefaultTableModel model = (DefaultTableModel) DailyTable.getModel();
+        DefaultTableModel model = (DefaultTableModel) ItemTable.getModel();
         model.setRowCount(0);
         
         String[] columnNames = {"Item ID", "Category", "Item Name", "Stock", "Price","Supplier ID"}; 
@@ -63,7 +64,7 @@ public class GUI_Add_daily_item extends javax.swing.JFrame {
         cmbMonth = new javax.swing.JComboBox<>();
         cmbYear = new javax.swing.JComboBox<>();
         jScrollPane3 = new javax.swing.JScrollPane();
-        DailyTable = new javax.swing.JTable();
+        ItemTable = new javax.swing.JTable();
         txtSearch = new javax.swing.JTextField();
         buttonSearch3 = new javax.swing.JButton();
         buttonSave = new javax.swing.JButton();
@@ -79,6 +80,11 @@ public class GUI_Add_daily_item extends javax.swing.JFrame {
         System_name.setText("PURCHASE ORDER MANAGEMENT SYSTEM");
 
         buttonCancel.setText("Cancel");
+        buttonCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonCancelActionPerformed(evt);
+            }
+        });
 
         jLabel4.setText("Amount Sold:");
 
@@ -88,7 +94,7 @@ public class GUI_Add_daily_item extends javax.swing.JFrame {
 
         cmbYear.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023" }));
 
-        DailyTable.setModel(new javax.swing.table.DefaultTableModel(
+        ItemTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -99,7 +105,7 @@ public class GUI_Add_daily_item extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane3.setViewportView(DailyTable);
+        jScrollPane3.setViewportView(ItemTable);
 
         txtSearch.setToolTipText("");
 
@@ -191,11 +197,11 @@ public class GUI_Add_daily_item extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonSearch3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSearch3ActionPerformed
-        DefaultTableModel model = (DefaultTableModel) DailyTable.getModel();
+        DefaultTableModel model = (DefaultTableModel) ItemTable.getModel();
         String input = txtSearch.getText();
 
         try {
-            ArrayList<String[]> it = DailyItemSales.view(DailyItemSales.view(),input);
+            ArrayList<String[]> it = Item.view(DailyItemSales.view(),input);
             model.setRowCount(0);
 
             for (String[] il : it) {
@@ -213,6 +219,7 @@ public class GUI_Add_daily_item extends javax.swing.JFrame {
         String selectedDay = (String) cmbDay.getSelectedItem();
         String date = (selectedDay+"-"+selectedMonth+"-"+selectedYear);
         String errorMessage = null;
+       
         while(true){
             if(!(InputValidation.isValidDate((String)cmbYear.getSelectedItem(),(String)cmbMonth.getSelectedItem(), (String)cmbDay.getSelectedItem()))){
                 errorMessage = "Invalid date";
@@ -221,12 +228,61 @@ public class GUI_Add_daily_item extends javax.swing.JFrame {
             else if(!(InputValidation.isValidQuantity(txtAmount.getText()))){
                 errorMessage = "Invalid amount";
                 break;
+            } else {
+                int itemRow = ItemTable.getSelectedRow();
+                if (itemRow != -1){
+                    String itemID = ItemTable.getModel().getValueAt(itemRow, 0).toString();
+                    String itemName = ItemTable.getModel().getValueAt(itemRow, 1).toString();
+                    String category = ItemTable.getModel().getValueAt(itemRow, 2).toString();
+                    int stock = Integer.parseInt(ItemTable.getModel().getValueAt(itemRow, 3).toString());
+                    String supplierID = ItemTable.getModel().getValueAt(itemRow, 4).toString();
+                    String supplierName = ItemTable.getModel().getValueAt(itemRow, 5).toString();
+                    double sellPrice = Double.parseDouble(ItemTable.getModel().getValueAt(itemRow, 6).toString());
+                    double buyPrice = Double.parseDouble(ItemTable.getModel().getValueAt(itemRow, 7).toString());
+                    Item item = new Item(itemID,itemName,category,stock,supplierID,supplierName,sellPrice,buyPrice);
+                    DailyItemSales dis = new DailyItemSales(date,Integer.parseInt(txtAmount.getText()),item);
+                    try {
+                        if (dis.verifyUniqueness()){
+                            if (admin != null){
+                                admin.addDIS(dis);
+                                break;
+                            } else if (sm != null){
+                                sm.addDIS(dis);
+                                break;
+                            } 
+                        } else {
+                            errorMessage = "Invalid Daily Item Sales";
+                            break;
+                        }
+                    } catch (IOException ex) {
+                        break;
+                    }
+                } else{
+                    errorMessage = "No Item is Selected.";
+                    break;
+                }
             }
         }
-        Item item;
-        int amountSold =Integer.parseInt(txtAmount.getText());
+        if (errorMessage != null){
+            JOptionPane.showMessageDialog(null,errorMessage);
+        }
+       
+        
         //DailyItemSales dis = new DailyItemSales(date, amountSold,item);
     }//GEN-LAST:event_buttonSaveActionPerformed
+
+    private void buttonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCancelActionPerformed
+        if (admin != null) {
+            GUI_Daily_item_Entry disEntry = new GUI_Daily_item_Entry(admin);
+            disEntry.show();
+            this.dispose();
+;        } else if (sm != null) {
+            GUI_Daily_item_Entry disEntry = new GUI_Daily_item_Entry(sm);
+            disEntry.show();
+            this.dispose();
+        }
+   
+    }//GEN-LAST:event_buttonCancelActionPerformed
 
     /**
      * @param args the command line arguments
@@ -267,7 +323,7 @@ public class GUI_Add_daily_item extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTable DailyTable;
+    private javax.swing.JTable ItemTable;
     private javax.swing.JLabel System_name;
     private javax.swing.JLabel add_daily_item;
     private javax.swing.JButton buttonCancel;

@@ -198,6 +198,7 @@ public class GUI_Add_User extends javax.swing.JFrame {
                     try {
                         if (newUser.verifyUniqueness()){
                             admin.addUser(newUser);
+                            break;
                         } else {
                             errorMessage = "Invalid User";
                             break;
@@ -210,6 +211,7 @@ public class GUI_Add_User extends javax.swing.JFrame {
                     try {
                         if (newUser.verifyUniqueness()){
                             admin.addUser(newUser);
+                            break;
                         } else {
                             errorMessage = "Invalid User";
                             break;
@@ -222,12 +224,13 @@ public class GUI_Add_User extends javax.swing.JFrame {
                     try {
                         if (newUser.verifyUniqueness()){
                             admin.addUser(newUser);
+                            break;
                         } else {
                             errorMessage = "Invalid User";
                             break;
                         }
                     } catch (IOException ex) {
-                        Logger.getLogger(GUI_Add_User.class.getName()).log(Level.SEVERE, null, ex);
+                        break;
                     }
                 } else {
                     errorMessage = "No role is selected.";

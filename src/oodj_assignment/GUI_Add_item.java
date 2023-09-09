@@ -24,7 +24,7 @@ public class GUI_Add_item extends javax.swing.JFrame {
         this.admin =admin;
         loadCategory();
         try {
-            txtItemID.setText(User.generateID());
+            txtItemID.setText(Item.generateID());
             txtItemID.disable();
             loadSupplier();
         } catch (IOException ex) {
@@ -36,7 +36,7 @@ public class GUI_Add_item extends javax.swing.JFrame {
         this.sm =sm;
         loadCategory();
         try {
-            txtItemID.setText(User.generateID());
+            txtItemID.setText(Item.generateID());
             txtItemID.disable();
             loadSupplier();
         } catch (IOException ex) {
@@ -244,29 +244,35 @@ public class GUI_Add_item extends javax.swing.JFrame {
                 errorMessage = "Invalid price";
                 break;
             }
-            else{
-                if(!(InputValidation.isValidPrice(txtBuyPrice.getText()))){
-                    errorMessage = "Invalid price";
+            else if(!(InputValidation.isValidPrice(txtBuyPrice.getText()))){
+                errorMessage = "Invalid price";
+                break;
+            } else {
+                String[] supplierInfo = cmbSupplier.getSelectedItem().toString().split("\\|");
+                Item item = new Item( txtItemID.getText(),txtItemName.getText(),cmbCategory.getSelectedItem().toString(),Integer.parseInt(txtStock.getText()),supplierInfo[0],supplierInfo[1],Double.parseDouble(txtSellPrice.getText()),Double.parseDouble(txtBuyPrice.getText()));
+                try {
+                    if (item.verifyUniqueness()){
+                        if(admin!=null){
+                            admin.addItem(item);
+                            break;
+                        } else if(sm!=null){
+                            sm.addItem(item);
+                            break;
+                        }    
+                    } else {
+                        errorMessage = "Invalid Item";
+                        break;
+                    }
+                } catch (IOException ex) {
                     break;
                 }
             }
-            if (errorMessage != null){ //还没改
+                
+        }
+        if (errorMessage != null){ //还没改
                 JOptionPane.showMessageDialog(new GUI_Add_User(new Admin()),errorMessage);
-            }
         }
-        String[] supplierInfo = cmbSupplier.getSelectedItem().toString().split("\\|");
-        Item item = new Item( txtItemID.getText(),txtItemName.getText(),cmbCategory.getSelectedItem().toString(),Integer.parseInt(txtStock.getText()),supplierInfo[0],supplierInfo[1],Double.parseDouble(txtSellPrice.getText()),Double.parseDouble(txtBuyPrice.getText()));
-        try {
-            if(admin!=null){
-                admin.addItem(item);
-                System.out.println("Admin");
-            }
-            else if(sm!=null){
-                sm.addItem(item);
-            }
-        } catch (IOException ex) {
-            Logger.getLogger(GUI_Add_item.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        
     }//GEN-LAST:event_buttonSaveActionPerformed
 
     /**

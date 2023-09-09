@@ -7,6 +7,7 @@ package oodj_assignment;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -156,27 +157,35 @@ public class GUI_Add_supplier extends javax.swing.JFrame {
                 errorMessage = "Invalid supplier name\nLength of input should be between 0 and 30";
                 break;
             }
-            else if(!(InputValidation.isValidName(txtEmail.getText()))){
+            else if(!(InputValidation.isValidEmail(txtEmail.getText()))){
                 errorMessage = "Invalid email";
                 break;
             }
-            else{
-                if(!(InputValidation.isValidContact(txtContact.getText()))){
-                    errorMessage = "Invalid contact";
-                    break;
+            else if(!(InputValidation.isValidContact(txtContact.getText()))){
+                errorMessage = "Invalid contact";
+                break;
+            } else {
+                Supplier supplier = new Supplier(txtSupplierID.getText(),txtSupplierName.getText(),txtEmail.getText(),txtContact.getText());
+                try {
+                    if (supplier.verifyUniqueness()){
+                        if(admin!=null){
+                            admin.addSupplier(supplier);
+                            break;
+                        } else if(sm!=null){
+                            sm.addSupplier(supplier);
+                            break;
+                        }
+                    } else{
+                        errorMessage = "Invalid Supplier";
+                    }
+                } catch (IOException ex) {
+                   break;
                 }
             }
-        Supplier supplier = new Supplier(txtSupplierID.getText(),txtSupplierName.getText(),txtEmail.getText(),txtContact.getText());
-        try {
-            if(admin!=null){
-                admin.addSupplier(supplier);
-            }
-            else if(sm!=null){
-                sm.addSupplier(supplier);
-            }
-        } catch (IOException ex) {
-            Logger.getLogger(GUI_Add_supplier.class.getName()).log(Level.SEVERE, null, ex);
+        
         }
+        if (errorMessage != null){
+            JOptionPane.showMessageDialog(null,errorMessage);
         }
     }//GEN-LAST:event_buttonSaveActionPerformed
 
