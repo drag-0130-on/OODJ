@@ -202,15 +202,16 @@ public class GUI_Edit_supplier extends javax.swing.JFrame {
         }
         if (errorMessage != null){
             JOptionPane.showMessageDialog(null,errorMessage);
-        }
-        if (admin != null){
-            GUI_Supplier_Entry supplierEntry = new GUI_Supplier_Entry(admin);
-            supplierEntry.show();
-            this.dispose();
-        } else if(sm != null){
-            GUI_Supplier_Entry supplierEntry = new GUI_Supplier_Entry(sm);
-            supplierEntry.show();
-            this.dispose();
+        } else{
+            if (admin != null){
+                GUI_Supplier_Entry supplierEntry = new GUI_Supplier_Entry(admin);
+                supplierEntry.show();
+                this.dispose();
+            } else if(sm != null){
+                GUI_Supplier_Entry supplierEntry = new GUI_Supplier_Entry(sm);
+                supplierEntry.show();
+                this.dispose();
+            }
         }
        
             

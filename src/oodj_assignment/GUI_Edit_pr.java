@@ -153,15 +153,16 @@ public class GUI_Edit_pr extends javax.swing.JFrame {
         }
         if (errorMessage != null){
             JOptionPane.showMessageDialog(null,errorMessage);
-        }
-        if (admin != null){
-            GUI_PRPO_Entry prpoEntry = new GUI_PRPO_Entry(admin);
-            prpoEntry.show();
-            this.dispose();
-        } else if(sm != null){
-            GUI_PRPO_Entry prpoEntry = new GUI_PRPO_Entry(sm);
-            prpoEntry.show();
-            this.dispose();
+        } else{
+            if (admin != null){
+                GUI_PRPO_Entry prpoEntry = new GUI_PRPO_Entry(admin);
+                prpoEntry.show();
+                this.dispose();
+            } else if(sm != null){
+                GUI_PRPO_Entry prpoEntry = new GUI_PRPO_Entry(sm);
+                prpoEntry.show();
+                this.dispose();
+            }
         }
     }//GEN-LAST:event_SaveActionPerformed
 

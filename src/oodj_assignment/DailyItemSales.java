@@ -15,6 +15,7 @@ public class DailyItemSales implements Record {
         this.amountSold = amountSold;
         this.item = item;
     }   
+    
     public void add() throws IOException{
         dailyFile.addToFile(toString());
     }
@@ -46,6 +47,9 @@ public class DailyItemSales implements Record {
     }
     public Item getItem(){
         return item;
+    }
+    public String getDate(){
+        return date;
     }
     public int getAmountSold(){
         return amountSold;

@@ -198,7 +198,7 @@ public class GUI_Add_supplier extends javax.swing.JFrame {
         if (errorMessage != null){
             JOptionPane.showMessageDialog(null,errorMessage);
         } else{
-        if (admin != null){
+            if (admin != null){
                 GUI_Supplier_Entry supplierEntry = new GUI_Supplier_Entry(admin);
                 supplierEntry.show();
                 this.dispose();

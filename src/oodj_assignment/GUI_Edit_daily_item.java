@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -23,33 +24,13 @@ public class GUI_Edit_daily_item extends javax.swing.JFrame {
         initComponents();
         this.admin = admin;
         this.dis = dis;
-        try {
-            showTable();
-        } catch (IOException ex) {
-            Logger.getLogger(GUI_Edit_daily_item.class.getName()).log(Level.SEVERE, null, ex);
-        } 
+        txtAmount.setText(String.valueOf(dis.getAmountSold()));
     }
     public GUI_Edit_daily_item(SalesManager sm,DailyItemSales dis) {
         initComponents();
         this.sm = sm;
         this.dis = dis;
-        try {
-            showTable();
-        } catch (IOException ex) {
-            Logger.getLogger(GUI_Edit_daily_item.class.getName()).log(Level.SEVERE, null, ex);
-        } 
-    }
-    public void showTable() throws IOException {
-        DefaultTableModel model = (DefaultTableModel) DailyTable.getModel();
-        model.setRowCount(0);
-        
-        String[] columnNames = {"Item ID","Item Name", "Category","Stock","Supplier ID","Supplier Name","Sell Price","Buy Price"}; 
-        model.setColumnIdentifiers(columnNames);
-        
-        ArrayList<String[]> it = Item.view();
-        for (String[] il: it) {
-            model.addRow(il);
-    }
+        txtAmount.setText(String.valueOf(dis.getAmountSold()));
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -60,42 +41,17 @@ public class GUI_Edit_daily_item extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        year = new javax.swing.JComboBox<>();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        DailyTable = new javax.swing.JTable();
         add_daily_item = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         Save = new javax.swing.JButton();
         System_name = new javax.swing.JLabel();
         Cancel = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        Amount_sold = new javax.swing.JTextField();
-        comboboxDay = new javax.swing.JComboBox<>();
-        month = new javax.swing.JComboBox<>();
-        txtSearch = new javax.swing.JTextField();
-        buttonSearch = new javax.swing.JButton();
+        txtAmount = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        year.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022", "2023" }));
-
-        DailyTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane3.setViewportView(DailyTable);
-
         add_daily_item.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         add_daily_item.setText("Edit Daily Item-wise Sales ");
-
-        jLabel2.setText("Date:");
 
         Save.setText("Save");
         Save.setToolTipText("");
@@ -109,21 +65,13 @@ public class GUI_Edit_daily_item extends javax.swing.JFrame {
         System_name.setText("PURCHASE ORDER MANAGEMENT SYSTEM");
 
         Cancel.setText("Cancel");
-
-        jLabel4.setText("Amount Sold:");
-
-        comboboxDay.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31" }));
-
-        month.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "Novermber", "December" }));
-
-        txtSearch.setToolTipText("");
-
-        buttonSearch.setText("Search");
-        buttonSearch.addActionListener(new java.awt.event.ActionListener() {
+        Cancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonSearchActionPerformed(evt);
+                CancelActionPerformed(evt);
             }
         });
+
+        jLabel4.setText("Amount Sold:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -132,42 +80,24 @@ public class GUI_Edit_daily_item extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(116, 116, 116)
-                        .addComponent(add_daily_item))
+                        .addGap(56, 56, 56)
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 15, Short.MAX_VALUE))
+                        .addGap(38, 38, 38)
+                        .addComponent(Save)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Cancel)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(System_name)
-                                .addGap(29, 29, 29))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(Save)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Cancel)
-                                .addContainerGap())))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4)
-                            .addComponent(Amount_sold, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(comboboxDay, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(month, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(year, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(buttonSearch)))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addGap(14, 14, 14)
+                .addComponent(System_name)
+                .addGap(0, 21, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(add_daily_item)
+                .addGap(96, 96, 96))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -175,60 +105,69 @@ public class GUI_Edit_daily_item extends javax.swing.JFrame {
                 .addComponent(System_name)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(add_daily_item)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonSearch))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
-                .addGap(4, 4, 4)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(comboboxDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(month, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(year, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel4)
+                    .addComponent(txtAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Amount_sold, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(2, 2, 2)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Save)
                     .addComponent(Cancel))
-                .addContainerGap(27, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void SaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveActionPerformed
-        String selectedYear = (String) year.getSelectedItem();
-        String selectedMonth = (String) month.getSelectedItem();
-        String selectedDay = (String) comboboxDay.getSelectedItem();
-        String date = (selectedDay+"+"+selectedMonth+"-"+selectedYear);
-        /*String itemName = Item_name.getText();
-        int amountSold =Integer.parseInt(Amount_sold.getText());
-        String actualItemName = Item.itemName;
-        DailyItemSales dis = DailyItemSales.create(date, amountSold, actualItemName);*/
-    }//GEN-LAST:event_SaveActionPerformed
+        String errorMessage = null;
+        while (true){
+            if (!(InputValidation.isValidQuantity(txtAmount.getText()))){
+                errorMessage = "Invalid Quantity";
+                break;
+            } else{
+                DailyItemSales newDIS = new DailyItemSales(dis.getDate(),Integer.parseInt(txtAmount.getText()),dis.getItem());
+                try{
+                    if (admin != null){
+                        admin.editDIS(dis, newDIS);
+                        break;
+                    } else if (sm != null){
+                        sm.editDIS(dis,newDIS);
+                        break;
+                    }
 
-    private void buttonSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSearchActionPerformed
-        DefaultTableModel model = (DefaultTableModel) DailyTable.getModel();
-        String input = txtSearch.getText();
-
-        try {
-            ArrayList<String[]> it = DailyItemSales.view(DailyItemSales.view(),input);
-            model.setRowCount(0);
-
-            for (String[] il : it) {
-                model.addRow(il);
+                } catch(IOException e){
+                    break;
+                }
+                    
             }
-
-        } catch (IOException ex) {
-            Logger.getLogger(GUI_Supplier_Entry.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_buttonSearchActionPerformed
+        if (errorMessage != null){
+            JOptionPane.showMessageDialog(null,errorMessage);
+        } else{
+            if (admin != null){
+                GUI_Daily_item_Entry disEntry = new GUI_Daily_item_Entry(admin);
+                disEntry.show();
+                this.dispose();
+            } else if(sm != null){
+                GUI_Daily_item_Entry disEntry = new GUI_Daily_item_Entry(sm);
+                disEntry.show();
+                this.dispose();
+            }
+        }
+    }//GEN-LAST:event_SaveActionPerformed
+    
+    private void CancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CancelActionPerformed
+        if (admin != null) {
+            GUI_Daily_item_Entry disEntry = new GUI_Daily_item_Entry(admin);
+            disEntry.show();
+            this.dispose();
+;        } else if (sm != null) {
+            GUI_Daily_item_Entry disEntry = new GUI_Daily_item_Entry(sm);
+            disEntry.show();
+            this.dispose();
+        }
+    }//GEN-LAST:event_CancelActionPerformed
 
     /**
      * @param args the command line arguments
@@ -269,19 +208,11 @@ public class GUI_Edit_daily_item extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField Amount_sold;
     private javax.swing.JButton Cancel;
-    private javax.swing.JTable DailyTable;
     private javax.swing.JButton Save;
     private javax.swing.JLabel System_name;
     private javax.swing.JLabel add_daily_item;
-    private javax.swing.JButton buttonSearch;
-    private javax.swing.JComboBox<String> comboboxDay;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JComboBox<String> month;
-    private javax.swing.JTextField txtSearch;
-    private javax.swing.JComboBox<String> year;
+    private javax.swing.JTextField txtAmount;
     // End of variables declaration//GEN-END:variables
 }

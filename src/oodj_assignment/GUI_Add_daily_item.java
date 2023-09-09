@@ -217,8 +217,7 @@ public class GUI_Add_daily_item extends javax.swing.JFrame {
         String selectedYear = (String) cmbYear.getSelectedItem();
         String selectedMonth = (String) cmbMonth.getSelectedItem();
         String selectedDay = (String) cmbDay.getSelectedItem();
-        String date = (selectedDay+"-"+selectedMonth+"-"+selectedYear);
-        System.out.println(date);
+        String date = (selectedDay+"/"+selectedMonth+"/"+selectedYear);
         String errorMessage = null;
        
         while(true){

@@ -261,15 +261,16 @@ public class GUI_Edit_item extends javax.swing.JFrame {
         }
         if (errorMessage != null){
                 JOptionPane.showMessageDialog(null,errorMessage);
-        }
-        if (admin != null) {
-            GUI_Item_Entry itemEntry = new GUI_Item_Entry(admin);
-            itemEntry.show();
-            this.dispose();
-;        } else if (sm != null) {
-            GUI_Item_Entry itemEntry = new GUI_Item_Entry(sm);
-            itemEntry.show();
-            this.dispose();
+        } else {
+            if (admin != null) {
+                GUI_Item_Entry itemEntry = new GUI_Item_Entry(admin);
+                itemEntry.show();
+                this.dispose();
+;           } else if (sm != null) {
+                GUI_Item_Entry itemEntry = new GUI_Item_Entry(sm);
+                itemEntry.show();
+                this.dispose();
+            }
         }
     }//GEN-LAST:event_buttonSaveActionPerformed
 
