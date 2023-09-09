@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -17,7 +18,6 @@ import javax.swing.table.DefaultTableModel;
 public class GUI_Daily_item_Entry extends javax.swing.JFrame {
     Admin admin;
     SalesManager sm;
-    PurchaseManager pm;
     public GUI_Daily_item_Entry(Admin admin) {
         initComponents();
         this.admin = admin;
@@ -36,18 +36,7 @@ public class GUI_Daily_item_Entry extends javax.swing.JFrame {
             Logger.getLogger(GUI_Daily_item_Entry.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    public GUI_Daily_item_Entry(PurchaseManager pm) {
-        initComponents();
-        this.pm = pm;
-        buttonAdd.setVisible(false);
-        buttonEdit.setVisible(false);
-        buttonRemove.setVisible(false);
-        try {
-            showTable();
-        } catch (IOException ex) {
-            Logger.getLogger(GUI_Daily_item_Entry.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
+    
     public void showTable() throws IOException {
         DefaultTableModel model = (DefaultTableModel) DailyTable.getModel();
         model.setRowCount(0);
@@ -112,7 +101,15 @@ public class GUI_Daily_item_Entry extends javax.swing.JFrame {
             new String [] {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane3.setViewportView(DailyTable);
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
@@ -150,33 +147,34 @@ public class GUI_Daily_item_Entry extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(50, 50, 50)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(tSearch))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabel1)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(buttonAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(buttonEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(buttonRemove)))
-                            .addComponent(back)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(buttonAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(buttonEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(buttonRemove))
+                            .addComponent(back)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 598, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(111, 111, 111)
+                                .addComponent(jLabel5))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(74, 74, 74)
-                        .addComponent(jLabel5)))
-                .addContainerGap(49, Short.MAX_VALUE))
+                        .addGap(224, 224, 224)
+                        .addComponent(jLabel1)))
+                .addContainerGap(48, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(18, 18, 18)
+                .addContainerGap()
                 .addComponent(jLabel5)
-                .addGap(6, 6, 6)
+                .addGap(5, 5, 5)
                 .addComponent(jLabel1)
-                .addGap(11, 11, 11)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buttonAdd)
                     .addComponent(buttonEdit)
@@ -196,11 +194,59 @@ public class GUI_Daily_item_Entry extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonRemoveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonRemoveActionPerformed
-        // TODO add your handling code here:
+        int salesRow = DailyTable.getSelectedRow();
+        if (salesRow != -1){
+            String date = DailyTable.getModel().getValueAt(salesRow, 0).toString();
+            String itemID = DailyTable.getModel().getValueAt(salesRow, 1).toString();
+            String itemName = DailyTable.getModel().getValueAt(salesRow, 2).toString();
+            String category = DailyTable.getModel().getValueAt(salesRow, 3).toString();
+            String supplierID = DailyTable.getModel().getValueAt(salesRow, 4).toString();
+            String supplierName = DailyTable.getModel().getValueAt(salesRow, 5).toString();
+            double sellPrice = Double.parseDouble(DailyTable.getModel().getValueAt(salesRow, 6).toString());
+            int amountSold = Integer.parseInt(DailyTable.getModel().getValueAt(salesRow, 7).toString());
+            Item item = new Item(itemID,itemName,category,supplierID,supplierName,sellPrice,0);
+            DailyItemSales dis = new DailyItemSales(date,amountSold,item);
+            try {
+                if(admin!=null){
+                    admin.removeDIS(dis);
+                } else if(sm!=null){
+                    sm.removeDIS(dis);
+                }
+            } catch(IOException e){
+                JOptionPane.showMessageDialog(null,"No Sales Record is Removed.");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null,"No Sales Record is Selected.");
+        }
     }//GEN-LAST:event_buttonRemoveActionPerformed
 
     private void buttonEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonEditActionPerformed
-        // TODO add your handling code here:
+        int salesRow = DailyTable.getSelectedRow();
+        if (salesRow != -1){
+            String date = DailyTable.getModel().getValueAt(salesRow, 0).toString();
+            String itemID = DailyTable.getModel().getValueAt(salesRow, 1).toString();
+            String itemName = DailyTable.getModel().getValueAt(salesRow, 2).toString();
+            String category = DailyTable.getModel().getValueAt(salesRow, 3).toString();
+            String supplierID = DailyTable.getModel().getValueAt(salesRow, 4).toString();
+            String supplierName = DailyTable.getModel().getValueAt(salesRow, 5).toString();
+            double sellPrice = Double.parseDouble(DailyTable.getModel().getValueAt(salesRow, 6).toString());
+            int amountSold = Integer.parseInt(DailyTable.getModel().getValueAt(salesRow, 7).toString());
+            Item item = new Item(itemID,itemName,category,supplierID,supplierName,sellPrice,0);
+            DailyItemSales dis = new DailyItemSales(date,amountSold,item);
+           
+            if(admin!=null){
+                GUI_Edit_daily_item editDIS = new GUI_Edit_daily_item(admin,dis);
+                editDIS.show();
+                this.dispose();
+            } else if(sm!=null){
+                GUI_Edit_daily_item editDIS = new GUI_Edit_daily_item(sm,dis);
+                editDIS.show();
+                this.dispose();
+            }
+           
+        } else {
+            JOptionPane.showMessageDialog(null,"No Sales Record is Selected.");
+        }
     }//GEN-LAST:event_buttonEditActionPerformed
 
     private void backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backActionPerformed
@@ -212,16 +258,19 @@ public class GUI_Daily_item_Entry extends javax.swing.JFrame {
             GUI_Sales_Manager smHP = new GUI_Sales_Manager(sm);
             smHP.show();
             this.dispose();
-        } else if (pm != null){
-            GUI_PurchaseManager pmHP = new GUI_PurchaseManager(pm);
-            pmHP.show();
-            this.dispose();
         }
     }//GEN-LAST:event_backActionPerformed
 
     private void buttonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddActionPerformed
-//        GUI_Add_item add = new GUI_Add_item();
-//        add.show();
+        if (admin != null){
+            GUI_Add_daily_item daily = new GUI_Add_daily_item(admin);
+            daily.show();
+            this.dispose();
+        } else if (sm != null){
+            GUI_Add_daily_item daily = new GUI_Add_daily_item(sm);
+            daily.show();
+            this.dispose();
+        }    
     }//GEN-LAST:event_buttonAddActionPerformed
 
     private void tSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tSearchActionPerformed

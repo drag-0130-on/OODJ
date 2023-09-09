@@ -16,17 +16,28 @@ import javax.swing.table.DefaultTableModel;
  */
 public class GUI_Edit_daily_item extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Edit_daily_item
-     */
-    public GUI_Edit_daily_item() {
+    Admin admin;
+    SalesManager sm;
+    DailyItemSales dis;
+    public GUI_Edit_daily_item(Admin admin,DailyItemSales dis) {
         initComponents();
+        this.admin = admin;
+        this.dis = dis;
         try {
             showTable();
         } catch (IOException ex) {
             Logger.getLogger(GUI_Edit_daily_item.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
+        } 
+    }
+    public GUI_Edit_daily_item(SalesManager sm,DailyItemSales dis) {
+        initComponents();
+        this.sm = sm;
+        this.dis = dis;
+        try {
+            showTable();
+        } catch (IOException ex) {
+            Logger.getLogger(GUI_Edit_daily_item.class.getName()).log(Level.SEVERE, null, ex);
+        } 
     }
     public void showTable() throws IOException {
         DefaultTableModel model = (DefaultTableModel) DailyTable.getModel();
@@ -252,7 +263,7 @@ public class GUI_Edit_daily_item extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new GUI_Edit_daily_item().setVisible(true);
+//                new GUI_Edit_daily_item(new Admin()).setVisible(true);
             }
         });
     }
