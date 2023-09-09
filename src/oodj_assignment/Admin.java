@@ -20,12 +20,16 @@ public class Admin extends User {
         
     }
     public void approvePR(PurchaseRequisition pr)throws IOException {
-        pr.approve();
-        PurchaseOrder po = new PurchaseOrder(pr,getUserID());
-        po.add();
+        if (pr.isApproved()){
+            pr.approve();
+            PurchaseOrder po = new PurchaseOrder(pr,getUserID());
+            po.add();
+        }
     }
     public void rejectPR(PurchaseRequisition pr)throws IOException{
-        pr.reject();
+        if (pr.isRejected()){
+            pr.reject();
+        }
     }
     
     public void removePO(PurchaseOrder po)throws IOException{
