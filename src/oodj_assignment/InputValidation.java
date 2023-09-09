@@ -25,7 +25,7 @@ public class InputValidation {
     }
 
     public static boolean isValidName(String name) {
-        return (name!=null) && (!name.isEmpty()) && (name.length()<=30);
+        return (name!=null) && (!name.isEmpty()) && (name.length()<=30)&&(!name.contains("|"));
     }
 
     public static boolean isValidQuantity(String quantity) {
@@ -53,14 +53,14 @@ public class InputValidation {
         }
     }
     public static boolean isValidPassword(String password) {
-        return (password.length()>=6);
+        return ((password.length()>=6) &&(!password.contains("|")));
     }
     
     public static boolean isValidEmail(String email) {
-        return (email!=null) && (!email.isEmpty()) && (email.contains("@")) && (email.indexOf("@") !=0);
+        return (email!=null) && (!email.isEmpty()) && (email.contains("@")) && (email.indexOf("@") !=0)&&(!email.contains("|"));
     }
     
     public static boolean isValidContact(String contact) {
-        return (contact!=null) && (!contact.isEmpty()) && (contact.length()<=11) && (contact.length()>=10);
+        return (contact!=null) && (!contact.isEmpty()) && (contact.length()<=11) && (contact.length()>=10)&&(!contact.contains("|"));
     }
 }
