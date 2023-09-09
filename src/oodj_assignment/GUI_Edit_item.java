@@ -260,7 +260,7 @@ public class GUI_Edit_item extends javax.swing.JFrame {
             }
         }
         if (errorMessage != null){
-                JOptionPane.showMessageDialog(new GUI_Add_User(new Admin()),errorMessage);
+                JOptionPane.showMessageDialog(null,errorMessage);
         }
         if (admin != null) {
             GUI_Item_Entry itemEntry = new GUI_Item_Entry(admin);

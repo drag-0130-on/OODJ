@@ -227,18 +227,17 @@ public class GUI_Item_Entry extends javax.swing.JFrame {
             double buyPrice = Double.parseDouble(ItemTable.getModel().getValueAt(itemRow, 7).toString());
             Item item = new Item(itemID,itemName,category,stock,supplierID,supplierName,sellPrice,buyPrice);
             System.out.println(item.toString());
-                if(admin!=null){
-                    GUI_Edit_item edit = new GUI_Edit_item(admin,item);
-                    edit.show();
-                    this.dispose();
-                }
-                else if(sm!=null){
-                    GUI_Edit_item edit = new GUI_Edit_item(sm,item);
-                    edit.show();
-                    this.dispose();
-                }
-            } else {
-            JOptionPane.showMessageDialog(null,"rs");
+            if(admin!=null){
+                GUI_Edit_item edit = new GUI_Edit_item(admin,item);
+                edit.show();
+                this.dispose();
+            } else if(sm!=null){
+                GUI_Edit_item edit = new GUI_Edit_item(sm,item);
+                edit.show();
+                this.dispose();
+            }
+        } else {
+            JOptionPane.showMessageDialog(null,"No Item Selected");
         }
     }//GEN-LAST:event_buttonEditActionPerformed
 //String itemID, String itemName, String category,int stock, double price, String supplierID,String supplierName

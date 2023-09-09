@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -23,34 +24,15 @@ public class GUI_Edit_pr extends javax.swing.JFrame {
         initComponents();
         this.admin = admin;
         this.pr = pr;
-        try {
-            showTable();
-        } catch (IOException ex) {
-            Logger.getLogger(GUI_Edit_pr.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        txtQuantity.setText(String.valueOf(pr.getQuantity()));
     }
     public GUI_Edit_pr(SalesManager sm, PurchaseRequisition pr) {
         initComponents();
         this.sm = sm;
         this.pr = pr;
-        try {
-            showTable();
-        } catch (IOException ex) {
-            Logger.getLogger(GUI_Edit_pr.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        txtQuantity.setText(String.valueOf(pr.getQuantity()));
     }
-    public void showTable() throws IOException {
-        DefaultTableModel model = (DefaultTableModel) ItemTable.getModel();
-        model.setRowCount(0);
-        String[] columnNames = {"Item ID", "Category", "Item Name", "Stock", "Price","Supplier ID"}; 
-        model.setColumnIdentifiers(columnNames);
-        
-        ArrayList<String[]> it = Item.view();
-        for (String[] il: it) {
-            model.addRow(il);
-        }
-    }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -61,13 +43,11 @@ public class GUI_Edit_pr extends javax.swing.JFrame {
     private void initComponents() {
 
         Cancel = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
         txtQuantity = new javax.swing.JTextField();
         Add_pr = new javax.swing.JLabel();
         System_name = new javax.swing.JLabel();
         Save = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        txtQuantity1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -78,8 +58,6 @@ public class GUI_Edit_pr extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setText("Quantity");
-
         Add_pr.setFont(new java.awt.Font("Times New Roman", 1, 18)); // NOI18N
         Add_pr.setText("Edit Purchase Requisition ");
 
@@ -88,8 +66,13 @@ public class GUI_Edit_pr extends javax.swing.JFrame {
 
         Save.setText("Save");
         Save.setToolTipText("");
+        Save.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SaveActionPerformed(evt);
+            }
+        });
 
-        jLabel4.setText("New Quantity");
+        jLabel4.setText("Quantity");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -98,30 +81,22 @@ public class GUI_Edit_pr extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(45, 45, 45)
+                        .addComponent(Save)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Cancel))
+                    .addGroup(layout.createSequentialGroup()
                         .addGap(92, 92, 92)
                         .addComponent(Add_pr))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(99, 99, 99)
-                        .addComponent(Save)
-                        .addGap(55, 55, 55)
-                        .addComponent(Cancel))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(19, 19, 19)
                         .addComponent(System_name))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(49, 49, 49)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addGap(35, 35, 35)
-                                .addComponent(txtQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGap(67, 67, 67)
+                        .addComponent(jLabel4)
+                        .addGap(40, 40, 40)
+                        .addComponent(txtQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(18, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(158, Short.MAX_VALUE)
-                    .addComponent(txtQuantity1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(151, 151, 151)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -129,22 +104,15 @@ public class GUI_Edit_pr extends javax.swing.JFrame {
                 .addComponent(System_name)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(Add_pr)
-                .addGap(41, 41, 41)
-                .addComponent(jLabel3)
-                .addGap(18, 18, 18)
+                .addGap(45, 45, 45)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(txtQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(268, 268, 268)
+                    .addComponent(txtQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
+                .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Save)
                     .addComponent(Cancel))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(106, 106, 106)
-                    .addComponent(txtQuantity1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(324, Short.MAX_VALUE)))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         pack();
@@ -161,6 +129,41 @@ public class GUI_Edit_pr extends javax.swing.JFrame {
             this.dispose();
         }
     }//GEN-LAST:event_CancelActionPerformed
+
+    private void SaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaveActionPerformed
+        String errorMessage = null;
+        while (true){
+            if (!(InputValidation.isValidQuantity(txtQuantity.getText()))){
+                errorMessage = "Invalid Quantity";
+                break;
+            } else{
+                PurchaseRequisition newPR = new PurchaseRequisition(pr.getPRID(),pr.getItem(),Integer.parseInt(txtQuantity.getText()),pr.getSMID(),pr.getStatus());
+                try{    
+                    if (admin != null){
+                        admin.editPR(pr,newPR);
+                        break;
+                    } else if (sm != null){
+                        sm.editPR(pr,newPR);
+                        break;
+                    }
+                } catch(IOException e){
+                    break;
+                }
+            }
+        }
+        if (errorMessage != null){
+            JOptionPane.showMessageDialog(null,errorMessage);
+        }
+        if (admin != null){
+            GUI_PRPO_Entry prpoEntry = new GUI_PRPO_Entry(admin);
+            prpoEntry.show();
+            this.dispose();
+        } else if(sm != null){
+            GUI_PRPO_Entry prpoEntry = new GUI_PRPO_Entry(sm);
+            prpoEntry.show();
+            this.dispose();
+        }
+    }//GEN-LAST:event_SaveActionPerformed
 
     /**
      * @param args the command line arguments
@@ -205,9 +208,7 @@ public class GUI_Edit_pr extends javax.swing.JFrame {
     private javax.swing.JButton Cancel;
     private javax.swing.JButton Save;
     private javax.swing.JLabel System_name;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JTextField txtQuantity;
-    private javax.swing.JTextField txtQuantity1;
     // End of variables declaration//GEN-END:variables
 }

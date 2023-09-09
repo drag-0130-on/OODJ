@@ -23,7 +23,18 @@ public class PurchaseRequisition implements Record {
         this.item = item;
         this.quantity = quantity;
     }
-    
+    public String getPRID(){
+        return prID;
+    }
+    public Item getItem(){
+        return item;
+    }
+    public int getQuantity(){
+        return quantity;
+    }
+    public String getStatus(){
+        return status;
+    }
     public void setSMID(String smID){
         this.smID = smID;
     }
@@ -54,12 +65,12 @@ public class PurchaseRequisition implements Record {
     public static String generateID() throws IOException{
         ArrayList<String[]> AL = view();
         if (AL.size()==0){
-            return "P0001";
+            return "PR001";
         } else{
-            int idNo = Integer.parseInt((AL.get((AL.size()-1))[0]).substring(1)) + 1;
+            int idNo = Integer.parseInt((AL.get((AL.size()-1))[0]).substring(2)) + 1;
             int idLength = String.valueOf(idNo).length();
-            String id = "P";
-            for (int i = 0;i < (4-idLength);i++){
+            String id = "PR";
+            for (int i = 0;i < (3-idLength);i++){
                 id += "0";
             }
             id += idNo;
