@@ -209,8 +209,8 @@ public class GUI_Daily_item_Entry extends javax.swing.JFrame {
     }//GEN-LAST:event_backActionPerformed
 
     private void buttonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonAddActionPerformed
-        GUI_Add_item add = new GUI_Add_item();
-        add.show();
+//        GUI_Add_item add = new GUI_Add_item();
+//        add.show();
     }//GEN-LAST:event_buttonAddActionPerformed
 
     private void tSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tSearchActionPerformed

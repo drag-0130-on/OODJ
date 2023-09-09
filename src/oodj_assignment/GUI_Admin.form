@@ -24,58 +24,50 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
+              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+              <Component id="System_name" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="23" max="32767" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="194" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="buttonDailyEntry" alignment="0" max="32767" attributes="0"/>
-                          <Component id="buttonItemEntry" alignment="0" max="32767" attributes="0"/>
-                          <Component id="buttonSupplierEntry" alignment="0" max="32767" attributes="0"/>
-                      </Group>
-                      <EmptySpace pref="68" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="buttonPREntry" pref="170" max="32767" attributes="0"/>
-                          <Component id="buttonPOEntry" alignment="1" max="32767" attributes="0"/>
-                          <Component id="buttonProfileEntry" alignment="1" max="32767" attributes="0"/>
-                      </Group>
+                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                      <Component id="buttonDaily_item_wise_sales_entry" alignment="1" max="32767" attributes="0"/>
+                      <Component id="buttonSupplier_entry" alignment="1" max="32767" attributes="0"/>
+                      <Component id="buttonItem_entry" alignment="0" max="32767" attributes="0"/>
+                      <Component id="buttonPRPO" alignment="0" max="32767" attributes="0"/>
+                      <Component id="buttonProfileEntry" alignment="1" max="32767" attributes="0"/>
+                      <Component id="buttonLogout" alignment="1" min="-2" pref="227" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="83" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="231" max="-2" attributes="0"/>
-              <Component id="buttonLogout" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="94" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+              <Component id="System_name" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="buttonItemEntry" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="buttonPREntry" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="buttonSupplierEntry" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="buttonPOEntry" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="buttonDailyEntry" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="buttonProfileEntry" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
+              <Component id="buttonItem_entry" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="buttonSupplier_entry" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="buttonDaily_item_wise_sales_entry" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+              <Component id="buttonPRPO" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="buttonProfileEntry" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="buttonLogout" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="102" max="32767" attributes="0"/>
+              <EmptySpace pref="38" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -89,49 +81,9 @@
         <Property name="text" type="java.lang.String" value="Admin Home Page"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="buttonItemEntry">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Item Entry"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonItemEntryActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="buttonSupplierEntry">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Supplier Entry"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonSupplierEntryActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="buttonDailyEntry">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Daily Item-wise Sales Entry"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonDailyEntryActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="buttonPREntry">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Purchase Requisition"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonPREntryActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="buttonPOEntry">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Purchase Order"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonPOEntryActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JButton" name="buttonProfileEntry">
       <Properties>
-        <Property name="text" type="java.lang.String" value="User Profile"/>
+        <Property name="text" type="java.lang.String" value="My Profile"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonProfileEntryActionPerformed"/>
@@ -144,6 +96,46 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonLogoutActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="buttonItem_entry">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Item Entry"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonItem_entryActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="buttonSupplier_entry">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Supplier Entry"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonSupplier_entryActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="buttonDaily_item_wise_sales_entry">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Daily Item-wise Sales Entry"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonDaily_item_wise_sales_entryActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="buttonPRPO">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Purchase Requisition/Purchase Order"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonPRPOActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="System_name">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Segoe UI" size="18" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="PURCHASE ORDER MANAGEMENT SYSTEM"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>
