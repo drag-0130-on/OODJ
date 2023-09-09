@@ -1,3 +1,3 @@
-S0001|TT Sdn. Bhd.|123|tt@gmail.com|0123456789
-S0002|CC Company|456|cc@gmail.com|0111111111
-S0003|GG Company|12345|gg@gmail.com|0000000000
+S0001|TT Sdn. Bhd.|tt@gmail.com|0123456789
+S0002|CC Company|cc@gmail.com|0111111111
+S0003|GG Company|gg@gmail.com|0000000000
