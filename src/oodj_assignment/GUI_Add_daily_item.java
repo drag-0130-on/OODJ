@@ -8,6 +8,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -19,6 +20,8 @@ public class GUI_Add_daily_item extends javax.swing.JFrame {
         this.admin = admin;
         try {
             showTable();
+            loadCategory();
+            loadSupplier();;
         } catch (IOException ex) {
             Logger.getLogger(GUI_Add_daily_item.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -28,6 +31,8 @@ public class GUI_Add_daily_item extends javax.swing.JFrame {
         this.sm = sm;
         try {
             showTable();
+            loadCategory();
+            loadSupplier();
         } catch (IOException ex) {
             Logger.getLogger(GUI_Add_daily_item.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -44,6 +49,27 @@ public class GUI_Add_daily_item extends javax.swing.JFrame {
             model.addRow(il);
         }
     }
+    public void loadCategory(){
+        ItemCategory[] categories = ItemCategory.values();
+        DefaultComboBoxModel categoryModel = (DefaultComboBoxModel) cmbCategory.getModel();
+        cmbCategory.removeAllItems();
+        for (ItemCategory category:categories){
+            categoryModel.addElement(category.toString());
+        }
+        categoryModel.addElement("");
+        cmbCategory.setSelectedIndex(-1);
+        
+    }
+    public void loadSupplier()throws IOException{
+        ArrayList<String[]> supplierList = Supplier.view();
+        DefaultComboBoxModel supplierModel = (DefaultComboBoxModel) cmbSupplier.getModel();
+        cmbSupplier.removeAllItems();
+        for (String[] supplier: supplierList){
+            supplierModel.addElement(supplier[0]+"|"+supplier[1]);
+        } 
+        supplierModel.addElement("");
+        cmbSupplier.setSelectedIndex(-1);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -54,6 +80,7 @@ public class GUI_Add_daily_item extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jCheckBox1 = new javax.swing.JCheckBox();
         add_daily_item = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         System_name = new javax.swing.JLabel();
@@ -68,6 +95,13 @@ public class GUI_Add_daily_item extends javax.swing.JFrame {
         txtSearch = new javax.swing.JTextField();
         buttonSearch3 = new javax.swing.JButton();
         buttonSave = new javax.swing.JButton();
+        cmbCategory = new javax.swing.JComboBox<>();
+        cmbSupplier = new javax.swing.JComboBox<>();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+
+        jCheckBox1.setText("jCheckBox1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -131,6 +165,16 @@ public class GUI_Add_daily_item extends javax.swing.JFrame {
             }
         });
 
+        cmbCategory.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        cmbSupplier.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabel1.setText("Supplier:");
+
+        jLabel3.setText("Search:");
+
+        jLabel5.setText("Category:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -142,10 +186,30 @@ public class GUI_Add_daily_item extends javax.swing.JFrame {
                 .addComponent(buttonCancel)
                 .addGap(17, 17, 17))
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(134, 134, 134)
+                        .addComponent(System_name))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(211, 211, 211)
+                        .addComponent(add_daily_item))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(23, 23, 23)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel5)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cmbCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(36, 36, 36)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cmbSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(buttonSearch3))
                             .addComponent(jLabel4)
                             .addComponent(txtAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
@@ -155,18 +219,7 @@ public class GUI_Add_daily_item extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(cmbYear, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                    .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(buttonSearch3))
-                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 634, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(134, 134, 134)
-                        .addComponent(System_name))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(211, 211, 211)
-                        .addComponent(add_daily_item)))
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 634, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(28, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -178,7 +231,12 @@ public class GUI_Add_daily_item extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(buttonSearch3))
+                    .addComponent(buttonSearch3)
+                    .addComponent(cmbCategory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmbSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -204,18 +262,35 @@ public class GUI_Add_daily_item extends javax.swing.JFrame {
 
     private void buttonSearch3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSearch3ActionPerformed
         DefaultTableModel model = (DefaultTableModel) ItemTable.getModel();
-        String input = txtSearch.getText();
-
+        model.setRowCount(0);
+        ArrayList<String[]> itemList = new ArrayList<String[]>();
         try {
-            ArrayList<String[]> it = Item.view(Item.view(),input);
-            model.setRowCount(0);
-
-            for (String[] il : it) {
-                model.addRow(il);
-            }
-
+            itemList = Item.view();
         } catch (IOException ex) {
-            Logger.getLogger(GUI_Supplier_Entry.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        while (txtSearch.getText()!= null){
+            try {
+                itemList = Item.view(itemList,txtSearch.getText());
+                break;
+            } catch (IOException ex) {
+                break;
+            }
+        } 
+        while (cmbCategory.getSelectedIndex() != -1 && cmbCategory.getSelectedItem()!= null && cmbCategory.getSelectedItem().toString().length()>1){
+            
+            itemList = Item.view(itemList,2,cmbCategory.getSelectedItem().toString());
+            break;
+        }
+        while (cmbSupplier.getSelectedIndex() != -1 && cmbSupplier.getSelectedItem()!= null && cmbSupplier.getSelectedItem().toString().length()>1){
+            try {
+                itemList = Item.view(itemList,cmbSupplier.getSelectedItem().toString());
+                break;
+            } catch (IOException ex) {
+                break;
+            }
+        }
+        for (String[] line:itemList){
+            model.addRow(line);
         }
     }//GEN-LAST:event_buttonSearch3ActionPerformed
 
@@ -345,11 +420,17 @@ public class GUI_Add_daily_item extends javax.swing.JFrame {
     private javax.swing.JButton buttonCancel;
     private javax.swing.JButton buttonSave;
     private javax.swing.JButton buttonSearch3;
+    private javax.swing.JComboBox<String> cmbCategory;
     private javax.swing.JComboBox<String> cmbDay;
     private javax.swing.JComboBox<String> cmbMonth;
+    private javax.swing.JComboBox<String> cmbSupplier;
     private javax.swing.JComboBox<String> cmbYear;
+    private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTextField txtAmount;
     private javax.swing.JTextField txtSearch;
