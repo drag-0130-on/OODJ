@@ -26,7 +26,7 @@
           <Group type="102" attributes="0">
               <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
               <Component id="System_name" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="23" max="32767" attributes="0"/>
+              <EmptySpace pref="22" max="32767" attributes="0"/>
           </Group>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
@@ -39,9 +39,10 @@
                       <Component id="buttonDaily_item_wise_sales_entry" alignment="1" max="32767" attributes="0"/>
                       <Component id="buttonSupplier_entry" alignment="1" max="32767" attributes="0"/>
                       <Component id="buttonItem_entry" alignment="0" max="32767" attributes="0"/>
-                      <Component id="buttonPRPO" alignment="0" max="32767" attributes="0"/>
+                      <Component id="buttonPRPO" alignment="0" pref="227" max="32767" attributes="0"/>
+                      <Component id="buttonLogout" alignment="1" max="32767" attributes="0"/>
+                      <Component id="buttonUserEntry" alignment="0" max="32767" attributes="0"/>
                       <Component id="buttonProfileEntry" alignment="1" max="32767" attributes="0"/>
-                      <Component id="buttonLogout" alignment="1" min="-2" pref="227" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace min="-2" pref="94" max="-2" attributes="0"/>
@@ -64,10 +65,12 @@
               <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
               <Component id="buttonPRPO" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
+              <Component id="buttonUserEntry" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
               <Component id="buttonProfileEntry" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="buttonLogout" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="38" max="32767" attributes="0"/>
+              <EmptySpace pref="53" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -136,6 +139,14 @@
         </Property>
         <Property name="text" type="java.lang.String" value="PURCHASE ORDER MANAGEMENT SYSTEM"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="buttonUserEntry">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="User Entry"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buttonUserEntryActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

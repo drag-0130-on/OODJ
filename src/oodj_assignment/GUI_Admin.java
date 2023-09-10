@@ -34,6 +34,7 @@ public class GUI_Admin extends javax.swing.JFrame {
         buttonDaily_item_wise_sales_entry = new javax.swing.JButton();
         buttonPRPO = new javax.swing.JButton();
         System_name = new javax.swing.JLabel();
+        buttonUserEntry = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -85,6 +86,13 @@ public class GUI_Admin extends javax.swing.JFrame {
         System_name.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         System_name.setText("PURCHASE ORDER MANAGEMENT SYSTEM");
 
+        buttonUserEntry.setText("User Entry");
+        buttonUserEntry.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonUserEntryActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -92,7 +100,7 @@ public class GUI_Admin extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(32, 32, 32)
                 .addComponent(System_name)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -103,9 +111,10 @@ public class GUI_Admin extends javax.swing.JFrame {
                         .addComponent(buttonDaily_item_wise_sales_entry, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(buttonSupplier_entry, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(buttonItem_entry, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(buttonPRPO, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(buttonProfileEntry, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(buttonLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(buttonPRPO, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 227, Short.MAX_VALUE)
+                        .addComponent(buttonLogout, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(buttonUserEntry, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(buttonProfileEntry, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(94, 94, 94))
         );
         layout.setVerticalGroup(
@@ -124,10 +133,12 @@ public class GUI_Admin extends javax.swing.JFrame {
                 .addGap(8, 8, 8)
                 .addComponent(buttonPRPO)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(buttonUserEntry)
+                .addGap(5, 5, 5)
                 .addComponent(buttonProfileEntry)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(buttonLogout)
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addContainerGap(53, Short.MAX_VALUE))
         );
 
         pack();
@@ -168,6 +179,12 @@ public class GUI_Admin extends javax.swing.JFrame {
         prpo.show();
         this.dispose();
     }//GEN-LAST:event_buttonPRPOActionPerformed
+
+    private void buttonUserEntryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonUserEntryActionPerformed
+        GUI_User_Entry ue = new GUI_User_Entry(admin);
+        ue.show();
+        this.dispose();
+    }//GEN-LAST:event_buttonUserEntryActionPerformed
 
     /**
      * @param args the command line arguments
@@ -219,6 +236,7 @@ public class GUI_Admin extends javax.swing.JFrame {
     private javax.swing.JButton buttonPRPO;
     private javax.swing.JButton buttonProfileEntry;
     private javax.swing.JButton buttonSupplier_entry;
+    private javax.swing.JButton buttonUserEntry;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
