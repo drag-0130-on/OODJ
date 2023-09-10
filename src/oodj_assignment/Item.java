@@ -133,8 +133,12 @@ public class Item implements Record {
             return id;
         }
     }
-    public boolean verifyStockAvailability(int amount){
-        return stock >= amount;
+    public boolean verifyStockAvailability(int amount) throws IOException{
+        ArrayList<String[]> AL = view(view(),this.itemID);
+        String[] line = AL.get(0);
+        int stockInFile = Integer.parseInt(line[3]);
+        return (stockInFile >= amount);
+        
     }
     public void addStock(int amount) throws IOException{
         ArrayList<String[]> AL = view(view(),this.itemID);
@@ -144,7 +148,11 @@ public class Item implements Record {
         itemFile.editFile(String.join("|", line),String.join("|",modifiedLine));
     }   
     public void reduceStock(int amount) throws IOException{
-        edit(new Item(itemID,itemName,category.toString(),(stock-amount),supplierID,supplierName,sellprice,buyprice));
+        ArrayList<String[]> AL = view(view(),this.itemID);
+        String[] line = AL.get(0);
+        String[] modifiedLine = line.clone();
+        modifiedLine[3] = String.valueOf((Integer.parseInt(modifiedLine[3])- amount));
+        itemFile.editFile(String.join("|", line),String.join("|",modifiedLine));
     }
     public String toString(){
         return (itemID + "|"+itemName + "|" + category.toString() + "|" + stock + "|" + supplierID + "|" + supplierName+ "|" + sellprice + "|" + buyprice);
