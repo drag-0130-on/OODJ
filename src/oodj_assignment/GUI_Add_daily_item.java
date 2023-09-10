@@ -206,7 +206,7 @@ public class GUI_Add_daily_item extends javax.swing.JFrame {
         String input = txtSearch.getText();
 
         try {
-            ArrayList<String[]> it = Item.view(DailyItemSales.view(),input);
+            ArrayList<String[]> it = Item.view(Item.view(),input);
             model.setRowCount(0);
 
             for (String[] il : it) {
