@@ -96,4 +96,8 @@ public class Admin extends User {
     public void removeUser(User user)throws IOException{
         user.remove();
     }
+    @Override
+    public String getRole(){
+        return Role.Admin.toString();
+    }
 }

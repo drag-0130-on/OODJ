@@ -193,7 +193,10 @@ public class GUI_Add_User extends javax.swing.JFrame {
                 errorMessage = "Invalid Contact";
                 break;
             } else {
-                if (cmbRole.getSelectedItem().toString().matches("Admin")){
+                if(cmbRole.getSelectedIndex()==-1){
+                    errorMessage = "No role is selected.";
+                    break;
+                } else if (cmbRole.getSelectedItem().toString().matches("Admin")){
                     Admin newUser = new Admin(txtID.getText(),txtName.getText(),txtPassword.getText(),txtEmail.getText(),txtContact.getText());
                     try {
                         if (newUser.verifyUniqueness()){
@@ -232,11 +235,7 @@ public class GUI_Add_User extends javax.swing.JFrame {
                     } catch (IOException ex) {
                         break;
                     }
-                } else {
-                    errorMessage = "No role is selected.";
-                    break;
-                
-                }
+                } 
             }
         }
         if (errorMessage != null){

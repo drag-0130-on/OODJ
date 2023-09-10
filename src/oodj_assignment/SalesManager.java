@@ -59,6 +59,9 @@ public class SalesManager extends User {
     public void removePR(PurchaseRequisition pr)throws IOException{
         pr.remove();
     }
+    public String getRole(){
+        return Role.SalesManager.toString();
+    }
     
 }
 

@@ -27,7 +27,7 @@ public class GUI_Profile extends javax.swing.JFrame {
         txtPassword.setText(admin.getPassword());
         txtEmail.setText(admin.getEmail());
         txtContact.setText(admin.getContact());
-        txtRole.setText(admin.getRole());
+        txtRole.setText(admin.getRole().toString());
         txtRole.disable();
     }
     public GUI_Profile(SalesManager sm) {
@@ -40,7 +40,7 @@ public class GUI_Profile extends javax.swing.JFrame {
         txtPassword.setText(sm.getPassword());
         txtEmail.setText(sm.getEmail());
         txtContact.setText(sm.getContact());
-        txtRole.setText(sm.getRole());
+        txtRole.setText(sm.getRole().toString());
         txtRole.disable();
     }
     public GUI_Profile(PurchaseManager pm) {
@@ -53,7 +53,7 @@ public class GUI_Profile extends javax.swing.JFrame {
         txtPassword.setText(pm.getPassword());
         txtEmail.setText(pm.getEmail());
         txtContact.setText(pm.getContact());
-        txtRole.setText(pm.getRole());
+        txtRole.setText(pm.getRole().toString());
         txtRole.disable();
     }
 
