@@ -263,6 +263,10 @@ public class GUI_Supplier_Entry extends javax.swing.JFrame {
             GUI_Sales_Manager smHP = new GUI_Sales_Manager(sm);
             smHP.show();
             this.dispose();
+        } else if(pm!=null){
+            GUI_PurchaseManager pmHP = new GUI_PurchaseManager(pm);
+            pmHP.show();
+            this.dispose();
         }
     }//GEN-LAST:event_buttonBackActionPerformed
 

@@ -187,9 +187,9 @@ public class GUI_Daily_item_Entry extends javax.swing.JFrame {
                     .addComponent(tSearch))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(back)
-                .addGap(30, 30, 30))
+                .addGap(24, 24, 24))
         );
 
         pack();
