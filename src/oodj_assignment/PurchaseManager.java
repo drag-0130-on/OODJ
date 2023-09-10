@@ -11,21 +11,21 @@ public class PurchaseManager extends User{
     }
    
     public void approvePR(PurchaseRequisition pr)throws IOException {
-        if (pr.isApproved()){
+        if (!pr.isApproved()){
             pr.approve();
             PurchaseOrder po = new PurchaseOrder(pr,getUserID());
             po.add();
         }
     }
     public void rejectPR(PurchaseRequisition pr)throws IOException{
-        if (pr.isRejected()){
+        if (!pr.isRejected()){
             pr.reject();
         }
     }
     
     public void removePO(PurchaseOrder po)throws IOException{
-        po.getPR().reject();
         po.remove();
+        po.getPR().reject();
     }   
    
 }

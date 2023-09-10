@@ -21,21 +21,21 @@ public class Admin extends User {
         
     }
     public void approvePR(PurchaseRequisition pr)throws IOException {
-        if (pr.isApproved()){
+        if (!pr.isApproved()){
             pr.approve();
             PurchaseOrder po = new PurchaseOrder(pr,getUserID());
             po.add();
         }
     }
     public void rejectPR(PurchaseRequisition pr)throws IOException{
-        if (pr.isRejected()){
+        if (!pr.isRejected()){
             pr.reject();
         }
     }
     
     public void removePO(PurchaseOrder po)throws IOException{
-        po.getPR().reject();
         po.remove();
+        po.getPR().reject();
     }   
     public void addPR(PurchaseRequisition pr)throws IOException{
         pr.setSMID(getUserID());

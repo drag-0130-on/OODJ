@@ -93,7 +93,7 @@ public class PurchaseRequisition implements Record {
         return (this.status.matches("Approved"));
     }
     public void reject() throws IOException{
-        edit(new PurchaseRequisition(this.prID,this.item,this.quantity,this.smID,"Rejected"));
+        this.edit(new PurchaseRequisition(this.prID,this.item,this.quantity,this.smID,"Rejected"));
         this.status = "Rejected";
     }
     public boolean isRejected(){
