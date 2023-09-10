@@ -1,2 +1,4 @@
-I001|Teh|Beverage|200|S001|AA Sdn. Bhd.|2.2|1.5
-I002|Coke|Beverage|100|S001|AA Sdn. Bhd.|2.5|1.8
+I0001|Teh|Beverage|180|S001|AA Sdn. Bhd.|2.2|1.5
+I0004|Milo|Beverage|1000|S0003|GG Company|3.0|2.4
+I0003|100Plus|Beverage|100|S001|AA Sdn. Bhd.|2.8|2.0
+I0002|Coke|Beverage|201|S001|AA Sdn. Bhd.|2.5|1.8
