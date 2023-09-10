@@ -347,9 +347,11 @@ public class GUI_PRPO_Entry extends javax.swing.JFrame {
                 try {
                     if(admin!=null){
                         admin.removePR(pr);
+                        showTable();
                     }
                     else if(sm!=null){
                         sm.removePR(pr);
+                        showTable();
                     }
                 } catch (IOException ex) {
                 JOptionPane.showMessageDialog(null,"No Purchase Requisition is Removed.");
