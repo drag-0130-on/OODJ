@@ -1,1 +1,2 @@
 PR003|I0001|Teh|Beverage|S0001|AA Sdn. Bhd.|1.5|12|18.0|null|Approved|null
+PR004|I002|Coke|Beverage|S001|AA Sdn. Bhd.|1.8|100|180.0|U0001|Approved|U0001
