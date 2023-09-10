@@ -5,6 +5,8 @@
 package oodj_assignment;
 
 import java.io.IOException;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -265,6 +267,9 @@ public class GUI_Profile extends javax.swing.JFrame {
                     Admin updatedAdmin = new Admin(txtID.getText(),txtName.getText(),txtPassword.getText(),txtEmail.getText(),txtContact.getText());
                     try {
                         admin.edit(updatedAdmin);
+                        admin.setPassword(txtPassword.getText());
+                        admin.setContact(txtContact.getText());
+                        admin.setEmail(txtEmail.getText());
                         break;
                     } catch (IOException ex) {
                         break;
@@ -273,6 +278,9 @@ public class GUI_Profile extends javax.swing.JFrame {
                     SalesManager updatedSM = new SalesManager(txtID.getText(),txtName.getText(),txtPassword.getText(),txtEmail.getText(),txtContact.getText());
                     try {
                         sm.edit(updatedSM);
+                        sm.setPassword(txtPassword.getText());
+                        sm.setContact(txtContact.getText());
+                        sm.setEmail(txtEmail.getText());
                         break;
                     } catch (IOException ex) {
                         break;
@@ -281,6 +289,9 @@ public class GUI_Profile extends javax.swing.JFrame {
                     PurchaseManager updatedPM = new PurchaseManager(txtID.getText(),txtName.getText(),txtPassword.getText(),txtEmail.getText(),txtContact.getText());
                     try {
                         pm.edit(updatedPM);
+                        pm.setPassword(txtPassword.getText());
+                        pm.setContact(txtContact.getText());
+                        pm.setEmail(txtEmail.getText());
                         break;
                     } catch (IOException ex) {
                         break;
