@@ -265,22 +265,25 @@ public class GUI_Profile extends javax.swing.JFrame {
                     Admin updatedAdmin = new Admin(txtID.getText(),txtName.getText(),txtPassword.getText(),txtEmail.getText(),txtContact.getText());
                     try {
                         admin.edit(updatedAdmin);
+                        break;
                     } catch (IOException ex) {
-                        Logger.getLogger(GUI_Profile.class.getName()).log(Level.SEVERE, null, ex);
+                        break;
                     }
                 } else if (sm != null){
                     SalesManager updatedSM = new SalesManager(txtID.getText(),txtName.getText(),txtPassword.getText(),txtEmail.getText(),txtContact.getText());
                     try {
                         sm.edit(updatedSM);
+                        break;
                     } catch (IOException ex) {
-                        Logger.getLogger(GUI_Profile.class.getName()).log(Level.SEVERE, null, ex);
+                        break;
                     }
                 } else if (pm != null){
                     PurchaseManager updatedPM = new PurchaseManager(txtID.getText(),txtName.getText(),txtPassword.getText(),txtEmail.getText(),txtContact.getText());
                     try {
                         pm.edit(updatedPM);
+                        break;
                     } catch (IOException ex) {
-                        Logger.getLogger(GUI_Profile.class.getName()).log(Level.SEVERE, null, ex);
+                        break;
                     }
                 }
             }

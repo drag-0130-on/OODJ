@@ -204,7 +204,7 @@ public class GUI_Add_User extends javax.swing.JFrame {
                             break;
                         }
                     } catch (IOException ex) {
-                        Logger.getLogger(GUI_Add_User.class.getName()).log(Level.SEVERE, null, ex);
+                        break;
                     }
                 } else if (cmbRole.getSelectedItem().toString().matches("SalesManager")){
                     SalesManager newUser = new SalesManager(txtID.getText(),txtName.getText(),txtPassword.getText(),txtEmail.getText(),txtContact.getText());
@@ -217,7 +217,7 @@ public class GUI_Add_User extends javax.swing.JFrame {
                             break;
                         }
                     } catch (IOException ex) {
-                        Logger.getLogger(GUI_Add_User.class.getName()).log(Level.SEVERE, null, ex);
+                        break;
                     }
                 } else if (cmbRole.getSelectedItem().toString().matches("PurchaseManager")){
                     PurchaseManager newUser = new PurchaseManager(txtID.getText(),txtName.getText(),txtPassword.getText(),txtEmail.getText(),txtContact.getText());
@@ -236,6 +236,7 @@ public class GUI_Add_User extends javax.swing.JFrame {
                     errorMessage = "No role is selected.";
                     break;
                 
+                }
             }
         }
         if (errorMessage != null){
@@ -244,9 +245,7 @@ public class GUI_Add_User extends javax.swing.JFrame {
             GUI_User_Entry userEntry = new GUI_User_Entry(admin);
             userEntry.show();
             this.dispose();
-        }
-
-        }    
+        } 
         
     }//GEN-LAST:event_buttonSaveActionPerformed
 
