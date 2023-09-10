@@ -42,7 +42,7 @@ public class FileAccess {
     public ArrayList<String[]> viewFile(ArrayList<String[]> AL, int attIndex, String filter){
         ArrayList<String[]> content = new ArrayList<String[]>();
         for (String[] line: AL){
-            if (line[attIndex] == filter){
+            if (filter.trim().matches(line[attIndex])){
                 content.add(line);
             } 
         }
@@ -118,5 +118,7 @@ public class FileAccess {
         }
         return true;
     }
-    
+    public static void main(String[] args) throws IOException {
+        
+    }
 }

@@ -148,7 +148,7 @@ public class GUI_Profile extends javax.swing.JFrame {
 
         jLabel8.setText("Password");
 
-        btnBack.setText("Back");
+        btnBack.setText("Cancel");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
@@ -301,7 +301,20 @@ public class GUI_Profile extends javax.swing.JFrame {
         }    
         if (errorMessage != null){
             JOptionPane.showMessageDialog(null,errorMessage);
-        }
+        } else{        
+            if (admin != null){
+            GUI_Admin adminHP = new GUI_Admin(admin);
+            adminHP.show();
+            this.dispose();
+        } else if (sm != null){
+            GUI_Sales_Manager smHP = new GUI_Sales_Manager(sm);
+            smHP.show();
+            this.dispose();
+        } else if (pm != null){
+            GUI_PurchaseManager pmHP = new GUI_PurchaseManager(pm);
+            pmHP.show();
+            this.dispose();
+        }}
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void txtRoleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRoleActionPerformed
