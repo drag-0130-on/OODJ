@@ -341,16 +341,19 @@ public class GUI_PRPO_Entry extends javax.swing.JFrame {
             String status = PRTable.getModel().getValueAt(prRow, 10).toString();
             Item item = new Item(itemID,itemName,category,supplierID,supplierName,0,price);
             PurchaseRequisition pr = new PurchaseRequisition(prID,item,quantity,generator,status);
-
-            try {
-                if(admin!=null){
-                    admin.removePR(pr);
+            if (pr.isApproved()){
+                JOptionPane.showMessageDialog(null,"Approved Purchase Requisition Cannot be Modified.");
+            } else{
+                try {
+                    if(admin!=null){
+                        admin.removePR(pr);
+                    }
+                    else if(sm!=null){
+                        sm.removePR(pr);
+                    }
+                } catch (IOException ex) {
+                JOptionPane.showMessageDialog(null,"No Purchase Requisition is Removed.");
                 }
-                else if(sm!=null){
-                    sm.removePR(pr);
-                }
-            } catch (IOException ex) {
-               JOptionPane.showMessageDialog(null,"No Purchase Requisition is Removed.");
             }
         } else {
             JOptionPane.showMessageDialog(null,"No Purchase Requisition is Selected.");
@@ -448,15 +451,18 @@ public class GUI_PRPO_Entry extends javax.swing.JFrame {
             String status = PRTable.getModel().getValueAt(prRow, 10).toString();
             Item item = new Item(itemID,itemName,category,supplierID,supplierName,0,price);
             PurchaseRequisition pr = new PurchaseRequisition(prID,item,quantity,generator,status);
-            
-            if(admin!=null){
-                GUI_Edit_pr editPR = new GUI_Edit_pr(admin,pr);
-                editPR.show();
-                this.dispose();
-            } else if(sm!=null){
-                GUI_Edit_pr editPR = new GUI_Edit_pr(sm,pr);
-                editPR.show();
-                this.dispose();
+            if (pr.isApproved()){
+                JOptionPane.showMessageDialog(null,"Approved Purchase Requisition Cannot be Modified.");
+            } else{
+                if(admin!=null){
+                    GUI_Edit_pr editPR = new GUI_Edit_pr(admin,pr);
+                    editPR.show();
+                    this.dispose();
+                } else if(sm!=null){
+                    GUI_Edit_pr editPR = new GUI_Edit_pr(sm,pr);
+                    editPR.show();
+                    this.dispose();
+                }
             }
         } else {
             JOptionPane.showMessageDialog(null,"No Supplier is Selected.");
