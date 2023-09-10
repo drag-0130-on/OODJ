@@ -45,14 +45,11 @@ public class SalesManager extends User {
         pr.add();
     }   
     public void editPR(PurchaseRequisition pr, PurchaseRequisition newPR)throws IOException{
-        if (!pr.isApproved()){
-            pr.edit(newPR);
-        }
+        pr.edit(newPR);
     }
     public void removePR(PurchaseRequisition pr)throws IOException{
         pr.remove();
     }
-    
     
 }
 

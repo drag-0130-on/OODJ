@@ -21,16 +21,14 @@ public class Admin extends User {
         
     }
     public void approvePR(PurchaseRequisition pr)throws IOException {
-        if (!pr.isApproved()){
-            pr.approve();
-            PurchaseOrder po = new PurchaseOrder(pr,getUserID());
-            po.add();
-        }
+        
+        pr.approve();
+        PurchaseOrder po = new PurchaseOrder(pr,getUserID());
+        po.add();
+
     }
     public void rejectPR(PurchaseRequisition pr)throws IOException{
-        if (!pr.isRejected()){
-            pr.reject();
-        }
+        pr.reject();
     }
     
     public void removePO(PurchaseOrder po)throws IOException{
@@ -43,9 +41,8 @@ public class Admin extends User {
     }   
    
     public void editPR(PurchaseRequisition pr, PurchaseRequisition newPR)throws IOException{
-        if (!(pr.isApproved())){
-            pr.edit(newPR);
-        } 
+        pr.edit(newPR);
+        
     }
     public void removePR(PurchaseRequisition pr)throws IOException{
         pr.remove();

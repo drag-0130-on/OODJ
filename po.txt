@@ -1,4 +1,1 @@
-PR001|I0001|Milo|Beverage|S0001|TT Sdn. Bhd.|3.0|100|300.0|U0002|Pending|U0003
-PR002|I0002|Haeven&Earth|Beverage|S0001|TT Sdn. Bhd.|3.0|50|100.0|U0002|Pending|U0003
-PR003|I0003|Horlick|Beverage|S0002|CC Sdn. Bhd.|3.0|50|150.0|U0002|Pending|null
-PR002|I0002|Haeven&Earth|Beverage|S0001|TT Sdn. Bhd.|2.0|50|100.0|U0002|Approved|null
+PR003|I0001|Teh|Beverage|S0001|AA Sdn. Bhd.|1.5|12|18.0|null|Approved|null
