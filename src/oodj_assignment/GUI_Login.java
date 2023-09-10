@@ -7,6 +7,7 @@ package oodj_assignment;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -114,6 +115,7 @@ public class GUI_Login extends javax.swing.JFrame {
     private void buttonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLoginActionPerformed
         User user = new User( txtUserID.getText(),txtPassword.getText());
         String[] userInfo = new String[6];
+        
         try {
             userInfo = user.login();
         } catch (IOException ex) {
@@ -136,6 +138,8 @@ public class GUI_Login extends javax.swing.JFrame {
             GUI_PurchaseManager gpm = new GUI_PurchaseManager(pm);
             gpm.show();   
             this.dispose();
+        } else {
+            JOptionPane.showMessageDialog(null,"Invalid Credentials");
         }
     }//GEN-LAST:event_buttonLoginActionPerformed
 
