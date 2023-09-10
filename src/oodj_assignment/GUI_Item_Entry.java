@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -26,6 +27,8 @@ public class GUI_Item_Entry extends javax.swing.JFrame {
         this.admin = admin;
         try {
             showTable();
+            loadCategory();
+            loadSupplier();
         } catch (IOException ex) {
             Logger.getLogger(GUI_Item_Entry.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -35,6 +38,8 @@ public class GUI_Item_Entry extends javax.swing.JFrame {
         this.sm = sm;
         try {
             showTable();
+            loadCategory();
+            loadSupplier();
         } catch (IOException ex) {
             Logger.getLogger(GUI_Item_Entry.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -47,6 +52,8 @@ public class GUI_Item_Entry extends javax.swing.JFrame {
         buttonRemove.setVisible(false);
         try {
             showTable();
+            loadCategory();
+            loadSupplier();
         } catch (IOException ex) {
             Logger.getLogger(GUI_Item_Entry.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -65,7 +72,27 @@ public class GUI_Item_Entry extends javax.swing.JFrame {
             model.addRow(il);
         }
     }
-
+    public void loadCategory(){
+        ItemCategory[] categories = ItemCategory.values();
+        DefaultComboBoxModel categoryModel = (DefaultComboBoxModel) cmbCategory.getModel();
+        cmbCategory.removeAllItems();
+        for (ItemCategory category:categories){
+            categoryModel.addElement(category.toString());
+        }
+        categoryModel.addElement("");
+        cmbCategory.setSelectedIndex(-1);
+        
+    }
+    public void loadSupplier()throws IOException{
+        ArrayList<String[]> supplierList = Supplier.view();
+        DefaultComboBoxModel supplierModel = (DefaultComboBoxModel) cmbSupplier.getModel();
+        cmbSupplier.removeAllItems();
+        for (String[] supplier: supplierList){
+            supplierModel.addElement(supplier[0]+"|"+supplier[1]);
+        } 
+        supplierModel.addElement("");
+        cmbSupplier.setSelectedIndex(-1);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -87,8 +114,8 @@ public class GUI_Item_Entry extends javax.swing.JFrame {
         Back = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        cmbCategory = new javax.swing.JComboBox<>();
+        cmbSupplier = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -162,13 +189,11 @@ public class GUI_Item_Entry extends javax.swing.JFrame {
 
         jLabel3.setText("Category:");
 
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        cmbCategory.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                cmbCategoryActionPerformed(evt);
             }
         });
-
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabel4.setText("Supplier:");
 
@@ -197,11 +222,11 @@ public class GUI_Item_Entry extends javax.swing.JFrame {
                                 .addGap(44, 44, 44)
                                 .addComponent(jLabel3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(cmbCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(77, 77, 77)
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cmbSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(59, 59, 59)
                         .addComponent(buttonSearch)))
                 .addGap(0, 50, Short.MAX_VALUE))
@@ -233,8 +258,8 @@ public class GUI_Item_Entry extends javax.swing.JFrame {
                     .addComponent(buttonSearch)
                     .addComponent(jLabel2)
                     .addComponent(jLabel3)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmbCategory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmbSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -319,17 +344,35 @@ public class GUI_Item_Entry extends javax.swing.JFrame {
 
     private void buttonSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonSearchActionPerformed
         DefaultTableModel model = (DefaultTableModel) ItemTable.getModel();
-        String input = txtSearch.getText();
-        
+        model.setRowCount(0);
+        ArrayList<String[]> itemList = new ArrayList<String[]>();
         try {
-            ArrayList<String[]> it = Item.view(Item.view(),input);
-            model.setRowCount(0);
-
-            for (String[] il : it) {
-                model.addRow(il);
-            }            
+            itemList = Item.view();
         } catch (IOException ex) {
-            JOptionPane.showMessageDialog(null,"Item File Not Found.");
+        }
+        while (txtSearch.getText()!= null){
+            try {
+                itemList = Item.view(itemList,txtSearch.getText());
+                break;
+            } catch (IOException ex) {
+                break;
+            }
+        } 
+        while (cmbCategory.getSelectedIndex() != -1 && cmbCategory.getSelectedItem()!= null && cmbCategory.getSelectedItem().toString().length()>1){
+            
+            itemList = Item.view(itemList,2,cmbCategory.getSelectedItem().toString());
+            break;
+        }
+        while (cmbSupplier.getSelectedIndex() != -1 && cmbSupplier.getSelectedItem()!= null && cmbSupplier.getSelectedItem().toString().length()>1){
+            try {
+                itemList = Item.view(itemList,cmbSupplier.getSelectedItem().toString());
+                break;
+            } catch (IOException ex) {
+                break;
+            }
+        }
+        for (String[] line:itemList){
+            model.addRow(line);
         }
         
     }//GEN-LAST:event_buttonSearchActionPerformed
@@ -350,9 +393,9 @@ public class GUI_Item_Entry extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_BackActionPerformed
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void cmbCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbCategoryActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_cmbCategoryActionPerformed
 
     /**
      * @param args the command line arguments
@@ -399,8 +442,8 @@ public class GUI_Item_Entry extends javax.swing.JFrame {
     private javax.swing.JButton buttonEdit;
     private javax.swing.JButton buttonRemove;
     private javax.swing.JButton buttonSearch;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<String> cmbCategory;
+    private javax.swing.JComboBox<String> cmbSupplier;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
