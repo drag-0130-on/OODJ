@@ -43,18 +43,24 @@ public class User implements Record{
         return userFile.viewFile(AL, attIndex, filter);
     }
     public static String generateID() throws IOException,NumberFormatException{
-        ArrayList<String[]> AL = view();
-        if (AL.size()==0){
-            return "0001";
+       ArrayList<String[]> AL = view();
+        if (AL.isEmpty()){
+            return "U0001";
         } else{
-            int idNo = Integer.parseInt((AL.get((AL.size()-1))[0]).substring(1)) + 1;
-            int idLength = String.valueOf(idNo).length();
-            String id = "U";
-            for (int i = 0;i < (4-idLength);i++){
-                id += "0";
+            for (int i = 0; i<=AL.size();i++){
+                String id = "U";
+                String idNo = String.valueOf((i+1));
+                
+                for (int j = 0; j < (4-idNo.length()); j++){
+                    id += "0";
+                }
+                id += idNo;
+                System.out.println(id);
+                if (userFile.verifyDataUniqueness(id)){
+                    return id;
+                }
             }
-            id += idNo;
-            return id;
+            return null;
         }
     }
     public String toString(){

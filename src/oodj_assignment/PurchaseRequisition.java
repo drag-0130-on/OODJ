@@ -64,17 +64,23 @@ public class PurchaseRequisition implements Record {
     }
     public static String generateID() throws IOException{
         ArrayList<String[]> AL = view();
-        if (AL.size()==0){
+        if (AL.isEmpty()){
             return "PR001";
         } else{
-            int idNo = Integer.parseInt((AL.get((AL.size()-1))[0]).substring(2)) + 1;
-            int idLength = String.valueOf(idNo).length();
-            String id = "PR";
-            for (int i = 0;i < (3-idLength);i++){
-                id += "0";
+            for (int i = 0; i<=AL.size();i++){
+                String id = "PR";
+                String idNo = String.valueOf((i+1));
+                
+                for (int j = 0; j < (3-idNo.length()); j++){
+                    id += "0";
+                }
+                id += idNo;
+                System.out.println(id);
+                if (prFile.verifyDataUniqueness(id)){
+                    return id;
+                }
             }
-            id += idNo;
-            return id;
+            return null;
         }
     }
     public boolean verifyUniqueness()throws IOException{

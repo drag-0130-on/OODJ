@@ -51,17 +51,23 @@ public class Supplier implements Record {
     }
     public static String generateID() throws IOException{
         ArrayList<String[]> AL = view();
-        if (AL.size()==0){
+        if (AL.isEmpty()){
             return "S0001";
         } else{
-            int idNo = Integer.parseInt((AL.get((AL.size()-1))[0]).substring(1)) + 1;
-            int idLength = String.valueOf(idNo).length();
-            String id = "S";
-            for (int i = 0;i < (4-idLength);i++){
-                id += "0";
+            for (int i = 0; i<=AL.size();i++){
+                String id = "S";
+                String idNo = String.valueOf((i+1));
+                
+                for (int j = 0; j < (4-idNo.length()); j++){
+                    id += "0";
+                }
+                id += idNo;
+                System.out.println(id);
+                if (supplierFile.verifyDataUniqueness(id)){
+                    return id;
+                }
             }
-            id += idNo;
-            return id;
+            return null;
         }
     }
     public boolean verifyUniqueness()throws IOException{

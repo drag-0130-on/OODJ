@@ -7,7 +7,6 @@ public class SalesManager extends User {
     
     public SalesManager(String userID, String name, String password, String email, String contact) {
         super(userID,name,password,email,contact,"SalesManager");
-        
     }
     public SalesManager(){
         super();
@@ -32,13 +31,23 @@ public class SalesManager extends User {
         supplier.remove();
     }
     public void addDIS(DailyItemSales DIS)throws IOException {
-        DIS.add();
+        if (DIS.getItem().verifyStockAvailability(DIS.getAmountSold())){
+            DIS.getItem().reduceStock(DIS.getAmountSold());
+            DIS.add();
+        }
     }
-    public void editDIS(DailyItemSales DIS,DailyItemSales editedDIS)throws IOException {
-        DIS.edit(editedDIS);
+   
+    public void editDIS(DailyItemSales DIS,DailyItemSales newDIS)throws IOException {
+        
+        if (newDIS.getItem().verifyStockAvailability((newDIS.getAmountSold()-DIS.getAmountSold()))){
+            DIS.getItem().addStock(DIS.getAmountSold());
+            newDIS.getItem().reduceStock(newDIS.getAmountSold());
+            DIS.edit(newDIS);
+        } 
     }
     public void removeDIS(DailyItemSales DIS)throws IOException {
         DIS.remove();
+        DIS.getItem().addStock(DIS.getAmountSold());
     }
     public void addPR(PurchaseRequisition pr)throws IOException{
         pr.setSMID(getUserID());

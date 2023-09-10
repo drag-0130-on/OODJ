@@ -120,17 +120,23 @@ public class Item implements Record {
     
     public static String generateID() throws IOException{
         ArrayList<String[]> AL = view();
-        if (AL.size()==0){
+        if (AL.isEmpty()){
             return "I0001";
         } else{
-            int idNo = Integer.parseInt((AL.get((AL.size()-1))[0]).substring(1)) + 1;
-            int idLength = String.valueOf(idNo).length();
-            String id = "I";
-            for (int i = 0;i < (4-idLength);i++){
-                id += "0";
+            for (int i = 0; i<=AL.size();i++){
+                String id = "I";
+                String idNo = String.valueOf((i+1));
+                
+                for (int j = 0; j < (4-idNo.length()); j++){
+                    id += "0";
+                }
+                id += idNo;
+                System.out.println(id);
+                if (itemFile.verifyDataUniqueness(id)){
+                    return id;
+                }
             }
-            id += idNo;
-            return id;
+            return null;
         }
     }
     public boolean verifyStockAvailability(int amount) throws IOException{

@@ -108,30 +108,15 @@ public class FileAccess {
         }
         return true;
     }
-    public void sort() throws IOException{
-        ArrayList<String> content = new ArrayList<String>();
-        try{
-            br = new BufferedReader(new FileReader(new File(fileName)));
+    public boolean verifyDataUniqueness(String data) throws IOException{
+        ArrayList<String[]> content = viewFile();
+        for (String[] line:content){
+            String l = String.join("|",line);
+            if (l.contains(data)){
+                return false;
+            }
         }
-        catch(Exception e){
-            e.printStackTrace();
-        }
-        String line;
-        while ((line = br.readLine())!= null){
-            content.add(line);
-        }
-        br.close();
-        Collections.sort(content);
-        try{
-            bw = new BufferedWriter(new FileWriter(new File(fileName)));
-        }
-        catch(Exception e){
-            e.printStackTrace();
-        }
-        for (String l:content){
-            bw.write(l);
-            bw.newLine();
-        }
-        
+        return true;
     }
+    
 }
