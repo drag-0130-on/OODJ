@@ -537,7 +537,7 @@ public class GUI_PRPO_Entry extends javax.swing.JFrame {
                 }
             }
         } else {
-            JOptionPane.showMessageDialog(null,"No Supplier is Selected.");
+            JOptionPane.showMessageDialog(null,"No Purchase Requisition is Selected.");
         }
     }//GEN-LAST:event_btnEditPRActionPerformed
 

@@ -326,7 +326,7 @@ public class GUI_Add_daily_item extends javax.swing.JFrame {
                                 break;
                             } 
                         } else {
-                            errorMessage = "Invalid Daily Item Sales";
+                            errorMessage = "Daily Item Sales already exist";
                             break;
                         }
                     } catch (IOException ex) {
