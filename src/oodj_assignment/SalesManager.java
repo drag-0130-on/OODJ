@@ -2,6 +2,7 @@ package oodj_assignment;
 import java.io.IOException;
 import java.util.HashSet;
 import java.util.Set;
+import javax.swing.JOptionPane;
 
 public class SalesManager extends User {
     
@@ -34,6 +35,8 @@ public class SalesManager extends User {
         if (DIS.getItem().verifyStockAvailability(DIS.getAmountSold())){
             DIS.getItem().reduceStock(DIS.getAmountSold());
             DIS.add();
+        } else {
+            JOptionPane.showMessageDialog(null, "The Stock is Insufficient");
         }
     }
    
@@ -43,6 +46,8 @@ public class SalesManager extends User {
             DIS.getItem().addStock(DIS.getAmountSold());
             newDIS.getItem().reduceStock(newDIS.getAmountSold());
             DIS.edit(newDIS);
+        } else {
+            JOptionPane.showMessageDialog(null, "The Stock is Insufficient");
         } 
     }
     public void removeDIS(DailyItemSales DIS)throws IOException {

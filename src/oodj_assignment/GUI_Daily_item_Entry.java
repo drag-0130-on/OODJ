@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -23,6 +24,8 @@ public class GUI_Daily_item_Entry extends javax.swing.JFrame {
         this.admin = admin;
         try {
             showTable();
+            loadCategory();
+            loadSupplier();
         } catch (IOException ex) {
             Logger.getLogger(GUI_Daily_item_Entry.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -32,6 +35,8 @@ public class GUI_Daily_item_Entry extends javax.swing.JFrame {
         this.sm = sm;
         try {
             showTable();
+            loadCategory();
+            loadSupplier();
         } catch (IOException ex) {
             Logger.getLogger(GUI_Daily_item_Entry.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -48,8 +53,27 @@ public class GUI_Daily_item_Entry extends javax.swing.JFrame {
         for (String[] dl: dt) {
             model.addRow(dl);
         }
+    }
+    public void loadCategory(){
+        ItemCategory[] categories = ItemCategory.values();
+        DefaultComboBoxModel categoryModel = (DefaultComboBoxModel) cmbCategory.getModel();
+        cmbCategory.removeAllItems();
+        for (ItemCategory category:categories){
+            categoryModel.addElement(category.toString());
+        }
+        categoryModel.addElement("");
+        cmbCategory.setSelectedIndex(-1);
         
-        
+    }
+    public void loadSupplier()throws IOException{
+        ArrayList<String[]> supplierList = Supplier.view();
+        DefaultComboBoxModel supplierModel = (DefaultComboBoxModel) cmbSupplier.getModel();
+        cmbSupplier.removeAllItems();
+        for (String[] supplier: supplierList){
+            supplierModel.addElement(supplier[0]+"|"+supplier[1]);
+        } 
+        supplierModel.addElement("");
+        cmbSupplier.setSelectedIndex(-1);
     }
 
     /**
@@ -71,6 +95,12 @@ public class GUI_Daily_item_Entry extends javax.swing.JFrame {
         back = new javax.swing.JButton();
         buttonAdd = new javax.swing.JButton();
         tSearch = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        cmbCategory = new javax.swing.JComboBox<>();
+        jLabel4 = new javax.swing.JLabel();
+        cmbSupplier = new javax.swing.JComboBox<>();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -138,36 +168,73 @@ public class GUI_Daily_item_Entry extends javax.swing.JFrame {
             }
         });
 
+        jLabel2.setText("Search:");
+
+        jLabel3.setText("Category:");
+
+        cmbCategory.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbCategory.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmbCategoryActionPerformed(evt);
+            }
+        });
+
+        cmbSupplier.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabel6.setText("Supplier:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(50, 50, 50)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(tSearch))
-                            .addComponent(back)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 644, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(59, 59, 59)
+                                .addComponent(back))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(195, 195, 195)
+                                .addComponent(jLabel5)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 242, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(buttonAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(buttonEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addGap(3, 3, 3)
+                                        .addGap(0, 0, Short.MAX_VALUE)
                                         .addComponent(jLabel1))
                                     .addGroup(layout.createSequentialGroup()
+                                        .addComponent(buttonEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(buttonRemove, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(195, 195, 195)
-                        .addComponent(jLabel5)))
-                .addContainerGap(82, Short.MAX_VALUE))
+                                        .addComponent(buttonRemove, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE)))
+                                .addGap(270, 270, 270))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabel4)
+                                        .addGap(17, 17, 17)
+                                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(cmbCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(42, 42, 42)
+                                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(cmbSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(tSearch))
+                                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 725, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 51, Short.MAX_VALUE)))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -183,11 +250,17 @@ public class GUI_Daily_item_Entry extends javax.swing.JFrame {
                     .addComponent(buttonRemove))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tSearch))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                    .addComponent(tSearch)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3)
+                    .addComponent(cmbCategory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4)
+                    .addComponent(cmbSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6)
+                    .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
                 .addComponent(back)
                 .addGap(24, 24, 24))
         );
@@ -279,21 +352,42 @@ public class GUI_Daily_item_Entry extends javax.swing.JFrame {
 
     private void tSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tSearchActionPerformed
         DefaultTableModel model = (DefaultTableModel) DailyTable.getModel();
-        String input = txtSearch.getText();
-
+        model.setRowCount(0);
+        ArrayList<String[]> disList = new ArrayList<String[]>();
         try {
-            ArrayList<String[]> it = DailyItemSales.view(DailyItemSales.view(),input);
-            model.setRowCount(0);
-
-            for (String[] il : it) {
-                model.addRow(il);
-            }
-
+            disList = DailyItemSales.view();
         } catch (IOException ex) {
-            Logger.getLogger(GUI_Daily_item_Entry.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        while (txtSearch.getText()!= null){
+            try {
+                disList = DailyItemSales.view(disList,txtSearch.getText());
+                break;
+            } catch (IOException ex) {
+                break;
+            }
+        } 
+        while (cmbCategory.getSelectedIndex() != -1 && cmbCategory.getSelectedItem()!= null && cmbCategory.getSelectedItem().toString().length()>1){
+            
+            disList = DailyItemSales.view(disList,3,cmbCategory.getSelectedItem().toString());
+            break;
+        }
+        while (cmbSupplier.getSelectedIndex() != -1 && cmbSupplier.getSelectedItem()!= null && cmbSupplier.getSelectedItem().toString().length()>1){
+            try {
+                disList = DailyItemSales.view(disList,cmbSupplier.getSelectedItem().toString());
+                break;
+            } catch (IOException ex) {
+                break;
+            }
+        }
+        for (String[] line:disList){
+            model.addRow(line);
         }
 
     }//GEN-LAST:event_tSearchActionPerformed
+
+    private void cmbCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbCategoryActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbCategoryActionPerformed
 
     /**
      * @param args the command line arguments
@@ -341,8 +435,14 @@ public class GUI_Daily_item_Entry extends javax.swing.JFrame {
     private javax.swing.JButton buttonAdd;
     private javax.swing.JButton buttonEdit;
     private javax.swing.JButton buttonRemove;
+    private javax.swing.JComboBox<String> cmbCategory;
+    private javax.swing.JComboBox<String> cmbSupplier;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JButton tSearch;
     private javax.swing.JTextField txtSearch;

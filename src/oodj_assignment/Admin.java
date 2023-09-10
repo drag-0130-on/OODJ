@@ -72,6 +72,7 @@ public class Admin extends User {
             DIS.getItem().reduceStock(DIS.getAmountSold());
             DIS.add();
         } else {
+            JOptionPane.showMessageDialog(null, "The Stock is Insufficient");
         }
     }
    
@@ -80,6 +81,8 @@ public class Admin extends User {
             DIS.getItem().addStock(DIS.getAmountSold());
             newDIS.getItem().reduceStock(newDIS.getAmountSold());
             DIS.edit(newDIS);
+        } else {
+            JOptionPane.showMessageDialog(null, "The Stock is Insufficient");
         }      
     }
     public void removeDIS(DailyItemSales DIS)throws IOException {
