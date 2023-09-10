@@ -1,5 +1,3 @@
-PR001|I0001|Milo|Beverage|S0001|TT Sdn. Bhd.|3.0|100|300.0|U0002|Pending
-PR002|I0002|Haeven&Earth|Beverage|S0001|TT Sdn. Bhd.|2.0|578|1156.0|U0002|Rejected
-PR003|I0001|Teh|Beverage|S0001|AA Sdn. Bhd.|1.5|12|18.0|null|Approved
-PR004|I002|Coke|Beverage|S001|AA Sdn. Bhd.|1.8|100|180.0|U0001|Approved
-PR005|I001|Teh|Beverage|S001|AA Sdn. Bhd.|1.5|123|184.5|U0001|Rejected
+PR001|I0001|Teh|Beverage|S0001|TT Sdn. Bhd.|1.5|20|30.0|U0001|Pending
+PR002|I0005|Ayam Goreng|Meat|S0004|CM Sdn.Bhd|5.0|15|75.0|U0001|Pending
+PR003|I0002|Coke|Beverage|S0001|TT Sdn. Bhd.|1.8|50|90.0|U0001|Approved
