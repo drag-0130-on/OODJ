@@ -121,7 +121,9 @@ public class GUI_Login extends javax.swing.JFrame {
         } catch (IOException ex) {
             Logger.getLogger(GUI_Login.class.getName()).log(Level.SEVERE, null, ex);
         }
-        if (userInfo[5].matches("Admin")){
+        if (userInfo == null){
+            JOptionPane.showMessageDialog(null,"Invalid Credentials");
+        } else if (userInfo[5].matches("Admin")){
             Admin admin = new Admin(userInfo[0],userInfo[1],userInfo[2],userInfo[3],userInfo[4]);
             GUI_Admin ga = new GUI_Admin(admin);
             ga.show();
@@ -138,9 +140,7 @@ public class GUI_Login extends javax.swing.JFrame {
             GUI_PurchaseManager gpm = new GUI_PurchaseManager(pm);
             gpm.show();   
             this.dispose();
-        } else {
-            JOptionPane.showMessageDialog(null,"Invalid Credentials");
-        }
+        } 
     }//GEN-LAST:event_buttonLoginActionPerformed
 
     /**

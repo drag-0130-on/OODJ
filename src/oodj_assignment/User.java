@@ -112,7 +112,6 @@ public class User implements Record{
         ArrayList<String[]> content = view();
 
         for (String[] line:content){
-            System.out.println(Arrays.toString(line));
             if (userID.matches(line[0])){
                 if(password.matches(line[2])){
                     return line;

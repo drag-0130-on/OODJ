@@ -25,7 +25,7 @@ public class PurchaseManager extends User{
         po.remove();
         po.getPR().reject();
     }   
-    public String getRole(){
-        return Role.PurchaseManager.toString();
-    }
+//    public String getRole(){
+//        return Role.PurchaseManager.toString();
+//    }
 }
