@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -17,6 +18,7 @@ public class GUI_PRPO_Entry extends javax.swing.JFrame {
         this.admin = admin;
         try {
             showTable();
+            loadStatus();
         } catch (IOException ex) {
             Logger.getLogger(GUI_PRPO_Entry.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -29,6 +31,7 @@ public class GUI_PRPO_Entry extends javax.swing.JFrame {
         btnRemovePO.disable();
         try {
             showTable();
+            loadStatus();
         } catch (IOException ex) {
             Logger.getLogger(GUI_PRPO_Entry.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -41,6 +44,7 @@ public class GUI_PRPO_Entry extends javax.swing.JFrame {
         btnRemovePR.disable();
         try {
             showTable();
+            loadStatus();
         } catch (IOException ex) {
             Logger.getLogger(GUI_PRPO_Entry.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -65,6 +69,16 @@ public class GUI_PRPO_Entry extends javax.swing.JFrame {
             model2.addRow(pol);
         }
     }
+    public void loadStatus(){
+        DefaultComboBoxModel roleModel = (DefaultComboBoxModel) cmbStatus.getModel();
+        cmbStatus.removeAllItems();
+        roleModel.addElement("Pending");
+        roleModel.addElement("Approved");
+        roleModel.addElement("Rejected");
+        roleModel.addElement("");
+        cmbStatus.setSelectedIndex(-1);
+        
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -84,15 +98,15 @@ public class GUI_PRPO_Entry extends javax.swing.JFrame {
         btnEditPR = new javax.swing.JButton();
         btnRemovePR = new javax.swing.JButton();
         btnRejectPR = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
         txtSearchPR = new javax.swing.JTextField();
         btnSearchPR = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        cmbStatus = new javax.swing.JComboBox<>();
         btnBack = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         POTable = new javax.swing.JTable();
         btnRemovePO = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
         txtSearchPO = new javax.swing.JTextField();
         btnSearchPO = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
@@ -161,7 +175,11 @@ public class GUI_PRPO_Entry extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setText("Search: ");
+        txtSearchPR.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSearchPRActionPerformed(evt);
+            }
+        });
 
         btnSearchPR.setText("Search");
         btnSearchPR.addActionListener(new java.awt.event.ActionListener() {
@@ -169,6 +187,10 @@ public class GUI_PRPO_Entry extends javax.swing.JFrame {
                 btnSearchPRActionPerformed(evt);
             }
         });
+
+        jLabel3.setText("Status: ");
+
+        cmbStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -178,13 +200,15 @@ public class GUI_PRPO_Entry extends javax.swing.JFrame {
                 .addGap(16, 16, 16)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(btnSearchPR, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtSearchPR, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(59, 59, 59)
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtSearchPR, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(26, 26, 26)
-                        .addComponent(btnSearchPR, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(cmbStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                             .addComponent(btnAddPR, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(btnEditPR, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -194,7 +218,7 @@ public class GUI_PRPO_Entry extends javax.swing.JFrame {
                             .addComponent(btnApprovePR)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                             .addComponent(btnRejectPR))
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 821, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 821, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -209,9 +233,10 @@ public class GUI_PRPO_Entry extends javax.swing.JFrame {
                     .addComponent(btnRejectPR))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
                     .addComponent(txtSearchPR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSearchPR))
+                    .addComponent(btnSearchPR)
+                    .addComponent(jLabel3)
+                    .addComponent(cmbStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(5, 5, 5)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(294, 294, 294))
@@ -256,9 +281,12 @@ public class GUI_PRPO_Entry extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setText("Search: ");
-
         btnSearchPO.setText("Search");
+        btnSearchPO.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchPOActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -270,11 +298,9 @@ public class GUI_PRPO_Entry extends javax.swing.JFrame {
                     .addComponent(btnRemovePO, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 822, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnSearchPO, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtSearchPO, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(27, 27, 27)
-                        .addComponent(btnSearchPO, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtSearchPO, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(25, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -283,11 +309,9 @@ public class GUI_PRPO_Entry extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(btnRemovePO)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtSearchPO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(btnSearchPO)))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtSearchPO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSearchPO))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18))
@@ -534,8 +558,55 @@ public class GUI_PRPO_Entry extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnSearchPRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchPRActionPerformed
-        // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel) PRTable.getModel();
+        model.setRowCount(0);
+        ArrayList<String[]> prList = new ArrayList<String[]>();
+        try {
+            prList = PurchaseRequisition.view();
+        } catch (IOException ex) {
+        }
+        while (txtSearchPR.getText()!= null){
+            try {
+                prList = PurchaseRequisition.view(prList,txtSearchPR.getText());
+                break;
+            } catch (IOException ex) {
+                break;
+            }
+        } 
+        while (cmbStatus.getSelectedIndex() != -1 && cmbStatus.getSelectedItem()!= null && cmbStatus.getSelectedItem().toString().length()>1){
+            prList = PurchaseRequisition.view(prList,10,cmbStatus.getSelectedItem().toString());
+            break;
+        }
+        
+        for (String[] line:prList){
+            model.addRow(line);
+        }
     }//GEN-LAST:event_btnSearchPRActionPerformed
+
+    private void txtSearchPRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchPRActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSearchPRActionPerformed
+
+    private void btnSearchPOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchPOActionPerformed
+        DefaultTableModel model = (DefaultTableModel) POTable.getModel();
+        model.setRowCount(0);
+        ArrayList<String[]> poList = new ArrayList<String[]>();
+        try {
+            poList = PurchaseOrder.view();
+        } catch (IOException ex) {
+        }
+        while (txtSearchPO.getText()!= null){
+            try {
+                poList = PurchaseOrder.view(poList,txtSearchPO.getText());
+                break;
+            } catch (IOException ex) {
+                break;
+            }
+        } 
+        for (String[] line:poList){
+            model.addRow(line);
+        }
+    }//GEN-LAST:event_btnSearchPOActionPerformed
 
     /**
      * @param args the command line arguments
@@ -591,10 +662,10 @@ public class GUI_PRPO_Entry extends javax.swing.JFrame {
     private javax.swing.JButton btnRemovePR;
     private javax.swing.JButton btnSearchPO;
     private javax.swing.JButton btnSearchPR;
+    private javax.swing.JComboBox<String> cmbStatus;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
