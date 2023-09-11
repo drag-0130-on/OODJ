@@ -494,7 +494,7 @@ public class GUI_PRPO_Entry extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null,"No Purchase Requisition is Approved.");
                 }
             }
-                
+                                                            
         } else {
             JOptionPane.showMessageDialog(null,"No Purchase Requisition is Selected.");
         }
