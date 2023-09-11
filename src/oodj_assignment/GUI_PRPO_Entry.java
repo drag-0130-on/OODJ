@@ -479,16 +479,20 @@ public class GUI_PRPO_Entry extends javax.swing.JFrame {
             String status = PRTable.getModel().getValueAt(prRow, 10).toString();
             Item item = new Item(itemID,itemName,category,supplierID,supplierName,0,price);
             PurchaseRequisition pr = new PurchaseRequisition(prID,item,quantity,generator,status);
-            try{
-                if(admin!=null){
-                    admin.approvePR(pr);
-                    showTable();
-                } else if(pm!=null){
-                    pm.approvePR(pr);
-                    showTable();
+            if (pr.isApproved()){
+                JOptionPane.showMessageDialog(null,"Purchase Requisition is Approved");
+            } else {
+                try{
+                    if(admin!=null){
+                        admin.approvePR(pr);
+                        showTable();
+                    } else if(pm!=null){
+                        pm.approvePR(pr);
+                        showTable();
+                    }
+                } catch (IOException e){
+                    JOptionPane.showMessageDialog(null,"No Purchase Requisition is Approved.");
                 }
-            } catch (IOException e){
-                JOptionPane.showMessageDialog(null,"No Purchase Requisition is Approved.");
             }
                 
         } else {
